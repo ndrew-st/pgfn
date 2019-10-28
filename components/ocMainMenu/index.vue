@@ -1,12 +1,26 @@
 <template>
   <div class="main-menu">
     <div class="main-menu__logo">
-      <OcImg src="logo.png" />
+      <OcImg src="oc-logo-2.png" />
     </div>
 
-    <div class="main-menu__search"></div>
+    <div class="main-menu__search">
+      <OcInput type="text" icon="search" icon-position="left" />
+    </div>
 
-    <div class="main-menu__items"></div>
+    <div class="main-menu__seperate"></div>
+
+    <div class="main-menu__item-list">
+      <div class="main-menu__item">Проживание</div>
+
+      <div class="main-menu__item">Впечатления</div>
+
+      <div class="main-menu__item">Питание</div>
+
+      <div class="main-menu__item">Места</div>
+
+      <div class="main-menu__item">Поддержка</div>
+    </div>
 
     <div class="main_menu__user">
       <OcButton>Войти</OcButton>
