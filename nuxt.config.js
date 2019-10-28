@@ -1,5 +1,3 @@
-const stylusLoader = require('stylus-loader')
-
 export default {
   mode: 'universal',
   /*
