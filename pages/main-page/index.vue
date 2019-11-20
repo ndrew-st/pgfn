@@ -1,5 +1,17 @@
 <template>
-  <div class="main-page"></div>
+  <div class="main-page">
+    <SearchScreen />
+
+    <Advantage />
+
+    <WhereToGo />
+
+    <WhereToStay />
+
+    <HousingOptions />
+
+    <ImpressionsForEvery />
+  </div>
 </template>
 
 <script src="./index.js"></script>

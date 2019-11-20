@@ -1,8 +1,5 @@
 <template>
-  <i
-    class="oc-icon"
-    :class="iconClass"
-  />
+  <div class="impressions-for-every"></div>
 </template>
 
 <script src="./index.js"></script>

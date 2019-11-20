@@ -5,7 +5,12 @@
     </div>
 
     <div class="main-menu__search">
-      <OcInput type="text" icon="search" icon-position="left" />
+      <OcInput
+        type="text"
+        icon="search"
+        icon-position="left"
+        placeholder="Поиск"
+      />
     </div>
 
     <div class="main-menu__seperate"></div>
@@ -23,7 +28,10 @@
     </div>
 
     <div class="main_menu__user">
-      <OcButton>Войти</OcButton>
+      <OcButton
+        type="outline"
+        color="white"
+       >Войти</OcButton>
     </div>
   </div>
 </template>
