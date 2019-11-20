@@ -1,0 +1,32 @@
+.input-wrapper
+  position relative
+  width 100%
+
+  & > label
+    color $gray-2
+    font-size 1rem
+    font-weight bold
+
+  & > input
+    width 100%
+    font-size $fs-1
+    box-sizing border-box
+    border-radius .25rem
+    border 1px solid $gray-0
+    padding $size-1 $size-2
+  
+  &__fixed-icon
+    position absolute
+    top 0
+
+  &__icon-left
+    left $size-0
+
+  &__icon-right
+    right $size-0
+
+  &__left-padding > input
+    padding-left $size-2 * 2
+
+  &__right-padding > input
+    padding-right $size-2 * 2

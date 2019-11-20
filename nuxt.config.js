@@ -14,7 +14,8 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [{ src: 'https://use.fontawesome.com/14e5f9d9a5.js' }]
   },
   /*
    ** Customize the progress-bar color
@@ -30,6 +31,15 @@ export default {
   plugins: [
     '@/plugins/global-components.js'
   ],
+  router: {
+    extendRoutes (routes, resolve) {
+      routes.push({
+        name: 'home-page',
+        path: '/',
+        component: resolve(__dirname, 'pages/main-page')
+      })
+    }
+  },
   /*
    ** Nuxt.js dev-modules
    */
@@ -63,7 +73,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
+    extend (config, ctx) {
       config.resolve.extensions = [ '.vue', ...config.resolve.extensions ]
     }
   }

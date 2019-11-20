@@ -9,5 +9,5 @@ import ocLink from '@/components/ocLink'
 Vue.component('OcButton', ocButton)
 Vue.component('OcIcon', ocIcon)
 Vue.component('OcImg', ocImg)
-Vue.component('ocInput', ocInput)
+Vue.component('OcInput', ocInput)
 Vue.component('OcLink', ocLink)

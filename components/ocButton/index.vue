@@ -1,7 +1,7 @@
 <template>
-  <div class="button">
+  <button :class="buttonClass">
     <slot />
-  </div>
+  </button>
 </template>
 
 <script src="./index.js"></script>
