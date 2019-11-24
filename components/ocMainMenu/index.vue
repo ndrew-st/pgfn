@@ -2,6 +2,9 @@
   <div class="main-menu">
     <div class="main-menu__logo">
       <OcImg src="oc-logo-2.png" />
+      <div class="main-menu__logo_title">
+        OurCrimea<span>.com</span>
+      </div>
     </div>
 
     <div class="main-menu__search">
@@ -9,6 +12,7 @@
         type="text"
         icon="search"
         icon-position="left"
+        class="main-menu__search_item"
         placeholder="Поиск"
       />
     </div>

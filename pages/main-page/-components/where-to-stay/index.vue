@@ -1,8 +1,8 @@
 <template>
   <div class="where-to-stay">
-    <h3 class="where-to-stay__header">
+    <h2 class="where-to-stay__header">
       Где остановиться?
-    </h3>
+    </h2>
 
     <div class="where-to-stay__housing">
       <h4>Жилье целиком</h4>
