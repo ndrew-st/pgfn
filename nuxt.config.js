@@ -15,7 +15,7 @@ export default {
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [{ src: 'https://use.fontawesome.com/14e5f9d9a5.js' }]
+    script: [{ src: 'https://kit.fontawesome.com/da5e54f6f7.js' }]
   },
   /*
    ** Customize the progress-bar color

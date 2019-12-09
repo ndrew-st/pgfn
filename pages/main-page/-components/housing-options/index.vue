@@ -6,9 +6,7 @@
 
     <div class="housing-options__hotel">
       <div class="housing-options__hotel_header">
-        <h3>Лучшее гостиничное размещение</h3>
-
-        <OcButton>Смотреть все</OcButton>
+        <h4>Лучшее гостиничное размещение</h4>
       </div>
 
       <div class="housing-options__hotel_list">
@@ -18,9 +16,7 @@
 
     <div class="housing-options__house">
       <div class="housing-options__house_header">
-        <h3>Лучшее жилье целиком</h3>
-
-        <OcButton>Смотреть все</OcButton>
+        <h4>Лучшее жилье целиком</h4>
       </div>
 
       <div class="housing-options__house_list"></div>
@@ -28,9 +24,7 @@
 
     <div class="housing-options__fresh-offers">
       <div class="housing_options__fresh-offers__header">
-        <h3>Свежие предложения</h3>
-
-        <OcButton>Смотреть все</OcButton>
+        <h4>Свежие предложения</h4>
       </div>
 
       <div class="housing-options__fresh-offers_list"></div>

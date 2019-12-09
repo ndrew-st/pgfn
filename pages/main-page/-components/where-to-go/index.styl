@@ -1,0 +1,47 @@
+.where-to-go
+  padding $size-3 * 2 $size-3 * 2
+  max-width 1200px
+  margin auto
+
+  &__list
+    &_row
+      display flex
+      flex-direction row
+
+    &_item
+      flex 1
+      color $white
+      position relative
+      margin $size-1
+
+      &:first-child
+        margin-left 0
+
+      &:last-child
+        margin-right 0
+
+
+
+  &__item
+    &_description
+      position absolute
+      top 10px
+      left 10px
+      z-index 1
+
+    &_header
+      font-size $fs-2
+      font-weight bold
+
+
+  &__big-image_wrapper
+    height 250px
+    overflow hidden
+
+  &__small-image_wrapper
+    height 160px
+    overflow hidden
+
+  &__image
+    width 100%
+    max-height unset

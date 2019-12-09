@@ -33,8 +33,8 @@
         />
       </div>
 
-      <div class="search-screen__row">
-        <OcButton>Найти</OcButton>
+      <div class="search-screen__row search-screen__row_button">
+        <OcButton color="red">Найти</OcButton>
       </div>
     </div>
   </div>
