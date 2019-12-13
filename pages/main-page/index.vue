@@ -6,9 +6,12 @@
 
     <WhereToGo />
 
-    <WhereToStay />
+<!--    <WhereToStay />-->
 
-    <HousingOptions />
+    <HousingOptions
+      :apartments="apartments"
+      :popular="popular"
+    />
 
     <ImpressionsForEvery />
   </div>
