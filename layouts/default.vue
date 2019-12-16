@@ -34,7 +34,7 @@
         :menuItems="smallMenu"
       />
 
-      <nuxt />
+      <nuxt class="main__content"/>
     </div>
   </div>
 </template>
@@ -64,6 +64,9 @@ export default {
   display flex
   flex-direction row
   margin-top 60px
+
+.main__content
+  flex 1
 
 .main-menu_big
   display none
