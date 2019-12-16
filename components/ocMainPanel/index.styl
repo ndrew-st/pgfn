@@ -1,0 +1,61 @@
+.main-panel
+  display flex
+  flex-direction row
+  align-items center
+  box-sizing border-box
+  padding $size-1 $size-2
+  width 100%
+  background-color $violete
+  position fixed
+  top 0
+  z-index 2
+
+  &__switch
+    margin-right 20px
+    margin-left 20px
+
+    &_big
+      display none
+
+      @media screen and (min-width 1280px)
+        display block
+
+    &_mid
+      display none
+
+      @media screen and (max-width 1279px)
+        display block
+
+  &__logo
+    display flex
+    padding $size-0 0
+    margin-right $size-3 * 2
+    align-items center
+
+    &_title
+      font-size $fs-2
+      margin-left $size-1
+      font-weight bold
+      color white
+
+      & span
+        color $orange
+
+    & img
+      max-width 42px
+      max-height 42px
+
+  &__seperate
+    flex 1 1 auto
+
+  &__item-list
+    display flex
+    flex-direction row
+    flex 1 1 auto
+    justify-content space-around
+    max-width 700px
+
+  &__item
+    color $white
+    font-size $fs-1
+    margin auto $size-1
