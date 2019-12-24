@@ -1,14 +1,12 @@
 <template>
   <div class="main-panel">
-    <div class="main-panel__switch">
-      <Switcher
-        class="main-panel__switch_big"
-        :active="activeMenu"
-        @click.native="switchMenu" />
-      <Switcher
-        class="main-panel__switch_mid"
-        :active="activeMenu"
-        @click.native="activateMenu" />
+    <div
+      class="main-panel__switch"
+      @click="activateMenu"
+    >
+      <OcIcon
+        icon="bars"
+      />
     </div>
 
     <div class="main-panel__logo">

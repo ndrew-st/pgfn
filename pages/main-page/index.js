@@ -6,20 +6,25 @@ import ImpressionsForEvery from './-components/impressions-for-every'
 import SearchScreen from './-components/search-screen'
 import WhereToGo from './-components/where-to-go'
 import WhereToStay from './-components/where-to-stay'
+import MainScreen from './-components/MainScreen'
+import LocationDescription from './-components/location-description'
 
 export default {
   components: {
+    MainScreen,
     Advantage,
     HousingOptions,
     ImpressionsForEvery,
     SearchScreen,
     WhereToGo,
-    WhereToStay
+    WhereToStay,
+    LocationDescription
   },
   data () {
     return {
       popular: [],
-      apartments: []
+      apartments: [],
+      description: 'Полуостров в северной части Чёрного моря, с северо-востока омывается Азовским морем, площадью около 27 000 км², из которых 72 % — равнина, 20 % — горы и 8 % — озёра и другие водные объекты.'
     }
   },
   async created () {

@@ -4,8 +4,12 @@
       <div class="mobile-menu__title">
         <div
           @click="switchActive(false)"
-          class="mobile-menu__close-btn"
-        ></div>
+          class="close-btn__wrapper">
+            <OcIcon
+              icon="times"
+              class="mobile-menu__close-btn"
+            />
+        </div>
 
         <OcImg src="oc-logo-2.png" />
 
@@ -41,7 +45,7 @@ export default {
 
 <style lang="stylus">
 .mobile-menu
-  max-width 300px
+  max-width 250px
   height 100%
   background white
 
@@ -51,25 +55,10 @@ export default {
 
   &__close-btn
     cursor pointer
-    width 40px
-    height 40px
+    color white
     position relative
-    margin-right 20px
-
-    &::after, &::before
-      position absolute
-      display block
-      content ""
-      height 4px
-      width 40px
-      background white
-      top 50%
-
-    &::after
-      transform rotate(45deg)
-
-    &::before
-      transform rotate(-45deg)
+    margin-right 22px
+    font-size 18px
 
   &__wrapper
     position fixed
@@ -82,9 +71,15 @@ export default {
   &__title
     background $violete
     display flex
-    padding 15px 15px
     align-items center
+    height 56px
 
     & img
-      max-width 42px
+      max-width 26px
+
+.close-btn__wrapper
+  padding-left 27px
+  width 18px
+  margin-right 22px
+  display flex
 </style>

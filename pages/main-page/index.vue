@@ -1,6 +1,10 @@
 <template>
   <div class="main-page">
-    <SearchScreen />
+    <MainScreen />
+
+    <LocationDescription
+      :description="description"
+      title="Крым"/>
 
     <Advantage />
 
