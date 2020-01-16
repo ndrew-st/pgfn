@@ -6,6 +6,8 @@
       :description="description"
       title="Крым"/>
 
+    <PopularDirection />
+
     <Advantage />
 
     <WhereToGo />

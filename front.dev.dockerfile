@@ -2,7 +2,7 @@ FROM node:latest
 
 WORKDIR /app
 
-RUN npm i yarn -g
+RUN npm i yarn -g --force
 
 RUN yarn
 
