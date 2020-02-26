@@ -9,6 +9,7 @@ import WhereToStay from './-components/where-to-stay'
 import MainScreen from './-components/MainScreen'
 import LocationDescription from './-components/location-description'
 import PopularDirection from './-components/popular-direction'
+import Accommodation from './-components/accommodation'
 
 export default {
   components: {
@@ -20,7 +21,8 @@ export default {
     WhereToGo,
     WhereToStay,
     LocationDescription,
-    PopularDirection
+    PopularDirection,
+    Accommodation
   },
   data () {
     return {

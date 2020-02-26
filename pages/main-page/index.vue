@@ -8,18 +8,7 @@
 
     <PopularDirection />
 
-    <Advantage />
-
-    <WhereToGo />
-
-<!--    <WhereToStay />-->
-
-    <HousingOptions
-      :apartments="apartments"
-      :popular="popular"
-    />
-
-    <ImpressionsForEvery />
+    <Accommodation />
   </div>
 </template>
 

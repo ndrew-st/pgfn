@@ -29,7 +29,8 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/global-components.js'
+    '@/plugins/global-components.js',
+    '@/plugins/yandexMaps.js',
   ],
   router: {
     extendRoutes (routes, resolve) {
@@ -53,7 +54,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
   ],
   styleResources: {
     stylus: [
@@ -73,6 +74,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    vendor:  ['vue-yandex-maps'],
     extend (config, ctx) {
       config.resolve.extensions = [ '.vue', ...config.resolve.extensions ]
     }

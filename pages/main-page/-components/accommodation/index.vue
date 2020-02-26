@@ -1,15 +1,15 @@
 <template>
-  <div class="popular-direction">
-    <h2 class="popular-direction__header">Популярные направления Крыма · <span>Смотреть все</span></h2>
-    <div class="popular-direction__tabs">
+  <div class="accommodation">
+    <h2 class="accommodation__header">Проживание в Крыму · <span>Смотреть все</span></h2>
+    <div class="accommodation__tabs">
       <OcTabs
         :tabs="tabs"
         :activeTab="active"
         @change-tab="changeActive"
       />
     </div>
-    <div class="popular-direction__sort"></div>
-    <div class="popular-direction__list"></div>
+    <div class="accommodation__sort"></div>
+    <div class="accommodation__list"></div>
   </div>
 </template>
 
@@ -30,18 +30,8 @@ export default {
           counter: 0
         },
         {
-          title: 'Районы и округа',
-          value: 'area',
-          counter: 0
-        },
-        {
-          title: 'Города',
-          value: 'cities',
-          counter: 0
-        },
-        {
-          title: 'Сёла',
-          value: 'country',
+          title: 'Апартаменты',
+          value: 'apartments',
           counter: 0
         }
       ],
@@ -67,6 +57,6 @@ export default {
 </script>
 
 <styles lang="stylus">
-.popular-direction
+.accommodation
   padding 22px
 </styles>
