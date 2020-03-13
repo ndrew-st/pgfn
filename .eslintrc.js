@@ -17,7 +17,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    'vue/max-attributes-per-line': [2,
+    'vue/max-attributes-per-line': ["error" ,
       {
         'singleline': 1,
         'multiline': {
