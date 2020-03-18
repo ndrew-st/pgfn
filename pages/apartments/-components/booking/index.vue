@@ -11,13 +11,19 @@
     <p>Гости</p>
 
     <div class="div-flex">
-      <div>
+      <!-- <div>
         <select v-model="user">
           <option>1 взрослый</option>
           <option>2 взрослых</option>
           <option>3 взрослых</option>
         </select>
-      </div>
+      </div> -->
+
+      <OcSelectList
+        :items="items"
+        :type="multiselect"
+        v-on:changeSelect="changeSelect"
+      />
 
       <div class="add-children">
         добавить детей
@@ -25,10 +31,54 @@
     </div>
 
     <div class="booking-button">
-       <div class="text-button">Забронировать</div>
+      <div class="text-button">Забронировать</div>
     </div>
   </div>
 </template>
+
+<script>
+import OcSelectList from '@/components/ocSelectList/index.vue'
+
+export default {
+  components: {
+    OcSelectList
+  },
+  data: () => ({
+    items: [
+      {
+        name: '2 взрослых',
+        flag: false,
+        icon: 'icon item'
+      },
+      {
+        name: '3 взрослых',
+        flag: false,
+        icon: 'icon intem'
+      },
+      {
+        name: '4 взрослых',
+        flag: false,
+        icon: 'icon intem'
+      },
+      {
+        name: '5 взрослых',
+        flag: false,
+        icon: 'icon intem'
+      },
+      {
+        name: '999999999999 взрослых',
+        flag: false,
+        icon: 'icon intem'
+      }
+    ]
+  }),
+  methods: {
+    changeSelect (item) {
+      item.flag = !item.flag
+    }
+  }
+}
+</script>
 
 <style lang="stylus" scoped>
 .div-flex
