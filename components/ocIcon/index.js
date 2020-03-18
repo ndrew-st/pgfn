@@ -19,6 +19,9 @@ export default {
         const faClass = this.outline ? 'far' : 'fas'
         return `${faClass} fa-${this.icon}`
       }
+    },
+    iconImage () {
+      return `static/icons/${this.icon}.png`
     }
   }
 }
