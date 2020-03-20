@@ -4,81 +4,81 @@
 
     <div class="box-flex">
         <Facility
-        img="../_nuxt/static/icons/v-green.png"
+        img="/icons/v-green.png"
         name="Вид на рассвет"
         description="Из окна виден рассвет" />
 
         <Facility
-        img="../_nuxt/static/icons/water.png"
+        img="/icons/water.png"
         name="Вид на море"
         description="Из окон видно море" />
 
         <Facility
-        img="../_nuxt/static/icons/bath.png"
+        img="/icons/bath.png"
         name="Джакузи"
         description="Имеется полноценное джакузи" />
 
         <Facility
-        img="../_nuxt/static/icons/sunrise.png"
+        img="/icons/sunrise.png"
         name="Вид на рассвет"
         description="Из окна виден рассвет" />
 
         <Facility
-        img="../_nuxt/static/icons/water.png"
+        img="/icons/water.png"
         name="Вид на море"
         description="Из окон видно море" />
     </div>
 
     <div class="box-flex">
         <Facility
-        img="../_nuxt/static/icons/sunrise.png"
+        img="/icons/sunrise.png"
         name="Вид на рассвет"
         description="Из окна виден рассвет" />
 
         <Facility
-        img="../_nuxt/static/icons/water.png"
+        img="/icons/water.png"
         name="Вид на море"
         description="Из окон видно море" />
 
         <Facility
-        img="../_nuxt/static/icons/bath.png"
+        img="/icons/bath.png"
         name="Джакузи"
         description="Имеется полноценное джакузи" />
 
         <Facility
-        img="../_nuxt/static/icons/sunrise.png"
+        img="/icons/sunrise.png"
         name="Вид на рассвет"
         description="Из окна виден рассвет" />
 
         <Facility
-        img="../_nuxt/static/icons/water.png"
+        img="/icons/water.png"
         name="Вид на море"
         description="Из окон видно море" />
     </div>
 
     <div class="box-flex">
         <Facility
-        img="../_nuxt/static/icons/sunrise.png"
+        img="/icons/sunrise.png"
         name="Вид на рассвет"
         description="Из окна виден рассвет" />
 
         <Facility
-        img="../_nuxt/static/icons/water.png"
+        img="/icons/water.png"
         name="Вид на море"
         description="Из окон видно море" />
 
         <Facility
-        img="../_nuxt/static/icons/bath.png"
+        img="/icons/bath.png"
         name="Джакузи"
         description="Имеется полноценное джакузи" />
 
         <Facility
-        img="../_nuxt/static/icons/sunrise.png"
+        img="/icons/sunrise.png"
         name="Вид на рассвет"
         description="Из окна виден рассвет" />
 
         <Facility
-        img="../_nuxt/static/icons/water.png"
+        img="/icons/water.png"
         name="Вид на море"
         description="Из окон видно море" />
     </div>
