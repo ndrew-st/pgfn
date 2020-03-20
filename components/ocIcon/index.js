@@ -21,7 +21,9 @@ export default {
       }
     },
     iconImage () {
-      return `static/icons/${this.icon}.png`
+      // return require('/static/icons/this.icon.png')
+      // return require('/static/icons/' + this.icon + '.png')
+      return '../../_nuxt/static/icons/document-text.png'
     }
   }
 }

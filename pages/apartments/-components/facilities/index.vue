@@ -4,7 +4,7 @@
 
     <div class="box-flex">
         <Facility
-        img="../_nuxt/static/icons/sunrise.png"
+        img="../_nuxt/static/icons/v-green.png"
         name="Вид на рассвет"
         description="Из окна виден рассвет" />
 
