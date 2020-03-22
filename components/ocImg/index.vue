@@ -1,8 +1,5 @@
 <template>
-  <img
-    :src="imgAdress"
-    alt="img"
-  >
+  <img>
 </template>
 
 <script src="./index.js"></script>

@@ -3,92 +3,106 @@
     <h1>Удобства</h1>
 
     <div class="box-flex">
-        <Facility
-        img="/icons/v-green.png"
-        name="Вид на рассвет"
-        description="Из окна виден рассвет" />
-
-        <Facility
-        img="/icons/water.png"
-        name="Вид на море"
-        description="Из окон видно море" />
-
-        <Facility
-        img="/icons/bath.png"
-        name="Джакузи"
-        description="Имеется полноценное джакузи" />
-
-        <Facility
+      <Facility
         img="/icons/sunrise.png"
         name="Вид на рассвет"
-        description="Из окна виден рассвет" />
+        description="Из окна виден рассвет"
+      />
 
-        <Facility
+      <Facility
         img="/icons/water.png"
         name="Вид на море"
-        description="Из окон видно море" />
+        description="Из окон видно море"
+      />
+
+      <Facility
+        img="/icons/bath.png"
+        name="Джакузи"
+        description="Имеется полноценное джакузи"
+      />
+
+      <Facility
+        img="/icons/sunrise.png"
+        name="Вид на рассвет"
+        description="Из окна виден рассвет"
+      />
+
+      <Facility
+        img="/icons/water.png"
+        name="Вид на море"
+        description="Из окон видно море"
+      />
     </div>
 
     <div class="box-flex">
-        <Facility
+      <Facility
         img="/icons/sunrise.png"
         name="Вид на рассвет"
-        description="Из окна виден рассвет" />
+        description="Из окна виден рассвет"
+      />
 
-        <Facility
+      <Facility
         img="/icons/water.png"
         name="Вид на море"
-        description="Из окон видно море" />
+        description="Из окон видно море"
+      />
 
-        <Facility
+      <Facility
         img="/icons/bath.png"
         name="Джакузи"
-        description="Имеется полноценное джакузи" />
+        description="Имеется полноценное джакузи"
+      />
 
-        <Facility
+      <Facility
         img="/icons/sunrise.png"
         name="Вид на рассвет"
-        description="Из окна виден рассвет" />
+        description="Из окна виден рассвет"
+      />
 
-        <Facility
+      <Facility
         img="/icons/water.png"
         name="Вид на море"
-        description="Из окон видно море" />
+        description="Из окон видно море"
+      />
     </div>
 
     <div class="box-flex">
-        <Facility
+      <Facility
         img="/icons/sunrise.png"
         name="Вид на рассвет"
-        description="Из окна виден рассвет" />
+        description="Из окна виден рассвет"
+      />
 
-        <Facility
+      <Facility
         img="/icons/water.png"
         name="Вид на море"
-        description="Из окон видно море" />
+        description="Из окон видно море"
+      />
 
-        <Facility
+      <Facility
         img="/icons/bath.png"
         name="Джакузи"
-        description="Имеется полноценное джакузи" />
+        description="Имеется полноценное джакузи"
+      />
 
-        <Facility
+      <Facility
         img="/icons/sunrise.png"
         name="Вид на рассвет"
-        description="Из окна виден рассвет" />
+        description="Из окна виден рассвет"
+      />
 
-        <Facility
+      <Facility
         img="/icons/water.png"
         name="Вид на море"
-        description="Из окон видно море" />
+        description="Из окон видно море"
+      />
     </div>
 
     <div class="show-facilities">
-        <div class="text-button">
-            Показать все удобства (44)
-        </div>
+      <div class="text-button">
+        Показать все удобства (44)
+      </div>
     </div>
-
   </div>
 </template>
 

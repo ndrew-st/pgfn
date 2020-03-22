@@ -9,7 +9,6 @@
       </div>
 
       <div
-        v-listIsOpen
         class="list-box"
         :class="{ active: isActive }"
       >
@@ -20,16 +19,11 @@
           :class="{ active: isActive }"
           @click="changeSelect(item)"
         >
-          <!-- <img
-            v-if="item.flag"
-            class="img-v"
-            src="@/static/icons/v.png"
-          > -->
           <OcIcon
             v-if="item.flag"
             class="img-v"
             type="nofontawesome"
-            icon="v-green"
+            icon="v"
           />
           {{ item.name }}
         </div>

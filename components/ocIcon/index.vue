@@ -4,11 +4,11 @@
     class="oc-icon"
     :class="iconClass"
   />
-  <img
+  <OcImg
     v-else
     class="oc-icon"
     :src="iconImage"
-  >
+  />
 </template>
 
 <script src="./index.js"></script>

@@ -1,3 +1,1 @@
-export default {
-  props: ['imgAdress']
-}
+export default {}

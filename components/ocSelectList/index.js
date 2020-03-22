@@ -26,16 +26,20 @@ export default {
         this.isActive = false
         console.log('etit tvou')
       }
+    },
+    clickOutside (e) {
+      if (!this.$el.contains(e.target)) {
+        this.isActive = false
+      }
     }
   },
   components: {
     OcIcon
   },
-  directives: {
-    listIsOpen: {
-      inserted (el) {
-        console.log('asdfasdfasdf')
-      }
-    }
+  created () {
+    document.addEventListener('click', this.clickOutside)
+  },
+  beforeDestroy () {
+    document.removeEventListener('click', this.clickOutside)
   }
 }
