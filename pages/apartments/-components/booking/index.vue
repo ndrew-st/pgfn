@@ -1,37 +1,42 @@
 <template>
-  <div>
+  <div class="booking">
     <h1>Бронирование</h1>
 
     <p>Даты</p>
 
     <input
+      class="dates"
       type="text"
-      value="Заезд и выезд" />
+      value="Заезд и выезд"
+    >
+
+    <br>
 
     <p>Гости</p>
 
-    <div class="div-flex">
-      <!-- <div>
-        <select v-model="user">
-          <option>1 взрослый</option>
-          <option>2 взрослых</option>
-          <option>3 взрослых</option>
-        </select>
-      </div> -->
+    <br>
 
+    <div class="div-flex">
       <OcSelectList
-        :items="items"
+        class="select-list"
+        :items="items1"
         :type="multiselect"
-        v-on:changeSelect="changeSelect"
+        empty-select="Выберите гостей"
+        @changeSelect="changeSelect"
       />
 
-      <div class="add-children">
-        добавить детей
-      </div>
+      <OcSelectList
+        :items="items2"
+        :type="multiselect"
+        empty-select="Добавить детей"
+        @changeSelect="changeSelect"
+      />
     </div>
 
     <div class="booking-button">
-      <div class="text-button">Забронировать</div>
+      <div class="text-button">
+        Забронировать
+      </div>
     </div>
   </div>
 </template>
@@ -44,10 +49,10 @@ export default {
     OcSelectList
   },
   data: () => ({
-    items: [
+    items1: [
       {
         name: '2 взрослых',
-        flag: false,
+        flag: true,
         icon: 'icon item'
       },
       {
@@ -70,6 +75,33 @@ export default {
         flag: false,
         icon: 'icon intem'
       }
+    ],
+    items2: [
+      {
+        name: '1 ребёнок',
+        flag: false,
+        icon: 'icon item'
+      },
+      {
+        name: '2 ребёнка',
+        flag: false,
+        icon: 'icon intem'
+      },
+      {
+        name: '3 ребёнка',
+        flag: false,
+        icon: 'icon intem'
+      },
+      {
+        name: '4 ребёнка',
+        flag: false,
+        icon: 'icon intem'
+      },
+      {
+        name: '5 детей',
+        flag: false,
+        icon: 'icon intem'
+      }
     ]
   }),
   methods: {
@@ -80,23 +112,4 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.div-flex
-  display flex
-
-.add-children
-  border 1px solid grey
-  margin 0px 15px
-  padding 0px 15px
-
-.booking-button
-  display flex
-  width 140px
-  height 35px
-  border-radius 5px
-  background-color rgb(113, 64, 184)
-  margin-top 20px
-
-.text-button
-  margin auto
-</style>
+<style src="./index.styl" lang="stylus" scoped></style>

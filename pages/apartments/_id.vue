@@ -2,15 +2,22 @@
   <div class="apartment-page">
     <h1>Apartment {{ $route.params.id }}</h1>
 
-    <ApartmentPhoto />
+    <ApartmentPhoto :apartment-info1="apartmentInfo1" />
 
     <div class="box">
       <div class="left-column">
-        <ApartmentDescription :fullPath="fullPath" />
+        <ApartmentDescription :full-path="fullPath" />
       </div>
 
       <div>
-        <ContactPerson />
+        <ContactPerson
+          :apartment-info1="apartmentInfo1"
+          :start-date="startDate"
+          :languages="languages"
+          :number-apartment="numberApartment"
+          :refresh-date="refreshDate"
+          :number-of-views="numberOfViews"
+        />
 
         <Booking />
 
@@ -20,7 +27,7 @@
 
     <Facilities />
 
-    <hr>
+    <hr><hr>
 
     <Services />
 
@@ -51,15 +58,6 @@ import HousingOptions from './-components/housing-options/index.vue'
 import Entertainments from './-components/entertainments/index.vue'
 
 export default {
-  data: () => ({
-    fullPath: [
-      'Главная',
-      'Судакский городской округ',
-      'Судак',
-      'Жильё',
-      'Апартаменты'
-    ]
-  }),
   components: {
     ApartmentPhoto,
     ApartmentDescription,
@@ -73,6 +71,23 @@ export default {
     Places,
     HousingOptions,
     Entertainments
+  },
+  data: () => ({
+    fullPath: [
+      'Главная',
+      'Судакский городской округ',
+      'Судак',
+      'Жильё',
+      'Апартаменты'
+    ]
+  }),
+  computed: {
+    apartmentInfo1 () { return '3-к квартира, 146 м², 11/12 эт.' },
+    startDate () { return '27 июня 2018 г.' },
+    languages () { return 'Общение на Русском и Английском языках.' },
+    numberApartment () { return '123456789' },
+    refreshDate () { return '15.11.2019' },
+    numberOfViews () { return '1723' }
   }
 }
 </script>
@@ -83,4 +98,6 @@ export default {
 
 .left-column
   width 70%
+  margin-left 22px
+  margin-right 22px
 </style>

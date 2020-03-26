@@ -1,7 +1,7 @@
 import OcIcon from '@/components/ocIcon'
 
 export default {
-  props: ['type', 'items'],
+  props: ['type', 'items', 'emptySelect'],
   data: () => ({
     isActive: false
   }),
@@ -14,7 +14,7 @@ export default {
           (element.flag ? (topLine === '' ? '' : ' + ') + element.name : '')
       })
       if (topLine === '') {
-        topLine = 'Выберите пункты'
+        topLine = this.emptySelect
       }
       return topLine
     }
@@ -36,7 +36,7 @@ export default {
   components: {
     OcIcon
   },
-  created () {
+  mounted () {
     document.addEventListener('click', this.clickOutside)
   },
   beforeDestroy () {
