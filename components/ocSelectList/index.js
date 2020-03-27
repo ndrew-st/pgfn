@@ -24,7 +24,6 @@ export default {
       this.$emit('changeSelect', item)
       if (this.type !== 'multiselect') {
         this.isActive = false
-        console.log('etit tvou')
       }
     },
     clickOutside (e) {
