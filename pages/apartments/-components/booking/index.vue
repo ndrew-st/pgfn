@@ -6,6 +6,7 @@
 
     <OcDateRange
       :day-list="dayList"
+      :input-value="inputValue"
       @selectInterval="selectInterval"
     />
 

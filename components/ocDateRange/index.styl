@@ -11,12 +11,22 @@
 .calendar
     background rgb(216, 230, 243)
     border-collapse: collapse
+    visibility hidden
+    max-height 0
+    position absolute
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none;   /* Chrome/Safari/Opera */
     -khtml-user-select: none;    /* Konqueror */
     -moz-user-select: none;      /* Firefox */
     -ms-user-select: none;       /* Internet Explorer/Edge */
     user-select: none;
+    border: 10px solid white;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2)
+.active
+    visibility visible
+    max-height initial
+    // line-height 38px
+    z-index 9
 .bc
     border: 1px solid white
     border-radius: 4px

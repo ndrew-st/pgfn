@@ -61,7 +61,10 @@ export default {
         icon: 'icon intem'
       }
     ],
-    dayList: []
+    dayList: [],
+    occList: [{ start: new Date(2020, 3, 12), end: new Date(2020, 3, 15) },
+      { start: new Date(2020, 4, 21), end: new Date(2020, 4, 21) }],
+    inputValue: 'Выберите даты'
   }),
   created () {
     const today = new Date()
@@ -76,11 +79,18 @@ export default {
     const dayList = []
     let curDay = firstDay
     for (let i = 1; i <= 91; i++) {
+      let occFl = false
+      this.occList.forEach((element) => {
+        if (element.start <= curDay && element.end >= curDay) {
+          occFl = true
+        }
+      })
       dayList.push({
         ind: i,
-        day: new Date(curDay).getDate(),
+        dayOfMonth: new Date(curDay).getDate(),
+        fullDate: curDay,
         past: curDay < today,
-        occup: i > 15 && i < 19,
+        occup: occFl,
         selected: false
       })
       curDay = curDay + 86400000
@@ -102,14 +112,45 @@ export default {
       item.flag = !item.flag
     },
     selectInterval (par) {
-      console.log('par ' + JSON.stringify(par))
+      let minOcc = 9999
+      let fd = 0
+      let ld = 0
       this.dayList.forEach((element) => {
         element.forEach((el2) => {
-          if (el2.ind <= par.end && el2.ind >= par.start) {
-            el2.selected = true
-          } else { el2.selected = false }
+          if (el2.ind <= par.end && el2.ind >= par.start && el2.occup && el2.ind < minOcc) {
+            minOcc = el2.ind
+          }
         })
       })
+
+      this.dayList.forEach((element) => {
+        element.forEach((el2) => {
+          if (!el2.occup && !el2.past) {
+            if (el2.ind <= par.end && el2.ind >= par.start && el2.ind < minOcc) {
+              el2.selected = true
+              if (fd === 0) {
+                fd = el2.fullDate
+              }
+              if (ld === 0 || el2.fullDate > ld) {
+                ld = el2.fullDate
+              }
+            } else if (el2.selected) { el2.selected = false }
+          }
+        })
+      })
+      const options = {
+        // era: 'narrow',
+        // year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+        // weekday: 'long',
+        // timezone: 'UTC',
+        // hour: 'numeric',
+        // minute: 'numeric',
+        // second: 'numeric'
+      }
+
+      this.inputValue = (fd === 0 || ld === 0 ? 'Выберите даты' : 'C ' + new Date(fd).toLocaleString('ru', options) + ' по ' + new Date(ld).toLocaleString('ru', options))
     }
   }
 }

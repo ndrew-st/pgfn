@@ -3,10 +3,14 @@
     <input
       class="dates"
       type="text"
-      value="Заезд и выезд"
+      :value="inputValue"
+      @click="isActive = !isActive"
     >
 
-    <table class="calendar">
+    <table
+      class="calendar"
+      :class="{ active: isActive }"
+    >
       <tr>
         <th class="th">
           ПН
@@ -18,7 +22,7 @@
           :data-value="day.ind"
           :class="{ occup: day.occup, past: day.past, sel: (day.selected && !day.occup) }"
         >
-          {{ day.day }}
+          {{ day.dayOfMonth }}
         </td>
       </tr>
       <tr>
@@ -32,7 +36,7 @@
           :data-value="day.ind"
           :class="{ occup: day.occup, past: day.past, sel: (day.selected && !day.occup) }"
         >
-          {{ day.day }}
+          {{ day.dayOfMonth }}
         </td>
       </tr>
       <tr>
@@ -46,7 +50,7 @@
           :data-value="day.ind"
           :class="{ occup: day.occup, past: day.past, sel: (day.selected && !day.occup) }"
         >
-          {{ day.day }}
+          {{ day.dayOfMonth }}
         </td>
       </tr>
       <tr>
@@ -60,7 +64,7 @@
           :data-value="day.ind"
           :class="{ occup: day.occup, past: day.past, sel: (day.selected && !day.occup) }"
         >
-          {{ day.day }}
+          {{ day.dayOfMonth }}
         </td>
       </tr>
       <tr>
@@ -74,7 +78,7 @@
           :data-value="day.ind"
           :class="{ occup: day.occup, past: day.past, sel: (day.selected && !day.occup) }"
         >
-          {{ day.day }}
+          {{ day.dayOfMonth }}
         </td>
       </tr>
       <tr>
@@ -88,7 +92,7 @@
           :data-value="day.ind"
           :class="{ occup: day.occup, past: day.past, sel: (day.selected && !day.occup) }"
         >
-          {{ day.day }}
+          {{ day.dayOfMonth }}
         </td>
       </tr>
       <tr>
@@ -102,7 +106,7 @@
           :data-value="day.ind"
           :class="{ occup: day.occup, past: day.past, sel: (day.selected && !day.occup) }"
         >
-          {{ day.day }}
+          {{ day.dayOfMonth }}
         </td>
       </tr>
     </table>
