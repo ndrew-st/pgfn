@@ -1,12 +1,15 @@
+import OcButtonNext from '@/components/ocVerification/ocButtonNext/index.vue'
+
 export default {
+  props: ['stage', 'phoneNumber'],
+  components: {
+    OcButtonNext
+  },
   data: () => ({
-    isActive: false,
-    phoneNumber: ''
+    isActive: false
   }),
   methods: {
     mask (item) {
-    //   debugger
-    //   console.log('hi')
       const matrix = '___ ___-__-__'
       let i = 0
       const def = matrix.replace(/\D/g, '')
@@ -18,9 +21,13 @@ export default {
       if (this.phoneNumber.length === 13) {
         this.isActive = true
       } else { this.isActive = false }
-    //   if (event.type == "blur") {
-    //       if (this.value.length == 2) this.value = ""
-    //   } else setCursorPosition(this.value.length, this)
+      this.$emit('changePhoneNumber', this.phoneNumber)
+      //   if (event.type == "blur") {
+      //       if (this.value.length == 2) this.value = ""
+      //   } else setCursorPosition(this.value.length, this)
+    },
+    next (item) {
+      // this.$emit('changePhoneNumber', this.phoneNumber)
     }
   }
 }
