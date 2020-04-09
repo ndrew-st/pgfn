@@ -73,7 +73,7 @@
 
       <input
         v-if="stage === '9' || stage === '10' || stage === '11' || stage === '12' || stage === '14'"
-        v-model="smsCode"
+        ref="codeInput"
         type="text"
         :class="{ code14: stage === '14', code: stage !== '14' }"
         placeholder="••••"
