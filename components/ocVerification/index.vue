@@ -27,7 +27,7 @@
         v-if="stage === '4' || stage === '5' || stage === '6'"
         class="p456"
       >
-        Введите пароль для логина <nobr><b>+7 {{ phoneNumber }}</b></nobr>
+        Введите пароль для логина <nobr><b>+7 {{ phone }}</b></nobr>
       </p>
 
       <p
@@ -54,21 +54,43 @@
         class="p14"
       >
         Для восстановления доступа введите код из смс <br>
-        отправленного на номер <b>+7 {{ phoneNumber }}</b>
+        отправленного на номер <b>+7 {{ phone }}</b>
       </p>
 
-      <OcPhoneNumber
-        v-if="stage === '1' || stage === '2' || stage === '3' || stage === '8'"
-        :stage="stage"
-        :phone-number="phoneNumber"
-        @changePhoneNumber="changePhoneNumber"
-      />
+      <div v-if="stage === '1' || stage === '2' || stage === '3' || stage === '8'">
+        <p class="p15">
+          Введите номер телефона
+        </p>
+
+        <div class="flex">
+          <div>
+            <OcPhoneNumber
+              :stage="stage"
+              @cpn2="cpn2"
+            />
+
+            <p
+              v-if="stage === '3'"
+              class="red-p"
+            >
+              Номер не может быть использован для входа
+            </p>
+          </div>
+
+          <button
+            class="btn"
+            :class="{ active: phone.length === 13, sp: stage === '3' }"
+          >
+            Далее
+          </button>
+        </div>
+      </div>
 
       <p
         v-if="stage === '9' || stage === '10' || stage === '11' || stage === '12'"
         class="p-sms"
       >
-        Введите код из смс отправленного на номер <nobr><b>{{ phoneNumber }}</b></nobr>
+        Введите код из смс отправленного на номер <nobr><b>{{ phone }}</b></nobr>
       </p>
 
       <input

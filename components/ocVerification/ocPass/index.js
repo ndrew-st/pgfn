@@ -1,9 +1,9 @@
 export default {
   props: ['stage'],
   methods: {
-    changePhoneNumber (phoneNumber) {
+    cpn (phoneNumber) {
       this.phoneNumber = phoneNumber
-      this.$emit('changePhoneNumber', this.phoneNumber)
+      this.$emit('cpn', this.phoneNumber)
     }
   },
   data: () => ({

@@ -54,6 +54,8 @@
     >
     <label for="seven">7</label>
 
+    <p>pn: {{ phone }}</p>
+
     <router-link
       to="/sign-in/password-recovery"
     >
@@ -63,8 +65,8 @@
     <OcVerification
       mode="signin"
       :stage="picked"
-      :phone-number="phoneNumber"
-      @changePhoneNumber="changePhoneNumber"
+      :phone="phone"
+      @cpn1="cpn1"
     />
   </div>
 </template>
@@ -78,11 +80,11 @@ export default {
   },
   data: () => ({
     picked: 0,
-    phoneNumber: ''
+    phone: ''
   }),
   methods: {
-    changePhoneNumber (newPhoneNumber) {
-      this.phoneNumber = newPhoneNumber
+    cpn1 (newPhoneNumber) {
+      this.phone = newPhoneNumber
     }
   }
 }

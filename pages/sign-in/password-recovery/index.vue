@@ -24,7 +24,7 @@
     <OcVerification
       :stage="picked"
       :phone-number="phoneNumber"
-      @changePhoneNumber="changePhoneNumber"
+      @cpn="cpn"
     />
   </div>
 </template>
@@ -39,12 +39,7 @@ export default {
   data: () => ({
     picked: 0,
     phoneNumber: ''
-  }),
-  methods: {
-    changePhoneNumber (newPhoneNumber) {
-      this.phoneNumber = newPhoneNumber
-    }
-  }
+  })
 }
 </script>
 

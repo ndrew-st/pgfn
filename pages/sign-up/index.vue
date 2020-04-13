@@ -51,7 +51,7 @@
       mode="signup"
       :stage="picked"
       :phone-number="phoneNumber"
-      @changePhoneNumber="changePhoneNumber"
+      @cpn="cpn"
     />
   </div>
 </template>
@@ -68,7 +68,7 @@ export default {
     phoneNumber: ''
   }),
   methods: {
-    changePhoneNumber (newPhoneNumber) {
+    cpn (newPhoneNumber) {
       this.phoneNumber = newPhoneNumber
     }
   }
