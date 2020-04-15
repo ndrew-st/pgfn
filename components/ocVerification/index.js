@@ -1,5 +1,5 @@
 import OcPhoneNumber from '@/components/ocPhoneNumber/index.vue'
-import OcPass from './ocPass/index.vue'
+import OcPass from '../ocPass/index.vue'
 
 export default {
   props: ['mode', 'stage', 'phone'],
@@ -14,6 +14,9 @@ export default {
   methods: {
     cpn2 (phoneNumber) {
       this.$emit('cpn1', phoneNumber)
+    },
+    next (pass) {
+      this.$emit('next', pass)
     },
     mask (item) {
       // if (this.smsCode.length > 4) {

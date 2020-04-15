@@ -29,6 +29,7 @@
         v-if="stage !== '15'"
         class="btn"
         :class="{active: password !== '', sp: stage === '5' || stage === '6' }"
+        @click="next1"
       >
         Далее
       </button>

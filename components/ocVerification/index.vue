@@ -2,11 +2,13 @@
   <div>
     <div
       class="box"
-      :class="{signin: stage === '1' || stage === '2' || stage === '3' || stage === '4' || stage === '5' || stage === '6' || stage === '7' || stage === '15', signup: stage === '8' || stage === '9' || stage === '10' || stage === '11' || stage === '12' || stage === '13' || stage === '14'}"
+      :class="{signin: stage === 'phone' || stage === 'pass', signup: stage === '8' || stage === '9' || stage === '10' || stage === '11' || stage === '12' || stage === '13' || stage === '14'}"
     >
       <p class="h">
         Personal<span class="headline">.Guide</span>
       </p>
+
+      <slot />
 
       <p
         v-if="stage === '7'"
@@ -24,7 +26,7 @@
       </p>
 
       <p
-        v-if="stage === '4' || stage === '5' || stage === '6'"
+        v-if="stage === 'pass'"
         class="p456"
       >
         Введите пароль для логина <nobr><b>+7 {{ phone }}</b></nobr>
@@ -45,8 +47,9 @@
       </p>
 
       <OcPass
-        v-if="stage === '4' || stage === '5' || stage === '6' || stage === '15'"
+        v-if="stage === 'pass'"
         :stage="stage"
+        @next="next"
       />
 
       <p
@@ -57,7 +60,7 @@
         отправленного на номер <b>+7 {{ phone }}</b>
       </p>
 
-      <div v-if="stage === '1' || stage === '2' || stage === '3' || stage === '8'">
+      <div v-if="stage === 'phone'">
         <p class="p15">
           Введите номер телефона
         </p>
@@ -79,7 +82,8 @@
 
           <button
             class="btn"
-            :class="{ active: phone.length === 13, sp: stage === '3' }"
+            :class="{ active: phone.length === 13, sp: stage === 'phone' }"
+            @click="next"
           >
             Далее
           </button>

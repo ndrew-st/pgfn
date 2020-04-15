@@ -1,61 +1,5 @@
 <template>
   <div class="all">
-    <br>
-    <br>
-    <br>
-    <br>
-    <input
-      id="one"
-      v-model="picked"
-      value="1"
-      type="radio"
-    >
-    <label for="one">1</label>
-    <input
-      id="two"
-      v-model="picked"
-      value="2"
-      type="radio"
-    >
-    <label for="two">2 (заполните номер)</label>
-    <input
-      id="three"
-      v-model="picked"
-      value="3"
-      type="radio"
-    >
-    <label for="three">3</label>
-    <input
-      id="four"
-      v-model="picked"
-      value="4"
-      type="radio"
-    >
-    <label for="four">4</label>
-    <input
-      id="five"
-      v-model="picked"
-      value="5"
-      type="radio"
-    >
-    <label for="five">5</label>
-    <input
-      id="six"
-      v-model="picked"
-      value="6"
-      type="radio"
-    >
-    <label for="six">6</label>
-    <input
-      id="seven"
-      v-model="picked"
-      value="7"
-      type="radio"
-    >
-    <label for="seven">7</label>
-
-    <p>pn: {{ phone }}</p>
-
     <router-link
       to="/sign-in/password-recovery"
     >
@@ -63,28 +7,47 @@
     </router-link>
 
     <OcVerification
-      mode="signin"
-      :stage="picked"
       :phone="phone"
+      :stage="stage"
       @cpn1="cpn1"
+      @next="next"
     />
   </div>
 </template>
 
 <script>
 import OcVerification from '@/components/ocVerification/index.vue'
+import { makePr } from '@/api/user.js'
 
 export default {
   components: {
     OcVerification
   },
   data: () => ({
-    picked: 0,
-    phone: ''
+    stage: 'phone',
+    phone: '',
+    pass: ''
   }),
   methods: {
     cpn1 (newPhoneNumber) {
       this.phone = newPhoneNumber
+    },
+    login (pass) {
+      const pr = makePr(this.pass)
+      pr.then((res) => { console.log('Промис выполнен успешно ' + JSON.stringify(res)) },
+        (res) => { console.log('Промис выполнен неудачно ' + res) })
+    },
+    next (pass) {
+      switch (this.stage) {
+        case 'phone':
+          this.stage = 'pass'
+          break
+        case 'pass':
+          console.log('мы получили пароль')
+          this.pass = pass
+          this.login(pass)
+          break
+      }
     }
   }
 }
