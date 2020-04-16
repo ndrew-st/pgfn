@@ -7,18 +7,18 @@
           class="pass"
           type="password"
           placeholder="Пароль"
-          :class="{red: stage === '5' || stage === '6', norm: !(stage === '5' || stage === '6')}"
+          :class="{red: error !== '', norm: error === ''}"
         >
 
         <p
-          v-if="stage === '5'"
+          v-if="error === 'wrongPass'"
           class="red-p"
         >
           Неверная комбинация логина и пароля
         </p>
 
         <p
-          v-if="stage === '6'"
+          v-if="error === 'userBlocked'"
           class="red-p"
         >
           Пользователь заблокирован
@@ -26,16 +26,16 @@
       </div>
 
       <button
-        v-if="stage !== '15'"
+        v-if="mode === 'sign-in'"
         class="btn"
-        :class="{active: password !== '', sp: stage === '5' || stage === '6' }"
+        :class="{active: password !== '', sp: error !== '' }"
         @click="next1"
       >
         Далее
       </button>
 
       <button
-        v-if="stage === '15'"
+        v-if="mode !== 'sign-in'"
         class="btn"
         :class="{active: password !== ''}"
       >

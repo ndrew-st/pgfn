@@ -1,7 +1,7 @@
 <template>
   <div
     class="sel-input"
-    :class="{red: stage === '3', norm: stage !== '3'}"
+    :class="{red: error === 'wrongNumber', norm: error !== 'wrongNumber'}"
   >
     <select
       class="sel"
@@ -12,7 +12,7 @@
     </select>
 
     <input
-      v-model="phone"
+      v-model="phone1"
       class="input"
       type="text"
       @input="mask"

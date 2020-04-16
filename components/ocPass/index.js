@@ -1,5 +1,5 @@
 export default {
-  props: ['stage'],
+  props: ['mode', 'error'],
   methods: {
     cpn (phoneNumber) {
       this.phoneNumber = phoneNumber

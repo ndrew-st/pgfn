@@ -2,7 +2,7 @@ import OcPhoneNumber from '@/components/ocPhoneNumber/index.vue'
 import OcPass from '../ocPass/index.vue'
 
 export default {
-  props: ['mode', 'stage', 'phone'],
+  props: ['mode', 'stage', 'error', 'phone'],
   data: () => ({
     username: '',
     userpassword: ''
@@ -31,11 +31,11 @@ export default {
       if (def.length >= val.length) { val = def }
       const smsCode1 = matrix.replace(/./g, function (a) {
         const res =
-            /[•\d]/.test(a) && i < val.length
-              ? val.charAt(i++)
-              : i >= val.length
-                ? '•'
-                : a
+          /[•\d]/.test(a) && i < val.length
+            ? val.charAt(i++)
+            : i >= val.length
+              ? '•'
+              : a
         // console.log('a: ' + a + ' res:' + res)
         return res
       })
@@ -44,6 +44,10 @@ export default {
       item.currentTarget.value = smsCode1
 
       this.$refs.codeInput.setSelectionRange(pos, pos)
+
+      if (val.length === 4) {
+        this.next()
+      }
     }
   }
 }

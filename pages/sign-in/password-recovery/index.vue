@@ -22,9 +22,11 @@
     <p>phone: {{ phone }}</p>
 
     <OcVerification
-      :stage="picked"
-      :phone-number="phoneNumber"
-      @cpn="cpn"
+      mode="recovery"
+      :stage="stage"
+      :phone="phone"
+      @next="next"
+      @cpn1="cpn1"
     />
   </div>
 </template>
@@ -37,9 +39,19 @@ export default {
     OcVerification
   },
   data: () => ({
-    picked: 0,
-    phoneNumber: ''
-  })
+    stage: 'phone',
+    phone: ''
+  }),
+  methods: {
+    cpn1 (newPhoneNumber) {
+      this.phone = newPhoneNumber
+    },
+    next (pass) {
+      if (this.stage === 'phone') {
+        this.stage = 'pass'
+      }
+    }
+  }
 }
 </script>
 

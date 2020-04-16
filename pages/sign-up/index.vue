@@ -5,53 +5,79 @@
     <br>
     <br>
     <input
+      v-if="stage === 'phone'"
       id="eight"
       v-model="picked"
       value="8"
       type="radio"
     >
-    <label for="eight">8</label>
+    <label
+      v-if="stage === 'phone'"
+      for="eight"
+    >Правильный номер</label>
     <input
+      v-if="stage === 'phone'"
       id="nine"
       v-model="picked"
       value="9"
       type="radio"
     >
-    <label for="nine">9</label>
+    <label
+      v-if="stage === 'phone'"
+      for="nine"
+    >Неправильный номер</label>
     <input
+      v-if="stage === 'sms'"
       id="ten"
       v-model="picked"
       value="10"
       type="radio"
     >
-    <label for="ten">10</label>
+    <label
+      v-if="stage === 'sms'"
+      for="ten"
+    >Код устарел</label>
     <input
+      v-if="stage === 'sms'"
       id="eleven"
       v-model="picked"
       value="11"
       type="radio"
     >
-    <label for="eleven">11</label>
+    <label
+      v-if="stage === 'sms'"
+      for="eleven"
+    >Код неправильный</label>
     <input
+      v-if="stage === 'sms'"
       id="twelve"
       v-model="picked"
       value="12"
       type="radio"
     >
-    <label for="twelve">12</label>
+    <label
+      v-if="stage === 'sms'"
+      for="twelve"
+    >Номер уже зарегистрирован</label>
     <input
+      v-if="stage === 'sms'"
       id="thirteen"
       v-model="picked"
       value="13"
       type="radio"
     >
-    <label for="thirteen">13</label>
+    <label
+      v-if="stage === 'sms'"
+      for="thirteen"
+    >Код правильный</label>
 
     <OcVerification
-      mode="signup"
-      :stage="picked"
-      :phone-number="phoneNumber"
-      @cpn="cpn"
+      mode="sign-up"
+      :phone="phone"
+      :stage="stage"
+      :error="error"
+      @next="next"
+      @cpn1="cpn1"
     />
   </div>
 </template>
@@ -64,12 +90,37 @@ export default {
     OcVerification
   },
   data: () => ({
-    picked: 0,
-    phoneNumber: ''
+    stage: 'phone',
+    error: '',
+    phone: '',
+    attemptCounter: 0,
+    picked: 0
   }),
   methods: {
-    cpn (newPhoneNumber) {
-      this.phoneNumber = newPhoneNumber
+    cpn1 (newPhoneNumber) {
+      this.phone = newPhoneNumber
+    },
+    next () {
+      switch (this.stage) {
+        case 'phone':
+          if (this.picked === '8') {
+            this.stage = 'sms'
+          } else if (this.picked === '9') {
+            this.error = 'wrongNumber'
+          }
+          break
+        case 'sms':
+          if (this.picked === '10') {
+            this.error = 'old-code'
+          } else if (this.picked === '11') {
+            this.error = 'wrong-code'
+          } else if (this.picked === '12') {
+            this.error = 'number-exists'
+          } else if (this.picked === '13') {
+            this.stage = 'userpass'
+          }
+          break
+      }
     }
   }
 }

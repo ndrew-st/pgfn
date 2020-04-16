@@ -1,4 +1,4 @@
-// import axios from '@/plugins/axios'
+import axios from 'axios'
 
 // export const login = async (phone, password) => {
 //   // const data = await axios.post('api/users/login', { phone, password })
@@ -21,17 +21,42 @@
 //   setTimeout(() => resolve('Иоанн'), 3000)
 // })
 
-export const makePr = () => new Promise((resolve, reject) => {
-  const sec = new Date().getSeconds()
-  console.log('Начало кода, sec = ' + sec + ' ')
-  setTimeout(() => {
-    if (sec % 2) {
-      console.log('Дождались, нечётная секунда, sec = ' + sec)
-      reject(sec)
-    } else {
-      const otv = { im: 'ivan' }
-      console.log('Дождались, чётная секунда, sec = ' + otv)
-      resolve(otv)
-    }
-  }, 2000)
-})
+// // вариант работает
+// export const makePr = (phone, pwd) => new Promise((resolve, reject) => {
+//   const sec = new Date().getSeconds()
+//   console.log('Начало кода, sec = ' + sec + ' pass ' + pwd + ' phone ' + phone)
+//   setTimeout(() => {
+//     if (sec % 2) {
+//       console.log('Дождались, нечётная секунда, sec = ' + sec)
+//       reject(sec)
+//     } else {
+//       const otv = { im: 'ivan' }
+//       console.log('Дождались, чётная секунда, sec = ' + otv)
+//       resolve(otv)
+//     }
+//   }, 2000)
+// })
+
+// export const makePr = function (phone, pwd) {
+//   return new Promise((resolve, reject) => {
+//     const sec = new Date().getSeconds()
+//     console.log('Начало кода, sec = ' + sec + ' pass ' + pwd + ' phone ' + phone)
+//     setTimeout(() => {
+//       if (sec % 2) {
+//         console.log('Дождались, нечётная секунда, sec = ' + sec)
+//         reject(sec)
+//       } else {
+//         const otv = { im: 'ivan' }
+//         console.log('Дождались, чётная секунда, sec = ' + otv)
+//         resolve(otv)
+//       }
+//     }, 2000)
+//   })
+// }
+
+// export const makePr = axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR')
+
+// // работает
+// export const makePr = () => axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+
+export const makePr = () => axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR')

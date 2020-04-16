@@ -2,7 +2,7 @@
   <div>
     <div
       class="box"
-      :class="{signin: stage === 'phone' || stage === 'pass', signup: stage === '8' || stage === '9' || stage === '10' || stage === '11' || stage === '12' || stage === '13' || stage === '14'}"
+      :class="{signin: mode === 'sign-in', signup: mode === 'sign-up'}"
     >
       <p class="h">
         Personal<span class="headline">.Guide</span>
@@ -11,7 +11,7 @@
       <slot />
 
       <p
-        v-if="stage === '7'"
+        v-if="stage === 'timer'"
         class="p"
       >
         Вы превысили количество попыток ввода логина
@@ -19,7 +19,7 @@
       </p>
 
       <p
-        v-if="stage === '7'"
+        v-if="stage === 'timer'"
         class="timer"
       >
         1 минуту 59 секунд
@@ -33,14 +33,14 @@
       </p>
 
       <p
-        v-if="stage === '13'"
+        v-if="stage === 'userpass'"
         class="p15"
       >
         Введите имя и придумайте пароль
       </p>
 
       <p
-        v-if="stage === '15'"
+        v-if="mode === 'recovery' && stage === 'pass'"
         class="p15"
       >
         Придумайте пароль
@@ -48,12 +48,13 @@
 
       <OcPass
         v-if="stage === 'pass'"
-        :stage="stage"
+        :mode="mode"
+        :error="error"
         @next="next"
       />
 
       <p
-        v-if="stage === '14'"
+        v-if="mode === 'recovery' && stage === 'phone'"
         class="p14"
       >
         Для восстановления доступа введите код из смс <br>
@@ -69,11 +70,12 @@
           <div>
             <OcPhoneNumber
               :stage="stage"
+              :error="error"
               @cpn2="cpn2"
             />
 
             <p
-              v-if="stage === '3'"
+              v-if="error === 'wrongNumber'"
               class="red-p"
             >
               Номер не может быть использован для входа
@@ -91,23 +93,23 @@
       </div>
 
       <p
-        v-if="stage === '9' || stage === '10' || stage === '11' || stage === '12'"
+        v-if="mode === 'sign-up' && stage === 'sms'"
         class="p-sms"
       >
         Введите код из смс отправленного на номер <nobr><b>{{ phone }}</b></nobr>
       </p>
 
       <input
-        v-if="stage === '9' || stage === '10' || stage === '11' || stage === '12' || stage === '14'"
+        v-if="stage === 'sms'"
         ref="codeInput"
         type="text"
-        :class="{ code14: stage === '14', code: stage !== '14' }"
+        :class="{ code14: mode === 'recovery', code: mode !== 'recovery' }"
         placeholder="••••"
         @input="mask"
       >
 
       <div
-        v-if="stage === '13'"
+        v-if="stage === 'userpass'"
         class="flex"
       >
         <input
@@ -124,7 +126,7 @@
         >
 
         <button
-          v-if="stage === '13'"
+          v-if="stage === 'userpass'"
           class="btn13"
           :class="{ active: username !== '' && userpassword !== '' }"
         >
@@ -133,28 +135,28 @@
       </div>
 
       <p
-        v-if="stage === '10'"
+        v-if="stage === 'sms' && error === 'old-code'"
         class="old-code"
       >
         Данный код устарел. Пожалуйста, получите новый код в смс
       </p>
 
       <p
-        v-if="stage === '11'"
+        v-if="stage === 'sms' && error === 'wrong-code'"
         class="old-code"
       >
         Неверный код подтверждения
       </p>
 
       <p
-        v-if="stage === '12'"
+        v-if="stage === 'sms' && error === 'number-exists'"
         class="old-code"
       >
         Номер телефона уже зарегистрирован в системе
       </p>
 
       <a
-        v-if="stage === '9' || stage === '14'"
+        v-if="stage === 'sms' && error === ''"
         class="send-again-timer9"
         href="#"
       >
@@ -162,7 +164,7 @@
       </a>
 
       <a
-        v-if="stage === '11' || stage === '12'"
+        v-if="error === 'wrong-code' || error === 'number-exists'"
         class="send-again-timer11"
         href="#"
       >
@@ -170,42 +172,41 @@
       </a>
 
       <a
-        v-if="stage === '10'"
-        class="send-again-link"
+        v-if="error === 'old-code'"
+        class="send-again-link "
         href="#"
       >
         Отправить код ещё раз
       </a>
 
       <a
-        v-if="stage === '9' || stage === '10' || stage === '11' || stage === '12' || stage === '13' || stage === '14'"
-        :class="{ goback28: stage === '10' || stage === '13', goback48: stage === '9' || stage === '11' || stage === '12' || stage === '14' }"
+        v-if="stage === 'sms' || stage === 'userpass'"
+        :class="{ goback28: error === 'old-code' || stage === 'userpass', goback48: !(error === 'old-code' || stage === 'userpass') }"
         href="#"
       >
         Вернуться
       </a>
 
       <a
-        v-if="stage === '1' || stage === '2' || stage === '3' || stage === '4' || stage === '5' || stage === '6' || stage === '7'"
+        v-if="mode === 'sign-in'"
         class="reg"
-        :class="{ reg7: stage === '7' }"
+        :class="{ reg7: stage === 'timer' }"
         href="#"
       >
         Зарегистрироваться
       </a>
 
       <p
-        v-if="stage === '5' || stage === '6' || stage === '7'"
+        v-if="mode === 'sign-in' && error !== ''"
         class="reset"
       >
         Сбросить пароль
       </p>
 
       <div
-        v-if="stage === '8'"
+        v-if="mode === 'sign-up' && stage === 'phone'"
       >
         <a
-          v-if="stage === '8'"
           class="enter-top"
           href="#"
         >
@@ -225,7 +226,7 @@
         </span>
 
         <a
-          v-if="stage === '8'"
+
           class="enter-bottom"
           href="#"
         >
