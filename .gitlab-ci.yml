@@ -6,6 +6,7 @@ build:
   stage: build
   only:
     - tags
+    - web
   variables:
     DOCKER_DRIVER: overlay2
     DOCKER_TLS_CERTDIR: ""
@@ -22,6 +23,7 @@ deploy:
   stage: deploy
   only:
     - tags
+    - web
   script:
     - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
     - kubectl config set-credentials admin --token="$KUBE_TOKEN"
