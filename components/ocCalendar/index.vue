@@ -9,7 +9,7 @@
       </div>
 
       <div
-        class="calender"
+        class="calendar"
         :class="{active: active}"
       >
         <div class="months">

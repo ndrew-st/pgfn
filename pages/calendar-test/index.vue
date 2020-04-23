@@ -45,7 +45,7 @@
         >
       </div>
     </div>
-    <OcCalender
+    <OcCalendar
       :selected-dates="selInterval"
       :occupied-dates="occArray"
     />
@@ -53,9 +53,9 @@
 </template>
 
 <script>
-import OcCalender from '@/components/ocCalender/index.vue'
+import OcCalendar from '@/components/ocCalendar/index.vue'
 export default {
-  components: { OcCalender },
+  components: { OcCalendar },
   data () {
     return {
       selStart: '2020-04-19',
