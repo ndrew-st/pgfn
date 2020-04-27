@@ -74,11 +74,14 @@
       for="six"
     >Много попыток</label>
 
+    <p>timeCounter: {{ timeCounter > 60 ? '1 минуту ' + (timeCounter - 60) + ' секунд' : '' + timeCounter + ' секунд' }}</p>
+
     <OcVerification
       mode="sign-in"
       :phone="phone"
       :stage="stage"
       :error="error"
+      :time-counter="timeCounter > 60 ? '1 минуту ' + (timeCounter - 60) + ' секунд' : '' + timeCounter + ' секунд'"
       @cpn1="cpn1"
       @next="next"
     />
@@ -87,7 +90,8 @@
 
 <script>
 import OcVerification from '@/components/ocVerification/index.vue'
-import { makePr } from '@/api/user.js'
+// import { makePr } from '@/api/user.js'
+import axios from 'axios'
 
 export default {
   components: {
@@ -98,24 +102,61 @@ export default {
     error: '',
     phone: '',
     attemptCounter: 0,
-    picked: 0
+    picked: 0,
+    timeCounter: 119
   }),
   methods: {
     cpn1 (newPhoneNumber) {
       this.phone = newPhoneNumber
     },
     login (pass) {
+      console.log('sign-in login')
+      // debugger
       if (this.attemptCounter < 5) {
-        const pr = makePr()
+        // const login = async (phone, password) => {
+        //   try {
+        //     const userData = await axios.post('https://dev.personal.guide/api/users/login', { phone, password })
+        //     console.log('THIS USER IS:', userData.data)
+        //   } catch (e) {
+        //     console.log('ERROR MESSAGE:', e.response.data)
+        //   }
+        // }
+        // login(this.phone, pass)
+        const makePr = (phone, password) => axios.post('https://dev.personal.guide/api/users/login', { phone, password })
+        // const pr = makePr({ phone: '+71234567890', password: 'aasdfasdf' })
+        const pr = makePr(this.phone, pass)
         pr.then((res) => {
-        // console.log('Промис выполнен успешно ' + JSON.stringify(res))
-          console.log('Промис выполнен успешно ' + res.data.BTC.USD)
+          debugger
+          console.log('Промис выполнен успешно ' + JSON.stringify(res))
+          console.log('data ' + res.data)
+          // console.log('Промис выполнен успешно ' + res.data.BTC.USD)
+
+          // Допустим сервак вернул объект
+
+          // const reply = {
+          //   tokens: {
+          //     accessToken: 'string (jwt)',
+          //     refreshToken: 'string (jwt)'
+          //   },
+          //   user: {
+          //     id: 'string',
+          //     name: 'string',
+          //     phone: 'string'
+          //   }
+          // }
+          // // error
+          // const reply2 = {
+          //   error: 'error message'
+          // }
+
           // this.stage = вернуться на исходную страницу или в корень сайта
           // if (res.error) {
           //   this.stage = 'wrongLoginPassword'
           // } else {
           //   this.$router.push('/')
           // }
+
+          // if ()
 
           if (this.picked === '3') {
             // правильный пароль
@@ -129,25 +170,39 @@ export default {
           }
         },
         (res) => {
-        // debugger // больше интересует эта часть, отбойники
+          debugger // больше интересует эта часть, отбойники
           console.log('Промис выполнен неудачно ' + JSON.stringify(res))
+          console.log('data ' + res.data)
         })
       } else {
         this.error = ''
         this.stage = 'timer'
+
+        const timerId = setInterval(() => {
+          this.timeCounter -= 1
+          if (this.timeCounter > 0) {
+          } else {
+            this.timeCounter = 119
+            clearInterval(timerId)
+            this.stage = 'phone'
+          }
+        }, 1000, this.timeCounter)
       }
     },
     next (pass) {
+      console.log('next sign-in ')
       switch (this.stage) {
         case 'phone':
           if (this.picked === '1') {
+            // debugger
+            // this.$router.hash = '#pass'
+            // window.history.pushState({ f: 'asdf' }, 'login', '/pass')
             this.stage = 'pass'
           } else {
             this.error = 'wrongNumber'
           }
           break
         case 'pass':
-          // console.log('мы получили пароль')
           if (this.picked === '6') {
             this.attemptCounter = 5
           }

@@ -22,7 +22,7 @@
         v-if="stage === 'timer'"
         class="timer"
       >
-        1 минуту 59 секунд
+        {{ timeCounter }}
       </p>
 
       <p
@@ -71,6 +71,7 @@
             <OcPhoneNumber
               :stage="stage"
               :error="error"
+              @next="next"
               @cpn2="cpn2"
             />
 
@@ -128,7 +129,8 @@
         <button
           v-if="stage === 'userpass'"
           class="btn13"
-          :class="{ active: username !== '' && userpassword !== '' }"
+          :class="{ active: username !== '' && userpassword.length > 5 }"
+          @click="next"
         >
           Далее
         </button>
@@ -160,7 +162,7 @@
         class="send-again-timer9"
         href="#"
       >
-        Отправить еще код через 1 мин. 59 сек.
+        Отправить еще код через {{ timeCounter > 60 ? '1 минуту ' + (timeCounter - 60) + ' секунд' : '' + timeCounter + ' секунд' }}
       </a>
 
       <a
@@ -191,24 +193,25 @@
         v-if="mode === 'sign-in'"
         class="reg"
         :class="{ reg7: stage === 'timer' }"
-        href="#"
+        href="/sign-up"
       >
         Зарегистрироваться
       </a>
 
-      <p
+      <a
         v-if="mode === 'sign-in' && error !== ''"
         class="reset"
+        href="/sign-in/password-recovery"
       >
         Сбросить пароль
-      </p>
+      </a>
 
       <div
         v-if="mode === 'sign-up' && stage === 'phone'"
       >
         <a
           class="enter-top"
-          href="#"
+          href="/sign-in"
         >
           Войти
         </a>
@@ -228,7 +231,7 @@
         <a
 
           class="enter-bottom"
-          href="#"
+          href="/sign-in"
         >
           Войти
         </a>

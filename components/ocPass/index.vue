@@ -8,6 +8,7 @@
           type="password"
           placeholder="Пароль"
           :class="{red: error !== '', norm: error === ''}"
+          @keyup.enter="next1()"
         >
 
         <p
@@ -28,7 +29,7 @@
       <button
         v-if="mode === 'sign-in'"
         class="btn"
-        :class="{active: password !== '', sp: error !== '' }"
+        :class="{active: password.length > 5, sp: error !== '' }"
         @click="next1"
       >
         Далее
@@ -37,7 +38,7 @@
       <button
         v-if="mode !== 'sign-in'"
         class="btn"
-        :class="{active: password !== ''}"
+        :class="{active: password.length > 5}"
       >
         Готово
       </button>

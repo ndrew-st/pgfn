@@ -15,6 +15,7 @@
       v-model="phone1"
       class="input"
       type="text"
+      @keyup.enter="next()"
       @input="mask"
     >
   </div>

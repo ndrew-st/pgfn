@@ -1,17 +1,15 @@
 export default {
   props: ['mode', 'error'],
-  methods: {
-    cpn (phoneNumber) {
-      this.phoneNumber = phoneNumber
-      this.$emit('cpn', this.phoneNumber)
-    },
-    next1 () {
-      console.log('мы зашли в обработку нехт')
-      this.$emit('next', this.password)
-    }
-  },
   data: () => ({
     isActive: false,
     password: ''
-  })
+  }),
+  methods: {
+    next1 () {
+      if (this.password.length > 5) {
+        console.log('next1')
+        this.$emit('next', this.password)
+      }
+    }
+  }
 }

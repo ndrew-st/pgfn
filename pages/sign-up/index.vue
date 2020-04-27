@@ -76,6 +76,7 @@
       :phone="phone"
       :stage="stage"
       :error="error"
+      :time-counter="timeCounter"
       @next="next"
       @cpn1="cpn1"
     />
@@ -84,6 +85,7 @@
 
 <script>
 import OcVerification from '@/components/ocVerification/index.vue'
+import { getCodePromise } from '@/api/user.js'
 
 export default {
   components: {
@@ -94,7 +96,8 @@ export default {
     error: '',
     phone: '',
     attemptCounter: 0,
-    picked: 0
+    picked: 0,
+    timeCounter: 119
   }),
   methods: {
     cpn1 (newPhoneNumber) {
@@ -103,10 +106,36 @@ export default {
     next () {
       switch (this.stage) {
         case 'phone':
-          if (this.picked === '8') {
+
+          const pr = getCodePromise({ phone: this.phone })
+          pr.then((res) => {
+            debugger
             this.stage = 'sms'
+            const x = setInterval(() => {
+              this.timeCounter -= 1
+              if (this.timeCounter < 1) {
+                clearInterval(x)
+              }
+            }, 1000)
+          }, (res) => {
+            debugger
+            switch (res.response.data.error) {
+              case 'You only recently sent SMS!':
+                this.stage = 'sms'
+                break
+            }
+          })
+
+          if (this.picked === '8') {
+            // this.stage = 'sms'
+            // const x = setInterval(() => {
+            //   this.timeCounter -= 1
+            //   if (this.timeCounter < 1) {
+            //     clearInterval(x)
+            //   }
+            // }, 1000)
           } else if (this.picked === '9') {
-            this.error = 'wrongNumber'
+            // this.error = 'wrongNumber'
           }
           break
         case 'sms':

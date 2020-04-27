@@ -28,7 +28,9 @@ export default {
       //   } else setCursorPosition(this.value.length, this)
     },
     next (item) {
-      // this.$emit('', this.phoneNumber)
+      if (this.phone1.length === 13) {
+        this.$emit('next')
+      }
     }
   }
 }
