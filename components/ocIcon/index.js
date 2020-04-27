@@ -9,15 +9,24 @@ export default {
       required: true
     },
     outline: {
-      type: Boolean,
+      type: [Boolean, String],
       default: false
     }
   },
   computed: {
     iconClass () {
       if (this.type === 'fontawesome') {
-        const faClass = this.outline ? 'far' : 'fas'
-        return `${faClass} fa-${this.icon}`
+        if (this.outline) {
+          let faClass
+
+          if (typeof this.outline === 'boolean') {
+            faClass = this.outline ? 'far' : 'fas'
+          } else {
+            faClass = this.outline
+          }
+
+          return `${faClass} fa-${this.icon}`
+        }
       }
     }
   }
