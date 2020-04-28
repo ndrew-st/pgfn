@@ -1,10 +1,11 @@
 <template>
   <div class="direction-page">
-
     <Full
       :title="head.title"
       :description="head.description"
       :background="head.background"/>
+
+    <FilterBlock/>
 
     <!-- Направление -->
     <GroupCard
@@ -66,6 +67,7 @@ import { mapActions, mapGetters } from 'vuex'
 import SubscribeEmail from './-components/subscribe-email'
 import Full from './-components/full'
 import DescBlock from './-components/desc'
+import FilterBlock from './-components/filter'
 import GroupCard from '~/components/ocGroupCard'
 
 import CardDirection from '~/components/ocCardDirection'
@@ -79,7 +81,8 @@ export default {
     SubscribeEmail,
     CardItem,
     CardDirection,
-    GroupCard
+    GroupCard,
+    FilterBlock
   },
   data () {
     return {

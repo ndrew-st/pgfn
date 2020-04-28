@@ -36,7 +36,7 @@ export default {
     extendRoutes (routes, resolve) {
       routes.push(
         {
-          name: 'main-page',
+          name: 'main',
           path: '/',
           component: resolve(__dirname, 'pages/direction/_name')
         }
@@ -80,5 +80,8 @@ export default {
     extend (config, ctx) {
       config.resolve.extensions = [ '.vue', ...config.resolve.extensions ]
     }
+  },
+  env: {
+    throttle_time: 1000
   }
 }
