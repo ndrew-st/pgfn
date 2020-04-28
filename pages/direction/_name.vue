@@ -58,9 +58,9 @@
 </template>
 
 <script>
+import SubscribeEmail from './-components/subscribe-email'
 import Full from './-components/full'
 import DescBlock from './-components/desc'
-import SubscribeEmail from '../direction/-components/subscribe-email'
 import GroupCard from '~/components/ocGroupCard'
 
 import CardDirection from '~/components/ocCardDirection'

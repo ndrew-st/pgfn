@@ -26,5 +26,6 @@ module.exports = {
         }
       }
     ],
+    'vue/require-component-is': 'warn'
   }
 }

@@ -1,7 +1,7 @@
 import { mapActions } from 'vuex'
 
-import Icon from '~/components/ocIcon'
 import Form from './-components/Form'
+import Icon from '~/components/ocIcon'
 
 import SeachInput from '~/components/ocSearchInput'
 
