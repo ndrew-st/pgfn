@@ -2,21 +2,20 @@
   <div class="direction-page">
 
     <Full
-      :title="result.title"
-      :description="result.description"
-      :background="result.background"/>
+      :title="head.title"
+      :description="head.description"
+      :background="head.background"/>
 
     <!-- Направление -->
     <GroupCard
       v-if="direction"
-      :tabs="tabs"
-      :items="itemsSec"
+      :tabs="direction.tabs"
+      :items="direction.items"
       :count="244"
-      :autoWidth="false"
       @changeTab="handlerTab('direction', $event)"
       title="Популярные направления">
       <CardDirection
-        v-for="item in itemsSec"
+        v-for="item in direction.items"
         :key="item.id"
         :item="item"
         :is-liked="false"
@@ -25,18 +24,18 @@
 
     <!-- Жильё -->
     <GroupCard
-      @changeTab="handlerTab('housing', $event)"
+      @changeTab="handlerTab('apartments', $event)"
       :autoWidth="true"
       :count="213"
-      :items="items"
-      :tabs="tabs"
+      :items="apartments.items"
+      :tabs="apartments.tabs"
       title="Жильё">
       <CardItem
-        v-for="item in items"
+        v-for="item in apartments.items"
         :key="item.id"
         :item="item"
         :is-liked="false"
-        @setLike="handlerLike(item.id, 'housing')"/>
+        @setLike="handlerLike(item.id, 'apartments')"/>
     </GroupCard>
 
     <SubscribeEmail/>
@@ -46,11 +45,11 @@
       @changeTab="handlerTab('services', $event)"
       :autoWidth="true"
       :count="213"
-      :items="items"
-      :tabs="tabs"
+      :items="services.items"
+      :tabs="services.tabs"
       title="Услуги">
       <CardItem
-        v-for="item in items"
+        v-for="item in services.items"
         :key="item.id"
         :item="item"
         :is-liked="false"
@@ -84,19 +83,21 @@ export default {
   },
   data () {
     return {
-
+      defaultQuery: 'Крым',
+      error: null
     }
   },
   computed: {
     query () {
       return this.$route.params.name
     },
-    ...mapGetters('main-page', [ 'direction', 'apartments', 'services', 'title', 'description', 'image' ])
+    ...mapGetters('main-page', ['direction', 'apartments', 'services', 'head'])
   },
   mounted () {
-    if (!this.query) {
-
-    }
+    this.getData(this.query || this.defaultQuery)
+      .catch((err) => {
+        this.error = err
+      })
   },
   methods: {
     handlerTab (field, evt) {
@@ -105,7 +106,7 @@ export default {
     handlerLike (idCard, field) {
 
     },
-    ...mapActions('main-page', [''])
+    ...mapActions('main-page', ['getData'])
   }
 }
 </script>

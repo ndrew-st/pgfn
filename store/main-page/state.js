@@ -108,16 +108,82 @@ export default {
       ],
       items: [
         {
+          id: 1,
           name: 'Tree house',
           address: 'Полный адрес',
           attrs: [ '4 гостя', '1 спальня' ],
           rating: 4.3,
           reviews: 128,
           type: 'Отель',
-          previewGallery: [],
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
           favorits: false,
           price: 5980,
-          oldprice: 8010 // опционально
+          oldprice: 8010
+        },
+        {
+          id: 2,
+          name: 'Tree house',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 3,
+          name: 'Tree house',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 4,
+          name: 'Tree house',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 5,
+          name: 'Tree house',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 6,
+          name: 'Tree house',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
         }
       ]
     },

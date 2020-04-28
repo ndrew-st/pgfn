@@ -13,6 +13,10 @@ export default {
       type: Number,
       default: 0
     },
+    autoWidth: {
+      type: Boolean,
+      default: false
+    },
     column: {
       type: Number,
       default: 1
@@ -21,9 +25,9 @@ export default {
       type: Boolean,
       default: false
     },
-    autoWidth: {
+    show: {
       type: Boolean,
-      dafault: true
+      default: false
     }
   },
   computed: {
@@ -132,28 +136,30 @@ export default {
     }
   },
   mounted () {
-    const marginRight = parseInt(getComputedStyle(this.$refs.list.children[0], true).marginRight)
+    if (this.$refs.list.children[0]) {
+      const marginRight = parseInt(getComputedStyle(this.$refs.list.children[0], true).marginRight)
 
-    if (marginRight > 0) {
-      this.widthItem = this.$refs.list.children[0].clientWidth + marginRight - 1 // For card with margin
-    } else {
-      this.widthItem = this.$refs.list.children[0].clientWidth
+      if (marginRight > 0) {
+        this.widthItem = this.$refs.list.children[0].clientWidth + marginRight - 1 // For card with margin
+      } else {
+        this.widthItem = this.$refs.list.children[0].clientWidth
+      }
 
-      console.log(this.widthItem)
+      this.widthWrapper = this.$refs.carousel.clientWidth
+
+      if (this.widthWrapper < this.widthItem * this.column) {
+        this.countColumn = Math.floor(this.widthWrapper / this.widthItem)
+      } else {
+        this.countColumn = this.column
+      }
+
+      window.addEventListener('resize', this.handlerResize)
     }
-
-    this.widthWrapper = this.$refs.carousel.clientWidth
-
-    if (this.widthWrapper < this.widthItem * this.column) {
-      this.countColumn = Math.floor(this.widthWrapper / this.widthItem)
-    } else {
-      this.countColumn = this.column
-    }
-
-    window.addEventListener('resize', this.handlerResize)
   },
   beforeDestroy () {
-    window.removeEventListener('resize')
+    if (window) {
+      window.removeEventListener('resize')
+    }
   },
   data () {
     return {

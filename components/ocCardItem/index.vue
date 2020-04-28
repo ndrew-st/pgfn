@@ -4,8 +4,8 @@
       <Carousel
         :nav="true"
         :column="1"
-        :autoWidth="true"
         :dots="true"
+        :show="false"
         :items="item.previewGallery"
         class="card-item__swiper">
           <img

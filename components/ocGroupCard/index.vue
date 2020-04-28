@@ -33,6 +33,7 @@
                 :column="4"
                 :items="items"
                 :autoWidth="autoWidth"
+                :show="true"
                 :nav="true">
                 <slot/>
             </ocCarousel>

@@ -10,6 +10,7 @@
 
     &.hide
       overflow hidden
+        
 
   &__list
     display flex
@@ -124,3 +125,9 @@
 
     &.active-dot
       background-color #D55F59
+
+@media(min-width 1280px)
+  .carousel
+    &__wrapper
+      &.show-desktop
+        overflow hidden

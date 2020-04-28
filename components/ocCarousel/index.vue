@@ -6,7 +6,7 @@
     class="carousel">
     <div
       :style="{ 'max-width': maxWidthWrapper + 'px' }"
-      :class="{ hide: autoWidth }"
+      :class="{ hide: !show, 'show-desktop': autoWidth }"
       class="carousel__wrapper">
       <div
       ref="list"
