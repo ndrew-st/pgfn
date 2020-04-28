@@ -1,17 +1,45 @@
 <template>
   <div class="full-block">
+    <img
+      :alt="title"
+      :src="background"
+      width="2400"
+      height="1600"
+      class="full-block__bg-image">
     <div class="full-block__container">
-      <h2 class="full-block__title">Путеводитель по твоим правилам</h2>
-      <p class="full-block__description">Полуостров Крым — это уникальная природа, горы, древние города и императорские дворцы. Редакция портала «Культура.РФ» подготовила культурный гид по главным достопримечательностям Крыма.</p>
+      <h2 class="full-block__title">{{ title }}</h2>
+      <p class="full-block__description">{{ description }}</p>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    background: {
+      type: String,
+      required: true
+    }
+  }
+}
+</script>
 
 <style lang="stylus" scoped>
 .full-block
   margin-bottom 50px
   padding 0 18px
   padding-top 32px
+
+  &__bg-image
+    display none
 
   &__container
     max-width 520px
@@ -56,20 +84,17 @@
 
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 27.17%, rgba(0, 0, 0, 0.11) 38.21%, rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0.55) 99.87%);
 
-    &:before
-      content ''
-
+    &__bg-image
       position absolute
+      top -90%
       left 0
       right 0
-      bottom -350px
+      bottom 0
 
+      display block
+      margin auto
       width 2400px
-      height 1600px
-      margin 0 auto
-
-      background url('/main-page/full-bg.jpg') 0 0 no-repeat
-      background-size 2400px 1600px
+      min-height 1600px
 
       z-index -1
 
