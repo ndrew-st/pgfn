@@ -1,0 +1,163 @@
+.group-cart
+  position relative
+
+  display flex
+  flex-wrap wrap
+  margin-bottom 25px
+  padding 0 16px
+  padding-right 0
+
+  box-sizing border-box
+
+  &__title-container
+    display flex
+    flex-basis 100%
+    margin-bottom 20px
+
+    order 1
+
+  &__title
+    margin-right 8px
+
+    font-style normal
+    font-weight bold
+    font-size 18px
+    line-height 24px
+    letter-spacing -0.1px
+    color #272528
+
+  &__count-articles
+    font-style normal
+    font-weight normal
+    font-size 13px
+    line-height 16px
+    letter-spacing 0.2px
+    color #989BA8
+
+  &__checkboxes
+    order 3
+
+    overflow-x auto
+
+  &__list
+    display flex
+    max-width 100%
+    margin 0 auto
+    padding 0
+    padding-top 15px
+
+    list-style none
+    overflow auto
+
+    &.visible
+      overflow visible
+
+  &__item
+    min-width 252px
+    margin-right 16px
+
+  &__slider-container
+    position relative
+    max-width 1280px
+    width 100%
+    margin 0 auto
+    flex-basis 100%
+    margin 0
+
+    order 2
+        
+.group-checkbox
+  overflow-x auto
+  margin-left -16px
+  margin-right -16px
+  padding-right 16px
+
+  &__list
+    display flex
+    width 100%
+    margin 0
+    padding 20px 16px
+    padding-bottom 25px
+    
+    list-style none
+
+  &__item
+    margin-right 8px
+
+    &:last-child
+      padding-right 32px
+
+  &__label
+    display flex
+    align-items center
+    padding 0 16px
+    height 36px
+
+    white-space nowrap
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 28px;
+    text-align: center;
+    color: #EB574F;
+
+    background: #FFFFFF;
+    box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+
+    transition: all 0.3s linear 0s
+
+    cursor pointer
+
+    &:hover,
+    &.checked
+      color white
+
+      background-color #EB574F
+
+      transition: all 0.3s linear 0s
+
+@media(min-width 1280px)
+  .group-cart
+    max-width 1280px
+    margin-left auto
+    margin-right auto
+    padding 0
+    margin-bottom 75px
+
+    &__title-container
+      margin-bottom 8px
+
+    &__title
+      font-size 24px
+
+    &__count-articles
+      font-size 18px
+
+    &__checkboxes
+      order 2
+
+    &__list
+      position relative
+
+      width 100%
+
+      order 3
+
+  .group-checkbox
+    margin-left -16px
+    padding-left 16px
+    margin-right 0
+    
+    &__list
+      padding-left 0
+      padding-right 0
+      padding-bottom 20px
+
+    &__item
+      margin-right 16px
+
+    &__label
+      padding 0 18px
+
+      font-size 18px

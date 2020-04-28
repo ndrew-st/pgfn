@@ -34,11 +34,18 @@ export default {
   ],
   router: {
     extendRoutes (routes, resolve) {
-      routes.push({
-        name: 'home-page',
-        path: '/',
-        component: resolve(__dirname, 'pages/main-page')
-      })
+      routes.push(
+        {
+          name: 'home-page',
+          path: '/home-page',
+          component: resolve(__dirname, 'pages/main-page')
+        },
+        {
+          name: 'direction-page',
+          path: '/direction/:name',
+          component: resolve(__dirname, 'pages/direction/_name')
+        }
+      )
     }
   },
   /*
