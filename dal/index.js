@@ -7,5 +7,8 @@ export default axios => ({
   },
   getDirection (name) {
     return axios.get(`/api/apartments/direction?name=${name}`)
+  },
+  updateTabs (url) {
+    return axios.get(url)
   }
 })

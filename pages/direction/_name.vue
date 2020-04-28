@@ -11,7 +11,7 @@
       v-if="direction"
       :tabs="direction.tabs"
       :items="direction.items"
-      :count="244"
+      :count="direction.items.length"
       @changeTab="handlerTab('direction', $event)"
       title="Популярные направления">
       <CardDirection
@@ -26,7 +26,7 @@
     <GroupCard
       @changeTab="handlerTab('apartments', $event)"
       :autoWidth="true"
-      :count="213"
+      :count="apartments.items.length"
       :items="apartments.items"
       :tabs="apartments.tabs"
       title="Жильё">
@@ -44,7 +44,7 @@
     <GroupCard
       @changeTab="handlerTab('services', $event)"
       :autoWidth="true"
-      :count="213"
+      :count="services.items.length"
       :items="services.items"
       :tabs="services.tabs"
       title="Услуги">
@@ -100,13 +100,14 @@ export default {
       })
   },
   methods: {
-    handlerTab (field, evt) {
-
+    handlerTab (field, url) {
+      this.updateTabs({ field, url })
+        .catch(err => console.log('Error change tab: ', err))
     },
     handlerLike (idCard, field) {
-
+      // what do with likes
     },
-    ...mapActions('main-page', ['getData'])
+    ...mapActions('main-page', ['getData', 'updateTabs'])
   }
 }
 </script>
