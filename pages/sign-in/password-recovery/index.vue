@@ -1,5 +1,5 @@
 <template>
-  <div class="all">
+  <div class="password-recovery">
     <br>
     <br>
     <br>
@@ -19,15 +19,37 @@
     >
     <label for="fiveteen">15</label>
 
-    <p>phone: {{ phone }}</p>
-
     <OcVerification
       mode="recovery"
       :stage="stage"
       :phone="phone"
       @next="next"
       @cpn1="cpn1"
-    />
+    >
+      <p
+        v-if="mode === 'recovery' && stage === 'phone'"
+        class="p14"
+      >
+        Для восстановления доступа введите код из смс <br>
+        отправленного на номер <b>+7 {{ phone }}</b>
+      </p>
+
+      <input
+        v-if="stage === 'sms'"
+        ref="codeInput"
+        type="text"
+        class="code14"
+        placeholder="••••"
+        @input="mask"
+      >
+
+      <OcPass
+        v-if="stage === 'pass'"
+        :mode="mode"
+        :error="error"
+        @next="next"
+      />
+    </OcVerification>
   </div>
 </template>
 
@@ -55,16 +77,4 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.all
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color #E5E5E5
-@media (max-width: 750px)
-  .all
-    background-color #FFFFFF
-
-</style>
+<style src="./index.styl" lang="stylus"></style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="all">
+  <div class="sign-in">
     <router-link
       to="/sign-in/password-recovery"
     >
@@ -84,7 +84,81 @@
       :time-counter="timeCounter > 60 ? '1 минуту ' + (timeCounter - 60) + ' секунд' : '' + timeCounter + ' секунд'"
       @cpn1="cpn1"
       @next="next"
-    />
+    >
+      <div v-if="stage === 'phone'">
+        <div class="flex">
+          <div>
+            <OcPhoneNumber
+              :stage="stage"
+              :error="error"
+              @next="next"
+              @cpn2="cpn2"
+            />
+
+            <p
+              v-if="error === 'wrongNumber'"
+              class="red-p"
+            >
+              Номер не может быть использован для входа
+            </p>
+          </div>
+
+          <button
+            class="btn"
+            :class="{ active: phone.length === 13, sp: stage === 'phone' }"
+            @click="next"
+          >
+            Далее
+          </button>
+        </div>
+      </div>
+
+      <p
+        v-if="stage === 'timer'"
+        class="p"
+      >
+        Вы превысили количество попыток ввода логина
+        и пароля. Блокировка будет снята через:
+      </p>
+
+      <p
+        v-if="stage === 'timer'"
+        class="timer"
+      >
+        {{ timeCounter }}
+      </p>
+
+      <p
+        v-if="stage === 'pass'"
+        class="p456"
+      >
+        Введите пароль для логина <nobr><b>+7 {{ phone }}</b></nobr>
+      </p>
+
+      <OcPass
+        v-if="stage === 'pass'"
+        :mode="mode"
+        :error="error"
+        @next="next"
+      />
+
+      <a
+        v-if="mode === 'sign-in'"
+        class="reg"
+        :class="{ reg7: stage === 'timer' }"
+        href="/sign-up"
+      >
+        Зарегистрироваться
+      </a>
+
+      <a
+        v-if="mode === 'sign-in' && error !== ''"
+        class="reset"
+        href="/sign-in/password-recovery"
+      >
+        Сбросить пароль
+      </a>
+    </OcVerification>
   </div>
 </template>
 
@@ -168,9 +242,8 @@ export default {
             this.attemptCounter++
             this.error = 'userBlocked'
           }
-        },
-        (res) => {
-          debugger // больше интересует эта часть, отбойники
+        }, (res) => {
+          // debugger // больше интересует эта часть, отбойники
           console.log('Промис выполнен неудачно ' + JSON.stringify(res))
           console.log('data ' + res.data)
         })
@@ -215,16 +288,4 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.all
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color #E5E5E5
-
-@media (max-width: 750px)
-  .all
-    background-color #FFFFFF
-</style>
+<style src="./index.styl" lang="stylus"></style>

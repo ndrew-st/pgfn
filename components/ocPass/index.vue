@@ -1,5 +1,11 @@
 <template>
   <div>
+    <p
+      class="p15"
+    >
+      Придумайте пароль
+    </p>
+
     <div class="flex">
       <div>
         <input
