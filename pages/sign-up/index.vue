@@ -88,39 +88,10 @@
         @next="next()"
       />
 
-      <p
-        v-if="stage === 'userpass'"
-        class="p15"
-      >
-        Введите имя и придумайте пароль
-      </p>
-
-      <div
-        v-if="stage === 'userpass'"
-        class="flex"
-      >
-        <input
-          v-model="username"
-          class="username"
-          placeholder="Имя"
-        >
-
-        <input
-          v-model="userpassword"
-          class="userpassword"
-          placeholder="Пароль"
-          type="password"
-        >
-
-        <button
-          v-if="stage === 'userpass'"
-          class="btn13"
-          :class="{ active: username !== '' && userpassword.length > 5 }"
-          @click="next"
-        >
-          Далее
-        </button>
-      </div>
+      <UserPass
+        v-if="stage ==='userpass'"
+        @next="next()"
+      />
 
       <a
         v-if="stage === 'sms' || stage === 'userpass'"
@@ -140,7 +111,7 @@
           Войти
         </a>
 
-        <span
+        <p
           class="lic"
         >
           Я принимаю условия
@@ -150,7 +121,7 @@
             Пользовательского соглашения
           </a>
           и даю своё согласие на обработку моей персональной информации
-        </span>
+        </p>
 
         <a
           class="enter-bottom"

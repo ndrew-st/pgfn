@@ -2,12 +2,14 @@ import OcVerification from '@/components/ocVerification/index.vue'
 import { serverRequest } from '@/api/user.js'
 import OcPhoneNumber from '@/components/ocPhoneNumber/index.vue'
 import OcSmsCode from '@/components/ocSmsCode/index.vue'
+import UserPass from './user-pass/index.vue'
 
 export default {
   components: {
     OcVerification,
     OcPhoneNumber,
-    OcSmsCode
+    OcSmsCode,
+    UserPass
   },
   data: () => ({
     stage: 'phone',
@@ -15,9 +17,7 @@ export default {
     phone: '',
     attemptCounter: 0,
     picked: 0,
-    timeCounter: 119,
-    username: '',
-    userpassword: ''
+    timeCounter: 119
   }),
   methods: {
     next (par) {
