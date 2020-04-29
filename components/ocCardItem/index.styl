@@ -1,11 +1,13 @@
 .card-item
   position relative
   
-  width 252px
+  min-width 252px
+  margin-right 16px
 
   box-sizing border-box
 
   &__image
+    min-width 252px
     width 252px
     height 168px
 
@@ -16,6 +18,7 @@
     margin-bottom 16px
 
   &__title
+    display block
     margin 0
     margin-bottom 8px
 
@@ -190,16 +193,18 @@
     line-height: 20px;
     color: #989BA8;
 
-  & .carousel
+  &__carousel.carousel
     &__button-container
     &__dots-container
       display none
 
 @media(min-width 1280px)
   .card-item
-    width 300px
+    min-width 300px
+    margin-right 18px
 
     &__image
+      min-width 300px
       width 300px
       height 200px
 
@@ -224,22 +229,24 @@
 
     & .carousel
       &__button-container
-        display block
-
-        opacity 0
-        transition opacity 0.3s ease-in-out 0s
-
       &__dots-container
         display block
 
         opacity 0
         transition opacity 0.3s ease-in-out 0s
+
       & .btn-carousel
         &__prev
         &__next
           width 32px
           height 32px
           margin-top -16px
+
+          &:after
+            width 12px
+            height 11px
+
+            background-size 12px 11px
 
         &__prev
           left 12px

@@ -22,7 +22,7 @@ export default {
     },
     isLiked: {
       type: Boolean,
-      required: true
+      default: false
     }
   },
   data () {

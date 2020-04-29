@@ -1,6 +1,8 @@
 <template>
   <div class="all">
-    <p class="headline">
+    <p
+      v-if="mode !== 'no'"
+      class="headline">
       {{ mode === 'start' ? 'Прибытие' : 'Выезд' }}
     </p>
 

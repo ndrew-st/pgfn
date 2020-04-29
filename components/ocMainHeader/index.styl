@@ -38,6 +38,8 @@
     right 0
 
     width 100%
+
+    z-index 99
   
   &__list-link
     display none
@@ -135,16 +137,31 @@
       background-color transparent
 
       &--icon 
-        & svg
-          fill #272528
+        & svg circle
+        & svg path
+          stroke #272528
 
-        &.active-icon svg
-          fill #7140B8
+        &.active-icon svg path
+        &.active-icon svg circle
+          stroke #7140B8
+
+        &.icon-heart
+          
+          & svg
+            width 16px
+            height 14px
+
+        &.icon-bag
+          & svg rect
+            stroke #272528
+            
+          &.active-icon svg rect
+            stroke #7140B8
 
       &--link
         display block
         flex-basis 100%
-        margin-top 5px
+        margin-top 0
 
         font-style: normal;
         font-weight: normal;
@@ -159,9 +176,20 @@
 
 @media(min-width 1090px)
   .header
+    position fixed
+    top 0
+    left 0
+    right 0
+
+    background-color white;
+
+    z-index 999
+
     &__container
       display flex
       align-items center
+      padding-top 22px
+      padding-bottom 22px
 
     &__logo-link
       margin-right 24px
@@ -247,7 +275,6 @@
         background: #FFFFFF;
         box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.08);
         border-radius: 4px;
-
 
       &__button
         display block
@@ -345,6 +372,8 @@
       
       &__form
         display flex
+        width 100%
+        max-width 520px
 
       &__label
         width 495px
@@ -394,8 +423,9 @@
           height 16px
           margin auto
 
-          & svg
-            fill white;
+          & svg circle
+          & svg path
+            stroke white;
 
         &:hover
         &:focus

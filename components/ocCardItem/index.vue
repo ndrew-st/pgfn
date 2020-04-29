@@ -3,22 +3,25 @@
     <div class="card-item__list">
       <Carousel
         :nav="true"
-        :autoWidth="true"
+        :column="1"
         :dots="true"
+        :show="false"
         :items="item.previewGallery"
-      >
-        <img
-        v-for="gallery in item.previewGallery"
-        :key="gallery"
-        :src="gallery"
-        :alt="item.name"
-        width="252"
-        height="168"
-        class="card-item__image">
+        class="card-item__swiper">
+          <img
+            v-for="gallery in item.previewGallery"
+            :key="gallery"
+            :src="gallery"
+            :alt="item.name"
+            width="252"
+            height="168"
+            class="card-item__image">
       </Carousel>
     </div>
 
-    <h3 class="card-item__title">{{ item.name }}</h3>
+    <nuxt-link
+      to=""
+      class="card-item__title">{{ item.name }}</nuxt-link>
 
     <p class="card-item__settings">
       <span class="card-item__rate">{{ item.rating }}</span>

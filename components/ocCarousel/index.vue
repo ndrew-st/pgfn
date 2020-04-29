@@ -5,15 +5,15 @@
     @mouseout="mouseOut"
     class="carousel">
     <div
-      :style="{ 'min-width': maxWidthWrapper + 'px' }"
-      :class="{ hide: autoWidth }"
+      :style="{ 'max-width': maxWidthWrapper + 'px' }"
+      :class="{ hide: !show, 'show-desktop': autoWidth }"
       class="carousel__wrapper">
       <div
       ref="list"
       @touchstart="touchStart"
       @touchmove="touchMove"
       @touchend="touchEnd"
-      @mousewheel.self.stop="mouseWheel"
+      @mousewheel="mouseWheel"
       :style="{ 'transform': `translateX(${posX}px)` }"
       class="carousel__list">
         <slot/>
@@ -30,7 +30,7 @@
           class="btn-carousel__prev">prev</button>
       <button
           @click="carouselNext"
-          :class="{ 'disabled': activeIndex === items.length - 1 }"
+          :class="{ 'disabled': activeIndex + countColumn >= items.length }"
           type="button"
           class="btn-carousel__next">next</button>
     </div>

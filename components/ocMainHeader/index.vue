@@ -19,14 +19,11 @@
           <form
             @submit.prevent="handlerSubmit()"
             class="find-header__form">
-            <SeachInput
-              @input="handlerSearch"
-              class="find-header__label"/>
+            <SeachInput @input="handlerSearch"/>
             <button class="find-header__submit">
               <Icon
-                outline="fal"
+                name="find"
                 class="find-header__submit--icon"
-                icon="search"
               />
               <span class="find-header__submit--text">Поиск</span>
             </button>
@@ -115,9 +112,8 @@
           class="mobile-controls__button">
           <Icon
             :class="{ 'active-icon': isActive }"
-            outline="fal"
             class="mobile-controls__button--icon"
-            icon="search"/>
+            name="find"/>
           <a
             :href="href"
             :class="{ 'active-link': isActive }"
@@ -131,9 +127,8 @@
           class="mobile-controls__button">
           <Icon
             :class="{ 'active-icon': isActive }"
-            outline="fal"
-            class="mobile-controls__button--icon"
-            icon="heart"/>
+            class="mobile-controls__button--icon icon-heart"
+            name="heart"/>
           <a
             :href="href"
             :class="{ 'active-link': isActive }"
@@ -147,9 +142,8 @@
           class="mobile-controls__button">
           <Icon
             :class="{ 'active-icon': isActive }"
-            outline="fal"
-            class="mobile-controls__button--icon"
-            icon="shopping-bag"/>
+            class="mobile-controls__button--icon icon-bag"
+            name="bag"/>
           <a
             :href="href"
             :class="{ 'active-link': isActive }"
@@ -163,9 +157,8 @@
           class="mobile-controls__button">
           <Icon
             :class="{ 'active-icon': isActive }"
-            outline="fal"
             class="mobile-controls__button--icon"
-            icon="plus-circle"/>
+            name="add"/>
           <a
             :href="href"
             :class="{ 'active-link': isActive }"
@@ -179,9 +172,8 @@
           class="mobile-controls__button">
           <Icon
             :class="{ 'active-icon': isActive }"
-            outline="fal"
             class="mobile-controls__button--icon"
-            icon="user-alt"/>
+            name="user"/>
           <a
             :href="href"
             :class="{ 'active-link': isActive }"
@@ -200,4 +192,4 @@
 </template>
 
 <script src="./index.js"/>
-<style lang="stylus" scoped src="./index.styl"/>
+<style lang="stylus" src="./index.styl"/>

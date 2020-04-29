@@ -25,7 +25,9 @@
         type="button"
         class="direction-card__button-like">Поставить лайк</button>
 
-      <h3 class="direction-card__title">{{ item.name }}</h3>
+      <nuxt-link
+        to=""
+        class="direction-card__title">{{ item.name }}</nuxt-link>
 
       <div class="direction-card__footer">
         <p class="direction-card__rate">{{ item.rating }}</p>

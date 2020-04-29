@@ -1,4 +1,4 @@
-import num2str from '@/utils/num2str'
+import num2str from '~/utils/num2str'
 import Carousel from '~/components/ocCarousel'
 
 export default {

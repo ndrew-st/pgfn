@@ -1,12 +1,12 @@
 import { mapActions } from 'vuex'
 
-import Icon from '~/components/ocIcon'
 import Form from './-components/Form'
+import Icon from '~/components/Icon'
 
 import SeachInput from '~/components/ocSearchInput'
 
 export default {
-  components: { Form, Icon, SeachInput },
+  components: { Form, SeachInput, Icon },
   data () {
     return {
       search: '',

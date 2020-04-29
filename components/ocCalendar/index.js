@@ -2,7 +2,16 @@ import OcMonth from './ocMonth/index.vue'
 
 export default {
   components: { OcMonth },
-  props: ['selectedDates', 'occupiedDates'],
+  props: {
+    selectedDates: {
+      type: Object,
+      default: () => {}
+    },
+    occupiedDates: {
+      type: Array,
+      default: () => []
+    }
+  },
   data: () => ({
     active: false,
     currentFirstDate: null,
@@ -10,11 +19,11 @@ export default {
     curSelFinish: null
   }),
   created () {
-    if (this.selectedDates.start !== null) {
+    if (this.selectedDates && this.selectedDates.start !== null) {
       this.curSelStart = new Date(this.selectedDates.start)
       this.curSelStart.setHours(0, 0, 0, 0)
     }
-    if (this.selectedDates.finish !== null) {
+    if (this.selectedDates && this.selectedDates.finish !== null) {
       this.curSelFinish = new Date(this.selectedDates.finish)
       this.curSelFinish.setHours(0, 0, 0, 0)
     }
@@ -44,7 +53,16 @@ export default {
         // second: 'numeric'
       }
 
-      return (this.curSelStart === null || this.curSelFinish === null ? 'дд.мм.гггг – дд.мм.гггг' : '' + new Date(this.curSelStart).toLocaleString('ru', options) + ' - ' + new Date(this.curSelFinish).toLocaleString('ru', options))
+      let res
+
+      if (this.curSelStart === null || this.curSelFinish === null) {
+        res = 'дд.мм.гггг – дд.мм.гггг'
+      } else {
+        res = '' + new Date(this.curSelStart).toLocaleString('ru', options) + ' - ' + new Date(this.curSelFinish).toLocaleString('ru', options)
+        this.$emit('input', res)
+      }
+
+      return res
     }
   },
   methods: {

@@ -3,14 +3,14 @@
 
   display flex
   flex-wrap wrap
-  width 252px
+  min-width 252px
   height 320px
   padding 20px
+  margin-right 16px
 
   border-radius 20px
 
   box-sizing border-box
-  cursor pointer
   transition all 0.3s linear 0s
 
   &:before
@@ -140,6 +140,7 @@
     color: #FFFFFF;
 
     z-index 5
+    cursor pointer
 
   &__footer
     position relative
@@ -204,9 +205,11 @@
 
 @media(min-width 1280px)
   .direction-card
-    width 416px
+    min-width 416px
+    max-width 416px
     height 512px
     padding 36px
+    margin-right 30px
 
     &:before
       border-radius 30px

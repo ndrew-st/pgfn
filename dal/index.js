@@ -5,13 +5,13 @@ export default axios => ({
   subscribeEmail (email) {
     return axios.get(`/api/users/subscribe?email=${email}`)
   },
-  searchByQuery (query) {
-    return axios.get(`/api/apartments/quickSearch?q=${query}`)
-  },
-  searchObject (query, data) {
-    return axios.post(`/api/apartments/search?q=${query}`, data)
+  getDirection (name) {
+    return axios.get(`/api/apartments/direction?name=${name}`)
   },
   getSearch (search) {
     return axios.get(`/api/apartments/search?q=${search}`)
+  },
+  updateTabs (url) {
+    return axios.get(url)
   }
 })

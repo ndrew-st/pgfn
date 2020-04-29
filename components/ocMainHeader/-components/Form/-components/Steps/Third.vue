@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Counter from '../FormField/Counter'
+import Counter from '~/components/ocCounter'
 
 export default {
   components: { Counter },

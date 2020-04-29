@@ -1,9 +1,8 @@
 <template>
   <label class="search-label">
     <Icon
-      outline="fal"
-      class="search-label__icon"
-      icon="search"/>
+      name="find"
+      class="search-label__icon"/>
     <input
       @input="throttledSearch"
       @keydown="handlerKeyDown"
@@ -17,7 +16,7 @@
 </template>
 
 <script>
-import Icon from '~/components/ocIcon'
+import Icon from '~/components/Icon'
 
 import throttle from '~/utils/throttle'
 
@@ -58,7 +57,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .search-label
   position relative
 
@@ -71,12 +70,21 @@ export default {
     top 0
     bottom 0
 
+    width 15px
+    height 17px
     margin: auto 0
-    & svg
-      fill #272528
 
-    &:hover svg
-      fill #7140B8
+    & svg circle
+    & svg path
+      stroke #272528
+
+      transition all 0.3s ease-in-out 0s
+
+  &:hover .search-label__icon svg circle
+  &:hover .search-label__icon svg path
+    stroke #7140B8
+
+    transition all 0.3s ease-in-out 0s
 
   &__input
     display block

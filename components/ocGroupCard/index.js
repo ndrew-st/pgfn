@@ -24,7 +24,6 @@ export default {
     },
     show: {
       type: Boolean,
-      required: true,
       default: false
     },
     title: {
@@ -34,7 +33,7 @@ export default {
     },
     autoWidth: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data () {

@@ -4,7 +4,7 @@
             <h2 class="group-cart__title">
                 {{ title }}
             </h2>
-            <span class="group-cart__count-articles">2445</span>
+            <span class="group-cart__count-articles">{{ count }}</span>
         </div>
 
         <div class="group-cart__checkboxes group-checkbox">
@@ -32,6 +32,8 @@
             <ocCarousel
                 :column="4"
                 :items="items"
+                :autoWidth="autoWidth"
+                :show="true"
                 :nav="true">
                 <slot/>
             </ocCarousel>
