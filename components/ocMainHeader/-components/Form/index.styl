@@ -1,0 +1,131 @@
+.fade-enter-active
+.fade-leave-active
+  transition opacity .1s
+
+.fade-enter
+.fade-leave-to
+  opacity: 0
+
+.form-container
+  position fixed
+  top 0
+  left 0
+  right 0
+
+  width 100%
+  height 100vh
+
+  background white
+
+  z-index 99
+
+  &.submitted
+    position static
+
+    display flex
+    flex-wrap wrap
+    justify-content space-between
+    align-items center
+
+    padding-top 24px
+    padding-bottom 12px
+    padding-right 10px
+    height auto
+
+    box-sizing border-box
+
+    & .form-header
+      min-height: auto
+      padding-top 0
+      padding-bottom 0
+
+  & .form-result
+    flex-basis: 100%
+
+    &.success
+      display flex
+      flex-basis auto
+      align-self flex-end
+
+    &__success
+      position relative
+
+      display flex
+      align-items center
+      width: 254px;
+      height: 36px;
+      padding-left 76px
+
+      background: #FFFFFF;
+      box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 34px;
+      box-sizing border-box
+
+      &:before
+        content ''
+
+        position absolute
+        left 50px
+        top 0
+        bottom 0
+
+        width 12px
+        height 14px
+        margin auto 0
+
+        background url('/icons/find.svg') 0 0 no-repeat
+        background-size 12px 14px
+
+      &--label
+        position relative
+
+        display block
+        margin-right 14px
+
+        &:after
+          content ''
+
+          position absolute
+          right -7px
+          top 0
+          bottom 0
+
+          width 2px
+          height 2px
+          margin auto 0
+
+          background-color #989BA8
+          border-radius 50%
+
+      &--location
+        display block
+        width 70px
+
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 28px;
+        color: #272528;
+
+        border 0
+        background-color transparent
+
+        &:hover
+        &:focus
+          outline 0
+
+      &--date
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 28px;
+        color: #272528;
+
+    &__search-container
+      padding 0 18px
+      padding-right 8px
+      margin-top 15px
+
+@media (min-width 1090px)
+  .form-container
+    display none
