@@ -39,7 +39,7 @@
 
     width 100%
 
-    z-index 999
+    z-index 99
   
   &__list-link
     display none
@@ -137,16 +137,31 @@
       background-color transparent
 
       &--icon 
-        & svg
-          fill #272528
+        & svg circle
+        & svg path
+          stroke #272528
 
-        &.active-icon svg
-          fill #7140B8
+        &.active-icon svg path
+        &.active-icon svg circle
+          stroke #7140B8
+
+        &.icon-heart
+          
+          & svg
+            width 16px
+            height 14px
+
+        &.icon-bag
+          & svg rect
+            stroke #272528
+            
+          &.active-icon svg rect
+            stroke #7140B8
 
       &--link
         display block
         flex-basis 100%
-        margin-top 5px
+        margin-top 0
 
         font-style: normal;
         font-weight: normal;
@@ -408,8 +423,9 @@
           height 16px
           margin auto
 
-          & svg
-            fill white;
+          & svg circle
+          & svg path
+            stroke white;
 
         &:hover
         &:focus
