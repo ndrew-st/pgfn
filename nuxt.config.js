@@ -14,6 +14,7 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
+    base: [{ href: '/' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [{ src: 'https://kit.fontawesome.com/da5e54f6f7.js' }]
   },
@@ -33,6 +34,7 @@ export default {
     '@/plugins/yandexMaps.js'
   ],
   router: {
+    base: '/',
     extendRoutes (routes, resolve) {
       routes.push(
         {

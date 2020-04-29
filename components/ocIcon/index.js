@@ -28,6 +28,9 @@ export default {
           return `${faClass} fa-${this.icon}`
         }
       }
+    },
+    iconImage () {
+      return `/icons/${this.icon}.png`
     }
   }
 }

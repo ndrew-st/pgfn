@@ -8,16 +8,16 @@ module.exports = {
     parser: 'babel-eslint'
   },
   extends: [
-    '@nuxtjs',
     'prettier/vue',
     'plugin:nuxt/recommended',
+    '@nuxtjs',
   ],
   plugins: [
     'prettier'
   ],
   // add your custom rules here
   rules: {
-    'vue/max-attributes-per-line': [2,
+    'vue/max-attributes-per-line': ["error" ,
       {
         'singleline': 1,
         'multiline': {
