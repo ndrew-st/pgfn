@@ -1,19 +1,22 @@
 <template>
-  <div class="main-layout">
+  <div class="page-container">
     <MainHeader/>
 
-    <nuxt/>
+    <nuxt />
+
+    <Footer/>
   </div>
 </template>
 
 <script>
+import Footer from '~/components/ocFooter'
 import MainHeader from '~/components/ocMainHeader'
 
 export default {
-  components: { MainHeader }
+  components: { Footer, MainHeader }
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 
 </style>

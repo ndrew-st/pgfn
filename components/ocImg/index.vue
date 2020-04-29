@@ -1,5 +1,5 @@
 <template>
-  <img />
+  <img>
 </template>
 
 <script src="./index.js"></script>

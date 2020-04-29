@@ -10,5 +10,8 @@ export default axios => ({
   },
   searchObject (query, data) {
     return axios.post(`/api/apartments/search?q=${query}`, data)
+  },
+  getSearch (search) {
+    return axios.get(`/api/apartments/search?q=${search}`)
   }
 })
