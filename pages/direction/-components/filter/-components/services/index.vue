@@ -104,7 +104,7 @@ export default {
     display flex
     justify-content space-between
     width 100%
-    max-width 758px
+    max-width 768px
     margin 0
     padding 0
 
