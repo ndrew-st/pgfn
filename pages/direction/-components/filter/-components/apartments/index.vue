@@ -15,11 +15,13 @@
       <li class="apartments__item apartment">
         <h3 class="apartment__title">Прибытие, выезд</h3>
         <Calendar
-
-        />
+          @input="handlerDate"/>
       </li>
       <li class="apartments__item apartment">
         <h3 class="apartment__title">Гости</h3>
+        <Guests
+          @input="handlerGuests"
+        />
       </li>
     </ul>
     <button

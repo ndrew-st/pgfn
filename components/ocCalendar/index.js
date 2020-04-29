@@ -53,7 +53,16 @@ export default {
         // second: 'numeric'
       }
 
-      return (this.curSelStart === null || this.curSelFinish === null ? 'дд.мм.гггг – дд.мм.гггг' : '' + new Date(this.curSelStart).toLocaleString('ru', options) + ' - ' + new Date(this.curSelFinish).toLocaleString('ru', options))
+      let res
+
+      if (this.curSelStart === null || this.curSelFinish === null) {
+        res = 'дд.мм.гггг – дд.мм.гггг'
+      } else {
+        res = '' + new Date(this.curSelStart).toLocaleString('ru', options) + ' - ' + new Date(this.curSelFinish).toLocaleString('ru', options)
+        this.$emit('input', res)
+      }
+
+      return res
     }
   },
   methods: {

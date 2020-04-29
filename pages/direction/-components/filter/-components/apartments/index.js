@@ -1,14 +1,17 @@
+import Guests from './-components/guests'
 import Calendar from '~/components/ocCalendar'
 
 import throttle from '~/utils/throttle'
 
 export default {
-  components: { Calendar },
+  components: { Calendar, Guests },
   data () {
     return {
       search: '',
       touched: false,
-      searchedList: []
+      searchedList: [],
+      date: '',
+      guests: []
     }
   },
   computed: {
@@ -27,7 +30,13 @@ export default {
       }
     },
     handlerSubmit () {
-
+      // what do with search
+    },
+    handlerDate (date) {
+      this.date = date
+    },
+    handlerGuests (data) {
+      this.guests = data
     }
   }
 }

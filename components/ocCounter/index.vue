@@ -156,10 +156,28 @@ export default {
         border-radius 5px
         background-color #272528
 
+    &--left
+    &--right
+      cursor pointer
+      &:not(disabled):hover
+        &:before
+        &:after
+          background-color #fff
+          transition all 0.3s ease-in-out 0s
+
+    &:hover
+      background-color black
+      transition all 0.3s ease-in-out 0s
+
     &:disabled
       border-color #989BA8
+      cursor auto
 
-      &:before
-      &:after
-        background-color #989BA8
+      &:hover
+        background-color #FFFFFF
+
+        &:before
+        &:after
+          background-color black
+
 </style>

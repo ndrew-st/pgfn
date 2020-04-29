@@ -13,7 +13,7 @@ export default {
         { title: 'Жильё', name: 'apartments' },
         { title: 'Услуги', name: 'services' }
       ],
-      currentActive: 'apartments'
+      currentActive: 'direction'
     }
   },
   methods: {
