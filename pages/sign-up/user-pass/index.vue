@@ -24,7 +24,7 @@
 
       <button
         class="btn13"
-        :class="{ active_btn: username !== '' && userpassword !== '' }"
+        :class="{ active_btn: username !== '' && userpassword.length > 5 }"
         @click="next"
       >
         Далее

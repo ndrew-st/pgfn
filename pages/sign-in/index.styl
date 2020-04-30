@@ -12,8 +12,81 @@
     top: calc(50% - 192px);
 }
 
+.reg {
+    position: absolute;
+    left: 64px;
+    bottom: 52px;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: norphoneNumbermal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #5604C1;
+}
+
+.reset {
+    position: absolute;
+    left: 250px;
+    bottom: 52px;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #5604C1;
+}
+
+p.p, p.p456 {
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    color: #272528;
+    margin-top: 8px;
+    margin-bottom: 44px;
+}
+
+.timer {
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    color: #272528;
+    margin-top: 52px;
+}
+
 @media (max-width: 750px) {
     .sign-in {
         background-color: #FFFFFF;
+    }
+
+    .reg {
+        position: static;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        margin-top: 32px;
+    }
+
+    .reg7 {
+        margin-top: 133px;
+    }
+
+    .reset {
+        position: static;
+        display: inline-block;
+        text-align: center;
+        margin-top: 16px;
+        width: 100%;
+    }
+
+    p.p456 {
+        margin-bottom: 33px;
     }
 }

@@ -43,6 +43,12 @@
         @input="mask"
       >
 
+      <p
+        class="p15"
+      >
+        Придумайте пароль
+      </p>
+
       <OcPass
         v-if="stage === 'pass'"
         :mode="mode"

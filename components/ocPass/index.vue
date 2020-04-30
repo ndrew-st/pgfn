@@ -1,11 +1,5 @@
 <template>
   <div>
-    <p
-      class="p15"
-    >
-      Придумайте пароль
-    </p>
-
     <div class="flex">
       <div>
         <input
@@ -14,39 +8,23 @@
           type="password"
           placeholder="Пароль"
           :class="{red: error !== '', norm: error === ''}"
-          @keyup.enter="next1()"
+          @keyup.enter="next()"
         >
 
         <p
-          v-if="error === 'wrongPass'"
+          v-if="error !== ''"
           class="red-p"
         >
-          Неверная комбинация логина и пароля
-        </p>
-
-        <p
-          v-if="error === 'userBlocked'"
-          class="red-p"
-        >
-          Пользователь заблокирован
+          {{ error }}
         </p>
       </div>
 
       <button
-        v-if="mode === 'sign-in'"
         class="btn"
         :class="{active: password.length > 5, sp: error !== '' }"
-        @click="next1"
+        @click="next"
       >
-        Далее
-      </button>
-
-      <button
-        v-if="mode !== 'sign-in'"
-        class="btn"
-        :class="{active: password.length > 5}"
-      >
-        Готово
+        {{ btnText }}
       </button>
     </div>
   </div>

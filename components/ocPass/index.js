@@ -1,13 +1,15 @@
 export default {
-  props: ['mode', 'error'],
+  props: {
+    error: String,
+    btnText: String
+  },
   data: () => ({
     isActive: false,
     password: ''
   }),
   methods: {
-    next1 () {
+    next () {
       if (this.password.length > 5) {
-        console.log('next1')
         this.$emit('next', this.password)
       }
     }

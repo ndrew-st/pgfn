@@ -85,12 +85,12 @@
         :phone="phone"
         :error="error"
         :time-counter="timeCounter"
-        @next="next()"
+        @next="next"
       />
 
       <UserPass
         v-if="stage ==='userpass'"
-        @next="next()"
+        @next="next"
       />
 
       <a
