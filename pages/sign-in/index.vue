@@ -120,17 +120,17 @@
         Зарегистрироваться
       </a>
 
-      <a
+      <nuxt-link
         v-if="stage ==='pass'"
         class="reset"
-        href="/sign-in/password-recovery"
+        :to="{ name: 'sign-in-password-recovery', params: { phone }}"
       >
         Сбросить пароль
-      </a>
+      </nuxt-link>
     </OcVerification>
   </div>
 </template>
 
-<script src="./index.js" />
+<script src="./index.js"/>
 
-<style src="./index.styl" lang="stylus" />
+<style src="./index.styl" lang="stylus"/>

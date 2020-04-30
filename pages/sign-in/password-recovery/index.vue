@@ -1,49 +1,17 @@
 <template>
   <div class="password-recovery">
-    <br>
-    <br>
-    <br>
-    <br>
-    <input
-      id="fourteen"
-      v-model="picked"
-      value="14"
-      type="radio"
-    >
-    <label for="fourteen">14</label>
-    <input
-      id="fiveteen"
-      v-model="picked"
-      value="15"
-      type="radio"
-    >
-    <label for="fiveteen">15</label>
-
-    <OcVerification
-      mode="recovery"
-      :stage="stage"
-      :phone="phone"
-      @next="next"
-      @cpn1="cpn1"
-    >
-      <p
-        v-if="mode === 'recovery' && stage === 'phone'"
-        class="p14"
-      >
-        Для восстановления доступа введите код из смс <br>
-        отправленного на номер <b>+7 {{ phone }}</b>
-      </p>
-
-      <input
+    <OcVerification>
+      <OcSmsCode
         v-if="stage === 'sms'"
-        ref="codeInput"
-        type="text"
-        class="code14"
-        placeholder="••••"
-        @input="mask"
-      >
+        :phone="$route.params.phone"
+        :error="error"
+        :time-counter="timeCounter"
+        :recovery="true"
+        @next="next"
+      />
 
       <p
+        v-if="stage === 'pass'"
         class="p15"
       >
         Придумайте пароль
@@ -51,8 +19,8 @@
 
       <OcPass
         v-if="stage === 'pass'"
-        :mode="mode"
-        :error="error"
+        error=""
+        btn-text="Готово"
         @next="next"
       />
     </OcVerification>
@@ -61,21 +29,27 @@
 
 <script>
 import OcVerification from '@/components/ocVerification/index.vue'
+import OcSmsCode from '@/components/ocSmsCode/index.vue'
+import OcPass from '@/components/ocPass'
 
 export default {
   components: {
-    OcVerification
+    OcVerification,
+    OcSmsCode,
+    OcPass
+  },
+  props: { phone: {
+    type: String,
+    default: '' }
   },
   data: () => ({
-    stage: 'phone',
-    phone: ''
+    stage: 'sms',
+    picked: '',
+    timeCounter: 119
   }),
   methods: {
-    cpn1 (newPhoneNumber) {
-      this.phone = newPhoneNumber
-    },
-    next (pass) {
-      if (this.stage === 'phone') {
+    next () {
+      if (this.stage === 'sms') {
         this.stage = 'pass'
       }
     }

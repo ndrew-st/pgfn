@@ -2,7 +2,11 @@ export default {
   props: {
     phone: String,
     error: String,
-    timeCounter: Number
+    timeCounter: Number,
+    recovery: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     mask (item) {
