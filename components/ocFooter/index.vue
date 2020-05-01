@@ -6,16 +6,23 @@
           <li
             v-for="type in menu"
             :key="type.title"
-            class="footer-menu__type footer-menu-type">
-            <h3 class="footer-menu-type__title">{{ type.title }}</h3>
+            class="footer-menu__type footer-menu-type"
+          >
+            <h3 class="footer-menu-type__title">
+              {{ type.title }}
+            </h3>
             <ul class="footer-menu-type__list">
               <li
                 v-for="item in type.children"
                 :key="item.title"
-                class="footer-menu-type__item">
+                class="footer-menu-type__item"
+              >
                 <nuxt-link
                   :to="item.url"
-                  class="footer-menu-type__link">{{ item.title }}</nuxt-link>
+                  class="footer-menu-type__link"
+                >
+                  {{ item.title }}
+                </nuxt-link>
               </li>
             </ul>
           </li>
@@ -24,42 +31,52 @@
       <div class="footer__contacts footer-contacts">
         <a
           href="tel:+78006000322"
-          class="footer-contacts__phone">8 800 600-03-22</a>
+          class="footer-contacts__phone"
+        >8 800 600-03-22</a>
         <ul class="footer-contacts__social-list">
           <li
             v-for="soc in social"
             :key="soc.title"
-            class="footer-contacts__social">
+            class="footer-contacts__social"
+          >
             <a
               :href="soc.url"
               target="_blank"
-              class="footer-contacts__social-link">
+              class="footer-contacts__social-link"
+            >
               <img
                 :src="soc.src"
                 :alt="soc.title"
                 width="32"
                 height="32"
-                class="footer-contacts__social-img">
+                class="footer-contacts__social-img"
+              >
             </a>
           </li>
         </ul>
       </div>
       <div class="footer__pay footer-pay">
-        <h3 class="footer-pay__title">Оплата онлайн</h3>
+        <h3 class="footer-pay__title">
+          Оплата онлайн
+        </h3>
         <ul class="footer-pay__list">
           <li
             v-for="pay in payments"
             :key="pay.title"
-            class="footer-pay__item">
+            class="footer-pay__item"
+          >
             <img
               :src="pay.src"
               :alt="pay.title"
-              class="footer-pay__image">
+              class="footer-pay__image"
+            >
           </li>
         </ul>
       </div>
     </div>
-    <p class="footer__author">© 2020. Personal.Guide Все права защищены</p>
+    <p class="footer__author">
+      © 2020 Personal.Guide Все права защищены
+    </p>
   </div>
 </template>
 
@@ -264,6 +281,7 @@ export default {
 
     &__list
       display flex
+      align-items center
       flex-wrap wrap
       margin 0
       padding 0

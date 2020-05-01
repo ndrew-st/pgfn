@@ -9,6 +9,10 @@ export default {
       required: true,
       default: () => []
     },
+    scroll: {
+      type: Boolean,
+      default: true
+    },
     margin: {
       type: Number,
       default: 0
@@ -157,6 +161,12 @@ export default {
       }
     },
     handlerScroll (e) {
+      if (!this.scroll) {
+        e.preventDefault()
+
+        return false
+      }
+
       this.scrollLeft = e.target.scrollLeft
 
       const remSpace = (this.mainWidth - this.scrollLeft) / this.widthOutMargin // count card in remaining space

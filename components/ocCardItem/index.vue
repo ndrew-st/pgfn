@@ -6,6 +6,7 @@
         :column="1"
         :dots="true"
         :show="false"
+        :scroll="false"
         :items="item.previewGallery"
         class="card-item__swiper"
       >

@@ -8,8 +8,8 @@
     <div class="carousel__wrapper-container">
       <div
         ref="wrapper"
-        :style="{ 'max-width': maxWidthWrapper + 'px' }"
-        :class="{ hide: !show, 'show-desktop': autoWidth }"
+        :style="{ 'max-width': maxWidthWrapper + 'px', 'overflow-x': scroll ? 'auto' : 'hidden' }"
+        :class="{ hide: !show, 'show-desktop': autoWidth}"
         class="carousel__wrapper"
         @scroll.passive="handlerScroll"
       >
