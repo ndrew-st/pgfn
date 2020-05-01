@@ -2,14 +2,15 @@
   <div class="all">
     <p
       v-if="mode !== 'no'"
-      class="headline">
+      class="headline"
+    >
       {{ mode === 'start' ? 'Прибытие' : 'Выезд' }}
     </p>
 
     <div class="flex">
       <div
-        @click="reduce"
         class="arrow"
+        @click="reduce"
       >
         <svg
           class="arrow_left"
@@ -37,8 +38,8 @@
       </div>
 
       <div
-        @click="increase()"
         class="arrow"
+        @click="increase()"
       >
         <svg
           class="arrow_right"

@@ -1,23 +1,32 @@
 <template>
   <div class="counter">
     <div class="counter__title-container">
-      <h4 class="counter__title">{{title}}</h4>
+      <h4 class="counter__title">
+        {{ title }}
+      </h4>
       <span
         v-if="subTitle"
-        class="counter__sub-title">{{subTitle}}</span>
+        class="counter__sub-title"
+      >{{ subTitle }}</span>
     </div>
 
     <div class="counter__content">
-      <button
-        @click.prevent="changeCount(false)"
-        :disabled="cur === 0"
-        type="button"
-        class="counter__button counter__button--left">Меньше</button>
-      <span class="counter__current">{{cur}}</span>
-      <button
-        @click.prevent="changeCount(true)"
-        type="button"
-        class="counter__button counter__button--right">Больше</button>
+      <div
+        :class="{ disabled: cur === 0 }"
+        class="counter__button counter__button--left"
+        @focus.stop="handlerFocus"
+        @click.stop="changeCount(false)"
+      >
+        Меньше
+      </div>
+      <span class="counter__current">{{ cur }}+</span>
+      <div
+        class="counter__button counter__button--right"
+        @focus.stop="handlerFocus"
+        @click.stop="changeCount(true)"
+      >
+        Больше
+      </div>
     </div>
   </div>
 </template>
@@ -55,12 +64,15 @@ export default {
       } else if (this.cur >= 1) {
         this.cur -= 1
       }
+    },
+    handlerFocus () {
+      return false
     }
   }
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .counter
   display flex
   align-items center
@@ -169,7 +181,7 @@ export default {
       background-color black
       transition all 0.3s ease-in-out 0s
 
-    &:disabled
+    &.disabled
       border-color #989BA8
       cursor auto
 

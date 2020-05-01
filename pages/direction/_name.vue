@@ -3,9 +3,10 @@
     <Full
       :title="head.title"
       :description="head.description"
-      :background="head.background"/>
+      :background="head.background"
+    />
 
-    <FilterBlock/>
+    <FilterBlock />
 
     <!-- Направление -->
     <GroupCard
@@ -13,51 +14,57 @@
       :tabs="direction.tabs"
       :items="direction.items"
       :count="direction.items.length"
+      title="Популярные направления"
       @changeTab="handlerTab('direction', $event)"
-      title="Популярные направления">
+    >
       <CardDirection
         v-for="item in direction.items"
         :key="item.id"
         :item="item"
         :is-liked="false"
-        @setLike="handlerLike(item.id, 'direction')"/>
+        @setLike="handlerLike(item.id, 'direction')"
+      />
     </GroupCard>
 
     <!-- Жильё -->
     <GroupCard
-      @changeTab="handlerTab('apartments', $event)"
-      :autoWidth="true"
       :count="apartments.items.length"
+      :auto-width="true"
       :items="apartments.items"
       :tabs="apartments.tabs"
-      title="Жильё">
+      title="Жильё"
+      @changeTab="handlerTab('apartments', $event)"
+    >
       <CardItem
         v-for="item in apartments.items"
         :key="item.id"
         :item="item"
         :is-liked="false"
-        @setLike="handlerLike(item.id, 'apartments')"/>
+        @setLike="handlerLike(item.id, 'apartments')"
+      />
     </GroupCard>
 
-    <SubscribeEmail/>
+    <SubscribeEmail />
 
     <!-- Услуги -->
     <GroupCard
-      @changeTab="handlerTab('services', $event)"
-      :autoWidth="true"
       :count="services.items.length"
+      :auto-width="true"
       :items="services.items"
       :tabs="services.tabs"
-      title="Услуги">
+      title="Услуги"
+      @changeTab="handlerTab('services', $event)"
+    >
       <CardItem
         v-for="item in services.items"
         :key="item.id"
         :item="item"
         :is-liked="false"
-        @setLike="handlerLike(item.id, 'services')"/>
+        @setLike="handlerLike(item.id, 'services')"
+      />
     </GroupCard>
 
-    <DescBlock/>
+    <DescBlock />
   </div>
 </template>
 
@@ -104,8 +111,8 @@ export default {
   },
   methods: {
     handlerTab (field, url) {
-      this.updateTabs({ field, url })
-        .catch(err => console.log('Error change tab: ', err))
+      // this.updateTabs({ field, url })
+      //   .catch(err => console.log('Error change tab: ', err))
     },
     handlerLike (idCard, field) {
       // what do with likes

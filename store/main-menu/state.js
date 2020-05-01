@@ -1,4 +1,4 @@
-export default {
+export default () => ({
   mainMenu: [
     {
       title: 'Главная',
@@ -61,4 +61,4 @@ export default {
     view: 'full',
     viewport: 'big'
   }
-}
+})

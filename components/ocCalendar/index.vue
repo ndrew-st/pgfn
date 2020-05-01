@@ -1,46 +1,56 @@
 <template>
   <div>
-    <div class="margin20 filter-calendar">
+    <div
+      tabindex="0"
+      class="margin20 filter-calendar"
+      @blur="active = false"
+    >
       <div
+        class="input"
         @click="active = !active"
-        class="input">
+      >
         {{ interval }}
       </div>
 
       <div
         :class="{active: active}"
-        class="calendar filter-calendar__content">
+        class="calendar filter-calendar__content"
+      >
         <div class="months">
           <OcMonth
             :occupied-dates="occupiedDates"
             :cur-sel-date="curSelStart"
             :cur-opp-day="curSelFinish"
-            @changeSelDate="changeSelDate"
             mode="start"
-            class="first-month"/>
+            class="first-month"
+            @changeSelDate="changeSelDate"
+          />
 
           <OcMonth
             :occupied-dates="occupiedDates"
             :cur-sel-date="curSelFinish"
             :cur-opp-day="curSelStart"
-            @changeSelDate="changeSelDate"
             mode="finish"
-            class="second-month"/>
+            class="second-month"
+            @changeSelDate="changeSelDate"
+          />
         </div>
 
         <div class="flex">
           <div class="clear-div">
             <span
+              class="clear"
               @click="clear()"
-              class="clear">
+            >
               Очистить
             </span>
           </div>
 
           <div class="save-div">
             <span
+              class="save"
               @click="save()"
-              class="save">
+            >
               Сохранить
             </span>
           </div>
