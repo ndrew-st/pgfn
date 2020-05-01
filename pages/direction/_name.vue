@@ -46,7 +46,7 @@
 
     <SubscribeEmail />
 
-    <!-- Услуги -->
+    <!-- Услуги
     <GroupCard
       :count="services.items.length"
       :auto-width="true"
@@ -63,7 +63,7 @@
         @setLike="handlerLike(item.id, 'services')"
       />
     </GroupCard>
-
+    -->
     <DescBlock />
   </div>
 </template>
@@ -111,8 +111,8 @@ export default {
   },
   methods: {
     handlerTab (field, url) {
-      // this.updateTabs({ field, url })
-      //   .catch(err => console.log('Error change tab: ', err))
+      this.updateTabs({ field, url })
+        .catch(err => console.log('Error change tab: ', err))
     },
     handlerLike (idCard, field) {
       // what do with likes

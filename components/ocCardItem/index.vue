@@ -49,7 +49,7 @@
 
     <ul class="card-item__attrs">
       <li
-        v-for="attr in item.attrs"
+        v-for="attr in attrs"
         :key="attr"
         class="card-item__attr"
       >

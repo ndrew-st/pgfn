@@ -1,7 +1,12 @@
+import axios from 'axios'
+import dal from '@/dal'
+
+axios.defaults.baseURL = 'https://dev.personal.guide/'
+
 export default {
   getData ({ commit }, query) {
     return new Promise((resolve, reject) => {
-      this.$api.getDirection(query)
+      dal(axios).getDirection(query)
         .then((res) => {
           commit('addData', res.data)
 
@@ -12,7 +17,7 @@ export default {
   },
   updateTabs ({ commit }, data) {
     return new Promise((resolve, reject) => {
-      this.$api.updateTabs(data.url)
+      dal(axios).updateTabs(data.url)
         .then((res) => {
           commit('updateTabs', { field: data.field, items: res.data })
 

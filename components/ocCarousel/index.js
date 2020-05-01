@@ -196,7 +196,7 @@ export default {
     this.widthWindow = window.screen.width
   },
   beforeDestroy () {
-    window.removeEventListener('resize')
+    window.removeEventListener('resize', this.handlerResize)
   },
   data () {
     return {

@@ -1,16 +1,22 @@
 <template>
-  <div class="direction-card">
+  <router-link
+    class="direction-card"
+    :to="'/direction/' + item.name"
+  >
       <img
         :alt="item.name"
         :src="item.preview"
         class="direction-card__bg-img">
 
       <ul class="direction-card__property-list">
-        <li class="direction-card__property direction-card__property--temp">
+        <li
+          v-if="item.weather && item.weather.temperature"
+          class="direction-card__property direction-card__property--temp"
+        >
           {{ item.weather.temperature }}˙C
         </li>
         <li
-          v-if="item.weather.waterTemperature"
+          v-if="item.weather && item.weather.waterTemperature"
           class="direction-card__property direction-card__property--water-temp">
           {{ item.weather.waterTemperature }}˙C
         </li>
@@ -34,7 +40,7 @@
         <p class="direction-card__reviews">{{ `${item.reviews} ${numToStr(item.reviews)}` }}</p>
         <p class="direction-card__type">{{ item.type }}</p>
       </div>
-  </div>
+  </router-link>
 </template>
 
 <script src="./index.js"/>
