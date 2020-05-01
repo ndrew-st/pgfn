@@ -1,51 +1,66 @@
 <template>
   <div
     ref="carousel"
+    class="carousel"
     @mouseover="mouseOver"
     @mouseout="mouseOut"
-    class="carousel">
-    <div
-      :style="{ 'max-width': maxWidthWrapper + 'px' }"
-      :class="{ hide: !show, 'show-desktop': autoWidth }"
-      class="carousel__wrapper">
+  >
+    <div class="carousel__wrapper-container">
       <div
-      ref="list"
-      @touchstart="touchStart"
-      @touchmove="touchMove"
-      @touchend="touchEnd"
-      @mousewheel="mouseWheel"
-      :style="{ 'transform': `translateX(${posX}px)` }"
-      class="carousel__list">
-        <slot/>
+        ref="wrapper"
+        :style="{ 'max-width': maxWidthWrapper + 'px' }"
+        :class="{ hide: !show, 'show-desktop': autoWidth }"
+        class="carousel__wrapper"
+        @scroll.passive="handlerScroll"
+      >
+        <div
+          ref="list"
+          :style="{ width: mainWidth + 'px' }"
+          class="carousel__list"
+        >
+          <slot />
+        </div>
       </div>
     </div>
 
     <div
       v-if="nav"
-      class="carousel__button-container btn-carousel">
+      class="carousel__button-container btn-carousel"
+    >
       <button
-          @click="carouselPrev"
-          :class="{ 'disabled': activeIndex === 0 }"
-          type="button"
-          class="btn-carousel__prev">prev</button>
+        :class="{ 'disabled': activeIndex < 1 }"
+        type="button"
+        class="btn-carousel__prev"
+        @click="carouselPrev"
+      >
+        prev
+      </button>
       <button
-          @click="carouselNext"
-          :class="{ 'disabled': activeIndex + countColumn >= items.length }"
-          type="button"
-          class="btn-carousel__next">next</button>
+        :class="{ 'disabled': activeIndex + countColumn >= items.length }"
+        type="button"
+        class="btn-carousel__next"
+        @click="carouselNext"
+      >
+        next
+      </button>
     </div>
 
     <div
       v-if="dots"
-      class="carousel__dots-container">
+      class="carousel__dots-container"
+    >
       <ul class="carousel__dots">
         <li
           v-for="i in items.length"
           :key="i"
-          class="carousel__dot">
+          class="carousel__dot"
+        >
           <button
             :class="{ 'active-dot': --i === activeIndex }"
-            class="carousel__dot-button">{{i}}</button>
+            class="carousel__dot-button"
+          >
+            {{ i }}
+          </button>
         </li>
       </ul>
     </div>

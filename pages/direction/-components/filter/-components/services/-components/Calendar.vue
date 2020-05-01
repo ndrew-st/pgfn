@@ -1,15 +1,23 @@
 <template>
-  <div class="calendar">
+  <div
+    tabindex="0"
+    class="calendar"
+    @blur.capture="touched = false"
+  >
     <div
+      class="calendar__input"
       @click="touched = !touched"
-      class="calendar__input">{{ selectedDate.length ? selectedDate : mask }}</div>
+    >
+      {{ selectedDate.length ? selectedDate : mask }}
+    </div>
     <div
       v-if="touched"
-      class="calendar__content">
+      class="calendar__content"
+    >
       <Month
         :cur-sel-date="date"
-        @changeSelDate="handlerDate"
         mode="no"
+        @changeSelDate="handlerDate"
       />
     </div>
   </div>
@@ -53,6 +61,11 @@ export default {
 <style lang="stylus" scoped>
 .calendar
   position relative
+
+  &:hover
+  &:focus
+  &:active
+    outline 0
 
   &__input
     display flex

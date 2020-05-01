@@ -1,13 +1,15 @@
 <template>
   <div class="filter">
     <Checkboxes
-      @input="changeTab"
       :current-tab="currentActive"
-      :items="checkboxes"/>
+      :items="checkboxes"
+      @input="changeTab"
+    />
 
     <div class="filter__content">
       <component
-        :is="currentActive"/>
+        :is="currentActive"
+      />
     </div>
   </div>
 </template>

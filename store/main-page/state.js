@@ -1,4 +1,4 @@
-export default {
+export default () => ({
   result: {
     title: 'Путеводитель по твоим правилам',
     description: 'Полуостров Крым — это уникальная природа, горы, древние города и императорские дворцы. Редакция портала «Культура.РФ» подготовила культурный гид по главным достопримечательностям Крыма.',
@@ -95,6 +95,48 @@ export default {
           reviews: 182,
           favorit: false,
           preview: ''
+        },
+        {
+          id: 7,
+          name: 'Севастополь',
+          weather: {
+            temperature: '24',
+            waterTemperature: '18' // Опционально, может не быть
+          },
+          current: 4777,
+          type: 'Город',
+          rating: 4.9,
+          reviews: 182,
+          favorit: false,
+          preview: ''
+        },
+        {
+          id: 8,
+          name: 'Севастополь',
+          weather: {
+            temperature: '24',
+            waterTemperature: '18' // Опционально, может не быть
+          },
+          current: 4777,
+          type: 'Город',
+          rating: 4.9,
+          reviews: 182,
+          favorit: false,
+          preview: ''
+        },
+        {
+          id: 9,
+          name: 'Севастополь',
+          weather: {
+            temperature: '24',
+            waterTemperature: '18' // Опционально, может не быть
+          },
+          current: 4777,
+          type: 'Город',
+          rating: 4.9,
+          reviews: 182,
+          favorit: false,
+          preview: ''
         }
       ]
     },
@@ -109,7 +151,7 @@ export default {
       items: [
         {
           id: 1,
-          name: 'Tree house',
+          name: 'Tree house1',
           address: 'Полный адрес',
           attrs: [ '4 гостя', '1 спальня' ],
           rating: 4.3,
@@ -122,7 +164,7 @@ export default {
         },
         {
           id: 2,
-          name: 'Tree house',
+          name: 'Tree house2',
           address: 'Полный адрес',
           attrs: [ '4 гостя', '1 спальня' ],
           rating: 4.3,
@@ -135,7 +177,7 @@ export default {
         },
         {
           id: 3,
-          name: 'Tree house',
+          name: 'Tree house3',
           address: 'Полный адрес',
           attrs: [ '4 гостя', '1 спальня' ],
           rating: 4.3,
@@ -148,7 +190,7 @@ export default {
         },
         {
           id: 4,
-          name: 'Tree house',
+          name: 'Tree house4',
           address: 'Полный адрес',
           attrs: [ '4 гостя', '1 спальня' ],
           rating: 4.3,
@@ -161,7 +203,7 @@ export default {
         },
         {
           id: 5,
-          name: 'Tree house',
+          name: 'Tree house5',
           address: 'Полный адрес',
           attrs: [ '4 гостя', '1 спальня' ],
           rating: 4.3,
@@ -174,7 +216,124 @@ export default {
         },
         {
           id: 6,
-          name: 'Tree house',
+          name: 'Tree house6',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 7,
+          name: 'Tree house7',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 8,
+          name: 'Tree house8',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 9,
+          name: 'Tree house9',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 10,
+          name: 'Tree house10',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 11,
+          name: 'Tree house11',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 12,
+          name: 'Tree house12',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 13,
+          name: 'Tree house13',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 14,
+          name: 'Tree house14',
+          address: 'Полный адрес',
+          attrs: [ '4 гостя', '1 спальня' ],
+          rating: 4.3,
+          reviews: 128,
+          type: 'Отель',
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          favorits: false,
+          price: 5980,
+          oldprice: 8010
+        },
+        {
+          id: 15,
+          name: 'Tree house 15',
           address: 'Полный адрес',
           attrs: [ '4 гостя', '1 спальня' ],
           rating: 4.3,
@@ -277,4 +436,4 @@ export default {
       ]
     }
   }
-}
+})

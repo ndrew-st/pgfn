@@ -2,16 +2,17 @@
   <label class="search-label">
     <Icon
       name="find"
-      class="search-label__icon"/>
+      class="search-label__icon"
+    />
     <input
-      @input="throttledSearch"
-      @keydown="handlerKeyDown"
-      @keyup="handlerKeyUp"
-      :maxlength="maxSearchLength"
       v-model="search"
+      :maxlength="maxSearchLength"
       type="text"
       placeholder="Укажите город, ориентир или адрес"
-      class="search-label__input">
+      class="search-label__input"
+      @input="throttledSearch"
+      @keydown="handlerKeyDown"
+    >
   </label>
 </template>
 
@@ -31,7 +32,6 @@ export default {
   data () {
     return {
       search: this.value || '',
-      pressed: false,
       maxSearchLength: 200
     }
   },
@@ -45,13 +45,9 @@ export default {
       this.$emit('input', this.search)
     },
     handlerKeyDown (e) {
-      if (this.pressed && e.code !== 'Backspace') {
+      if (e.repeat && e.key !== 'Backspace' && e.key !== 'Delete') {
         e.preventDefault()
       }
-      this.pressed = true
-    },
-    handlerKeyUp () {
-      this.pressed = false
     }
   }
 }

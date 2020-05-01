@@ -1,28 +1,38 @@
 <template>
   <div class="services">
     <ul class="services__list">
-      <li class="services__item service">
-        <h3 class="service__title">Где</h3>
+      <li
+        tabindex="0"
+        class="services__item service"
+        @blur.capture="touched = false"
+      >
+        <h3 class="service__title">
+          Где
+        </h3>
         <label class="service__label">
           <input
             v-model="search"
-            @input="throttledSearch"
             type="text"
             placeholder="Где угодно"
-            class="service__input">
+            class="service__input"
+            @input="throttledSearch"
+          >
         </label>
         <div
           v-if="touched && searchedList.length"
-          class="service__content result-service">
+          class="service__content result-service"
+        >
           <ul class="result-service__list">
             <li
               v-for="srch in searchedList"
               :key="srch.title"
-              class="result-service__item">
+              class="result-service__item"
+            >
               <button
-                @click="handlerSearchSelect(srch.title)"
                 type="button"
-                class="result-service__button">
+                class="result-service__button"
+                @click="handlerSearchSelect(srch.title)"
+              >
                 {{ srch.title }}
               </button>
             </li>
@@ -30,17 +40,26 @@
         </div>
       </li>
       <li class="services__item service">
-        <h3 class="service__title">планируемая дата</h3>
+        <h3 class="service__title">
+          планируемая дата
+        </h3>
         <Calendar @input="handlerDate" />
       </li>
       <li class="services__item service">
-        <h3 class="service__title">Участники</h3>
-        <div class="service__input service__input--block">Участники</div>
+        <h3 class="service__title">
+          Участники
+        </h3>
+        <div class="service__input service__input--block">
+          Участники
+        </div>
       </li>
     </ul>
     <button
       type="button"
-      class="services__submit">поиск</button>
+      class="services__submit"
+    >
+      поиск
+    </button>
   </div>
 </template>
 
@@ -54,12 +73,7 @@ export default {
   data () {
     return {
       search: '',
-      searchedList: [
-        { title: 'Search 1', id: 1 },
-        { title: 'Search 2', id: 2 },
-        { title: 'Search 3', id: 3 },
-        { title: 'Search 4', id: 4 }
-      ],
+      searchedList: [],
       touched: false,
       date: '',
       participants: 0
@@ -170,6 +184,11 @@ export default {
 
   & .service
     position relative
+
+    &:hover
+    &:focus
+    &:active
+      outline 0
 
     &__content
       position absolute

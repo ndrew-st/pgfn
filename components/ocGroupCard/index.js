@@ -1,7 +1,7 @@
-import ocCarousel from '@/components/ocCarousel'
+import Carousel from '~/components/ocCarousel'
 
 export default {
-  components: { ocCarousel },
+  components: { Carousel },
   props: {
     tabs: {
       type: Array,
@@ -39,9 +39,6 @@ export default {
   data () {
     return {
       tabSelect: '',
-      settings: {
-        maxScrollbarLength: 60
-      },
       swiper: {}
     }
   }
