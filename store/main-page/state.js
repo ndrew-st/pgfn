@@ -1,15 +1,26 @@
 export default () => ({
   result: {
     title: 'Путеводитель по твоим правилам',
-    description: 'Полуостров Крым — это уникальная природа, горы, древние города и императорские дворцы. Редакция портала «Культура.РФ» подготовила культурный гид по главным достопримечательностям Крыма.',
+    description: [
+      'Подбор жилья в аренду по персональным предпочтениям из ',
+      ' вариантов. Квартиры, комнаты, дома, таунхаусы, отели, кемпинги и другое жильё посуточно и на длительный срок.'
+    ],
     background: '/main-page/full-bg.jpg',
+    count: 30,
     direction: { // Данное поле опционально, его может не быть
       tabs: [
         { name: `Популярные`, url: `/api/apartments/list?q=popular` },
         { name: `Апартаменты`, url: `/api/apartments/list?q=apartments` },
         { name: `Коттеджи и дома`, url: `/api/apartments/list?q=cottage` },
         { name: `Гостиницы`, url: `/api/apartments/list?q=hosinities` },
-        { name: `Отели`, url: `/api/apartments/list?q=otels` }
+        { name: `Отели`, url: `/api/apartments/list?q=otels` },
+        { name: `Отели`, url: `/api/apartments/list?q=otels2` },
+        { name: `Отели`, url: `/api/apartments/list?q=otels3` },
+        { name: `Отели`, url: `/api/apartments/list?q=otels4` },
+        { name: `Отели`, url: `/api/apartments/list?q=otels5` },
+        { name: `Отели`, url: `/api/apartments/list?q=otels6` },
+        { name: `Отели`, url: `/api/apartments/list?q=otels7` },
+        { name: `Отели`, url: `/api/apartments/list?q=otels8` }
       ],
       items: [
         {

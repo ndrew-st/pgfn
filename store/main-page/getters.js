@@ -8,5 +8,6 @@ export default {
       description: state.result.description,
       background: state.result.background
     }
-  }
+  },
+  count: state => state.result.count
 }

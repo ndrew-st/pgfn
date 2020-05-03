@@ -5,10 +5,15 @@
       :src="background"
       width="2400"
       height="1600"
-      class="full-block__bg-image">
+      class="full-block__bg-image"
+    >
     <div class="full-block__container">
-      <h2 class="full-block__title">{{ title }}</h2>
-      <p class="full-block__description">{{ description }}</p>
+      <h2 class="full-block__title">
+        {{ title }}
+      </h2>
+      <p class="full-block__description">
+        {{ description }}
+      </p>
     </div>
   </div>
 </template>
@@ -23,6 +28,10 @@ export default {
     description: {
       type: String,
       required: true
+    },
+    count: {
+      type: Number,
+      default: 0
     },
     background: {
       type: String,

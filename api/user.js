@@ -1,4 +1,8 @@
-import axios from 'axios'
+export default axios => resource => ({
+  subscribeEmail (email) {
+    return axios.get(`${resource}/subscribe?email=${email}`)
+  }
+})
 
 // export const login = async (phone, password) => {
 //   // const data = await axios.post('api/users/login', { phone, password })
@@ -53,10 +57,3 @@ import axios from 'axios'
 //     }, 2000)
 //   })
 // }
-
-// export const makePr = axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR')
-
-// // работает
-// export const makePr = () => axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
-
-export const makePr = () => axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR')

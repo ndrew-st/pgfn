@@ -84,65 +84,6 @@ export default {
         return null
       }
     },
-    touchStart (evt) {
-      // evt.preventDefault()
-
-      // console.log(evt)
-      // this.touch.startX = evt.touches[0].pageX
-      // this.touch.startY = evt.touches[0].pageY
-      // this.offset = this.$refs.list.getBoundingClientRect().left
-    },
-    touchMove (evt) {
-      // evt.preventDefault()
-
-      // console.log(evt)
-      // this.touch.moveX = evt.touches[0].pageX
-      // this.touch.moveY = evt.touches[0].pageY
-
-      // if (Math.abs(this.touch.moveX - this.touch.startX) < 40) {
-      //   return null
-      // }
-
-      // if (this.offset + this.touch.moveX - this.touch.startX > 0 && this.offset === 0) {
-      //   this.offset = -this.items.length * this.widthItem
-      // } else if (this.offset + this.touch.moveX - this.touch.startX < -(this.items.lenght + 1) * this.widthItem) {
-      //   this.offset = -this.widthItem
-      // }
-
-      // this.posX = this.offset + this.touch.moveX - this.touch.startX
-    },
-    touchEnd (evt) {
-      // evt.preventDefault()
-
-      // console.log(evt)
-      // this.offset = this.$refs.list.getBoundingClientRect().left
-
-      // if (Math.abs(this.touch.moveX - this.touch.startX) < 40) {
-      //   return null
-      // }
-
-      // this.touch.stayAtCur = !!(Math.abs(this.touch.moveX - this.touch.startX) < 40 || typeof this.touch.moveX === 'undefined')
-      // this.touch.dir = this.touch.startX < this.touch.moveX ? 'left' : 'right'
-
-      // if (!this.touch.stayAtCur) {
-      //   this.touch.dir === 'left' ? this.activeIndex-- : this.activeIndex++
-
-      //   if (this.activeIndex < 1) {
-      //     this.activeIndex = 0
-      //   } else if (this.activeIndex + this.countColumn >= this.items.length) {
-      //     if (this.touch.dir === 'right') {
-      //       this.activeIndex = this.items.length - this.countColumn
-      //     }
-      //   }
-      // }
-
-      // this.posX = -this.activeIndex * this.widthItem
-
-      this.touch.startX = 0
-      this.touch.startY = 0
-      this.touch.moveX = 0
-      this.touch.moveY = 0
-    },
     mouseOver () {
       this.isOver = true
     },
@@ -162,7 +103,7 @@ export default {
     },
     handlerScroll (e) {
       if (!this.scroll) {
-        e.preventDefault()
+        // e.preventDefault()
 
         return false
       }
@@ -221,14 +162,6 @@ export default {
       countColumn: 0,
       widthItem: 0,
       offset: 0,
-      touch: {
-        dir: '',
-        stayAtCur: 0,
-        startX: 0,
-        startY: 0,
-        moveX: 0,
-        moveY: 0
-      },
       isOver: false,
       posX: 0
     }
