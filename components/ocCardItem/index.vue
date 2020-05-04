@@ -10,16 +10,17 @@
         :items="item.previewGallery"
         class="card-item__swiper"
       >
-      <div
+        <div
           v-for="(gallery, index) in item.previewGallery"
-          :key="index" 
-          class="card-item__img-container">
-        <img
-          :src="gallery"
-          :alt="item.name"
-          class="card-item__image"
+          :key="index"
+          class="card-item__img-container"
         >
-      </div>
+          <img
+            :src="gallery"
+            :alt="item.name"
+            class="card-item__image"
+          >
+        </div>
       </Carousel>
     </div>
 

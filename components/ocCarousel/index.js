@@ -49,12 +49,16 @@ export default {
         this.activeIndex = 0
       }
 
+      if (this.activeIndex < this.items.length - 3 && this.activeIndex > 1) {
+        this.posDots += this.widthDot
+      }
+
       this.posX = -this.activeIndex * this.widthItem
     },
     carouselNext () {
       // Dots
-      if (this.activeIndex > 2) {
-        this.posDots = this.widthDot
+      if (this.activeIndex > 1 && this.activeIndex < this.items.length - 3) {
+        this.posDots -= this.widthDot
       }
 
       this.activeIndex += 1
@@ -78,22 +82,24 @@ export default {
 
       const self = this
       const ev = e
-    
-      this.timeout = setTimeout(function() {
+
+      this.timeout = setTimeout(function () {
         self.scrollLeft = ev.target.scrollLeft
 
         const remSpace = (self.listWidth - ev.target.scrollLeft) / self.widthItem // count card in remaining space
         const resIndex = self.items.length - Math.round(remSpace)
 
         self.activeIndex = resIndex < 0 ? 0 : resIndex
-      }, 1000);
+      }, 1000)
     },
     isConvex (item) {
       if (this.activeIndex < 1) {
         return item === this.activeIndex || item - 1 === this.activeIndex || item - 2 === this.activeIndex
-      } else {
+      } else if (this.activeIndex > 1 && this.activeIndex < this.items.length - 2) {
         return item === this.activeIndex || item - 1 === this.activeIndex || item + 1 === this.activeIndex
-      }
+      } else {
+        return item === this.activeIndex || item + 1 === this.activeIndex || item + 2 === this.activeIndex
+      } 
     },
     isSmall (item) {
       if (this.activeIndex < 2) {
@@ -108,7 +114,7 @@ export default {
   watch: {
     posX (val) {
       this.$refs.wrapper.scrollLeft = -val
-    }
+    },
   },
   mounted () {
     if (this.$refs.list.children.length === this.items.length) {
@@ -132,8 +138,8 @@ export default {
     }
 
     if (this.$refs.dots && this.$refs.dots.children[6]) {
-      this.widthDot = this.$refs.dots.children[6].clientWidth
-      console.log('widthItem ', this.widthDot)
+      const marginDot = parseInt(getComputedStyle(this.$refs.dots.children[6], true).marginRight)
+      this.widthDot = this.$refs.dots.children[6].clientWidth + marginDot
     }
 
     window.addEventListener('resize', this.handlerResize)

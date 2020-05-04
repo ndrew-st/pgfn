@@ -45,10 +45,13 @@
 
     <div
       v-if="dots"
-      :style="{ 'transform': `translateX(-${posDots}px)` }"
       class="carousel__dots-container"
     >
-      <ul ref="dots" class="carousel__dots">
+      <ul
+        ref="dots"
+        :style="{ 'transform': `translateX(${posDots}px)` }"
+        class="carousel__dots"
+      >
         <li
           v-for="i in items.length"
           :key="i"
@@ -56,8 +59,8 @@
         >
           <button
             :class="{ 'active-dot': --i === activeIndex,
-              convex: isConvex(i),
-              'size-small': isSmall(i) }"
+                      convex: isConvex(i),
+                      'size-small': isSmall(i) }"
             class="carousel__dot-button"
           >
             {{ i }}
