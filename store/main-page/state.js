@@ -8,6 +8,7 @@ export default () => ({
     background: '/main-page/full-bg.jpg',
     count: 30,
     direction: { // Данное поле опционально, его может не быть
+      count: 231,
       tabs: [
         { name: `Популярные`, url: `/api/apartments/list?q=popular` },
         { name: `Апартаменты`, url: `/api/apartments/list?q=apartments` },
@@ -152,6 +153,7 @@ export default () => ({
       ]
     },
     apartments: {
+      count: 231,
       tabs: [
         { name: `Популярные`, url: `/api/apartments/list?q=popular` },
         { name: `Апартаменты`, url: `/api/apartments/list?q=apartments` },
@@ -168,7 +170,7 @@ export default () => ({
           rating: 4.3,
           reviews: 128,
           type: 'Отель',
-          previewGallery: [ '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png' ],
+          previewGallery: [ '/cart/cart-1.png', '/cart/cart-1.png', '/cart/cart-1.png', '/cart/cart-1.png', '/cart/cart-1.png', '/cart/cart-1.png', '/cart/cart-1.png', '/cart/cart-1.png', '/cart/cart-1.png', '/cart/cart-1.png', '/cart/cart-1.png', '/cart/cart-2.png', '/cart/cart-3.png', '/cart/cart-4.png', '/cart/cart-5.jpg', '/cart/cart-6.jpg' ],
           favorits: false,
           price: 5980,
           oldprice: 8010
@@ -358,6 +360,7 @@ export default () => ({
       ]
     },
     services: {
+      count: 231,
       tabs: [
         { name: `Популярные`, url: `/api/apartments/list?q=popular` },
         { name: `Апартаменты`, url: `/api/apartments/list?q=apartments` },

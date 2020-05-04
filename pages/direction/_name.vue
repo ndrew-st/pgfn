@@ -40,6 +40,7 @@
         v-for="item in apartments.items"
         :key="item.id"
         :item="item"
+        type="housing"
         :is-liked="false"
         @setLike="handlerLike(item.id, 'apartments')"
       />
@@ -60,6 +61,7 @@
         v-for="item in services.items"
         :key="item.id"
         :item="item"
+        type="services"
         :is-liked="false"
         @setLike="handlerLike(item.id, 'services')"
       />
@@ -92,10 +94,14 @@ export default {
     ocGroupCard,
     FilterBlock
   },
-  asyncData ({ app, route }) {
-    // console.log(app)
-    // console.log(route.params.name)
-    // this.getData(this.query || this.defaultQuery)
+  asyncData ({ query, store }) {
+    // try {
+    //   await store.dispatch(`main-page/getData`)(query || `Крым`)
+    // } catch (e) {
+    //   return {
+    //     error: e
+    //   }
+    // }
   },
   computed: {
     description () {
@@ -107,8 +113,6 @@ export default {
     },
     ...mapGetters('main-page', ['direction', 'apartments', 'services', 'head', 'count'])
   },
-  mounted () {
-  },
   methods: {
     handlerTab (field, url) {
       // this.updateTabs({ field, url })
@@ -117,7 +121,7 @@ export default {
     handlerLike (idCard, field) {
       // what do with likes
     },
-    ...mapActions('main-page', ['getData', 'updateTabs'])
+    ...mapActions('main-page', ['updateTabs'])
   },
   head () {
     return {

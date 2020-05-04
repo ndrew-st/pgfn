@@ -5,6 +5,7 @@ export default ({ $axios }, inject) => {
   $axios.onError((error) => {
     const code = parseInt(error.response && error.response.status)
     if (code === 500) {
+      console.log(`Error 500: ${error.response}`)
     }
   })
 

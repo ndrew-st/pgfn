@@ -35,83 +35,74 @@ export default {
     }
   },
   computed: {
-    activeSlide () {
-      return this.activeIndex * this.widthItem
-    },
     maxWidthWrapper () {
-      if (this.widthWindow >= 1280) { // set
-        return this.widthItem * this.countColumn
-      } else {
+      if (this.widthWindow <= 1280) { // set
         return this.widthWindow
       }
     }
   },
   methods: {
     carouselPrev () {
-      if (this.activeIndex > 0) {
-        this.activeIndex -= this.countColumn
+      this.activeIndex -= 1
 
-        if (this.activeIndex < 1) {
-          this.activeIndex = 0
-        }
-
-        this.posX = -this.activeIndex * this.widthItem
+      if (this.activeIndex < 0) {
+        this.activeIndex = 0
       }
+
+      this.posX = -this.activeIndex * this.widthItem
     },
     carouselNext () {
-      if (this.widthWrapper < this.widthItem * this.column) {
-        this.countColumn = Math.floor(this.widthWrapper / this.widthItem)
+      // Dots
+      if (this.activeIndex > 2) {
+        this.posDots = this.widthDot
       }
 
-      if (this.activeIndex + this.countColumn >= this.items.length - 1) {
-        this.activeIndex = this.items.length - this.countColumn
-        this.posX = -this.activeIndex * this.widthItem
-
-        return null
-      }
-
-      if (this.activeIndex + this.countColumn * 2 > this.items.length - 1) {
-        this.activeIndex = this.items.length - this.countColumn
-        this.posX = -this.activeIndex * this.widthItem
-
-        return null
-      }
-
-      if (this.activeIndex + this.countColumn < this.items.length - 1) {
-        this.activeIndex += this.countColumn
-        this.posX = -this.activeIndex * this.widthItem
-
-        return null
-      }
+      this.activeIndex += 1
+      this.posX = -this.activeIndex * this.widthItem
     },
-    mouseOver () {
-      this.isOver = true
-    },
-    mouseOut () {
-      this.isOver = false
-    },
-    handlerResize (e) {
+    handlerResize () {
       this.widthWindow = window.screen.width
-
-      if (this.widthWrapper >= this.widthItem * this.column) {
-        this.countColumn = Math.floor(this.widthWrapper / this.widthItem)
-      }
 
       if (this.widthWrapper !== this.$refs.carousel.clientWidth) {
         this.widthWrapper = this.$refs.carousel.clientWidth
       }
+
+      if (this.widthWrapper >= this.widthItem * this.column) {
+        this.countColumn = Math.floor(this.widthWrapper / this.widthItem)
+      }
     },
     handlerScroll (e) {
-      if (!this.scroll) {
-        // e.preventDefault()
-
-        return false
+      if (this.timeout !== false) {
+        clearTimeout(this.timeout)
       }
 
-      this.scrollLeft = e.target.scrollLeft
+      const self = this
+      const ev = e
+    
+      this.timeout = setTimeout(function() {
+        self.scrollLeft = ev.target.scrollLeft
 
-      const remSpace = (this.mainWidth - this.scrollLeft) / this.widthOutMargin // count card in remaining space
-      this.activeIndex = this.items.length - Math.round(remSpace)
+        const remSpace = (self.listWidth - ev.target.scrollLeft) / self.widthItem // count card in remaining space
+        const resIndex = self.items.length - Math.round(remSpace)
+
+        self.activeIndex = resIndex < 0 ? 0 : resIndex
+      }, 1000);
+    },
+    isConvex (item) {
+      if (this.activeIndex < 1) {
+        return item === this.activeIndex || item - 1 === this.activeIndex || item - 2 === this.activeIndex
+      } else {
+        return item === this.activeIndex || item - 1 === this.activeIndex || item + 1 === this.activeIndex
+      }
+    },
+    isSmall (item) {
+      if (this.activeIndex < 2) {
+        return item === 4
+      }
+
+      if (this.activeIndex > this.items.length - 2) {
+        return item === this.items.length - 5
+      }
     }
   },
   watch: {
@@ -120,9 +111,8 @@ export default {
     }
   },
   mounted () {
-    if (this.$refs.list.children[0]) {
+    if (this.$refs.list.children.length === this.items.length) {
       const marginRight = parseInt(getComputedStyle(this.$refs.list.children[0], true).marginRight)
-      this.heightItem = this.$refs.list.children[0].clientHeight
 
       if (marginRight > 0) {
         this.widthItem = this.$refs.list.children[0].clientWidth + marginRight // For card with margin
@@ -131,19 +121,22 @@ export default {
       }
 
       this.widthOutMargin = this.$refs.list.children[0].clientWidth
-
-      this.mainWidth = this.widthItem * this.items.length
+      this.listWidth = this.widthItem * this.items.length
       this.widthWrapper = this.$refs.carousel.clientWidth
 
-      if (this.widthWrapper < this.widthItem * this.column) {
-        this.countColumn = Math.floor(this.widthWrapper / this.widthItem)
+      if (this.widthWrapper < this.widthOutMargin * this.column) {
+        this.countColumn = Math.floor(this.widthWrapper / this.widthOutMargin)
       } else {
         this.countColumn = this.column
       }
     }
 
-    window.addEventListener('resize', this.handlerResize)
+    if (this.$refs.dots && this.$refs.dots.children[6]) {
+      this.widthDot = this.$refs.dots.children[6].clientWidth
+      console.log('widthItem ', this.widthDot)
+    }
 
+    window.addEventListener('resize', this.handlerResize)
     this.widthWindow = window.screen.width
   },
   beforeDestroy () {
@@ -151,19 +144,20 @@ export default {
   },
   data () {
     return {
-      mainWidth: '',
+      listWidth: 0,
       scrollLeft: 0,
+      dir: 'right',
       widthWrapper: 0,
       widthWindow: 0,
       widthOutMargin: 0,
-      heightItem: 0,
-      duration: 600,
       activeIndex: 0,
       countColumn: 0,
       widthItem: 0,
-      offset: 0,
-      isOver: false,
-      posX: 0
+      timeout: false,
+      posX: 0,
+      posDots: 0,
+      widthDots: 0,
+      widthDot: 0
     }
   }
 }
