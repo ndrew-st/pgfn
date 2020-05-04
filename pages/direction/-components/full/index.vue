@@ -11,9 +11,10 @@
       <h2 class="full-block__title">
         {{ title }}
       </h2>
-      <p class="full-block__description">
-        {{ description }}
-      </p>
+      <p
+        class="full-block__description"
+        v-html="description"
+      />
     </div>
   </div>
 </template>

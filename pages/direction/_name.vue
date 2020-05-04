@@ -1,10 +1,9 @@
 <template>
   <div class="direction-page">
     <Full
-      :title="head.title"
-      :count="count"
-      :description="description"
-      :background="head.background"
+      :title="header.title"
+      :description="header.description"
+      :background="header.background"
     />
 
     <FilterBlock />
@@ -14,7 +13,7 @@
       v-if="direction"
       :tabs="direction.tabs"
       :items="direction.items"
-      :count="direction.items.length"
+      :count="direction.count"
       title="Популярные направления"
       @changeTab="handlerTab('direction', $event)"
     >
@@ -29,7 +28,7 @@
 
     <!-- Жильё -->
     <ocGroupCard
-      :count="apartments.items.length"
+      :count="apartments.count"
       :auto-width="true"
       :items="apartments.items"
       :tabs="apartments.tabs"
@@ -50,7 +49,7 @@
 
     <!-- Услуги -->
     <ocGroupCard
-      :count="services.items.length"
+      :count="services.count"
       :auto-width="true"
       :items="services.items"
       :tabs="services.tabs"
@@ -94,24 +93,17 @@ export default {
     ocGroupCard,
     FilterBlock
   },
-  asyncData ({ query, store }) {
-    // try {
-    //   await store.dispatch(`main-page/getData`)(query || `Крым`)
-    // } catch (e) {
-    //   return {
-    //     error: e
-    //   }
-    // }
+  async asyncData ({ query, store }) {
+    try {
+      await store.dispatch(`main-page/getData`)(query || `Крым`)
+    } catch (e) {
+      return {
+        error: e
+      }
+    }
   },
   computed: {
-    description () {
-      if (typeof this.head.description === 'object') {
-        return `${this.head.description[0]}${this.count}${this.head.description[1]}`
-      } else {
-        return this.head.description
-      }
-    },
-    ...mapGetters('main-page', ['direction', 'apartments', 'services', 'head', 'count'])
+    ...mapGetters('main-page', ['direction', 'apartments', 'services', 'head', 'header'])
   },
   methods: {
     handlerTab (field, url) {
@@ -125,10 +117,10 @@ export default {
   },
   head () {
     return {
-      title: `Personal.Guide — путеводитель по твоим правилам!`,
+      title: this.head.title,
       meta: [
-        { name: 'description', content: this.description },
-        { name: 'keywords', content: `жильё, квартира, дом, отель, гостиница, снять, аренда, посуточно, путешествия, достопримечательности, крым, россия,` }
+        { name: 'description', content: this.head.description },
+        { name: 'keywords', content: this.head.keywords }
       ]
     }
   }

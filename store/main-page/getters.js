@@ -6,6 +6,13 @@ export default {
     return {
       title: state.result.title,
       description: state.result.description,
+      keywords: state.result.keywords
+    }
+  },
+  header: (state) => {
+    return {
+      title: state.result.header,
+      description: state.result.mainText,
       background: state.result.background
     }
   },

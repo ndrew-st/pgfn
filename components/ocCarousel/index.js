@@ -53,7 +53,12 @@ export default {
         this.posDots += this.widthDot
       }
 
-      this.posX = -this.activeIndex * this.widthItem
+      // debugger
+      if (this.posX !== -this.activeIndex * this.widthItem) {
+        this.posX = -this.activeIndex * this.widthItem
+      } else {
+        this.$refs.wrapper.scrollLeft = 0
+      }
     },
     carouselNext () {
       // Dots
@@ -61,8 +66,15 @@ export default {
         this.posDots -= this.widthDot
       }
 
+      // debugger
+
       this.activeIndex += 1
-      this.posX = -this.activeIndex * this.widthItem
+
+      if (this.posX !== -this.activeIndex * this.widthItem) {
+        this.posX = -this.activeIndex * this.widthItem
+      } else {
+        this.posX = -this.listWidth
+      }
     },
     handlerResize () {
       this.widthWindow = window.screen.width
@@ -99,7 +111,7 @@ export default {
         return item === this.activeIndex || item - 1 === this.activeIndex || item + 1 === this.activeIndex
       } else {
         return item === this.activeIndex || item + 1 === this.activeIndex || item + 2 === this.activeIndex
-      } 
+      }
     },
     isSmall (item) {
       if (this.activeIndex < 2) {
@@ -114,7 +126,7 @@ export default {
   watch: {
     posX (val) {
       this.$refs.wrapper.scrollLeft = -val
-    },
+    }
   },
   mounted () {
     if (this.$refs.list.children.length === this.items.length) {

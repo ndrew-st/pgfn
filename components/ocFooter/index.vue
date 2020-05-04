@@ -68,6 +68,8 @@
             <img
               :src="pay.src"
               :alt="pay.title"
+              :width="pay.width"
+              :height="pay.height"
               class="footer-pay__image"
             >
           </li>
@@ -115,17 +117,19 @@ export default {
         }
       ],
       social: [
-        { title: 'Фейсбук', src: '/icons/facebook.svg', url: '' },
-        { title: 'Вконтакте', src: '/icons/vk.svg', url: '' },
-        { title: 'Инстарграм', src: '/icons/instagram.svg', url: '' }
+        { title: 'Фейсбук', src: '/icons/facebook.svg', url: 'https://www.facebook.com/personal.guide.russia' },
+        { title: 'Вконтакте', src: '/icons/vk.svg', url: 'https://vk.com/personal.guide' },
+        { title: 'Инстарграм', src: '/icons/instagram.svg', url: '' },
+        { title: 'Твиттер', src: '/icons/twitter.svg', url: 'https://twitter.com/PersonalGuideR' },
+        { title: 'Зен яндекс', src: '/icons/zen-icon.svg', url: 'https://zen.yandex.ru/id/5db5b8a01ee34f00b119e343' }
       ],
       payments: [
         { title: 'Master Card', src: '/icons/payments/master-card.svg' },
         { title: 'maestro', src: '/icons/payments/maestro.svg' },
         { title: 'Visa', src: '/icons/payments/visa.svg' },
-        { title: 'Google pay', src: '/icons/payments/google.svg' },
+        { title: 'Google pay', src: '/icons/payments/gpay.png', width: 47.5, height: 20 },
         { title: 'Apple pay', src: '/icons/payments/apple.svg' },
-        { title: 'Samsung pay', src: '/icons/payments/samsung.svg' }
+        { title: 'Samsung pay', src: '/icons/payments/sampay.png', width: 83, height: 12 }
       ]
     }
   }
@@ -251,7 +255,7 @@ export default {
       display flex
       justify-content space-between
       width 100%
-      max-width 120px
+      max-width 220px
       margin 0
       padding 0
 
@@ -302,6 +306,7 @@ export default {
     margin-left -18px
     margin-right -18px
     padding 20px 18px
+    margin-bottom 50px
 
     font-style: normal;
     font-weight: normal;
@@ -312,6 +317,7 @@ export default {
     border-top 1px solid #ECECEC
 
     @media(min-width 1280px)
+      margin-bottom 0
       margin-left 0
       margin-right 0
       padding-left 0
