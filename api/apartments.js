@@ -4,5 +4,8 @@ export default axios => resource => ({
   },
   getSearch (search) {
     return axios.get(`${resource}/search?q=${search}`)
+  },
+  updateTabs (url) {
+    return axios.get(`${resource}${url}`)
   }
 })

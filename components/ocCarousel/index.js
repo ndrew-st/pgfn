@@ -163,7 +163,6 @@ export default {
     if (process.browser) {
       window.removeEventListener('resize')
     }
-    
   },
   data () {
     return {

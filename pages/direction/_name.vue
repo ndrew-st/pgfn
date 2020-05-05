@@ -10,7 +10,7 @@
 
     <!-- Направление -->
     <ocGroupCard
-      v-if="direction"
+      v-if="direction && direction.items.length"
       :tabs="direction.tabs"
       :items="direction.items"
       :count="direction.count"
@@ -73,12 +73,12 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import isEmptyObject from '~/utils/isEmptyObject'
 
 import SubscribeEmail from './-components/subscribe-email'
 import Full from './-components/full'
 import DescBlock from './-components/desc'
 import FilterBlock from './-components/filter'
+import isEmptyObject from '~/utils/isEmptyObject'
 import ocGroupCard from '~/components/ocGroupCard'
 
 import ocCardDirection from '~/components/ocCardDirection'
@@ -107,7 +107,6 @@ export default {
     },
     handlerTab (field, url) {
       this.updateTabs({ field, url })
-        .catch(err => console.log('Error change tab: ', err))
     },
     handlerLike (idCard, field) {
       // what do with likes
