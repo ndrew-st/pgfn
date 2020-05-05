@@ -1,11 +1,8 @@
 export default {
   props: {
-    blockName: {
-      type: String,
-      default: ''
-    },
-    info: {
+    location: {
       type: Array,
+      required: true,
       default: []
     }
   }

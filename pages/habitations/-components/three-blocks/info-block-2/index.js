@@ -5,14 +5,9 @@ export default {
     InfoBlock
   },
   props: {
-    onlineBooking: {
+    prices: {
       type: Array,
       default: []
-    }
-  },
-  data () {
-    return {
-      picked: 0
     }
   }
 }
