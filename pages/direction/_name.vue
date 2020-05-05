@@ -1,84 +1,88 @@
 <template>
   <div class="direction-page">
     <Full
-      :title="head.title"
-      :description="head.description"
-      :background="head.background"
+      :title="header.title"
+      :description="header.description"
+      :background="header.background"
     />
 
     <FilterBlock />
 
     <!-- Направление -->
-    <GroupCard
+    <ocGroupCard
       v-if="direction"
       :tabs="direction.tabs"
       :items="direction.items"
-      :count="direction.items.length"
+      :count="direction.count"
       title="Популярные направления"
       @changeTab="handlerTab('direction', $event)"
     >
-      <CardDirection
+      <ocCardDirection
         v-for="item in direction.items"
         :key="item.id"
         :item="item"
         :is-liked="false"
         @setLike="handlerLike(item.id, 'direction')"
       />
-    </GroupCard>
+    </ocGroupCard>
 
     <!-- Жильё -->
-    <GroupCard
-      :count="apartments.items.length"
+    <ocGroupCard
+      :count="apartments.count"
       :auto-width="true"
       :items="apartments.items"
       :tabs="apartments.tabs"
       title="Жильё"
       @changeTab="handlerTab('apartments', $event)"
     >
-      <CardItem
+      <ocCardItem
         v-for="item in apartments.items"
         :key="item.id"
         :item="item"
+        type="housing"
         :is-liked="false"
         @setLike="handlerLike(item.id, 'apartments')"
       />
-    </GroupCard>
+    </ocGroupCard>
 
     <SubscribeEmail />
 
-    <!-- Услуги
-    <GroupCard
-      :count="services.items.length"
+    <!-- Услуги -->
+    <ocGroupCard
+      v-if="!isEmptyObj(services)"
+      :count="services.count"
       :auto-width="true"
       :items="services.items"
       :tabs="services.tabs"
       title="Услуги"
       @changeTab="handlerTab('services', $event)"
     >
-      <CardItem
+      <ocCardItem
         v-for="item in services.items"
         :key="item.id"
         :item="item"
+        type="services"
         :is-liked="false"
         @setLike="handlerLike(item.id, 'services')"
       />
-    </GroupCard>
-    -->
+    </ocGroupCard>
+
     <DescBlock />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import isEmptyObject from '~/utils/isEmptyObject'
 
 import SubscribeEmail from './-components/subscribe-email'
 import Full from './-components/full'
 import DescBlock from './-components/desc'
 import FilterBlock from './-components/filter'
-import GroupCard from '~/components/ocGroupCard'
+import ocGroupCard from '~/components/ocGroupCard'
 
-import CardDirection from '~/components/ocCardDirection'
-import CardItem from '~/components/ocCardItem'
+import ocCardDirection from '~/components/ocCardDirection'
+import ocCardItem from '~/components/ocCardItem'
 
 export default {
   layout: 'main',
@@ -86,30 +90,21 @@ export default {
     Full,
     DescBlock,
     SubscribeEmail,
-    CardItem,
-    CardDirection,
-    GroupCard,
+    ocCardItem,
+    ocCardDirection,
+    ocGroupCard,
     FilterBlock
   },
-  data () {
-    return {
-      defaultQuery: 'Крым',
-      error: null
-    }
+  async asyncData ({ params, store }) {
+    await store.dispatch(`main-page/getData`, params.name || `Крым`)
   },
   computed: {
-    query () {
-      return this.$route.params.name
-    },
-    ...mapGetters('main-page', ['direction', 'apartments', 'services', 'head'])
-  },
-  mounted () {
-    this.getData(this.query || this.defaultQuery)
-      .catch((err) => {
-        this.error = err
-      })
+    ...mapGetters('main-page', ['direction', 'apartments', 'services', 'head', 'header'])
   },
   methods: {
+    isEmptyObj (obj) {
+      return isEmptyObject(obj)
+    },
     handlerTab (field, url) {
       this.updateTabs({ field, url })
         .catch(err => console.log('Error change tab: ', err))
@@ -117,7 +112,16 @@ export default {
     handlerLike (idCard, field) {
       // what do with likes
     },
-    ...mapActions('main-page', ['getData', 'updateTabs'])
+    ...mapActions('main-page', ['updateTabs'])
+  },
+  head () {
+    return {
+      title: this.head.title,
+      meta: [
+        { name: 'description', content: this.head.description },
+        { name: 'keywords', content: this.head.keywords }
+      ]
+    }
   }
 }
 </script>

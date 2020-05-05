@@ -24,6 +24,10 @@ export default {
     isLiked: {
       type: Boolean,
       required: true
+    },
+    type: {
+      type: String,
+      required: true
     }
   },
   data () {

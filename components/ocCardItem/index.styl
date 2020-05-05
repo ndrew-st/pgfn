@@ -2,14 +2,23 @@
   position relative
 
   min-width 252px
-  margin-right 16px
+  margin-right 14px
 
   box-sizing border-box
 
-  &__image
+  &:last-child
+    margin-right 0
+
+  &__img-container
+    display flex
+    align-items center
+    justify-content center
     min-width 252px
-    width 252px
     height 168px
+
+  &__image
+    display block
+    width auto
 
     vertical-align bottom
     border-radius 5px
@@ -30,12 +39,16 @@
 
   &__address
     margin 0
+    margin-bottom 4px
 
     font-style: normal;
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
     color: #272528;
+
+    @media(min-width 1280px)
+      margin-bottom 12px
 
   &__settings
     display flex
@@ -98,15 +111,25 @@
 
   &__attrs
     display flex
+    align-items flex-start
+    flex-wrap wrap
     margin 0
+    margin-top -4px
+    min-height 40px
+    max-height 40px
     margin-bottom 8px
     padding 0
     flex-wrap wrap
 
     list-style none
+    overflow hidden
+
+    @media(min-width 1280px)
+      margin-top -12px
 
   &__attr
     position relative
+    align-self flex-start
 
     padding-left 13px
 
@@ -202,13 +225,15 @@
 @media(min-width 1280px)
   .card-item
     min-width 300px
-    margin-right 18px
+    margin-right 26px
 
-    &__image
+    &:last-child
+      margin-right 0
+
+    &__img-container
       min-width 300px
-      width 300px
       height 200px
-
+      
     &__title
       margin-top 24px
 

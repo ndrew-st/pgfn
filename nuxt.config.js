@@ -15,7 +15,7 @@ export default {
       }
     ],
     base: [{ href: '/' }],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
     script: [{ src: 'https://kit.fontawesome.com/da5e54f6f7.js' }]
   },
   /*
@@ -31,7 +31,8 @@ export default {
    */
   plugins: [
     '@/plugins/global-components.js',
-    '@/plugins/yandexMaps.js'
+    '@/plugins/yandexMaps.js',
+    '@/plugins/api.js'
   ],
   router: {
     base: '/',
@@ -70,7 +71,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: 'https://dev.personal.guide/api/'
+  },
   /*
    ** Build configuration
    */

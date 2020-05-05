@@ -5,10 +5,16 @@
       :src="background"
       width="2400"
       height="1600"
-      class="full-block__bg-image">
+      class="full-block__bg-image"
+    >
     <div class="full-block__container">
-      <h2 class="full-block__title">{{ title }}</h2>
-      <p class="full-block__description">{{ description }}</p>
+      <h2 class="full-block__title">
+        {{ title }}
+      </h2>
+      <p
+        class="full-block__description"
+        v-html="description"
+      />
     </div>
   </div>
 </template>
@@ -18,15 +24,18 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
+      default: 'Title'
     },
     description: {
       type: String,
-      required: true
+      required: true,
+      default: 'description'
     },
     background: {
       type: String,
-      required: true
+      required: true,
+      default: 'background'
     }
   }
 }

@@ -5,32 +5,20 @@
     height 100%
 
     overflow-y hidden
-    box-sizing border-box
-
-    @media(min-width 1280px)
-      margin-bottom -21px
 
   &__wrapper
     position relative
 
     min-height 120px
-    height 99%
   
-    overflow-x auto
-    overflow-y hidden
+    overflow-x scroll
     scroll-behavior smooth
-    overflow-y hidden
 
     box-sizing border-box
 
-    &::-webkit-scrollbar
-      display none
-
-    &.hide
-      // overflow hidden
-
     @media(min-width 1280px)
-      padding-bottom 21px
+      padding-bottom 26px
+      margin-bottom -26px
         
   &__list
     display flex
@@ -119,16 +107,19 @@
     left 0
     right 0
 
-    width 60px
+    display flex
+    align-items center
+    justify-content center
+    width 100%
+    max-width 66px
     margin 0 auto
 
-    z-index 100
-
-    @media(min-width 1280px)
-      bottom 32px
+    z-index 10
+    overflow hidden
 
   &__dots
     display flex
+    align-items center
     justify-content space-between
     width 100%
     margin 0
@@ -137,16 +128,26 @@
     list-style none
     box-sizing border-box
 
+    transition transform 0.3s ease-in-out 0s
+
+  &__dot
+    margin-right 5px
+
+    &:last-child
+      margin-right 0
+
   &__dot-button
     display block
-    width 6px
-    height 6px
+    width 8px
+    height 8px
 
     font-size 0
 
     background-color rgba(255, 255, 255, 0.6)
     border 0
     border-radius 50%
+    transition width 0.1s ease-in-out 0s
+    transition height 0.1s ease-in-out 0s
 
     &:hover
     &:focus
@@ -154,6 +155,18 @@
 
     &.active-dot
       background-color #D55F59
+
+    &.size-small
+      width 6px
+      height 6px
+
+      transition all 0.1s ease-in-out 0s
+
+    &.convex
+      width 10px
+      height 10px
+
+      transition all 0.1s ease-in-out 0s
 
 @media(min-width 1280px)
   .carousel

@@ -87,7 +87,7 @@
 
 <script>
 import OcVerification from '@/components/ocVerification/index.vue'
-import { makePr } from '@/api/user.js'
+import { makePr } from '@/api/out.js'
 
 export default {
   components: {

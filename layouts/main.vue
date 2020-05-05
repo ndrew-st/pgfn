@@ -1,10 +1,10 @@
 <template>
   <div class="main-layout">
-    <MainHeader/>
+    <MainHeader />
 
-    <nuxt/>
+    <nuxt />
 
-    <ocFooter/>
+    <ocFooter />
   </div>
 </template>
 

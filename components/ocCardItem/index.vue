@@ -6,18 +6,21 @@
         :column="1"
         :dots="true"
         :show="false"
+        :scroll="false"
         :items="item.previewGallery"
         class="card-item__swiper"
       >
-        <img
-          v-for="gallery in item.previewGallery"
-          :key="gallery"
-          :src="gallery"
-          :alt="item.name"
-          width="252"
-          height="168"
-          class="card-item__image"
+        <div
+          v-for="(gallery, index) in item.previewGallery"
+          :key="index"
+          class="card-item__img-container"
         >
+          <img
+            :src="gallery"
+            :alt="item.name"
+            class="card-item__image"
+          >
+        </div>
       </Carousel>
     </div>
 
@@ -47,7 +50,10 @@
       {{ item.address }}
     </p>
 
-    <ul class="card-item__attrs">
+    <ul
+      v-if="type === 'housing'"
+      class="card-item__attrs"
+    >
       <li
         v-for="attr in attrs"
         :key="attr"

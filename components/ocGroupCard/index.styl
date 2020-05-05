@@ -37,8 +37,6 @@
   &__checkboxes
     order 3
 
-    overflow-x auto
-
   &__list
     display flex
     max-width 100%
@@ -50,7 +48,7 @@
     overflow auto
 
     &.visible
-      overflow visible
+      // overflow visible
 
   &__item
     min-width 252px
@@ -68,20 +66,31 @@
         
 .group-checkbox
   position relative
-  
-  overflow-x auto
+
   margin-left -16px
-  margin-right -16px
-  padding-right 16px
+  
+  overflow hidden
+  box-sizing border-box
+
+  &__container
+    height 100%
+    padding-bottom 24px
+    margin-bottom -24px
+
+    overflow-x scroll
+    box-sizing content-box
 
   &__list
     display flex
     width 100%
     margin 0
     padding 20px 16px
-    padding-bottom 25px
+    padding-left 16px
     
     list-style none
+
+    @media(min-width 1280px)
+      padding-bottom 12px
 
   &__item
     margin-right 8px
@@ -150,11 +159,12 @@
     margin-left -16px
     padding-left 16px
     margin-right 0
+
+    &__container
+      margin-left -16px
     
     &__list
-      padding-left 0
       padding-right 0
-      padding-bottom 20px
 
     &__item
       margin-right 16px

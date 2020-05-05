@@ -3,21 +3,29 @@
     <div class="search-page__container">
       <!-- v-if="result.length" -->
       <div
-        class="search-page__show-contaienr">
+        class="search-page__show-contaienr"
+      >
         <MobileFilter
-          class="search-page__mobile-filter"/>
+          class="search-page__mobile-filter"
+        />
 
         <div
-          class="search-page__title-container">
-          <h2 class="search-page__title search-page__title--desk">Результат по запросу «{{ query }}»</h2>
-          <h2 class="search-page__title search-page__title--mobile">Найдено жильё в {{ query }}</h2>
+          class="search-page__title-container"
+        >
+          <h2 class="search-page__title search-page__title--desk">
+            Результат по запросу «{{ query }}»
+          </h2>
+          <h2 class="search-page__title search-page__title--mobile">
+            Найдено жильё в {{ query }}
+          </h2>
           <span class="search-page__count-result">244</span>
         </div>
 
         <ocFilter
           :tabs="resTabs.tabs"
+          class="search-page__filter"
           @changeTab="changeTab"
-          class="search-page__filter"/>
+        />
 
         <!-- <div class="search-page__content search-content">
           <ul
@@ -43,8 +51,9 @@
         :current="currentPage"
         :total="totalPhotos"
         :per-page="perPage"
+        class="search-page__pagination"
         @page-changed="fetchItems"
-        class="search-page__pagination"/>
+      />
     </div>
   </div>
 </template>

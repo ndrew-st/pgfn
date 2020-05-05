@@ -9,16 +9,13 @@
         class="direction-card__bg-img">
 
       <ul class="direction-card__property-list">
-        <li
-          v-if="item.weather && item.weather.temperature"
-          class="direction-card__property direction-card__property--temp"
-        >
-          {{ item.weather.temperature }}˙C
+        <li class="direction-card__property direction-card__property--temp">
+          {{ weather.temperature }}˙C
         </li>
         <li
-          v-if="item.weather && item.weather.waterTemperature"
+          v-if="weather.waterTemperature"
           class="direction-card__property direction-card__property--water-temp">
-          {{ item.weather.waterTemperature }}˙C
+          {{ weather.waterTemperature }}˙C
         </li>
         <li class="direction-card__property direction-card__property--current">
           {{ item.current }}
