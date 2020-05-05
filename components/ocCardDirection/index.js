@@ -30,6 +30,11 @@ export default {
       reviewsText: ['отзыв', 'отзыва', 'отзывов']
     }
   },
+  computed: { 
+    weather () {
+      return this.item.weather || {}
+    }
+  },
   methods: {
     numToStr (num) {
       return num2str(num, this.reviewsText)

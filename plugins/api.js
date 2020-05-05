@@ -2,12 +2,36 @@ import createApartmentsApi from '~/api/apartments'
 import createUsersApi from '~/api/user'
 
 export default ({ $axios }, inject) => {
-  $axios.onError((error) => {
-    const code = parseInt(error.response && error.response.status)
-    if (code === 500) {
-      console.log(`Error 500: ${error.response}`)
+  $axios.onResponseError((e) => {
+    if (e.response && e.response.data && e.response.data.error) {
+      return {
+        error: e.response.data
+      }
     }
   })
+
+  $axios.onRequestError((error) => {
+    if (error.request) {
+      return {
+        error: error.request
+      }
+    }
+  })
+
+  $axios.onError((error) => { // handler config errors
+    return {
+      error: error.message
+    }
+  })
+
+  $axios.onRequest((config) => {
+    return {
+      ...config,
+      url: encodeURI(config.url)
+    }
+  })
+
+  $axios.onResponse(res => res.data)
 
   const apartWithAxios = createApartmentsApi($axios)
   const usersWithAxios = createUsersApi($axios)

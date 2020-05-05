@@ -7,12 +7,12 @@
 
       <ul class="direction-card__property-list">
         <li class="direction-card__property direction-card__property--temp">
-          {{ item.weather.temperature }}˙C
+          {{ weather.temperature }}˙C
         </li>
         <li
-          v-if="item.weather.waterTemperature"
+          v-if="weather.waterTemperature"
           class="direction-card__property direction-card__property--water-temp">
-          {{ item.weather.waterTemperature }}˙C
+          {{ weather.waterTemperature }}˙C
         </li>
         <li class="direction-card__property direction-card__property--current">
           {{ item.current }}

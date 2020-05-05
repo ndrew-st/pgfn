@@ -24,19 +24,18 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
+      default: 'Title'
     },
     description: {
       type: String,
-      required: true
-    },
-    count: {
-      type: Number,
-      default: 0
+      required: true,
+      default: 'description'
     },
     background: {
       type: String,
-      required: true
+      required: true,
+      default: 'background'
     }
   }
 }

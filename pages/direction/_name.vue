@@ -49,6 +49,7 @@
 
     <!-- Услуги -->
     <ocGroupCard
+      v-if="!isEmptyObj(services)"
       :count="services.count"
       :auto-width="true"
       :items="services.items"
@@ -72,6 +73,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import isEmptyObject from '~/utils/isEmptyObject'
 
 import SubscribeEmail from './-components/subscribe-email'
 import Full from './-components/full'
@@ -93,19 +95,16 @@ export default {
     ocGroupCard,
     FilterBlock
   },
-  async asyncData ({ query, store }) {
-    try {
-      await store.dispatch(`main-page/getData`)(query || `Крым`)
-    } catch (e) {
-      return {
-        error: e
-      }
-    }
+  async asyncData ({ params, store }) {
+    await store.dispatch(`main-page/getData`, params.name || `Крым`)
   },
   computed: {
     ...mapGetters('main-page', ['direction', 'apartments', 'services', 'head', 'header'])
   },
   methods: {
+    isEmptyObj (obj) {
+      return isEmptyObject(obj)
+    },
     handlerTab (field, url) {
       // this.updateTabs({ field, url })
       //   .catch(err => console.log('Error change tab: ', err))

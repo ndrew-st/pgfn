@@ -129,7 +129,7 @@ export default {
     }
   },
   mounted () {
-    if (this.$refs.list.children.length === this.items.length) {
+    if (this.$refs.list.children[0]) {
       const marginRight = parseInt(getComputedStyle(this.$refs.list.children[0], true).marginRight)
 
       if (marginRight > 0) {
@@ -154,11 +154,16 @@ export default {
       this.widthDot = this.$refs.dots.children[6].clientWidth + marginDot
     }
 
-    window.addEventListener('resize', this.handlerResize)
-    this.widthWindow = window.screen.width
+    if (process.browser) {
+      window.addEventListener('resize', this.handlerResize)
+      this.widthWindow = window.screen.width
+    }
   },
   beforeDestroy () {
-    window.removeEventListener('resize')
+    if (process.browser) {
+      window.removeEventListener('resize')
+    }
+    
   },
   data () {
     return {
