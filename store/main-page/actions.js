@@ -1,5 +1,4 @@
 import axios from 'axios'
-import dal from '@/dal'
 
 axios.defaults.baseURL = 'https://dev.personal.guide/'
 
