@@ -106,8 +106,8 @@ export default {
       return isEmptyObject(obj)
     },
     handlerTab (field, url) {
-      // this.updateTabs({ field, url })
-      //   .catch(err => console.log('Error change tab: ', err))
+      this.updateTabs({ field, url })
+        .catch(err => console.log('Error change tab: ', err))
     },
     handlerLike (idCard, field) {
       // what do with likes

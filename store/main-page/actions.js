@@ -1,3 +1,8 @@
+import axios from 'axios'
+import dal from '@/dal'
+
+axios.defaults.baseURL = 'https://dev.personal.guide/'
+
 export default {
   async getData ({ commit }, query) {
     const data = await this.$api.apartments.getDirection(query)

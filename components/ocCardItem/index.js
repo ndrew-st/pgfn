@@ -35,6 +35,11 @@ export default {
       reviewsText: ['отзыв', 'отзыва', 'отзывов']
     }
   },
+  computed: {
+    attrs () {
+      return this.item.attrs.slice(0, 6)
+    }
+  },
   methods: {
     numToStr (num) {
       return num2str(num, this.reviewsText)

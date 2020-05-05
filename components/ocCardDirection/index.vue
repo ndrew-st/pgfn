@@ -1,5 +1,8 @@
 <template>
-  <div class="direction-card">
+  <router-link
+    class="direction-card"
+    :to="'/direction/' + item.name"
+  >
       <img
         :alt="item.name"
         :src="item.preview"
@@ -34,7 +37,7 @@
         <p class="direction-card__reviews">{{ `${item.reviews} ${numToStr(item.reviews)}` }}</p>
         <p class="direction-card__type">{{ item.type }}</p>
       </div>
-  </div>
+  </router-link>
 </template>
 
 <script src="./index.js"/>
