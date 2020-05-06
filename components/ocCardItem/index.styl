@@ -1,0 +1,265 @@
+.card-item
+  position relative
+
+  min-width 252px
+  margin-right 16px
+
+  box-sizing border-box
+
+  &__image
+    min-width 252px
+    width 252px
+    height 168px
+
+    vertical-align bottom
+    border-radius 5px
+
+  &__list
+    margin-bottom 16px
+
+  &__title
+    display block
+    margin 0
+    margin-bottom 8px
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    color: #272528;
+
+  &__address
+    margin 0
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    color: #272528;
+
+  &__settings
+    display flex
+    margin 0
+    margin-bottom 8px
+    padding 0
+
+    list-style none
+
+  &__rate
+    margin 0
+    margin-right 10px
+    padding 4px 8px
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    background: #EB574F;
+    border-radius: 4px;
+
+  &__reviews
+    display flex
+    align-items center
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    color: #989BA8;
+
+  &__type
+    position relative
+
+    display flex
+    align-items center
+    padding-left 13px
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    color: #989BA8;
+
+    &:before
+      content ''
+      position absolute
+      top 50%
+      left 7px
+
+      width 2px
+      height 2px
+
+      background-color #989BA8
+      border-radius 5px
+
+  &__attrs
+    display flex
+    margin 0
+    margin-bottom 8px
+    padding 0
+    flex-wrap wrap
+
+    list-style none
+
+  &__attr
+    position relative
+
+    padding-left 13px
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    color: #989BA8;
+
+    &:before
+      content ''
+
+      position absolute
+      top 50%
+      left 6px
+
+      width 2px
+      height 2px
+
+      background-color #989BA8
+      border-radius 5px
+
+    &:first-child
+      padding-left 0
+
+      &:before
+        display none
+
+  &__button-like
+    position absolute
+    top 20px
+    right 20px
+
+    width 22px
+    height 20px
+
+    font-size 0
+
+    background-color transparent
+    border 0
+
+    background url('/cart/likeN.svg') 0 0 no-repeat
+    background-size 22px 20px
+
+    z-index 5
+    cursor pointer
+
+    &.card-liked
+        opacity 1
+        background-image url('/cart/likeY.svg')
+
+    &:hover
+    &:focus
+      outline 0
+
+  &__price-container
+    display flex
+
+  &__old-price
+    margin-right 13px
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-decoration line-through
+    color: #272528;
+
+  &__price
+    margin-right 5px
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #272528;
+
+  &__type-price
+    display flex
+    align-items flex-end
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    color: #989BA8;
+
+  &__carousel.carousel
+    &__button-container
+    &__dots-container
+      display none
+
+@media(min-width 1280px)
+  .card-item
+    min-width 300px
+    margin-right 18px
+
+    &__image
+      min-width 300px
+      width 300px
+      height 200px
+
+    &__title
+      margin-top 24px
+
+      font-size 20px
+      line-height 24px
+
+    &__button-like
+      opacity 0
+      transition opacity 0.3s ease-in-out 0s
+
+    &__reviews,
+    &__type
+      font-size: 14px;
+      line-height: 20px;
+
+    &__address
+      font-size: 14px;
+      line-height: 20px;
+
+    & .carousel
+      &__button-container
+      &__dots-container
+        display block
+
+        opacity 0
+        transition opacity 0.3s ease-in-out 0s
+
+      & .btn-carousel
+        &__prev
+        &__next
+          width 32px
+          height 32px
+          margin-top -16px
+
+          &:after
+            width 12px
+            height 11px
+
+            background-size 12px 11px
+
+        &__prev
+          left 12px
+        &__next
+          right 12px
+
+    &__list
+      &:hover .carousel__button-container
+      &:hover .carousel__dots-container
+        opacity 1
+        transition opacity 0.3s ease-in-out 0s
+
+    &:hover .card-item__button-like
+      opacity 1
+      transition opacity 0.3s ease-in-out 0s

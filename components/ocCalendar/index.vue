@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div class="margin20">
+    <div
+      tabindex="0"
+      class="margin20 filter-calendar"
+      @blur="active = false"
+    >
       <div
         class="input"
         @click="active = !active"
@@ -9,24 +13,24 @@
       </div>
 
       <div
-        class="calendar"
         :class="{active: active}"
+        class="calendar filter-calendar__content"
       >
         <div class="months">
           <OcMonth
-            mode="start"
             :occupied-dates="occupiedDates"
             :cur-sel-date="curSelStart"
             :cur-opp-day="curSelFinish"
+            mode="start"
             class="first-month"
             @changeSelDate="changeSelDate"
           />
 
           <OcMonth
-            mode="finish"
             :occupied-dates="occupiedDates"
             :cur-sel-date="curSelFinish"
             :cur-opp-day="curSelStart"
+            mode="finish"
             class="second-month"
             @changeSelDate="changeSelDate"
           />
@@ -56,8 +60,5 @@
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus" scoped>
-</style>
-
-<script src="./index.js">
-</script>
+<script src="./index.js"/>
+<style src="./index.styl" lang="stylus" scoped/>

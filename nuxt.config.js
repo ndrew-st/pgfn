@@ -31,16 +31,18 @@ export default {
    */
   plugins: [
     '@/plugins/global-components.js',
-    '@/plugins/yandexMaps.js',
+    '@/plugins/yandexMaps.js'
   ],
   router: {
     base: '/',
     extendRoutes (routes, resolve) {
-      routes.push({
-        name: 'home-page',
-        path: '/',
-        component: resolve(__dirname, 'pages/main-page')
-      })
+      routes.push(
+        {
+          name: 'main',
+          path: '/',
+          component: resolve(__dirname, 'pages/direction/_name')
+        }
+      )
     }
   },
   /*
@@ -56,7 +58,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources',
+    '@nuxtjs/style-resources'
   ],
   styleResources: {
     stylus: [
@@ -76,9 +78,12 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    vendor:  ['vue-yandex-maps'],
+    vendor: ['vue-yandex-maps'],
     extend (config, ctx) {
       config.resolve.extensions = [ '.vue', ...config.resolve.extensions ]
     }
+  },
+  env: {
+    throttle_time: 1000
   }
 }
