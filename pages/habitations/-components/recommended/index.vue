@@ -3,6 +3,8 @@
     <p class="rec__h">
       Рекомендованное жильё
     </p>
+
+    <OcGroupCard />
   </div>
 </template>
 
