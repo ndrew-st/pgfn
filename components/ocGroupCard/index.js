@@ -41,5 +41,10 @@ export default {
       tabSelect: '',
       swiper: {}
     }
+  },
+  mounted () {
+    if (this.tabs.length) {
+      this.tabSelect = this.tabs[0].name === 'Популярные' ? this.tabs[0].url : ''
+    }
   }
 }

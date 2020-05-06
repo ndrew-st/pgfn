@@ -1,4 +1,8 @@
-import axios from 'axios'
+export default axios => resource => ({
+  subscribeEmail (email) {
+    return axios.get(`${resource}/subscribe?email=${email}`)
+  }
+})
 
 // export const testPr = () => axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR')
 

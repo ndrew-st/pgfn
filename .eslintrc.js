@@ -27,6 +27,7 @@ module.exports = {
       }
     ],
     'vue/require-component-is': 'warn',
-    'vue/no-unused-components': 'warn'
+    'vue/no-unused-components': 'warn',
+    'no-unused-vars': 'warn'
   }
 }

@@ -30,6 +30,14 @@ export default {
       reviewsText: ['отзыв', 'отзыва', 'отзывов']
     }
   },
+  computed: {
+    weather () {
+      return this.item.weather || {}
+    },
+    image () {
+        return `https://media.personal.guide${this.item.preview}`
+    }
+  },
   methods: {
     numToStr (num) {
       return num2str(num, this.reviewsText)

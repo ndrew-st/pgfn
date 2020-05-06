@@ -8,28 +8,30 @@
     </div>
 
     <div class="group-cart__checkboxes group-checkbox">
-      <ul class="group-checkbox__list">
-        <li
-          v-for="tab in tabs"
-          :key="tab.name"
-          class="group-checkbox__item"
-        >
-          <label
-            :class="{ checked: tabSelect === tab.url }"
-            class="group-checkbox__label"
+      <div class="group-checkbox__container">
+        <ul class="group-checkbox__list">
+          <li
+            v-for="tab in tabs"
+            :key="tab.url"
+            class="group-checkbox__item"
           >
-            <input
-              v-model="tabSelect"
-              :value="tab.url"
-              type="radio"
-              :name="`groups-card-${title}`"
-              class="visually-hidden"
-              @change="$emit('changeTab', tab.url)"
+            <label
+              :class="{ checked: tabSelect === tab.url }"
+              class="group-checkbox__label"
             >
-            {{ tab.name }}
-          </label>
-        </li>
-      </ul>
+              <input
+                v-model="tabSelect"
+                :value="tab.url"
+                type="radio"
+                :name="`groups-card-${title}`"
+                class="visually-hidden"
+                @change="$emit('changeTab', tab.url)"
+              >
+              {{ tab.name }}
+            </label>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="group-cart__slider-container">
