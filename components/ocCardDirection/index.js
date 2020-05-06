@@ -33,6 +33,9 @@ export default {
   computed: {
     weather () {
       return this.item.weather || {}
+    },
+    image () {
+        return `https://media.personal.guide${item.preview}`
     }
   },
   methods: {
