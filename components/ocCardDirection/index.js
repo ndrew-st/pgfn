@@ -30,7 +30,7 @@ export default {
       reviewsText: ['отзыв', 'отзыва', 'отзывов']
     }
   },
-  computed: { 
+  computed: {
     weather () {
       return this.item.weather || {}
     }

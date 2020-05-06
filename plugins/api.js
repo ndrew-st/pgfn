@@ -11,6 +11,7 @@ export default ({ $axios }, inject) => {
   })
 
   $axios.onRequestError((error) => {
+    debugger
     if (error.request) {
       return {
         error: error.request
@@ -19,6 +20,7 @@ export default ({ $axios }, inject) => {
   })
 
   $axios.onError((error) => { // handler config errors
+    console.log('Main handler ', error)
     return {
       error: error.message
     }

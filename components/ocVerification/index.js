@@ -1,5 +1,5 @@
-import OcPass from '../ocPass/index.vue'
 import OcPhoneNumber from '@/components/ocPhoneNumber/index.vue'
+import OcPass from '../ocPass/index.vue'
 
 export default {
   props: ['mode', 'stage', 'error', 'phone'],
