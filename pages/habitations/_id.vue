@@ -14,7 +14,12 @@
       :rules1="rules1"
       :rules2="rules2"
     />
-    <Location :location="location" />
+    <Location
+      :coords="coords"
+      :location="location"
+      :loc-desc="locDesc"
+    />
+    <Recommended />
   </div>
 </template>
 
@@ -27,6 +32,7 @@ import ThreeBlocks from './-components/three-blocks/index.vue'
 import Comfort from './-components/comfort/index.vue'
 import Rules from './-components/rules/index.vue'
 import Location from './-components/location/index.vue'
+import Recommended from './-components/recommended/index.vue'
 
 export default {
   components: {
@@ -37,7 +43,8 @@ export default {
     ThreeBlocks,
     Comfort,
     Rules,
-    Location
+    Location,
+    Recommended
   },
   data: () => ({
     topPath: ['Главная', 'Жильё', '3-к квартира, 146 м2, 11/12'],
@@ -116,7 +123,11 @@ export default {
       'Республика Крым',
       'город Судак',
       'улица Ленина д 9'
-    ]
+    ],
+    coords: [
+      44.858161, 34.974244
+    ],
+    locDesc: 'Жилье расположено в Судаке на улице Ленина, д9 - это в 300 метрах от центра города, 50 м от Черного моря, 5 км от горы Ильяс-Кая и в 4х километрах от Храма Солнца. Расстояние до ближайшего аэропорта (Международный аэропорт Симферополь имени К. Айвазовского) - 110 км...'
   }),
   computed: {
     apartmentInfo1 () {
