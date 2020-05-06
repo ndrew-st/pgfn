@@ -5,7 +5,7 @@
   >
     <img
       :alt="item.name"
-      :src="item.preview"
+      :src="image"
       class="direction-card__bg-img"
     >
 
