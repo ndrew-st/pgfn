@@ -1,13 +1,9 @@
 <template>
   <router-link
     class="direction-card"
+    :style="{ 'background-image': `url(${image})` }"
     :to="'/direction/' + item.name"
   >
-    <img
-      :alt="item.name"
-      :src="image"
-      class="direction-card__bg-img"
-    >
 
     <ul class="direction-card__property-list">
       <li class="direction-card__property direction-card__property--temp">
@@ -33,12 +29,11 @@
       Поставить лайк
     </button>
 
-    <nuxt-link
-      to=""
+    <h3
       class="direction-card__title"
     >
       {{ item.name }}
-    </nuxt-link>
+    </h3>
 
     <div class="direction-card__footer">
       <p class="direction-card__rate">

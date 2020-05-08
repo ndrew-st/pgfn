@@ -10,10 +10,14 @@
   padding 20px
   margin-right 16px
 
-  border-radius 20px
+  border-radius 30px
 
   box-sizing border-box
   transition all 0.3s linear 0s
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size cover
+  cursor pointer
 
   &:last-child
     margin-right 0
@@ -30,16 +34,6 @@
 
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 11%, rgba(0, 0, 0, 0.11) 29.48%, rgba(0, 0, 0, 0.15) 53.13%, rgba(0, 0, 0, 0.55) 74.35%);
     border-radius 20px
-
-  &__bg-img
-    position absolute
-    top 0
-    left 0
-
-    width 252px
-    height 320px
-
-    z-index -1
 
   &__property-list
     position relative
@@ -182,7 +176,7 @@
     font-size: 13px;
     line-height: 20px;
     color: #FFFFFF;
-  
+
   &__type
     position relative
 
@@ -217,10 +211,6 @@
 
     &:before
       border-radius 30px
-
-    &__bg-img
-      width 416px
-      height 512px
 
     &__button-like
       right 34px
@@ -277,11 +267,11 @@
           background-size 12px 15px
 
     &:hover
-      
+
       .direction-cart__button-like
         opacity 1
         transition opacity 0.3s linear 0s
-    
+
     &__title
       margin-bottom -60px
 
