@@ -4,7 +4,7 @@
       Расположение
     </p>
 
-    <div class="loc__flex loc__mt28">
+    <div class="loc__flex">
       <span
         v-for="(place, index) in location"
         :key="index"
