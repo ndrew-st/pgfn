@@ -1,52 +1,40 @@
 <template>
-  <div>
-    <h1>Apartments list</h1>
-    <ul>
-      <li
-        v-for="apartment of 5"
-        :key="apartment"
-      >
-        <a
-          href="#"
-          @click.prevent="openApartment(apartment)"
-        >Apartment {{ apartment }}
-        </a>
-      </li>
-    </ul>
-    <h1>Autorization list</h1>
-    <ul>
-      <li>
-        <router-link
-          to="/verification/sign-in-01-1440"
-        >
-          sign-in-01-1440
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/">
-          home
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/verification">
-          home2
-        </router-link>
-      </li>
-    </ul>
+  <div class="apartments-page">
+    <div class="apartments-page__container">
+      <div class="apartments-page__title-container">
+        <h1 class="apartments-page__title">
+          Жильё
+        </h1>
+        <span class="apartments-page__count">200</span>
+      </div>
+      <Filters
+        class="apartments-page__filters"
+      />
+      <div class="apartments-page__content" />
+      <!--      <ul class="apartments-page__list">-->
+      <!--        <li-->
+      <!--          v-for="item in result.items"-->
+      <!--          :key="item.id"-->
+      <!--          class="apartments-page__item"-->
+      <!--        >-->
+      <!--          <ocCardItem-->
+      <!--            type="housing"-->
+      <!--            :item="item"-->
+      <!--            :is-liked="false"-->
+      <!--            @setLike="handlerLike(item.id, 'apartments')"-->
+      <!--          />-->
+      <!--        </li>-->
+      <!--      </ul>-->
+      <ocPaginate
+        :current="currentPage"
+        :total="items.length"
+        :per-page="perPage"
+        class="apartments-page__pagination"
+        @page-changed="fetchItems"
+      />
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  methods: {
-    openApartment (apartment) {
-      this.$router.push('/apartments/' + apartment)
-    }
-  }
-}
-</script>
-
-<style lang="stylus">
-h1
-    padding 100px 50px 30px 50px
-</style>
+<script src="./index.js"/>
+<style lang="stylus" src="./index.styl"/>

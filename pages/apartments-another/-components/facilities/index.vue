@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import Facility from '@/pages/apartments/-components/facility/index.vue'
+import Facility from '@/pages/apartments-another/-components/facility/index.vue'
 
 export default {
   components: {
