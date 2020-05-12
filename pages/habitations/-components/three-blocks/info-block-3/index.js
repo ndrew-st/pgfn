@@ -6,8 +6,8 @@ export default {
   },
   props: {
     onlineBooking: {
-      type: Array,
-      default: []
+      type: Object,
+      default: () => {}
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="rules-flex">
     <div class="rules">
       <p class="rules__p">
         Правила размещения

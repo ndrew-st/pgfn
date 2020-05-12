@@ -5,6 +5,11 @@
     font-size: 18px;
     line-height: 22px;
     color: #272528;
+
+    @media (max-width: 768px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
 }
 
 .desc {
@@ -18,12 +23,28 @@
     color: #272528;
     margin-bottom: 12px;
 
+    @media (max-width: 768px) {
+        font-size: 13px;
+        line-height: 16px;
+    }
+
     &__bold {
         font-weight: bold;
+        white-space: pre;
+
+        @media (max-width: 768px) {
+            font-size: 13px;
+            line-height: 16px;
+        }
     }
 
     &__grey {
         color: #989BA8;
         white-space: pre;
+
+        @media (max-width: 768px) {
+            font-size: 13px;
+            line-height: 16px;
+        }
     }
 }

@@ -1,50 +1,99 @@
 <template>
   <div class="habitation-page">
-    <TopLine :top-path="topPath" />
-    <H1Block :h1-info="h1Info" />
-    <Pics />
-    <DescBlock :info="descInfo" />
-    <ThreeBlocks
-      :tariffs="tariffs"
-      :prices="prices"
-      :online-booking="onlineBooking"
-    />
-    <Comfort :comfort="comfort" />
-    <Rules
-      :rules1="rules1"
-      :rules2="rules2"
-    />
-    <Location
-      :coords="coords"
-      :location="location"
-      :loc-desc="locDesc"
-    />
-    <Recommended />
+    <div class="habitation-page__padding">
+      <TopLine :top-path="topPath" />
+
+      <div class="habitation-page__order-flex">
+        <H1Block
+          :h1-info="h1Info"
+          class="habitation-page__h1-block"
+        />
+
+        <Pics />
+      </div>
+
+      <DescBlockTop :info="descInfo" />
+
+      <ThreeBlocks
+        :tariffs="tariffs"
+        :prices="prices"
+        :online-booking="onlineBooking"
+      />
+
+      <Comfort :comfort="comfort" />
+
+      <Rules
+        :rules1="rules1"
+        :rules2="rules2"
+      />
+
+      <Location
+        :coords="coords"
+        :location="location"
+        :loc-desc="locDesc"
+      />
+
+      <ocGroupCard
+        :count="apartments.count"
+        :auto-width="true"
+        :items="apartments.items"
+        :tabs="apartments.tabs"
+        title="Жильё"
+        @changeTab="handlerTab('apartments', $event)"
+      >
+        <ocCardItem
+          v-for="item in apartments.items"
+          :key="item.id"
+          :item="item"
+          type="housing"
+          :is-liked="false"
+        />
+      </ocGroupCard>
+    </div>
+
+    <Subscribe />
+
+    <ocFooter />
+
+    <BookingFooter :booking-footer-info="bookingFooterInfo" />
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 import TopLine from './-components/top-line/index.vue'
 import H1Block from './-components/h1-block/index.vue'
 import Pics from './-components/pics/index.vue'
-import DescBlock from './-components/desc-block/index.vue'
+import DescBlockTop from './-components/desc-block/index.vue'
 import ThreeBlocks from './-components/three-blocks/index.vue'
 import Comfort from './-components/comfort/index.vue'
 import Rules from './-components/rules/index.vue'
 import Location from './-components/location/index.vue'
-import Recommended from './-components/recommended/index.vue'
+import Subscribe from './-components/subscribe/index.vue'
+import BookingFooter from './-components/booking-footer/index.vue'
+import ocGroupCard from '~/components/ocGroupCard'
+import ocCardItem from '~/components/ocCardItem'
+import ocFooter from '~/components/ocFooter'
 
 export default {
   components: {
     TopLine,
     H1Block,
     Pics,
-    DescBlock,
+    DescBlockTop,
     ThreeBlocks,
     Comfort,
     Rules,
     Location,
-    Recommended
+    ocGroupCard,
+    ocCardItem,
+    Subscribe,
+    ocFooter,
+    BookingFooter
+  },
+  async asyncData ({ store }) {
+    await store.dispatch(`main-page/getData`, `Крым`)
   },
   data: () => ({
     topPath: ['Главная', 'Жильё', '3-к квартира, 146 м2, 11/12'],
@@ -127,7 +176,13 @@ export default {
     coords: [
       44.858161, 34.974244
     ],
-    locDesc: 'Жилье расположено в Судаке на улице Ленина, д9 - это в 300 метрах от центра города, 50 м от Черного моря, 5 км от горы Ильяс-Кая и в 4х километрах от Храма Солнца. Расстояние до ближайшего аэропорта (Международный аэропорт Симферополь имени К. Айвазовского) - 110 км...'
+    locDesc: 'Жилье расположено в Судаке на улице Ленина, д9 - это в 300 метрах от центра города, 50 м от Черного моря, 5 км от горы Ильяс-Кая и в 4х километрах от Храма Солнца. Расстояние до ближайшего аэропорта (Международный аэропорт Симферополь имени К. Айвазовского) - 110 км...',
+    bookingFooterInfo: {
+      manCount: '2 гостя',
+      period: '23 мая 2020 - 26 мая 2020',
+      habitation: '3-к квартира, 146 м²... ',
+      price: '4500₽/сутки'
+    }
   }),
   computed: {
     apartmentInfo1 () {
@@ -135,7 +190,17 @@ export default {
     },
     startDate () {
       return '27 июня 2018 г.'
-    }
+    },
+    ...mapGetters('main-page', ['apartments'])
+  },
+  methods: {
+    handlerTab (field, url) {
+      this.updateTabs({ field, url })
+    },
+    handlerLike (idCard, field) {
+      // what do with likes
+    },
+    ...mapActions('main-page', ['updateTabs'])
   }
 }
 </script>

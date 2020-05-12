@@ -14,38 +14,42 @@
       </p>
     </div>
 
-    <div class="name-icon">
-      {{ info.initials }}
-      <div
-        v-if="info.online"
-        class="online-status"
-      />
-    </div>
+    <div>
+      <div class="desc-block-row">
+        <div class="name-icon">
+          {{ info.initials }}
+          <div
+            v-if="info.online"
+            class="online-status"
+          />
+        </div>
 
-    <div class="right-col">
-      <div class="flex">
-        <p class="name">
-          {{ info.owner }}
-        </p>
+        <div class="right-col">
+          <div class="flex">
+            <p class="name">
+              {{ info.owner }}
+            </p>
 
-        <p class="last-seen">
-          {{ info.lastSeen }}
-        </p>
+            <p class="last-seen">
+              {{ info.lastSeen }}
+            </p>
+          </div>
+
+          <p class="owner-status">
+            {{ info.ownerStatus }}
+          </p>
+
+          <div class="flex mt24">
+            <span>Языки: </span>
+
+            <span class="languages"> {{ info.languages }}</span>
+          </div>
+
+          <p class="reg-date">
+            {{ info.regDate }}
+          </p>
+        </div>
       </div>
-
-      <p class="owner-status">
-        {{ info.ownerStatus }}
-      </p>
-
-      <div class="flex mt24">
-        <span>Языки: </span>
-
-        <span class="languages"> {{ info.languages }}</span>
-      </div>
-
-      <p class="reg-date">
-        {{ info.regDate }}
-      </p>
 
       <button
         class="connect"
