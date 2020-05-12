@@ -1,4 +1,4 @@
-.p15
+.p15 {
     font-family: Calibri;
     font-style: normal;
     font-weight: normal;
@@ -8,52 +8,61 @@
     color: #272528;
     margin-top: 8px;
     margin-bottom: 44px;
+}
 
-.sel-input
+.flex {
+    display: flex;
+}
+
+.sel-input {
     background: #ECECEC;
     border-radius: 4px 4px 0px 0px;
-    outline none
-    width 320px
+    outline: none;
+    width: 320px;
     display: flex;
-    transition: box-shadow .2s
+    transition: box-shadow 0.2s;
     box-shadow: inset 0px -2px 0px #7140B8;
+}
 
-.red
+.red {
     box-shadow: inset 0px -2px 0px #E05050;
+}
 
-.sel
-    width 72px
-    height 54px
+.sel {
+    width: 72px;
+    height: 54px;
     font-family: Calibri;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1px;
-    padding 18px 16px 16px 16px
+    padding: 18px 16px 16px 16px;
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
     appearance: none !important;
-    background transparent;
+    background: transparent;
     background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M1 1L5 5L9 1' stroke='%238F8A96' stroke-width='1.4' stroke-linejoin='round' /%3E%3C/svg%3E");
     background-position: right 15px center;
     background-repeat: no-repeat;
-    outline none
+    outline: none;
     border: none;
     border-right: 1px solid #D4D4D4;
+}
 
-.arrow
-    width 8px
-    height 4px
+.arrow {
+    width: 8px;
+    height: 4px;
     border: 1.4px solid #8F8A96;
+}
 
-.input
-    height 56px
-    width 234px
-    border none
-    outline none
-    background transparent;
+.input {
+    height: 56px;
+    width: 234px;
+    border: none;
+    outline: none;
+    background: transparent;
     font-family: Calibri;
     font-style: normal;
     font-weight: normal;
@@ -61,11 +70,69 @@
     line-height: 20px;
     letter-spacing: 0.1px;
     color: #272528;
-    padding 0 0 0 14px
+    padding: 0 0 0 14px;
+}
 
-@media (max-width: 750px)
-    .sel-input
-        width 284px
-    .input
-        width 202px
-        
+.btn {
+    width: 160px;
+    height: 56px;
+    background-color: #DFE1E5;
+    border-radius: 4px;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #272528;
+    padding: 17px 16px 15px 16px;
+    transition: background-color 0.2s;
+}
+
+.red-p {
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #E05050;
+    padding-top: 8px;
+}
+
+.active {
+    color: #ffffff;
+    background-color: #5604C1;
+}
+
+@media (max-width: 750px) {
+    .flex {
+        display: block;
+    }
+
+    .sel-input {
+        width: 284px;
+    }
+
+    .input {
+        width: 202px;
+    }
+
+    .btn {
+        margin-top: 64px;
+        margin-left: 0;
+        width: 284px;
+    }
+
+    .p15 {
+        margin-bottom: 60px;
+    }
+
+    .sp {
+        margin-top: 16px;
+    }
+}

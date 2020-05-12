@@ -1,53 +1,55 @@
 <template>
-  <div class="all">
-    <br>
-    <br>
-    <br>
-    <br>
-    <input
-      id="fourteen"
-      v-model="picked"
-      value="14"
-      type="radio"
-    >
-    <label for="fourteen">14</label>
-    <input
-      id="fiveteen"
-      v-model="picked"
-      value="15"
-      type="radio"
-    >
-    <label for="fiveteen">15</label>
+  <div class="password-recovery">
+    <OcVerification>
+      <OcSmsCode
+        v-if="stage === 'sms'"
+        :phone="$route.params.phone"
+        :error="error"
+        :time-counter="timeCounter"
+        :recovery="true"
+        @next="next"
+      />
 
-    <p>phone: {{ phone }}</p>
+      <p
+        v-if="stage === 'pass'"
+        class="p15"
+      >
+        Придумайте пароль
+      </p>
 
-    <OcVerification
-      mode="recovery"
-      :stage="stage"
-      :phone="phone"
-      @next="next"
-      @cpn1="cpn1"
-    />
+      <OcPass
+        v-if="stage === 'pass'"
+        error=""
+        btn-text="Готово"
+        @next="next"
+      />
+    </OcVerification>
   </div>
 </template>
 
 <script>
 import OcVerification from '@/components/ocVerification/index.vue'
+import OcSmsCode from '@/components/ocSmsCode/index.vue'
+import OcPass from '@/components/ocPass'
 
 export default {
   components: {
-    OcVerification
+    OcVerification,
+    OcSmsCode,
+    OcPass
+  },
+  props: { phone: {
+    type: String,
+    default: '' }
   },
   data: () => ({
-    stage: 'phone',
-    phone: ''
+    stage: 'sms',
+    picked: '',
+    timeCounter: 119
   }),
   methods: {
-    cpn1 (newPhoneNumber) {
-      this.phone = newPhoneNumber
-    },
-    next (pass) {
-      if (this.stage === 'phone') {
+    next () {
+      if (this.stage === 'sms') {
         this.stage = 'pass'
       }
     }
@@ -55,16 +57,4 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.all
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color #E5E5E5
-@media (max-width: 750px)
-  .all
-    background-color #FFFFFF
-
-</style>
+<style src="./index.styl" lang="stylus"></style>

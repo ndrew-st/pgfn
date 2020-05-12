@@ -1,0 +1,43 @@
+<template>
+  <div class="h1-block">
+    <div class="flex jc aic">
+      <div>
+        <p class="h1">
+          {{ h1Info.desc1 }}
+        </p>
+
+        <p class="h2">
+          {{ h1Info.desc2 }}
+        </p>
+      </div>
+
+      <div class="flex fe">
+        <p class="h1">
+          {{ h1Info.price }}
+        </p>
+
+        <p class="period">
+          {{ h1Info.period }}
+        </p>
+      </div>
+    </div>
+
+    <div class="flex aic mt12">
+      <div class="estimate">
+        {{ h1Info.estimate }}
+      </div>
+
+      <div class="comms">
+        {{ h1Info.comms }}
+      </div>
+
+      <div class="dateNumber">
+        {{ h1Info.dateNumber }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<style src="./index.styl" lang="stylus" />
+
+<script src="./index.js"/>

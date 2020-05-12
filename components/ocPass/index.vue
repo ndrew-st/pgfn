@@ -8,38 +8,23 @@
           type="password"
           placeholder="Пароль"
           :class="{red: error !== '', norm: error === ''}"
+          @keyup.enter="next()"
         >
 
         <p
-          v-if="error === 'wrongPass'"
+          v-if="error !== ''"
           class="red-p"
         >
-          Неверная комбинация логина и пароля
-        </p>
-
-        <p
-          v-if="error === 'userBlocked'"
-          class="red-p"
-        >
-          Пользователь заблокирован
+          {{ error }}
         </p>
       </div>
 
       <button
-        v-if="mode === 'sign-in'"
         class="btn"
-        :class="{active: password !== '', sp: error !== '' }"
-        @click="next1"
+        :class="{active: password.length > 5, sp: error !== '' }"
+        @click="next"
       >
-        Далее
-      </button>
-
-      <button
-        v-if="mode !== 'sign-in'"
-        class="btn"
-        :class="{active: password !== ''}"
-      >
-        Готово
+        {{ btnText }}
       </button>
     </div>
   </div>

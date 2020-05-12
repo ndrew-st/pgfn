@@ -1,7 +1,7 @@
 <template>
   <div>
     <OcMainPanel />
-      <nuxt class="main__content"/>
+    <nuxt class="main__content" />
   </div>
 </template>
 
