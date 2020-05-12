@@ -21,13 +21,16 @@ export default {
   },
   methods: {
     updateIndex (val) {
-      console.log('updateIndex ', val)
       this.activeIndex = val
     },
     toggleShow (val) {
       if (val === undefined) {
         this.showPopup = !this.showPopup
       } else {
+        if (this.showPopup && val) {
+          return false
+        }
+
         this.showPopup = val
       }
 

@@ -4,7 +4,9 @@
     :class="{ 'show-popup': showPopup }"
     @click.self="$emit('toggle', false)"
   >
-    <div class="popup__container">
+    <div
+      class="popup__container"
+    >
       <div class="popup__header popup-header">
         <button
           type="button"
@@ -17,7 +19,9 @@
           {{ activeIndex + 1 }}/{{ length }}
         </p>
       </div>
-      <div class="popup__content">
+      <div
+        class="popup__content"
+      >
         <slot />
       </div>
       <div class="popup__footer">

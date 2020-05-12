@@ -52,19 +52,19 @@ function TapDetector () {
 
   function onTouchStart (ev) {
     isTouchMode = true
-    console.log('onTouchStart')
+    // console.log('onTouchStart')
     if (ev.touches.length === 1) {
       onPointerDown(ev.touches[0].clientX, ev.touches[0].clientY)
     }
   }
   function onTouchEnd (ev) {
-    console.log('onTouchEnd')
+    // console.log('onTouchEnd')
     if (ev.touches.length === 0) {
       onPointerUp()
     }
   }
   function onTouchMove (ev) {
-    console.log('onTouchMove', ev)
+    // console.log('onTouchMove', ev)
     if (ev.touches.length === 1) {
       onPointerMove(ev.touches[0].clientX, ev.touches[0].clientY)
     }
@@ -73,19 +73,19 @@ function TapDetector () {
   function onMouseDown (ev) {
     if (isTouchMode) { return }
 
-    console.log('onMouseDown')
+    // console.log('onMouseDown')
     onPointerDown(ev.clientX, ev.clientY)
   }
   function onMouseUp (ev) {
     if (isTouchMode) { return }
 
-    console.log('onMouseUp')
+    // console.log('onMouseUp')
     onPointerUp()
   }
   function onMouseMove (ev) {
     if (isTouchMode) { return }
 
-    console.log('onMouseMove', ev)
+    // console.log('onMouseMove', ev)
     if (ev.button === 0) {
       onPointerMove(ev.clientX, ev.clientY)
     }

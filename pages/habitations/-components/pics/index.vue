@@ -25,9 +25,13 @@
             <ocZoomer
               class="pics-carousel__zoomer carousel-zoomer"
               :max-scale="10"
+              :off="!showPopup"
               :zoomed.sync="zoomed"
             >
-              <div class="pics-carousel__img-wrapper">
+              <div
+                class="pics-carousel__img-wrapper"
+                @click="toggleShow(true)"
+              >
                 <img
                   :src="img.url"
                   :alt="img.description"
@@ -41,6 +45,10 @@
           </div>
         </ocCarousel>
       </Popup>
+      <span
+        v-if="!showPopup"
+        class="pics-carousel__counter"
+      >{{ activeIndex + 1 }}/{{ images.length }}</span>
     </div>
 
     <div class="pics__vertical pics-vertical">

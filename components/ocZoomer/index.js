@@ -11,7 +11,8 @@ export default {
     backgroundColor: { type: String, default: 'transparent' },
     pivot: { type: String, default: 'cursor' }, // other options: image-center
     limitTranslation: { type: Boolean, default: true },
-    doubleClickToZoom: { type: Boolean, default: true }
+    doubleClickToZoom: { type: Boolean, default: true },
+    off: { type: Boolean, default: false } // off zoomed
   },
   data () {
     return {
@@ -46,6 +47,10 @@ export default {
   },
   computed: {
     wrapperStyle () {
+      if (this.off) {
+        return false
+      }
+
       const translateX = this.containerWidth * this.animTranslateX
       const translateY = this.containerHeight * this.animTranslateY
       return {
