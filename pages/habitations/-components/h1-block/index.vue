@@ -11,7 +11,7 @@
         </p>
       </div>
 
-      <div class="flex fe">
+      <div class="fe">
         <p class="h1">
           {{ h1Info.price }}
         </p>
@@ -38,6 +38,6 @@
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus" />
+<style src="./index.styl" lang="stylus" scoped/>
 
 <script src="./index.js"/>

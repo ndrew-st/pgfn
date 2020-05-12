@@ -18,8 +18,8 @@ export default {
       default: []
     },
     onlineBooking: {
-      type: Array,
-      default: []
+      type: Object,
+      default: () => {}
     }
   },
   data () {

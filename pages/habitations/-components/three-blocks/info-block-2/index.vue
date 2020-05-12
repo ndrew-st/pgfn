@@ -11,7 +11,7 @@
       </p>
 
       <p class="desc">
-        {{ price.minPeriod }}  <span class="desc__bold">{{ price.price }}</span><span class="desc__grey">  {{ price.pricePeriod }}</span>
+        {{ price.minPeriod }}  <span class="desc__bold">  {{ price.price }}</span><span class="desc__grey">  {{ price.pricePeriod }}</span>
       </p>
     </div>
 

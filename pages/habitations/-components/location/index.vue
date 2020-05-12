@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="loc__box">
     <p class="loc__h">
       Расположение
     </p>
 
-    <div class="loc__flex loc__mt28">
+    <div class="loc__flex">
       <span
         v-for="(place, index) in location"
         :key="index"
@@ -22,6 +22,26 @@
         >, </span>
       </span>
     </div>
+
+    <yandex-map
+      :coords="coords"
+      class="loc__yandex-map-content"
+      @map-was-initialized="initMap"
+    >
+      <ymap-marker
+        marker-id="1"
+        :coords="coords"
+        :icon="markerIcon"
+      />
+    </yandex-map>
+
+    <p class="loc__desc">
+      {{ locDesc }}
+    </p>
+
+    <p class="loc__read-more">
+      Читать далее
+    </p>
   </div>
 </template>
 
