@@ -9,7 +9,7 @@
           class="habitation-page__h1-block"
         />
 
-        <Pics />
+        <Pics :images="images" />
       </div>
 
       <DescBlockTop :info="descInfo" />
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 
 import TopLine from './-components/top-line/index.vue'
 import H1Block from './-components/h1-block/index.vue'
@@ -191,7 +191,10 @@ export default {
     startDate () {
       return '27 июня 2018 г.'
     },
-    ...mapGetters('main-page', ['apartments'])
+    ...mapGetters('main-page', ['apartments']),
+    ...mapState('habitation', {
+      images: state => state.result.images
+    })
   },
   methods: {
     handlerTab (field, url) {

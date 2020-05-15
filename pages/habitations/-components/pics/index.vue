@@ -1,21 +1,90 @@
 <template>
   <div class="pics">
-    <div class="carousel">
-      carousel
+    <div class="pics__carousel pics-carousel">
+      <Popup
+        :length="images.length"
+        :show-popup="showPopup"
+        :active-index="activeIndex"
+        @toggle="toggleShow"
+      >
+        <ocCarousel
+          :key="date"
+          :dots="true"
+          :items="images"
+          :column="1"
+          :horizontal="true"
+          :active-item="activeIndex"
+          :nav="true"
+          @updateIndex="updateIndex"
+        >
+          <div
+            v-for="img in images"
+            :key="img.id"
+            class="pics-carousel__img-container carousel-img-container"
+          >
+            <ocZoomer
+              class="pics-carousel__zoomer carousel-zoomer"
+              :max-scale="10"
+              :off="!showPopup"
+              :zoomed.sync="zoomed"
+            >
+              <div
+                class="pics-carousel__img-wrapper"
+                @click="toggleShow(true)"
+              >
+                <img
+                  :src="img.url"
+                  :alt="img.description"
+                  class="pics-carousel__img"
+                >
+              </div>
+            </ocZoomer>
+            <p class="pics-carousel__img-description carousel-img-description">
+              {{ img.description }}
+            </p>
+          </div>
+        </ocCarousel>
+      </Popup>
+      <span
+        v-if="!showPopup"
+        class="pics-carousel__counter"
+      >{{ activeIndex + 1 }}/{{ images.length }}</span>
     </div>
 
-    <div>
-      <div class="pic">
-        pic1
-      </div>
-
-      <div class="pic">
-        pic2
-      </div>
+    <div class="pics__vertical pics-vertical">
+      <ocCarousel
+        :dots="true"
+        :items="images"
+        :column="2"
+        :horizontal="false"
+        :vertical="true"
+        :active-item="activeIndex"
+        :nav="true"
+        @updateIndex="updateIndex"
+      >
+        <div
+          v-for="img in images"
+          :key="img.id"
+          class="pics-vertical__img-container"
+        >
+          <img
+            :src="img.url"
+            :alt="img.description"
+            class="pics-vertical__img"
+          >
+        </div>
+      </ocCarousel>
     </div>
+
+    <button
+      type="button"
+      class="pics__button-gallery"
+      @click="toggleShow(true)"
+    >
+      Фотогалерея
+    </button>
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus" scoped/>
-
 <script src="./index.js"/>
+<style src="./index.styl" lang="stylus" scoped/>

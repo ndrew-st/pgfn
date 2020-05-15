@@ -35,7 +35,7 @@ export default {
       return this.item.weather || {}
     },
     image () {
-        return `https://media.personal.guide${this.item.preview}`
+      return `https://media.personal.guide${this.item.preview}`
     }
   },
   methods: {

@@ -1,9 +1,3 @@
-export default axios => resource => ({
-  subscribeEmail (email) {
-    return axios.get(`${resource}/subscribe?email=${email}`)
-  }
-})
-
 // export const testPr = () => axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR')
 
 // export const loginPromise = param => axios.post('https://dev.personal.guide/api/users/login', param)
@@ -15,6 +9,14 @@ export default axios => resource => ({
 // export const checkCodePromise = param => axios.post('https://dev.personal.guide/api/users/check-code', param)
 
 // export const getCodePromise = param => axios.post('https://dev.personal.guide/api/users/get-code', param)
+
+import axios from 'axios'
+
+export default axios => resource => ({
+  subscribeEmail (email) {
+    return axios.get(`${resource}/subscribe?email=${email}`)
+  }
+})
 
 export const serverRequest = async (operation, param) => {
   try {
