@@ -25,7 +25,7 @@
     </div>
 
     <nuxt-link
-      to=""
+      to="/habitations/1"
       class="card-item__title"
     >
       {{ item.name }}

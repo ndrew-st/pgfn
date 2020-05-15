@@ -1,6 +1,5 @@
-import { makePr } from '@/api/out.js'
-
 export default {
+  layout: 'main',
   data () {
     return {
       userName: 'Иван Иванов',
@@ -18,13 +17,9 @@ export default {
       }
     }
   },
-  created () {
-    const prom = makePr()
-    prom.then((res) => {
-      console.log('res: ' + res)
-    })
-    prom.catch((res) => {
-      console.log('res: ' + res)
-    })
+  async mounted () {
+    const result = this.$api.users.getUser()
+    this.userName = result.name
+    this.userPhone = result.phone
   }
 }

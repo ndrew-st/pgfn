@@ -2,10 +2,17 @@ export default {
   props: {
     phone: String,
     error: String,
-    timeCounter: Number,
     recovery: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: String
+    }
+  },
+  data () {
+    return {
+      timeCounter: 119
     }
   },
   methods: {
@@ -31,9 +38,19 @@ export default {
 
       this.$refs.codeInput.setSelectionRange(pos, pos)
 
+      this.$emit('input', val)
       if (val.length === 4) {
         this.$emit('next')
       }
+    },
+    smsTime () {
+      this.timeCounter -= 1
+      if (this.timeCounter <= 0) {
+        clearInterval(this.smsTime)
+      }
     }
+  },
+  mounted () {
+    setInterval(this.smsTime, 1000)
   }
 }

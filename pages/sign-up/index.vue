@@ -1,82 +1,10 @@
 <template>
   <div class="sign-up">
-    <br>
-    <br>
-    <br>
-    <br>
-    <div style="display: flex">
-      <input
-        v-if="stage === 'phone'"
-        id="eight"
-        v-model="picked"
-        value="8"
-        type="radio"
-      >
-      <label
-        v-if="stage === 'phone'"
-        for="eight"
-      >Правильный номер</label>
-      <input
-        v-if="stage === 'phone'"
-        id="nine"
-        v-model="picked"
-        value="9"
-        type="radio"
-      >
-      <label
-        v-if="stage === 'phone'"
-        for="nine"
-      >Неправильный номер</label>
-      <input
-        v-if="stage === 'sms'"
-        id="ten"
-        v-model="picked"
-        value="10"
-        type="radio"
-      >
-      <label
-        v-if="stage === 'sms'"
-        for="ten"
-      >Код устарел</label>
-      <input
-        v-if="stage === 'sms'"
-        id="eleven"
-        v-model="picked"
-        value="11"
-        type="radio"
-      >
-      <label
-        v-if="stage === 'sms'"
-        for="eleven"
-      >Код неправильный</label>
-      <input
-        v-if="stage === 'sms'"
-        id="twelve"
-        v-model="picked"
-        value="12"
-        type="radio"
-      >
-      <label
-        v-if="stage === 'sms'"
-        for="twelve"
-      >Номер уже зарегистрирован</label>
-      <input
-        v-if="stage === 'sms'"
-        id="thirteen"
-        v-model="picked"
-        value="13"
-        type="radio"
-      >
-      <label
-        v-if="stage === 'sms'"
-        for="thirteen"
-      >Код правильный</label>
-    </div>
-
     <OcVerification>
       <OcPhoneNumber
         v-if="stage === 'phone'"
         :error="error"
+        v-model="phone"
         @next="next"
       />
 
@@ -85,12 +13,13 @@
         :phone="phone"
         :error="error"
         :time-counter="timeCounter"
+        v-model="code"
         @next="next"
       />
 
       <UserPass
         v-if="stage ==='userpass'"
-        @next="next"
+        @next="register"
       />
 
       <a

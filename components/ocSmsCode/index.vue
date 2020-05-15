@@ -25,8 +25,17 @@
       class="timer"
       :class="{timerError: error !== ''}"
       href="#"
+      v-if="timeCounter > 0"
     >
       Отправить {{ timeCounter > 60 ? 'еще код через 1 минуту ' + (timeCounter - 60) + ' секунд' : 1 > timeCounter ? 'код ещё раз' :'еще код через ' + timeCounter + ' секунд' }}
+    </a>
+    <a
+      class="timer"
+      :class="{timerError: error === ''}"
+      href="#"
+      v-else
+    >
+      Отправить код еще раз
     </a>
   </div>
 </template>
