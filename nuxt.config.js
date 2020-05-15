@@ -64,7 +64,8 @@ export default {
   styleResources: {
     stylus: [
       'assets/global-varibles.styl',
-      'assets/common.styl'
+      'assets/common.styl',
+      'assets/mixins.styl'
     ]
   },
   /*

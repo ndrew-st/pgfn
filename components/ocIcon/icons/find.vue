@@ -10,10 +10,12 @@
       cx="7"
       cy="7"
       r="6.3"
+      :stroke="color"
       stroke-width="1.4"
     />
     <path
       d="M11 12L14 16"
+      :stroke="color"
       stroke-width="1.4"
     />
   </svg>
@@ -22,13 +24,18 @@
 <script>
 export default {
   props: {
-    active: {
-      type: Boolean,
-      default: false
+    color: {
+      type: String,
+      default: ''
+    },
+    width: {
+      type: Number,
+      default: 15
+    },
+    height: {
+      type: Number,
+      default: 17
     }
   }
 }
 </script>
-
-<style lang="stylus">
-</style>

@@ -171,6 +171,6 @@ export default {
 
     &:hover
     &:focus
-      border-color #7140B8
+      border-color $blue
       transition border-color 0.3s ease-in-out 0s
 </style>

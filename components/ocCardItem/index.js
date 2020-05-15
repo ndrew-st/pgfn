@@ -13,12 +13,14 @@ export default {
         attrs: [ '4 гостя', '1 спальня' ], // опционально
         rating: 4.3,
         reviews: 128,
+        intro: 'intro',
         type: 'Отель',
         previewGallery: [ ],
         favorits: false,
         price: 5980,
         oldprice: 8010, // опционально
-        typePrice: ''
+        typePrice: '',
+        views: 0
       })
     },
     isLiked: {
@@ -32,7 +34,13 @@ export default {
   },
   data () {
     return {
-      reviewsText: ['отзыв', 'отзыва', 'отзывов']
+      addressHeight: 0,
+      addressWidth: 0,
+      titleHeight: 0,
+      attrsHeight: 0,
+      viewWidth: 0,
+      reviewsText: ['отзыв', 'отзыва', 'отзывов'],
+      viewsText: ['просмотр', 'просмотра', 'просмотров']
     }
   },
   computed: {
@@ -40,9 +48,19 @@ export default {
       return this.item.attrs.slice(0, 6)
     }
   },
+  mounted () {
+    this.addressHeight = this.$refs.address.clientHeight
+    this.addressWidth = this.$refs.address.scrollWidth
+    this.titleHeight = this.$refs.title.clientHeight
+    this.attrsHeight = this.$refs.attrs.clientHeight
+    this.viewWidth = this.$refs.views && this.$refs.views.clientWidth
+  },
   methods: {
-    numToStr (num) {
+    reviewText (num) {
       return num2str(num, this.reviewsText)
+    },
+    viewText (num) {
+      return num2str(num, this.viewsText)
     }
   }
 }

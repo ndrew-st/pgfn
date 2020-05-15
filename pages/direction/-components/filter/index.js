@@ -1,19 +1,17 @@
 import Checkboxes from './-components/checkboxes'
 
-import direction from './-components/direction'
-import services from './-components/services'
-import apartments from './-components/apartments'
+import apartmentsDay from './-components/apartments-day'
+import apartmentsLong from './-components/apartments-long'
 
 export default {
-  components: { Checkboxes, direction, services, apartments },
+  components: { Checkboxes, apartmentsDay, apartmentsLong },
   data () {
     return {
       checkboxes: [
-        { title: 'Направление', name: 'direction' },
-        { title: 'Жильё', name: 'apartments' },
-        { title: 'Услуги', name: 'services' }
+        { title: 'Жильё посуточно', name: 'apartmentsDay' },
+        { title: 'Жильё на длительный срок', name: 'apartmentsLong' }
       ],
-      currentActive: 'direction'
+      currentActive: 'apartmentsDay'
     }
   },
   methods: {

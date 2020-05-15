@@ -1,22 +1,31 @@
 <template>
   <div class="form-controls">
     <button
-      @click.prevent="$emit('changeStep')"
       :disabled="activeStep + 1 === stepLength"
       type="button"
-      class="form-controls__miss">Пропустить</button>
+      class="form-controls__miss"
+      @click.prevent="$emit('changeStep')"
+    >
+      Пропустить
+    </button>
 
     <button
       v-if="activeStep + 1 === stepLength"
-      @click.prevent="$emit('submit')"
       type="button"
-      class="form-controls__save">Искать</button>
+      class="form-controls__save"
+      @click.prevent="$emit('submit')"
+    >
+      Искать
+    </button>
     <button
       v-else
-      @click.prevent="$emit('changeStep')"
       :disabled="activeNext"
       type="button"
-      class="form-controls__save">Далее</button>
+      class="form-controls__save"
+      @click.prevent="$emit('changeStep')"
+    >
+      Далее
+    </button>
   </div>
 </template>
 
@@ -88,19 +97,18 @@ export default {
     letter-spacing: 0.1px;
     color: #FFFFFF;
 
-    background: #5604C1;
+    background-color $red
     border-radius: 4px;
     border 0
     cursor pointer
-    transition all 0.3s linear 0s
+    anim(all)
+
+    rm-outline()
 
     &:hover
-    &:focus
-      outline 0
+      background-color $red-hover
 
-    &:hover
-      opacity 0.7
-      transition opacity 0.3s linear 0s
+      anim(background-color)
 
     &:disabled
       opacity 0.5

@@ -4,17 +4,18 @@
 
   box-sizing border-box
 
-  background-color #5604C1
+  border-top 1px solid #ECECEC
+  border-bottom 1px solid #ECECEC
 
   &__title
     margin 0
-    margin-bottom 9px
+    margin-bottom 29px
 
     font-style: normal;
     font-weight: bold;
     font-size: 13px;
     line-height: 20px;
-    color: #FFFFFF;
+    color $black-1
 
   &__success
     font-style: normal;
@@ -40,7 +41,6 @@
 
     font-style: normal;
     font-weight: normal;
-    font-style: normal;
     font-size: 15px;
     line-height: 28px;
     color: #272528;
@@ -52,6 +52,11 @@
     border-radius 4px 4px 0px 0px
 
     box-sizing border-box
+
+    &:focus
+      box-shadow inset 0px -2px 0px $blue-3
+
+      anim(box-shadow)
 
     &:hover,
     &:focus,
@@ -68,11 +73,18 @@
 
     font-size 0
 
-    background-color #EB574F
+    background-color $red
     border 0
     border-radius 0 5px 5px 0
 
     cursor pointer
+
+    rm-outline()
+
+    &:hover
+      background-color $red-hover
+
+      anim(background-color)
 
     &:after
       content ''
@@ -94,7 +106,7 @@
   .subscribe
     padding 43px 0
     margin-bottom 70px
-    
+
     &__container
       max-width 1280px
       margin 0 auto

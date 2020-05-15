@@ -1,22 +1,29 @@
 <template>
-  <router-link
+  <div
     class="direction-card"
     :style="{ 'background-image': `url(${image})` }"
-    :to="'/direction/' + item.name"
+    @click="goTo"
   >
-
     <ul class="direction-card__property-list">
-      <li class="direction-card__property direction-card__property--temp">
+      <li
+        data-tooltip="Температура воздуха"
+        class="direction-card__property direction-card__property--temp"
+      >
         {{ weather.temperature }}˙C
       </li>
       <li
         v-if="weather.waterTemperature"
+        data-tooltip="Температура воды"
         class="direction-card__property direction-card__property--water-temp"
       >
         {{ weather.waterTemperature }}˙C
       </li>
-      <li class="direction-card__property direction-card__property--current">
-        {{ item.current }}
+      <li
+        data-tooltip="Количество объектов"
+        class="direction-card__property direction-card__property--current"
+      >
+        <!--        {{ item.current }}-->
+        358922
       </li>
     </ul>
 
@@ -26,6 +33,10 @@
       class="direction-card__button-like"
       @click="$emit('setLike', item.id)"
     >
+      <OcIcon
+        class="direction-card__button-like--icon"
+        name="heart"
+      />
       Поставить лайк
     </button>
 
@@ -46,7 +57,7 @@
         {{ item.type }}
       </p>
     </div>
-  </router-link>
+  </div>
 </template>
 
 <script src="./index.js"/>

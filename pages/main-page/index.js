@@ -32,15 +32,15 @@ export default {
     }
   },
   async created () {
-  //   const apartmentsData = await axios.get('/api/apartments/?limit=9&offset=0')
-  //   this.apartments = apartmentsData.data.map((item) => {
+  //   const apartmentsData = await axios.get('/api/apartments-day/?limit=9&offset=0')
+  //   this.apartments-day = apartmentsData.data.map((item) => {
   //     const image = (item.photos.length > 0) ? item.photos[0] : ''
   //     return {
   //       ...item,
   //       image
   //     }
   //   })
-  //   const popularData = await axios.get('/api/apartments/popular?limit=9&offset=0')
+  //   const popularData = await axios.get('/api/apartments-day/popular?limit=9&offset=0')
   //   this.popular = popularData.data.map((item) => {
   //     const image = (item.photos.length > 0) ? item.photos[0] : ''
   //     return {

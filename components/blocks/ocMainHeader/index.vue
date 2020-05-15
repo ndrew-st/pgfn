@@ -11,12 +11,33 @@
         >
           <img
             src="/main-logo.svg"
-            width="120"
-            height="36"
             alt="Логотип"
             class="header__logo"
           >
         </nuxt-link>
+
+        <div class="header__geo header-geo">
+          <OcDropDown>
+            <template #button="{ show }">
+              <button
+                slot="button"
+                type="button"
+                class="header-geo__toggle"
+                :class="{ 'active-geo-button': show }"
+              >
+                <OcIcon
+                  class="header-geo__toggle--icon"
+                  name="geo"
+                />
+                <span class="header-geo__toggle--text">{{ geoSearch }}</span>
+              </button>
+            </template>
+            <OcSearchPanel
+              slot="body"
+              class="header-geo__content"
+            />
+          </OcDropDown>
+        </div>
 
         <div
           ref="searchContainer"
@@ -28,9 +49,18 @@
             class="find-header__form"
             @submit.prevent="handlerSubmit"
           >
-            <SeachInput @input="handlerSearch" />
-            <button class="find-header__submit">
-              <Icon
+            <SearchInput
+              side-icon="left"
+              placeholder="Например отели с бассейном"
+              @focus="focused = true"
+              @blur="focused = false"
+              @input="handlerSearch"
+            />
+            <button
+              class="find-header__submit"
+              :class="{ 'active-search-button': focused }"
+            >
+              <OcIcon
                 name="find"
                 class="find-header__submit--icon"
               />
@@ -71,25 +101,6 @@
             </div>
           </transition>
         </div>
-
-        <ul class="header__list-link">
-          <li class="header__list-item">
-            <nuxt-link
-              class="header__link"
-              to="/housing"
-            >
-              Жильё
-            </nuxt-link>
-          </li>
-          <li class="header__list-item">
-            <nuxt-link
-              class="header__link"
-              to="/services"
-            >
-              Услуги
-            </nuxt-link>
-          </li>
-        </ul>
 
         <ul class="header__controls header-controls">
           <li
@@ -138,94 +149,29 @@
     </div>
 
     <ul class="header__mobile-controls mobile-controls">
-      <li class="mobile-controls__item">
+      <li
+        v-for="item in mobileLinks"
+        :key="item.title"
+        class="mobile-controls__item"
+      >
         <nuxt-link
           v-slot="{ href, route, navigate, isActive }"
-          to="/search"
+          :to="item.link"
           class="mobile-controls__button"
         >
-          <Icon
-            :class="{ 'active-icon': isActive }"
-            class="mobile-controls__button--icon"
-            name="find"
-          />
-          <a
-            :href="href"
-            :class="{ 'active-link': isActive }"
-            class="mobile-controls__button--link"
-          >Поиск</a>
-        </nuxt-link>
-      </li>
-      <li class="mobile-controls__item">
-        <nuxt-link
-          v-slot="{ href, route, navigate, isActive }"
-          to="/bookmarks"
-          class="mobile-controls__button"
-        >
-          <Icon
-            :class="{ 'active-icon': isActive }"
-            class="mobile-controls__button--icon icon-heart"
-            name="heart"
-          />
-          <a
-            :href="href"
-            :class="{ 'active-link': isActive }"
-            class="mobile-controls__button--link"
-          >Закладки</a>
-        </nuxt-link>
-      </li>
-      <li class="mobile-controls__item">
-        <nuxt-link
-          v-slot="{ href, route, navigate, isActive }"
-          to="/menu"
-          class="mobile-controls__button"
-        >
-          <Icon
-            :class="{ 'active-icon': isActive }"
-            class="mobile-controls__button--icon icon-bag"
-            name="bag"
-          />
-          <a
-            :href="href"
-            :class="{ 'active-link': isActive }"
-            class="mobile-controls__button--link"
-          >Меню</a>
-        </nuxt-link>
-      </li>
-      <li class="mobile-controls__item">
-        <nuxt-link
-          v-slot="{ href, route, navigate, isActive }"
-          to="/add-object"
-          class="mobile-controls__button"
-        >
-          <Icon
-            :class="{ 'active-icon': isActive }"
-            class="mobile-controls__button--icon"
-            name="add"
-          />
-          <a
-            :href="href"
-            :class="{ 'active-link': isActive }"
-            class="mobile-controls__button--link"
-          >Добавить</a>
-        </nuxt-link>
-      </li>
-      <li class="mobile-controls__item">
-        <nuxt-link
-          v-slot="{ href, route, navigate, isActive }"
-          to="/sign-in"
-          class="mobile-controls__button"
-        >
-          <Icon
-            :class="{ 'active-icon': isActive }"
-            class="mobile-controls__button--icon"
-            name="user"
-          />
-          <a
-            :href="href"
-            :class="{ 'active-link': isActive }"
-            class="mobile-controls__button--link"
-          >Вход</a>
+          <span>
+            <OcIcon
+              :class="[{ 'active-icon': isActive }, item.iconClass]"
+              class="mobile-controls__button--icon"
+              :name="item.icon"
+            />
+            <a
+              :href="href"
+
+              :class="{ 'active-link': isActive }"
+              class="mobile-controls__button--link"
+            >{{ item.title }}</a>
+          </span>
         </nuxt-link>
       </li>
     </ul>

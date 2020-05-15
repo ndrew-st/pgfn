@@ -4,17 +4,20 @@
       <li
         v-for="item in items"
         :key="item.name"
-        class="checkboxes__item">
+        class="checkboxes__item"
+      >
         <label
           :class="{ active: currentTab === item.name }"
-          class="checkboxes__label">
+          class="checkboxes__label"
+        >
           <span class="checkboxes__label--text">{{ item.title }}</span>
           <input
             :value="item.name"
-            @change="$emit('input', item.name)"
             type="radio"
             name="filter-search-check"
-            class="visually-hidden">
+            class="visually-hidden"
+            @change="$emit('input', item.name)"
+          >
         </label>
       </li>
     </ul>
@@ -61,10 +64,8 @@ export default {
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
-    display: flex;
-    align-items: center;
     letter-spacing: 0.2px;
-    color: #989BA8;
+    color black-1
 
     border-bottom 2px solid transparent
 
@@ -72,9 +73,7 @@ export default {
     cursor pointer
 
     &.active
-      color #272528
-
-      border-color #5604C1
+      border-color $blue
 
       transition all 0.3s ease-in-out 0s
 </style>

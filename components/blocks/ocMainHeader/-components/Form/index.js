@@ -8,14 +8,15 @@ import First from './-components/Steps/First'
 import Second from './-components/Steps/Second'
 import Third from './-components/Steps/Third'
 
-import SeachInput from '~/components/ocSearchInput'
+import SearchInput from '~/components/ocSearchInput'
 
 export default {
-  components: { Header, Controls, First, Second, Third, SeachInput },
+  components: { Header, Controls, First, Second, Third, SearchInput },
   data () {
     return {
       activeStep: 0,
       result: { },
+      search: '',
       submitted: false,
       success: false,
       steps: [

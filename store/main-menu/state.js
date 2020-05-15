@@ -18,7 +18,7 @@ export default () => ({
         icon: 'bed',
         outline: false
       },
-      link: '/apartments'
+      link: '/apartments-day'
     },
     {
       title: 'Услуги',

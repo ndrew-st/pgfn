@@ -10,7 +10,7 @@
     position relative
 
     min-height 120px
-  
+
     overflow-x scroll
     scroll-behavior smooth
 
@@ -19,7 +19,7 @@
     @media(min-width 1280px)
       padding-bottom 26px
       margin-bottom -26px
-        
+
   &__list
     display flex
 
@@ -45,7 +45,6 @@
 
       font-size 0
 
-      background-color transparent
       border 0
       border-radius 50%
       background-color #fff
@@ -93,14 +92,14 @@
 
       @media(min-width 1310px)
         right -29px
-    
+
     &__prev
       &:after
         transform rotate(180deg)
 
       @media(min-width 1310px)
         left -29px
-  
+
   &__dots-container
     position absolute
     bottom 12px
@@ -128,7 +127,7 @@
     list-style none
     box-sizing border-box
 
-    transition transform 0.3s ease-in-out 0s
+    transition transform 0.1s linear 0s
 
   &__dot
     margin-right 5px
@@ -146,8 +145,7 @@
     background-color rgba(255, 255, 255, 0.6)
     border 0
     border-radius 50%
-    transition width 0.1s ease-in-out 0s
-    transition height 0.1s ease-in-out 0s
+    transition all 0.1s ease-in-out 0s
 
     &:hover
     &:focus
@@ -168,8 +166,3 @@
 
       transition all 0.1s ease-in-out 0s
 
-@media(min-width 1280px)
-  .carousel
-    &__wrapper
-      &.show-desktop
-        // overflow hidden

@@ -53,7 +53,6 @@ export default {
         this.posDots += this.widthDot
       }
 
-      // debugger
       if (this.posX !== -this.activeIndex * this.widthItem) {
         this.posX = -this.activeIndex * this.widthItem
       } else {
@@ -65,8 +64,6 @@ export default {
       if (this.activeIndex > 1 && this.activeIndex < this.items.length - 3) {
         this.posDots -= this.widthDot
       }
-
-      // debugger
 
       this.activeIndex += 1
 
@@ -107,18 +104,18 @@ export default {
     isConvex (item) {
       if (this.activeIndex < 1) {
         return item === this.activeIndex || item - 1 === this.activeIndex || item - 2 === this.activeIndex
-      } else if (this.activeIndex > 1 && this.activeIndex < this.items.length - 2) {
+      } else if (this.activeIndex >= 1 && this.activeIndex < this.items.length - 1) {
         return item === this.activeIndex || item - 1 === this.activeIndex || item + 1 === this.activeIndex
       } else {
         return item === this.activeIndex || item + 1 === this.activeIndex || item + 2 === this.activeIndex
       }
     },
     isSmall (item) {
-      if (this.activeIndex < 2) {
+      if (this.activeIndex < 4) {
         return item === 4
       }
 
-      if (this.activeIndex > this.items.length - 2) {
+      if (this.activeIndex > this.items.length - 3) {
         return item === this.items.length - 5
       }
     }
@@ -131,12 +128,7 @@ export default {
   mounted () {
     if (this.$refs.list.children[0]) {
       const marginRight = parseInt(getComputedStyle(this.$refs.list.children[0], true).marginRight)
-
-      if (marginRight > 0) {
-        this.widthItem = this.$refs.list.children[0].clientWidth + marginRight // For card with margin
-      } else {
-        this.widthItem = this.$refs.list.children[0].clientWidth
-      }
+      this.widthItem = this.$refs.list.children[0].clientWidth + marginRight
 
       this.widthOutMargin = this.$refs.list.children[0].clientWidth
       this.listWidth = this.widthItem * this.items.length
@@ -149,20 +141,17 @@ export default {
       }
     }
 
-    if (this.$refs.dots && this.$refs.dots.children[6]) {
-      const marginDot = parseInt(getComputedStyle(this.$refs.dots.children[6], true).marginRight)
-      this.widthDot = this.$refs.dots.children[6].clientWidth + marginDot
-    }
+    // if (this.$refs.dots && this.$refs.dots.children[6]) {
+    //   const marginDot = parseInt(getComputedStyle(this.$refs.dots.children[6], true).marginRight)
+    // this.widthDot = this.$refs.dots.children[6].clientWidth + marginDot
+    this.widthDot = 13
+    // }
 
-    if (process.browser) {
-      window.addEventListener('resize', this.handlerResize)
-      this.widthWindow = window.screen.width
-    }
+    window.addEventListener('resize', this.handlerResize)
+    this.widthWindow = window.screen.width
   },
   beforeDestroy () {
-    if (process.browser) {
-      window.removeEventListener('resize')
-    }
+    window.removeEventListener('resize', this.handlerResize)
   },
   data () {
     return {

@@ -40,7 +40,7 @@
 export default {
   methods: {
     openApartment (apartment) {
-      this.$router.push('/apartments/' + apartment)
+      this.$router.push('/apartments-day/' + apartment)
     }
   }
 }

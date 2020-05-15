@@ -1,25 +1,40 @@
 import { mapActions } from 'vuex'
 
 import Form from './-components/Form'
-import Icon from '~/components/Icon'
 
-import SeachInput from '~/components/ocSearchInput'
+import OcSearchPanel from '~/components/blocks/ocSearchPanel'
+import SearchInput from '~/components/ocSearchInput'
 
 export default {
-  components: { Form, SeachInput, Icon },
+  components: { Form, SearchInput, OcSearchPanel },
   data () {
     return {
-      search: '',
-      error: null,
-      list: [], // add objects
-      result: [], // search result
-      selectObject: '', // select add object
-      selectResult: '', // select result
-      show: false, // For add dropdown select
-      touched: false, // Search form
+      mobileLinks: [
+        { title: 'Поиск', link: '/search', icon: 'find' },
+        { title: 'Закладки', link: '/bookmarks', icon: 'heart', iconClass: 'icon-heart' },
+        { title: 'Меню', link: '/menu', icon: 'bag', iconClass: 'icon-bag' },
+        { title: 'Добавить', link: '/add-object', icon: 'add' },
+        { title: 'Вход', link: '/sign-in', icon: 'user' }
+      ],
       widthWindow: 0,
       desktopWidth: 1090,
-      showForm: false // Mobile menu
+      error: null,
+      selectObject: '', // select add object
+      selectResult: '', // select result
+      showForm: false, // Mobile menu
+      // find-header block
+      touched: false,
+      search: '',
+      result: [],
+      focused: false,
+      // Geo block
+      geoSearch: 'Россия',
+      // header-controls
+      show: false,
+      list: [
+        { id: 1, content: 'Жильё' },
+        { id: 2, content: 'Услуги' }
+      ] // add objects
     }
   },
   methods: {

@@ -34,7 +34,7 @@
       </button>
 
       <button
-        :class="{ 'disabled': activeIndex + countColumn >= items.length}"
+        :class="{ 'disabled': activeIndex + countColumn >= items.length }"
         type="button"
         class="btn-carousel__next"
         @click="carouselNext"
@@ -72,4 +72,4 @@
 </template>
 
 <script src="./index.js"/>
-<style lang="stulys" src="./index.styl"/>
+<style lang="stylus" src="./index.styl"/>
