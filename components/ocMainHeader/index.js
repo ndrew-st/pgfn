@@ -22,6 +22,15 @@ export default {
       showForm: false // Mobile menu
     }
   },
+  computed: {
+    signIn () {
+      if (process.browser) {
+        const token = localStorage.getItem('token')
+        return token
+      }
+      return false
+    }
+  },
   methods: {
     handlerSearch (srch) {
       this.search = srch
@@ -81,6 +90,6 @@ export default {
     this.selectObject = ''
     this.checkedResult = ''
 
-    window.removeEventListener('resize')
+    // window.removeEventListener('resize')
   }
 }

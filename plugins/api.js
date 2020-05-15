@@ -2,6 +2,13 @@ import createApartmentsApi from '~/api/apartments'
 import createUsersApi from '~/api/user'
 
 export default ({ $axios }, inject) => {
+  if (process.browser) {
+    const token = localStorage.getItem('token')
+    if (token) {
+      $axios.defaults.headers.authorization = token
+    }
+  }
+
   $axios.onResponseError((e) => {
     if (e.response && e.response.data && e.response.data.error) {
       return {

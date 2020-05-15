@@ -1,85 +1,10 @@
 <template>
   <div class="sign-in">
-    <router-link
-      to="/sign-in/password-recovery"
-    >
-      password recovery
-    </router-link>
-
-    <br><br><br><br>
-    <input
-      v-if="stage === 'phone'"
-      id="one"
-      v-model="picked"
-      value="1"
-      type="radio"
-    >
-    <label
-      v-if="stage === 'phone'"
-      for="one"
-    >Правильный телефон</label>
-    <input
-      v-if="stage === 'phone'"
-      id="two"
-      v-model="picked"
-      value="2"
-      type="radio"
-    >
-    <label
-      v-if="stage === 'phone'"
-      for="two"
-    >Телефон в стоп-листе</label>
-    <input
-      v-if="stage === 'pass'"
-      id="three"
-      v-model="picked"
-      value="3"
-      type="radio"
-    >
-    <label
-      v-if="stage === 'pass'"
-      for="three"
-    >Правильный пароль</label>
-    <input
-      v-if="stage === 'pass'"
-      id="four"
-      v-model="picked"
-      value="4"
-      type="radio"
-    >
-    <label
-      v-if="stage === 'pass'"
-      for="four"
-    >Неправильный пароль</label>
-    <input
-      v-if="stage === 'pass'"
-      id="five"
-      v-model="picked"
-      value="5"
-      type="radio"
-    >
-    <label
-      v-if="stage === 'pass'"
-      for="five"
-    >Пользователь заблокирован</label>
-    <input
-      v-if="stage === 'pass'"
-      id="six"
-      v-model="picked"
-      value="6"
-      type="radio"
-    >
-    <label
-      v-if="stage === 'pass'"
-      for="six"
-    >Много попыток</label>
-
-    <p>error: {{ error }}</p>
-
     <OcVerification>
       <OcPhoneNumber
         v-if="stage === 'phone'"
         :error="error"
+        v-model="phone"
         @next="next"
       />
 
@@ -109,6 +34,7 @@
         v-if="stage === 'pass'"
         :error="error"
         btn-text="Далее"
+        v-model="pass"
         @next="next"
       />
 

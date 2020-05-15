@@ -77,6 +77,7 @@ import ocCardItem from '~/components/ocCardItem'
 import ocFooter from '~/components/ocFooter'
 
 export default {
+  layout: 'clean',
   components: {
     TopLine,
     H1Block,

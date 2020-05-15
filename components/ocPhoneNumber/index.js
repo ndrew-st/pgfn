@@ -1,7 +1,15 @@
 import OcButtonNext from '@/components/ocVerification/ocButtonNext/index.vue'
 
 export default {
-  props: ['error'],
+  props: {
+    error: {
+      type: String
+    },
+    value: {
+      type: String,
+      required: true
+    }
+  },
   components: {
     OcButtonNext
   },
@@ -22,10 +30,8 @@ export default {
       if (this.phone1.length === 13) {
         this.isActive = true
       } else { this.isActive = false }
-      // this.$emit('cpn2', this.phone1)
-      //   if (event.type == "blur") {
-      //       if (this.value.length == 2) this.value = ""
-      //   } else setCursorPosition(this.value.length, this)
+
+      this.$emit('input', `7${this.phone1}`)
     },
     next (item) {
       if (this.phone1.length === 13) {

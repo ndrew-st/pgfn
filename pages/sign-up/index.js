@@ -5,6 +5,7 @@ import OcSmsCode from '@/components/ocSmsCode/index.vue'
 import UserPass from './user-pass/index.vue'
 
 export default {
+  layout: 'clean',
   components: {
     OcVerification,
     OcPhoneNumber,
@@ -15,66 +16,59 @@ export default {
     stage: 'phone',
     error: '',
     phone: '',
+    code: '',
     attemptCounter: 0,
     picked: 0,
     timeCounter: 119
   }),
   methods: {
-    next (par) {
+    setError (error) {
+      switch (error) {
+        case 'You only recently sent SMS!':
+          this.stage = 'sms'
+          // this.error = 'Код был уже отправлен'
+          break
+        case 'Code is out of date!':
+          this.error = 'Данный код устарел. Пожалуйста, получите новый код в смс'
+          break
+        case 'Phone number is incorrect!':
+          // this.error = 'wrongNumber'
+          this.error = 'Не верно введен номер телефона'
+          break
+      }
+    },
+    async register ({ name, password }) {
+      const result = await this.$api.users.register(this.phone, name, password)
+      if (!result.error) {
+        this.$router.push('/sign-in')
+      } else {
+        this.error = result.error
+      }
+    },
+    async next (par) {
       switch (this.stage) {
         case 'phone':
 
-          this.phone = par
-
-          const reply = serverRequest('get-code', { phone: this.phone })
+          const reply = await this.$api.users.getCode(this.phone)
+          console.log(reply)
           if (reply.success) {
-            // debugger
-            // this.stage = 'sms'
-            // const x = setInterval(() => {
-            //   this.timeCounter -= 1
-            //   if (this.timeCounter < 1) {
-            //     clearInterval(x)
-            //   }
-            // }, 1000)
-            console.log('Запрос на получение кода успешно выполнен')
+            this.stage = 'sms'
+            this.error = ''
           } else {
-            // debugger
-            switch (reply) {
-              case 'You only recently sent SMS!':
-                // this.stage = 'sms'
-                break
-              case 'Code is out of date!':
-                // этого тут не должно быть
-                // this.error = 'wrongNumber'
-                break
-              case 'Phone number is incorrect!':
-                // this.error = 'wrongNumber'
-                break
-            }
+            this.setError(reply.error.error)
           }
 
-          if (this.picked === '8') {
-            this.stage = 'sms'
-            const x = setInterval(() => {
-              this.timeCounter -= 1
-              if (this.timeCounter < 1) {
-                clearInterval(x)
-              }
-            }, 1000)
-          } else if (this.picked === '9') {
-            this.error = 'Номер не может быть использован для входа'
-          }
           break
         case 'sms':
-          if (this.picked === '10') {
-            this.error = 'Данный код устарел. Пожалуйста, получите новый код в смс'
-          } else if (this.picked === '11') {
-            this.error = 'Неверный код подтверждения'
-          } else if (this.picked === '12') {
-            this.error = 'Номер телефона уже зарегистрирован в системе'
-          } else if (this.picked === '13') {
+          const result = await this.$api.users.checkCode(this.phone, this.code)
+          console.log(result)
+          if (result.success) {
             this.stage = 'userpass'
+            this.error = ''
+          } else {
+            this.setError(reply.error.error)
           }
+
           break
       }
     }

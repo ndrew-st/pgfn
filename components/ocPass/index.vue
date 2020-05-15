@@ -8,6 +8,7 @@
           type="password"
           placeholder="Пароль"
           :class="{red: error !== '', norm: error === ''}"
+          @change="change"
           @keyup.enter="next()"
         >
 
