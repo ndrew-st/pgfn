@@ -1,0 +1,186 @@
+.pics
+  align-self center
+  margin: 0 -18px
+  margin-top 40px
+  display flex
+
+  &__vertical
+    display none
+
+  &__button-gallery
+    display none
+
+.pics-carousel
+  position relative
+
+  max-height 400px
+
+  &__img-container
+    width 100%
+    min-width 100%
+    max-height 400px
+
+  &__img-wrapper
+    display flex
+    align-items center
+    max-height 400px
+
+    overflow hidden
+
+  &__counter
+    position absolute
+    top 9px
+    right 16px
+
+    display inline-block
+    padding 0 8px
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 20px;
+    color: #989BA8;
+
+    background: #FFFFFF;
+    border-radius: 12px;
+
+  &__img-description
+    display none
+
+    font-style normal
+    font-weight normal
+    font-size 20px
+    line-height 24px
+    color #272528
+
+@media (min-width 768px)
+  .pics
+    max-width 880px
+    margin: 0 -40px
+    margin-top 40px
+
+@media (min-width 880px)
+  .pics
+    width 100%
+    margin 0
+
+  .pics-carousel
+    &__img-wrapper
+      border-radius 12px
+
+@media (min-width 1280px)
+  .pics
+    position relative
+
+    display flex
+    justify-content: space-between;
+    max-width 1280px
+    margin 0 auto
+
+    &__vertical
+      display block
+
+    &__button-gallery
+      position absolute
+      bottom 16px
+      right 16px
+
+      display flex
+      align-items center
+      justify-content center
+      padding: 0
+      min-width 135px
+      min-height 40px
+
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      color: #272528;
+
+      background: #FFFFFF;
+      border: 1px solid #D4D6DE;
+      box-sizing: border-box;
+      border-radius: 44px
+
+      z-index 99
+      cursor pointer
+      transition all 0.1s ease-in-out 0s
+
+      &:hover
+      &:focus
+        outline 0
+
+      &:hover
+        color #0082B4
+
+        transition all 0.1s ease-in-out 0s
+
+      &:focus
+        font-weight: bold;
+        line-height: 28px;
+        color: #272528;
+
+        border: 1.4px solid #272528;
+
+        transition all 0.1s ease-in-out 0
+
+  .pics-vertical
+    height 400px
+
+    overflow hidden
+
+    &__img-container
+      display flex
+      align-items center
+      min-width: 382px
+      max-width: 382px
+      min-height: 192px
+      max-height: 192px
+      margin-bottom 16px
+
+      overflow hidden
+      border-radius 12px
+
+    &__img
+      width 100%
+
+      vertical-align bottom
+
+      border-radius 12px
+
+  .pics-carousel
+    max-width 880px
+    height 400px
+
+    &__zoomer
+      width 880px
+      height 400px
+
+    &__counter
+      display none
+
+    &__img-container
+      display flex
+      align-items center
+      min-width: 880px
+      max-width: 880px
+      min-height: 400px
+      max-height: 400px
+
+      overflow hidden
+
+      border-radius 12px
+    &__img
+      width 100%
+
+      vertical-align bottom
+
+      border-radius 12px
+
+    .carousel
+      &__wrapper
+        padding-bottom 2px
+
+

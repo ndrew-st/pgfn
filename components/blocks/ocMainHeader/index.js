@@ -12,7 +12,7 @@ export default {
       mobileLinks: [
         { title: 'Поиск', link: '/search', icon: 'find' },
         { title: 'Закладки', link: '/bookmarks', icon: 'heart', iconClass: 'icon-heart' },
-        { title: 'Меню', link: '/menu', icon: 'bag', iconClass: 'icon-bag' },
+        { title: 'Меню', link: '/menu', icon: 'menu', iconClass: 'icon-menu' },
         { title: 'Добавить', link: '/add-object', icon: 'add' },
         { title: 'Вход', link: '/sign-in', icon: 'user' }
       ],
@@ -96,6 +96,6 @@ export default {
     this.selectObject = ''
     this.checkedResult = ''
 
-    window.removeEventListener('resize')
+    window.removeEventListener('resize', this.handlerResizeWindow)
   }
 }

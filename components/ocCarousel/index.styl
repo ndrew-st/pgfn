@@ -16,10 +16,6 @@
 
     box-sizing border-box
 
-    @media(min-width 1280px)
-      padding-bottom 26px
-      margin-bottom -26px
-
   &__list
     display flex
 
@@ -166,3 +162,21 @@
 
       transition all 0.1s ease-in-out 0s
 
+@media(min-width 1280px)
+  .carousel
+
+    &__wrapper
+      &.show-scroll
+        margin-bottom -19px
+
+    & .carousel-vertical
+
+      &__wrapper
+        overflow hidden
+
+      &__list
+        position relative
+
+        height 100%
+
+        transition all 0.3s ease-in-out 0s

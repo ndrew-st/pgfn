@@ -198,11 +198,11 @@
       &--icon
         & svg circle
         & svg path
-          stroke #272528
+          stroke $black-1
 
         &.active-icon svg path
         &.active-icon svg circle
-          stroke #7140B8
+          stroke $blue
 
         &.icon-heart
 
@@ -210,12 +210,12 @@
             width 16px
             height 14px
 
-        &.icon-bag
-          & svg rect
-            stroke #272528
+        &.icon-menu
+          & svg path
+            fill $black-1
 
-          &.active-icon svg rect
-            stroke #7140B8
+          &.active-icon svg path
+            fill $blue
 
       &--link
         display block
@@ -228,10 +228,10 @@
         line-height: 12px;
         text-align center
         letter-spacing: -0.1px;
-        color: #272528;
+        color: $black-1
 
         &.active-link
-          color #7140B8
+          color $blue
 
 @media(min-width 1090px)
   .header
