@@ -22,13 +22,15 @@ export default {
       if (this.phone1.length === 13) {
         this.isActive = true
       } else { this.isActive = false }
-      this.$emit('cpn2', this.phone1)
+      // this.$emit('cpn2', this.phone1)
       //   if (event.type == "blur") {
       //       if (this.value.length == 2) this.value = ""
       //   } else setCursorPosition(this.value.length, this)
     },
     next (item) {
-      // this.$emit('', this.phoneNumber)
+      if (this.phone1.length === 13) {
+        this.$emit('next', this.phone1)
+      }
     }
   }
 }
