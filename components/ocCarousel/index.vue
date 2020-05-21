@@ -53,13 +53,16 @@
       >
         <ul
           ref="dots"
-          :style="{ 'transform': `translateX(${posDots}px)` }"
+          :style="{ 'transform': `translateX(-${posDots}px)` }"
           class="carousel__dots"
         >
           <li
             v-for="i in items.length"
             :key="i"
             class="carousel__dot"
+            :class="{
+              'centered': isCentered(i - 1),
+              'size-small': isSmall(i - 1)}"
           >
             <button
               type="button"
@@ -84,6 +87,7 @@
       >
         <div
           ref="listHeight"
+          :key="date"
           class="carousel-vertical__list"
           :style="{ 'top': - posY + 'px' }"
         >

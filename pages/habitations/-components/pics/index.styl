@@ -53,6 +53,9 @@
     line-height 24px
     color #272528
 
+.pics-vertical
+  display none
+
 @media (min-width 768px)
   .pics
     max-width 880px
@@ -127,9 +130,21 @@
         transition all 0.1s ease-in-out 0
 
   .pics-vertical
+    display block
+
     height 400px
 
     overflow hidden
+
+    & .carousel
+      height 100%
+
+      & .carousel-vertical
+        & .pics-vertical
+          &__img-container
+            width 384px
+            min-height 192px
+            max-height 192px
 
     &__img-container
       display flex
@@ -142,6 +157,8 @@
 
       overflow hidden
       border-radius 12px
+
+      cursor pointer
 
     &__img
       width 100%
@@ -178,9 +195,5 @@
       vertical-align bottom
 
       border-radius 12px
-
-    .carousel
-      &__wrapper
-        padding-bottom 2px
 
 

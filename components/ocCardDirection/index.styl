@@ -68,21 +68,37 @@
     &[data-tooltip]:after
       content: attr(data-tooltip);
       position: absolute;
-      bottom: -35px;
-      left: 50%;
-      padding: 8px;
-      transform: translateX(-50%) scale(0);
+      bottom: -43px;
+      left 5px
+
+      transform: scale(0);
       transition: transform 0.3s ease-in-out;
       transform-origin: top;
-      background: #616161e6;
-      color: white;
-      border-radius: 2px;
-      font-size: 12px;
-      font-family: Roboto,sans-serif;
-      font-weight: 400;
+      border-radius: 2px
+      display flex
+      align-items flex-end
+      height 37px
+      padding 0 6px
+      padding-bottom 3px
+
+      font-family Calibri
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: -0.2px;
+      color: #FFFFFF;
+      white-space nowrap
+
+      background url('/bg-tooltip.svg') 0 0 no-repeat
+      background-size cover
+      box-sizing border-box
+
+      z-index 5
+
 
     &[data-tooltip]:hover:after
-      transform: translateX(-50%) scale(1);
+      transform: scale(1);
 
     &:before
       content ''
@@ -252,9 +268,15 @@
       opacity 0
       transition opacity 0.3s linear 0s
 
-    &:hover .direction-card__button-like
-      opacity 1
-      transition opacity 0.3s ease-in-out 0s
+      &.card-liked
+        opacity 1
+
+        & span svg path
+          stroke $red
+          fill $red
+
+    &[data-tooltip]:after
+      left 6px
 
     &__property-list
       display flex
@@ -294,9 +316,7 @@
 
           background-size 12px 15px
 
-    &:hover
-
-      .direction-cart__button-like
+    &:hover .direction-card__button-like
         opacity 1
         transition opacity 0.3s linear 0s
 

@@ -205,17 +205,21 @@
           stroke $blue
 
         &.icon-heart
-
           & svg
             width 16px
             height 14px
 
+            & path
+              stroke $black-1
+
         &.icon-menu
           & svg path
             fill $black-1
+            stroke transparent
 
           &.active-icon svg path
             fill $blue
+            stroke transparent
 
       &--link
         display block

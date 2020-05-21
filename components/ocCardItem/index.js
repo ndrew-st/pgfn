@@ -8,6 +8,7 @@ export default {
       type: Object,
       required: true,
       default: () => ({
+        id: 23,
         name: 'Tree house',
         address: 'Полный адрес',
         attrs: [ '4 гостя', '1 спальня' ], // опционально
@@ -34,10 +35,11 @@ export default {
   },
   data () {
     return {
-      addressHeight: 0,
+      widthContainer: 0,
       addressWidth: 0,
-      titleHeight: 0,
+      titleWidth: 0,
       attrsHeight: 0,
+      widthWindow: 0,
       viewWidth: 0,
       reviewsText: ['отзыв', 'отзыва', 'отзывов'],
       viewsText: ['просмотр', 'просмотра', 'просмотров']
@@ -49,13 +51,34 @@ export default {
     }
   },
   mounted () {
-    this.addressHeight = this.$refs.address.clientHeight
-    this.addressWidth = this.$refs.address.scrollWidth
-    this.titleHeight = this.$refs.title.clientHeight
-    this.attrsHeight = this.$refs.attrs.clientHeight
-    this.viewWidth = this.$refs.views && this.$refs.views.clientWidth
+    this.$nextTick(() => {
+      this.updateVals()
+    })
   },
   methods: {
+    updateVals () {
+      this.widthWindow = window.screen.width
+      this.widthContainer = this.$refs.card.clientWidth
+      this.addressWidth = this.$refs.addressCt.scrollWidth
+      this.titleWidth = this.$refs.titleCt.scrollWidth
+      this.attrsHeight = this.$refs.attrs.clientHeight
+      this.viewWidth = this.$refs.views && this.$refs.views.clientWidth
+    },
+    handlerResize (e) {
+      if (this.widthWindow === e.target.screen.width) {
+        return false
+      }
+
+      this.updateVals()
+    },
+    mouseEnter () {
+      if (this.titleWidth < 1) {
+        this.updateVals()
+      }
+    },
+    touchStart () {
+      this.updateVals()
+    },
     reviewText (num) {
       return num2str(num, this.reviewsText)
     },

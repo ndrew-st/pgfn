@@ -4,7 +4,7 @@ import _debounce from '~/utils/debounce'
 export default {
   props: {
     minScale: { type: Number, default: 1 },
-    maxScale: { type: Number, default: 5 },
+    maxScale: { type: Number, default: 3 },
     zoomed: { type: Boolean, default: false },
     resetTrigger: { type: Number, default: 1e5 },
     aspectRatio: { type: Number, default: 1 },
@@ -42,7 +42,8 @@ export default {
       panLocked: true,
       // Others
       raf: null,
-      tapDetector: null
+      tapDetector: null,
+      deltaX: 0
     }
   },
   computed: {
@@ -81,6 +82,10 @@ export default {
     this.onWindowResize()
     this.refreshContainerPos()
     this.loop()
+  },
+  updated () {
+    this.setPointerPosCenter()
+    this.onWindowResize()
   },
   destroyed () {
     this.tapDetector.detach(this.$el)
@@ -129,23 +134,11 @@ export default {
       this.pointerPosX = this.containerLeft + this.containerWidth / 2
       this.pointerPosY = this.containerTop + this.containerHeight / 2
     },
-    onPointerMove (newMousePosX, newMousePosY) {
-      if (this.isPointerDown) {
-        const pixelDeltaX = newMousePosX - this.pointerPosX
-        const pixelDeltaY = newMousePosY - this.pointerPosY
-        if (!this.panLocked) {
-          this.translateX += pixelDeltaX / this.containerWidth
-          this.translateY += pixelDeltaY / this.containerHeight
-        }
-      }
-      this.pointerPosX = newMousePosX
-      this.pointerPosY = newMousePosY
-    },
     onInteractionEnd: _debounce(function () {
       this.limit()
       this.panLocked = this.scale === 1
       this.$emit('update:zoomed', !this.panLocked)
-    }, 100),
+    }, 1000),
     // limit the scale between max and min and the translate within the viewport
     limit () {
       // scale
@@ -245,7 +238,16 @@ export default {
         if (currTime - this.lastWheelTime > 50 && typeof ev.deltaX === 'number') {
           this.lastWheelDirection = (ev.detail == 0 && Math.abs(ev.deltaX) > Math.abs(ev.deltaY)) ? 'x' : 'y'
           if (this.lastWheelDirection === 'x') {
-            this.$emit('swipe', ev.deltaX > 0 ? 'left' : 'right')
+            const self = this
+            const event = ev
+
+            if (Math.abs(event.deltaX - this.deltaX) > 30) {
+              setTimeout(function () {
+                self.$emit('swipe', event.deltaX > 0 ? 'left' : 'right')
+              })
+            }
+
+            this.deltaX = ev.deltaX
           }
         }
         if (this.lastWheelDirection === 'y') {
@@ -260,6 +262,19 @@ export default {
       this.tryToScale(scaleDelta)
       this.onInteractionEnd()
     },
+    onPointerMove (newMousePosX, newMousePosY) {
+      if (this.isPointerDown) {
+        const pixelDeltaX = newMousePosX - this.pointerPosX
+        const pixelDeltaY = newMousePosY - this.pointerPosY
+
+        if (!this.panLocked) {
+          this.translateX += pixelDeltaX / this.containerWidth
+          this.translateY += pixelDeltaY / this.containerHeight
+        }
+      }
+      this.pointerPosX = newMousePosX
+      this.pointerPosY = newMousePosY
+    },
     onMouseDown (ev) {
       this.refreshContainerPos()
       this.isPointerDown = true
@@ -269,16 +284,19 @@ export default {
       this.pointerPosY = ev.clientY
       // console.log('onMouseDown', ev)
     },
-    onMouseUp (ev) {
+    onMouseUp () {
       this.isPointerDown = false
       this.onInteractionEnd()
     },
     onMouseMove (ev) {
       this.onPointerMove(ev.clientX, ev.clientY)
-      // console.log('onMouseMove client, offset', ev.clientX, ev.clientY)
     },
     // Touch Events ------------------------------------------------------------
     onTouchStart (ev) {
+      if (!this.off) {
+        ev.preventDefault()
+      }
+
       if (ev.touches.length === 1) {
         this.refreshContainerPos()
         this.pointerPosX = ev.touches[0].clientX
@@ -297,6 +315,10 @@ export default {
       // console.log('onTouchStart', ev.touches)
     },
     onTouchEnd (ev) {
+      if (!this.off) {
+        ev.preventDefault()
+      }
+
       if (ev.touches.length === 0) {
         this.isPointerDown = false
         // Near 1 to set 1
@@ -309,6 +331,10 @@ export default {
       // console.log('onTouchEnd', ev.touches.length)
     },
     onTouchMove (ev) {
+      if (!this.off) {
+        ev.preventDefault()
+      }
+
       if (ev.touches.length === 1) {
         this.onPointerMove(ev.touches[0].clientX, ev.touches[0].clientY)
       } else if (ev.touches.length === 2) {
