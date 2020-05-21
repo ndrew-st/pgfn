@@ -33,7 +33,7 @@ export default {
     '@/plugins/global-components.js',
     '@/plugins/yandexMaps.js',
     '@/plugins/api.js',
-    '@/plugins/lazyLoading.js'
+    '@/plugins/directives.js'
   ],
   router: {
     base: '/',

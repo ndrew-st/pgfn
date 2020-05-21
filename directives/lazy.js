@@ -1,6 +1,4 @@
-import Vue from 'vue'
-
-Vue.directive('lazy', {
+export default {
   inserted: (el) => {
     function loadImage () {
       if (el.nodeName !== 'IMG') {
@@ -45,4 +43,4 @@ Vue.directive('lazy', {
       createObserver()
     }
   }
-})
+}

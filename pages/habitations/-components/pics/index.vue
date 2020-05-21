@@ -71,6 +71,7 @@
           @click="changeActiveCarousel(index)"
         >
           <img
+            v-lazy
             :src="img.url"
             :alt="img.description"
             class="pics-vertical__img"
