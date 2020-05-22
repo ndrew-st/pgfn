@@ -31,7 +31,7 @@
       :class="{ 'card-liked': isLiked }"
       type="button"
       class="direction-card__button-like"
-      @click="$emit('setLike', item.id)"
+      @click.stop.prevent="$emit('setLike', item.id)"
     >
       <OcIcon
         class="direction-card__button-like--icon"

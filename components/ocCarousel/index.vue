@@ -11,7 +11,7 @@
         <div
           ref="wrapper"
           :style="{ 'max-width': maxWidthWrapper || 1280 + 'px', 'overflow-x': scroll ? 'scroll' : 'hidden' }"
-          :class="{ hide: !show, 'show-desktop': autoWidth}"
+          :class="{ hide: !show, 'show-desktop': autoWidth, 'show-scroll': scroll }"
           class="carousel__wrapper"
           @scroll.passive="handlerScroll"
         >
@@ -38,7 +38,7 @@
         </button>
 
         <button
-          :class="{ 'disabled': activeIndex + countColumn >= items.length}"
+          :class="{ 'disabled': activeIndex + countColumn >= items.length }"
           type="button"
           class="btn-carousel__next"
           @click="carouselNext"
@@ -53,13 +53,16 @@
       >
         <ul
           ref="dots"
-          :style="{ 'transform': `translateX(${posDots}px)` }"
+          :style="{ 'transform': `translateX(-${posDots}px)` }"
           class="carousel__dots"
         >
           <li
             v-for="i in items.length"
             :key="i"
             class="carousel__dot"
+            :class="{
+              'centered': isCentered(i - 1),
+              'size-small': isSmall(i - 1)}"
           >
             <button
               type="button"
@@ -84,6 +87,7 @@
       >
         <div
           ref="listHeight"
+          :key="date"
           class="carousel-vertical__list"
           :style="{ 'top': - posY + 'px' }"
         >

@@ -23,6 +23,20 @@ export default {
       this.isShow = false
     },
     toggle (e) {
+      if (e.target.closest('.dropdown__btn')) {
+        if (!this.isShow) {
+          this.$root.$emit('dropdown:hide')
+          this.isShow = true
+
+          return null
+        } else {
+          this.$root.$emit('dropdown:hide')
+          this.isShow = false
+
+          return null
+        }
+      }
+
       if (!e.target.closest('.dropdown__content')) {
         // hide dropdown if other dropdowns show
         this.$root.$emit('dropdown:hide')

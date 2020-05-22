@@ -174,7 +174,6 @@
             />
             <a
               :href="href"
-
               :class="{ 'active-link': isActive }"
               class="mobile-controls__button--link"
             >{{ item.title }}</a>

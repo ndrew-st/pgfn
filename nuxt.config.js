@@ -32,7 +32,8 @@ export default {
   plugins: [
     '@/plugins/global-components.js',
     '@/plugins/yandexMaps.js',
-    '@/plugins/api.js'
+    '@/plugins/api.js',
+    '@/plugins/directives.js'
   ],
   router: {
     base: '/',

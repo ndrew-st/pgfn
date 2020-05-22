@@ -12,7 +12,7 @@ export default {
       mobileLinks: [
         { title: 'Поиск', link: '/search', icon: 'find' },
         { title: 'Закладки', link: '/bookmarks', icon: 'heart', iconClass: 'icon-heart' },
-        { title: 'Меню', link: '/menu', icon: 'bag', iconClass: 'icon-bag' },
+        { title: 'Меню', link: '/menu', icon: 'home', iconClass: 'icon-menu' },
         { title: 'Добавить', link: '/add-object', icon: 'add' },
         { title: 'Вход', link: '/sign-in', icon: 'user' }
       ],
@@ -35,15 +35,6 @@ export default {
         { id: 1, content: 'Жильё' },
         { id: 2, content: 'Услуги' }
       ] // add objects
-    }
-  },
-  computed: {
-    signIn () {
-      if (process.browser) {
-        const token = localStorage.getItem('token')
-        return token
-      }
-      return false
     }
   },
   methods: {
@@ -105,6 +96,6 @@ export default {
     this.selectObject = ''
     this.checkedResult = ''
 
-    // window.removeEventListener('resize')
+    window.removeEventListener('resize', this.handlerResizeWindow)
   }
 }

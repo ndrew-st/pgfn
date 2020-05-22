@@ -1,5 +1,10 @@
 <template>
-  <div class="card-item">
+  <div
+    ref="card"
+    class="card-item"
+    @mouseenter="mouseEnter"
+    @touchstart="touchStart"
+  >
     <div class="card-item__list">
       <Carousel
         :nav="true"
@@ -16,7 +21,8 @@
           class="card-item__img-container"
         >
           <img
-            :src="gallery"
+            v-lazy
+            :data-url="gallery"
             :alt="item.name"
             class="card-item__image"
           >
@@ -24,13 +30,12 @@
       </Carousel>
     </div>
 
-    <nuxt-link
-      to="/habitations/1"
+    <div
       class="card-item__title"
-      :class="{ 'title-more': titleHeight > 24 }"
+      :class="{ 'title-more': titleWidth > widthContainer }"
     >
       <p
-        ref="title"
+        ref="titleCt"
         class="card-item__title--link-cont"
       >
         <nuxt-link
@@ -40,9 +45,11 @@
           {{ item.name }}
         </nuxt-link>
       </p>
-    </nuxt-link>
+    </div>
 
-    <div class="card-item__intro">
+    <div
+      class="card-item__intro"
+    >
       <p
         v-if="item.intro"
         class="card-item__intro--content"
@@ -92,10 +99,10 @@
 
     <div
       class="card-item__address"
-      :class="{ 'address-more': addressWidth > 300 }"
+      :class="{ 'address-more': addressWidth > widthContainer }"
     >
       <p
-        ref="address"
+        ref="addressCt"
         class="card-item__address--content"
       >
         {{ item.address }}
@@ -126,12 +133,12 @@
         v-if="item.oldprice"
         class="card-item__old-price"
       >
-        {{ item.oldprice }}
+        {{ item.oldprice.toLocaleString() }}
         <span class="card-item__old-price--rouble">
           9
         </span>
       </span>
-      <span class="card-item__price">от {{ item.price }}
+      <span class="card-item__price">от {{ item.price.toLocaleString() }}
         <span class="card-item__price--rouble">
           9
         </span>

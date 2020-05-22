@@ -59,6 +59,7 @@ show-on-hover()
 
     &--link-cont
       margin 0
+      display inline-block
 
     &--link
       font-style: normal;
@@ -66,6 +67,7 @@ show-on-hover()
       font-size: 18px;
       line-height: 24px;
       color: #272528;
+      white-space nowrap
 
       anim(all)
 
@@ -75,6 +77,9 @@ show-on-hover()
 
         & p
           show-on-hover()
+
+        & a
+          white-space normal
 
   &__intro
     min-height 16px
@@ -249,7 +254,7 @@ show-on-hover()
     margin-top -4px
     min-height 40px
     height 40px
-    margin-bottom 8px
+    margin-bottom 4px
 
     overflow hidden
 
@@ -375,10 +380,11 @@ show-on-hover()
     line-height: 20px;
     color: #989BA8;
 
-  &__carousel.carousel
-    &__button-container
-    &__dots-container
-      display none
+  &__swiper
+    & .carousel
+      &__button-container
+      &__dots-container
+        display none
 
 @media(min-width 1280px)
   .card-item
@@ -392,6 +398,9 @@ show-on-hover()
     &__img-container
       min-width 300px
       height 200px
+
+    &__attrs
+      margin-bottom 12px
 
     &__title
       margin-top 24px
@@ -411,6 +420,13 @@ show-on-hover()
       opacity 0
       transition opacity 0.3s ease-in-out 0s
 
+      &.card-liked
+        opacity 1
+
+        & span svg path
+          stroke $red
+          fill $red
+
     & .card-settings
       &__content
         font-size: 14px;
@@ -428,6 +444,9 @@ show-on-hover()
 
         opacity 0
         transition opacity 0.3s ease-in-out 0s
+
+      &__dots-container
+        opacity 1
 
       & .btn-carousel
         &__prev
@@ -450,7 +469,6 @@ show-on-hover()
     &__list
 
       &:hover .carousel__button-container
-      &:hover .carousel__dots-container
         opacity 1
         transition opacity 0.3s ease-in-out 0s
 

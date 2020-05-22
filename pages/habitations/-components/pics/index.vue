@@ -8,7 +8,6 @@
         @toggle="toggleShow"
       >
         <ocCarousel
-          :key="date"
           :dots="true"
           :items="images"
           :column="1"
@@ -22,23 +21,26 @@
             :key="img.id"
             class="pics-carousel__img-container carousel-img-container"
           >
-            <ocZoomer
-              class="pics-carousel__zoomer carousel-zoomer"
-              :max-scale="10"
-              :off="!showPopup"
-              :zoomed.sync="zoomed"
-            >
-              <div
-                class="pics-carousel__img-wrapper"
-                @click="toggleShow(true)"
+            <div class="carousel-img-container__wrapper">
+              <ocZoomer
+                class="pics-carousel__zoomer carousel-zoomer"
+                :max-scale="10"
+                :off="!showPopup"
+                :zoomed.sync="zoomed"
+                @swipe="changeSwipe"
               >
-                <img
-                  :src="img.url"
-                  :alt="img.description"
-                  class="pics-carousel__img"
+                <div
+                  class="pics-carousel__img-wrapper"
+                  @click="toggleShow(true)"
                 >
-              </div>
-            </ocZoomer>
+                  <img
+                    :src="img.url"
+                    :alt="img.description"
+                    class="pics-carousel__img"
+                  >
+                </div>
+              </ocZoomer>
+            </div>
             <p class="pics-carousel__img-description carousel-img-description">
               {{ img.description }}
             </p>
@@ -63,11 +65,13 @@
         @updateIndex="updateIndex"
       >
         <div
-          v-for="img in images"
+          v-for="(img, index) in images"
           :key="img.id"
           class="pics-vertical__img-container"
+          @click="changeActiveCarousel(index)"
         >
           <img
+            v-lazy
             :src="img.url"
             :alt="img.description"
             class="pics-vertical__img"
@@ -87,4 +91,4 @@
 </template>
 
 <script src="./index.js"/>
-<style src="./index.styl" lang="stylus" scoped/>
+<style src="./index.styl" lang="stylus"/>

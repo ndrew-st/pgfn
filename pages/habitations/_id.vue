@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 import TopLine from './-components/top-line/index.vue'
 import H1Block from './-components/h1-block/index.vue'
@@ -85,7 +85,7 @@ import BookingFooter from './-components/booking-footer/index.vue'
 import Booking from './-components/booking/index.vue'
 import ocGroupCard from '~/components/ocGroupCard'
 import ocCardItem from '~/components/ocCardItem'
-import ocFooter from '~/components/ocFooter'
+import ocFooter from '~/components/blocks/ocFooter'
 
 export default {
   layout: 'clean',
@@ -106,7 +106,7 @@ export default {
     Booking
   },
   async asyncData ({ store }) {
-    await store.dispatch(`main-page/getData`, `Крым`)
+    // await store.dispatch(`main-page/getData`, `Крым`)
   },
   data: () => ({
     topPath: ['Главная', 'Жильё', '3-к квартира, 146 м2, 11/12'],
@@ -205,9 +205,9 @@ export default {
     startDate () {
       return '27 июня 2018 г.'
     },
-    ...mapGetters('main-page', ['apartments']),
     ...mapState('habitation', {
-      images: state => state.result.images
+      images: state => state.result.images,
+      apartments: state => state.result.apartments || {}
     })
   },
   methods: {

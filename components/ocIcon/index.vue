@@ -24,14 +24,6 @@ export default {
       default: ''
     }
   },
-  data () {
-    return {
-      colors: {
-        white: 'white',
-        black: 'black'
-      }
-    }
-  },
   created () {
     const requireComponent = require.context(
       './icons/',
@@ -41,18 +33,12 @@ export default {
 
     requireComponent.keys().forEach((fileName) => {
       const componentConfig = requireComponent(fileName)
-      // Gets the file name regardless of folder depth
       const componentName = fileName
         .split('/')
         .pop()
         .split('.')[0]
-      // register the component locally
       this.$options.components[componentName] = componentConfig.default
     })
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-
-</style>

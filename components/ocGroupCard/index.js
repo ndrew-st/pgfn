@@ -6,7 +6,9 @@ export default {
     tabs: {
       type: Array,
       required: true,
-      default: () => []
+      default: () => [
+        { name: '', url: '', id: 0 }
+      ]
     },
     items: {
       type: Array,
