@@ -9,10 +9,5 @@ export default {
       type: Array,
       default: []
     }
-  },
-  data () {
-    return {
-      picked: 0
-    }
   }
 }

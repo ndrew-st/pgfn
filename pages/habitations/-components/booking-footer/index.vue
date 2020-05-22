@@ -52,7 +52,10 @@
           </p>
         </div>
 
-        <button class="booking-footer__btn-booking">
+        <button
+          class="booking-footer__btn-booking"
+          @click="$emit('changeBookingActive')"
+        >
           Забронировать
         </button>
       </div>
