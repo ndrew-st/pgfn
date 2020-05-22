@@ -1,3 +1,19 @@
+show-on-hover()
+  margin -5px
+  position absolute
+  top 0
+  left 0
+  right 0
+
+  padding 5px
+
+  background-color white
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1);
+  border-radius 5px
+  box-sizing border-box
+
+  anim(all)
+
 .card-item
   position relative
 
@@ -30,105 +46,236 @@
     margin-bottom 16px
 
   &__title
+    position relative
+
     display block
     margin 0
+    height 24px
+    min-height 24px
+    max-height 24px
+
+    overflow hidden
+    z-index 8
+
+    &--link-cont
+      margin 0
+      display inline-block
+
+    &--link
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 24px;
+      color: #272528;
+      white-space nowrap
+
+      anim(all)
+
+    &.title-more
+      &:hover
+        overflow visible
+
+        & p
+          show-on-hover()
+
+        & a
+          white-space normal
+
+  &__intro
+    min-height 16px
+    height 16px
+    max-height 16px
     margin-bottom 8px
 
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 24px;
-    color: #272528;
+    &--content
+      margin 0
+
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 20px;
+      color: #989BA8;
 
   &__address
+    position relative
+    height 20px
+
     margin 0
     margin-bottom 4px
 
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 20px;
-    color: #272528;
+    overflow hidden
+    z-index 3
+    anim(all)
+
+    &--content
+      display block
+      width auto
+      margin 0
+
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 20px;
+      color: #272528;
+      white-space nowrap
+
+      anim(all)
 
     @media(min-width 1280px)
       margin-bottom 12px
 
-  &__settings
-    display flex
+    &.address-more
+      &:hover
+        overflow visible
+
+        anim(all)
+
+        & p
+          show-on-hover()
+
+          white-space normal
+
+  .card-settings
+    height 28px
     margin 0
     margin-bottom 8px
     padding 0
 
-    list-style none
+    &__content
+      display flex
+      align-items center
+      margin 0
 
-  &__rate
-    margin 0
-    margin-right 10px
-    padding 4px 8px
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 20px;
+      color: #989BA8;
 
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: -0.5px;
-    text-transform: uppercase;
-    color: #FFFFFF;
+    &__rate
+      margin 0
+      margin-right 10px
+      padding 4px 8px
 
-    background: #EB574F;
-    border-radius: 4px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: #FFFFFF;
 
-  &__reviews
-    display flex
-    align-items center
+      background: #EB574F;
+      border-radius: 4px;
 
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 20px;
-    color: #989BA8;
+    &__reviews
+      display flex
+      margin 0
+      height 20px
 
-  &__type
-    position relative
+      white-space nowrap
 
-    display flex
-    align-items center
-    padding-left 13px
+    &__type
+      position relative
 
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 20px;
-    color: #989BA8;
+      display flex
+      height 20px
+      margin 0
+      padding-left 13px
 
-    &:before
-      content ''
-      position absolute
-      top 50%
-      left 7px
+      &:before
+        content ''
+        position absolute
+        top 50%
+        left 6px
 
-      width 2px
-      height 2px
+        width 2px
+        height 2px
 
-      background-color #989BA8
-      border-radius 5px
+        background-color #989BA8
+        border-radius 5px
+
+    &__views
+      position relative
+
+      display flex
+      max-height 20px
+      min-height 20px
+      margin 0
+      padding-left 13px
+
+      box-sizing border-box
+      overflow hidden
+
+      z-index 6
+
+      &--content
+        display block
+        height 100%
+        margin 0
+
+        font-style normal
+        white-space nowrap
+        box-sizing border-box
+
+      &:before
+        content ''
+        position absolute
+        top 50%
+        left 6px
+
+        width 2px
+        height 2px
+
+        background-color #989BA8
+        border-radius 5px
+
+      &.view-more
+        &:hover
+          width 100%
+          height 100%
+
+          overflow visible
+
+          anim(all)
+
+          & p
+            show-on-hover()
+            left 13px
+
+            width 100%
+            height 45px
+
+            white-space normal
 
   &__attrs
-    display flex
-    align-items flex-start
-    flex-wrap wrap
-    margin 0
+    position relative
+
     margin-top -4px
     min-height 40px
-    max-height 40px
-    margin-bottom 8px
-    padding 0
-    flex-wrap wrap
+    height 40px
+    margin-bottom 4px
 
-    list-style none
     overflow hidden
+
+    &--list
+      display flex
+      align-items flex-start
+      flex-wrap wrap
+      margin 0
+      padding 0
+
+      list-style none
 
     @media(min-width 1280px)
       margin-top -12px
+
+    &.more-attrs
+      &:hover
+        overflow visible
+
+        & ul
+          show-on-hover()
 
   &__attr
     position relative
@@ -174,19 +321,24 @@
     background-color transparent
     border 0
 
-    background url('/cart/likeN.svg') 0 0 no-repeat
-    background-size 22px 20px
-
     z-index 5
     cursor pointer
 
-    &.card-liked
-        opacity 1
-        background-image url('/cart/likeY.svg')
+    &--icon
+      & svg path
+        stroke white
 
+        anim(all)
+
+    &.card-liked
     &:hover
-    &:focus
-      outline 0
+      & span svg path
+        stroke $red
+        fill $red
+
+        anim(all)
+
+    rm-outline()
 
   &__price-container
     display flex
@@ -199,7 +351,11 @@
     font-size: 20px;
     line-height: 24px;
     text-decoration line-through
-    color: #272528;
+    color #272528
+
+    &--rouble
+      font-family Rouble Sans
+      font-size 19px
 
   &__price
     margin-right 5px
@@ -209,6 +365,10 @@
     font-size: 20px;
     line-height: 24px;
     color: #272528;
+
+    &--rouble
+      font-family Rouble Sans
+      font-size 19px
 
   &__type-price
     display flex
@@ -220,10 +380,11 @@
     line-height: 20px;
     color: #989BA8;
 
-  &__carousel.carousel
-    &__button-container
-    &__dots-container
-      display none
+  &__swiper
+    & .carousel
+      &__button-container
+      &__dots-container
+        display none
 
 @media(min-width 1280px)
   .card-item
@@ -238,24 +399,43 @@
       min-width 300px
       height 200px
 
+    &__attrs
+      margin-bottom 12px
+
     &__title
       margin-top 24px
 
-      font-size 20px
-      line-height 24px
+      &--link
+        font-size 20px
+        line-height 24px
+
+    &__intro
+      &--content
+        font-size 14px
+
+    &__attr
+      font-size 14px
 
     &__button-like
       opacity 0
       transition opacity 0.3s ease-in-out 0s
 
-    &__reviews,
-    &__type
-      font-size: 14px;
-      line-height: 20px;
+      &.card-liked
+        opacity 1
+
+        & span svg path
+          stroke $red
+          fill $red
+
+    & .card-settings
+      &__content
+        font-size: 14px;
+        line-height: 20px;
 
     &__address
-      font-size: 14px;
-      line-height: 20px;
+      &--content
+        font-size: 14px;
+        line-height: 20px;
 
     & .carousel
       &__button-container
@@ -264,6 +444,9 @@
 
         opacity 0
         transition opacity 0.3s ease-in-out 0s
+
+      &__dots-container
+        opacity 1
 
       & .btn-carousel
         &__prev
@@ -284,8 +467,8 @@
           right 12px
 
     &__list
+
       &:hover .carousel__button-container
-      &:hover .carousel__dots-container
         opacity 1
         transition opacity 0.3s ease-in-out 0s
 

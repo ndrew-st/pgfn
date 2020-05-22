@@ -1,9 +1,6 @@
-import Icon from '~/components/Icon/index'
-
 import isMobile from '~/utils/isMobile'
 
 export default {
-  components: { Icon },
   props: {
     type: { // type who view in tooltip of toggle
       type: String,

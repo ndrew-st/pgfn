@@ -19,7 +19,7 @@
         @mouseup="mouseUp"
         @dragstart.prevent="_handlerDragStart"
       >
-        <Icon
+        <OcIcon
           class="slider__toggle--icon"
           name="rangeButton"
         />
@@ -47,7 +47,7 @@
         @mouseup="mouseUp"
         @dragstart.prevent="_handlerDragStart"
       >
-        <Icon
+        <OcIcon
           class="slider__toggle--icon"
           name="rangeButton"
         />

@@ -1,5 +1,8 @@
 <template>
-  <div class="direction-page">
+  <div
+    :key="date"
+    class="direction-page"
+  >
     <Full
       :title="header.title"
       :description="header.description"
@@ -10,7 +13,7 @@
 
     <!-- Направление -->
     <ocGroupCard
-      v-if="direction && direction.items.length"
+      v-show="direction && direction.items.length"
       :tabs="direction.tabs"
       :items="direction.items"
       :count="direction.count"
@@ -18,11 +21,11 @@
       @changeTab="handlerTab('direction', $event)"
     >
       <ocCardDirection
-        v-for="item in direction.items"
-        :key="item.id"
+        v-for="(item, index) in direction.items"
+        :key="item.name + item.address"
         :item="item"
-        :is-liked="false"
-        @setLike="handlerLike(item.id, 'direction')"
+        :is-liked="isLiked(index, 'direction')"
+        @setLike="handlerLike(index, 'direction')"
       />
     </ocGroupCard>
 
@@ -36,12 +39,12 @@
       @changeTab="handlerTab('apartments', $event)"
     >
       <ocCardItem
-        v-for="item in apartments.items"
-        :key="item.id"
+        v-for="(item, index) in apartments.items"
+        :key="item.name + item.address"
         :item="item"
         type="housing"
-        :is-liked="false"
-        @setLike="handlerLike(item.id, 'apartments')"
+        :is-liked="isLiked(index, 'apartments')"
+        @setLike="handlerLike(index, 'apartments')"
       />
     </ocGroupCard>
 
@@ -58,12 +61,12 @@
       @changeTab="handlerTab('services', $event)"
     >
       <ocCardItem
-        v-for="item in services.items"
-        :key="item.id"
+        v-for="(item, index) in services.items"
+        :key="item.name + item.address"
         :item="item"
         type="services"
-        :is-liked="false"
-        @setLike="handlerLike(item.id, 'services')"
+        :is-liked="isLiked(index, 'services')"
+        @setLike="handlerLike(index, 'services')"
       />
     </ocGroupCard>
 
@@ -72,15 +75,16 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 import SubscribeEmail from './-components/subscribe-email'
 import Full from './-components/full'
 import DescBlock from './-components/desc'
 import FilterBlock from './-components/filter'
-import isEmptyObject from '~/utils/isEmptyObject'
-import ocGroupCard from '~/components/ocGroupCard'
 
+import isEmptyObject from '~/utils/isEmptyObject'
+
+import ocGroupCard from '~/components/ocGroupCard'
 import ocCardDirection from '~/components/ocCardDirection'
 import ocCardItem from '~/components/ocCardItem'
 
@@ -98,10 +102,47 @@ export default {
   async asyncData ({ params, store }) {
     await store.dispatch(`main-page/getData`, params.name || `Крым`)
   },
+  data () {
+    return {
+      likes: {
+        direction: [],
+        apartments: [],
+        services: []
+      },
+      date: 0
+    }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.date = Math.random()
+    })
+  },
   computed: {
-    ...mapGetters('main-page', ['direction', 'apartments', 'services', 'head', 'header'])
+    ...mapState('main-page', {
+      direction: state => state.result.direction,
+      apartments: state => state.result.apartments,
+      services: state => state.result.services || {},
+      head: (state) => {
+        return {
+          title: state.result.title,
+          description: state.result.description,
+          keywords: state.result.keywords
+        }
+      },
+      header: (state) => {
+        return {
+          title: state.result.header,
+          description: state.result.mainText,
+          background: state.result.background
+        }
+      },
+      count: state => state.result.count
+    })
   },
   methods: {
+    isLiked (id, field) {
+      return this.likes[field].includes(id)
+    },
     isEmptyObj (obj) {
       return isEmptyObject(obj)
     },
@@ -109,7 +150,13 @@ export default {
       this.updateTabs({ field, url })
     },
     handlerLike (idCard, field) {
-      // what do with likes
+      this.likes = {
+        ...this.likes,
+        [field]: [
+          ...this.likes[field],
+          idCard
+        ]
+      }
     },
     ...mapActions('main-page', ['updateTabs'])
   },
@@ -124,6 +171,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-</style>

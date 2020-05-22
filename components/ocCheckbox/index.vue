@@ -4,7 +4,7 @@
       class="checkbox__label"
       :class="{ checked: check, responsive: responsive }"
     >
-      <Icon
+      <OcIcon
         name="check"
         :class="{ responsive: responsive }"
         class="checkbox__icon"
@@ -23,11 +23,8 @@
 </template>
 
 <script>
-import Icon from '~/components/Icon'
-
 export default {
   name: 'Checkbox',
-  components: { Icon },
   props: {
     checked: {
       type: Boolean,

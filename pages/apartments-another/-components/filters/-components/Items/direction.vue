@@ -9,7 +9,7 @@
         @input="throttledSearch"
         @keydown="handlerKeyDown"
       >
-      <Icon
+      <OcIcon
         v-if="!search.length"
         name="find"
         class="direction-filter__icon direction-filter__icon--search"
@@ -21,7 +21,7 @@
         @click="search = ''"
       >
         Очистить
-        <Icon
+        <OcIcon
           name="clear"
           class="direction-filter__icon direction-filter__icon--clear"
         />
@@ -53,11 +53,8 @@
 <script>
 import throttle from '~/utils/throttle'
 
-import Icon from '~/components/Icon'
-
 export default {
   name: 'Direction',
-  components: { Icon },
   props: {
     value: {
       type: String,

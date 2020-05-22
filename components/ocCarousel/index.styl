@@ -16,8 +16,11 @@
 
     box-sizing border-box
 
-    @media(min-width 1280px)
-      margin-bottom -26px
+    -ms-overflow-style none
+    scrollbar-width none
+
+    &::-webkit-scrollbar
+      display none
 
   &__list
     display flex
@@ -107,13 +110,13 @@
 
     display flex
     align-items center
-    justify-content center
     width 100%
-    max-width 66px
+    max-width 70px
     margin 0 auto
 
     z-index 10
     overflow hidden
+    box-sizing border-box
 
   &__dots
     display flex
@@ -126,10 +129,25 @@
     list-style none
     box-sizing border-box
 
-    transition transform 0.3s ease-in-out 0s
+    transition transform 0.1s linear 0s
 
   &__dot
-    margin-right 5px
+    display flex
+    align-items center
+    justify-content center
+    min-width 10px
+    max-width 10px
+    width 10px
+    min-height 10px
+    max-height 10px
+    height 10px
+    margin-right 4px
+
+    &.size-small
+      justify-content flex-start
+
+    &.centered
+      justify-content flex-end
 
     &:last-child
       margin-right 0
@@ -167,10 +185,6 @@
 
 @media(min-width 1280px)
   .carousel
-
-    &__wrapper-container
-      padding-bottom 4px
-
     & .carousel-vertical
 
       &__wrapper
@@ -181,4 +195,4 @@
 
         height 100%
 
-        transition all 0.3s ease-in-out 0s
+        anim(all)

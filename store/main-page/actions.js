@@ -6,7 +6,7 @@ export default {
   },
   async updateTabs ({ commit }, data) {
     const res = await this.$api.apartments.updateTabs(data.url)
-    debugger
+
     if (!res.error) { commit('updateTabs', { field: data.field, items: res }) }
   }
 }

@@ -47,9 +47,6 @@
     list-style none
     overflow auto
 
-    &.visible
-      // overflow visible
-
   &__item
     min-width 252px
     margin-right 16px
@@ -60,33 +57,35 @@
     width 100%
     margin 0 auto
     flex-basis 100%
-    margin 0
 
     order 2
-        
+
 .group-checkbox
   position relative
 
   margin-left -16px
-  
+
   overflow hidden
   box-sizing border-box
 
   &__container
     height 100%
-    padding-bottom 24px
-    margin-bottom -24px
 
     overflow-x scroll
     box-sizing content-box
+
+    -ms-overflow-style none
+    scrollbar-width none
+
+    &::-webkit-scrollbar
+      display none
 
   &__list
     display flex
     width 100%
     margin 0
     padding 20px 16px
-    padding-left 16px
-    
+
     list-style none
 
     @media(min-width 1280px)
@@ -110,7 +109,7 @@
     font-size: 13px;
     line-height: 28px;
     text-align: center;
-    color: #EB574F;
+    color $blue
 
     background: #FFFFFF;
     box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.04);
@@ -124,9 +123,8 @@
     &.checked
       color white
 
-      background-color #EB574F
-
-      transition: all 0.3s linear 0s
+      background-color $blue
+      anim(all)
 
 @media(min-width 1280px)
   .group-cart
@@ -162,9 +160,10 @@
 
     &__container
       margin-left -16px
-    
+
     &__list
       padding-right 0
+      margin-bottom 24px
 
     &__item
       margin-right 16px

@@ -1,4 +1,4 @@
-import OcIcon from '@/components/ocIcon'
+import OcIcon from '@/components/ocIconOld'
 
 export default {
   props: ['type', 'items', 'emptySelect'],

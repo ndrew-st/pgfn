@@ -1,15 +1,17 @@
 <template>
   <label class="search-label">
-    <Icon
+    <OcIcon
       name="find"
-      class="search-label__icon"
+      class="search-label__icon search-label__icon--find"
     />
     <input
       v-model="search"
+      v-bind="$attrs"
       :maxlength="maxSearchLength"
       type="text"
-      placeholder="Укажите город, ориентир или адрес"
       class="search-label__input"
+      @focus="$emit('focus')"
+      @blur="$emit('blur')"
       @input="throttledSearch"
       @keydown="handlerKeyDown"
     >
@@ -17,22 +19,26 @@
 </template>
 
 <script>
-import Icon from '~/components/Icon'
-
 import throttle from '~/utils/throttle'
 
 export default {
-  components: { Icon },
   props: {
     value: {
       type: String,
       default: ''
+    },
+    maxSearchLength: {
+      type: Number,
+      default: 200
+    },
+    sideIcon: {
+      type: String,
+      default: 'left'
     }
   },
   data () {
     return {
-      search: this.value || '',
-      maxSearchLength: 200
+      search: this.value || ''
     }
   },
   computed: {
@@ -48,6 +54,10 @@ export default {
       if (e.repeat && e.key !== 'Backspace' && e.key !== 'Delete') {
         e.preventDefault()
       }
+    },
+    clear () {
+      this.$emit('input', '')
+      this.search = ''
     }
   }
 }
@@ -57,57 +67,85 @@ export default {
 .search-label
   position relative
 
-  display block
+  display flex
   width 100%
 
   &__icon
     position absolute
-    left 18px
+
     top 0
     bottom 0
+    left 18px
 
-    width 15px
-    height 17px
+    width 12px
+    height 13px
     margin: auto 0
 
-    & svg circle
-    & svg path
-      stroke #272528
+    &--find
+      & svg
+        display block
+        width 100%
+        height auto
+        margin-top -1px
 
-      transition all 0.3s ease-in-out 0s
+        & circle
+        & path
+          stroke #272528
+          anim(all)
 
-  &:hover .search-label__icon svg circle
-  &:hover .search-label__icon svg path
-    stroke #7140B8
+  &:hover
+    & .search-label__icon svg circle
+    & .search-label__icon svg path
+      stroke $blue
 
-    transition all 0.3s ease-in-out 0s
+      anim(all)
 
   &__input
     display block
     width 100%
-    padding 10px 40px
-    padding-right 20px
-    height 48px
+    padding-left 40px
+    padding-right 30px
+
+    height 40px
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: -0.05px;
+    color: #272528;
 
     background: #FFFFFF;
     border: 2px solid #ECECEC;
     box-sizing: border-box;
     border-radius: 4px;
 
-    transition border-color 0.3s ease-in-out 0s
+    anim(border-color)
 
-    &:hover
+    &.left
+      padding 8px 40px
+      padding-right 20px
+
+    &.right
+      padding 8px 16px
+      padding-right 30px
+
     &:focus
     &:active
+      border-color $blue
+
       outline 0
 
-      border-color #7140B8
-      transition border-color 0.3s ease-in-out 0s
+      anim(border-color)
 
 @media(min-width 1090px)
   .search-label
     &__icon
       display none
+
     &__input
-      padding-left 16px
+      padding 0 16px
+
+      font-size: 16px;
+      line-height: 24px;
 </style>

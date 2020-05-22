@@ -32,7 +32,12 @@ export default {
   },
   computed: {
     weather () {
-      return this.item.weather || {}
+      // return this.item.weather || {}
+      return {
+        temperature: 34,
+        waterTemperature: 3425,
+        current: 32897
+      }
     },
     image () {
       return `https://media.personal.guide${this.item.preview}`
@@ -41,6 +46,9 @@ export default {
   methods: {
     numToStr (num) {
       return num2str(num, this.reviewsText)
+    },
+    goTo () {
+      this.$router.push(`/direction/${item.name}`)
     }
   }
 }

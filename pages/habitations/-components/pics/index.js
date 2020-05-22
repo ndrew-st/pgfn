@@ -15,8 +15,7 @@ export default {
     return {
       activeIndex: 0,
       showPopup: false,
-      zoomed: false,
-      date: Date.now().toString() // update ocCarousel in popup
+      zoomed: false
     }
   },
   methods: {
@@ -30,11 +29,26 @@ export default {
         if (this.showPopup && val) {
           return false
         }
-
         this.showPopup = val
       }
+    },
+    changeActiveCarousel (index) {
+      this.activeIndex = index
+    },
+    changeSwipe (arrow) {
+      console.log('changeSwipe ', arrow)
 
-      this.date = Date.now().toString()
+      if (!this.showPopup) {
+        return false
+      }
+
+      if (arrow === 'right') {
+        this.activeIndex += 1
+      } else if (arrow === 'left') {
+        if (this.activeIndex > 0) {
+          this.activeIndex -= 1
+        }
+      }
     }
   }
 }

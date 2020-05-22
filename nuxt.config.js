@@ -32,7 +32,8 @@ export default {
   plugins: [
     '@/plugins/global-components.js',
     '@/plugins/yandexMaps.js',
-    '@/plugins/api.js'
+    '@/plugins/api.js',
+    '@/plugins/directives.js'
   ],
   router: {
     base: '/',
@@ -64,7 +65,8 @@ export default {
   styleResources: {
     stylus: [
       'assets/global-varibles.styl',
-      'assets/common.styl'
+      'assets/common.styl',
+      'assets/mixins.styl'
     ]
   },
   /*
