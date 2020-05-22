@@ -4,7 +4,7 @@
       <div class="apartment-photo__left">
         <!-- <OcImg
         class="apartment-photo__left-img"
-        src="apartments/894753838.jpg"
+        src="apartments-day/894753838.jpg"
       /> -->
 
         <OcSwiper :swiper-info="swiperInfo" />
@@ -64,9 +64,9 @@ export default {
   props: ['apartmentInfo1'],
   // data: () => ({
   //   // swiperInfo: {
-  //   //   list: ['/apartments/894753838.jpg',
-  //   //     '/apartments/1399465201.jpg',
-  //   //     '/apartments/1759261812.jpg'],
+  //   //   list: ['/apartments-day/894753838.jpg',
+  //   //     '/apartments-day/1399465201.jpg',
+  //   //     '/apartments-day/1759261812.jpg'],
   //   //   options: {} }
   //   // fffddd: [ 'asdf1', 'asdf2' ]
   // }),
@@ -74,7 +74,7 @@ export default {
     kitchen () { return ' · Кухня' },
     apartmentInfo2 () { return 'Полностью оборудованная кухня · Иван Иванов' },
     likeCount () { return 11 },
-    swiperInfo () { return { list: ['/apartments/894753838.jpg', '/apartments/2446712885.jpg', '/apartments/1759261812.jpg'], options: { transition: true } } }
+    swiperInfo () { return { list: ['/apartments-day/894753838.jpg', '/apartments-day/2446712885.jpg', '/apartments-day/1759261812.jpg'], options: { transition: true } } }
   }
 }
 </script>

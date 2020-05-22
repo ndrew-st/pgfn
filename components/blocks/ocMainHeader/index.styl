@@ -12,24 +12,81 @@
   border-bottom 1px solid #ECECEC
 
   &__container
+    display flex
+    flex-wrap wrap
+    justify-content space-between
+    align-items center
     padding 15px 18px
 
     box-sizing border-box
 
   &__logo-link
-    display block
+    display inline-block
     margin-bottom 12px
 
     text-decoration none
-  
+
   &__logo
-    width 126px
+    width 168px
     height 36px
     vertical-align bottom
 
     @media(min-width 1280px)
-      width 135px
-      height 36px
+      width 186px
+      height 32px
+
+  &__geo
+    display inline-block
+    margin-bottom 12px
+
+  .header-geo
+    position relative
+
+    &__toggle
+      font-style normal
+      font-weight normal
+      font-size 16px
+      line-height 24px
+      letter-spacing 0.1px
+      color #272528
+
+      border: 0;
+      background-color transparent
+
+      cursor: pointer;
+
+      &--text
+        border-bottom 1px dashed #272528
+
+      &--icon
+        & svg
+          display inline-block
+          margin-bottom -4px
+
+          & path
+            fill #272528
+
+      &.active-geo-button
+        & span
+          color $blue
+
+          border-color $blue
+
+          & svg path
+            fill $blue
+
+      rm-outline()
+
+    &__content
+      position absolute
+      top 39px
+      right 0
+
+      z-index 99
+
+      @media (min-width 1090px)
+        left 50%
+        right auto
 
   &__mobile-controls
     position fixed
@@ -40,7 +97,7 @@
     width 100%
 
     z-index 99
-  
+
   &__list-link
     display none
 
@@ -56,13 +113,16 @@
   .find-header
     position relative
 
+    width: 100%
+    max-width 440px
+
     &__result-container
       position absolute
-      top 48px
+      top 40px
       left 0
       right 0
 
-      padding 0 18px
+      padding 0
 
       background: #FFFFFF;
       box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.08);
@@ -73,21 +133,19 @@
 
   .header-result
 
-    &__list 
+    &__list
       margin 0
       padding 0
 
       list-style none
 
     &__item
-      padding 12px 0
-
-      cursor pointer
+      padding 0
 
     &__button
       display block
       width 100%
-      padding 0
+      padding 12px 18px
 
       font-style: normal;
       font-weight: normal;
@@ -100,12 +158,13 @@
       border 0
       cursor pointer
 
-      &:hover
-        color: #7140B8
+      anim(all)
 
       &:hover
-      &:focus
-        outline 0
+        background-color #ECECEC
+        anim(background-color)
+
+      rm-outline()
 
   .mobile-controls
     display flex
@@ -136,7 +195,7 @@
       border 0
       background-color transparent
 
-      &--icon 
+      &--icon
         & svg circle
         & svg path
           stroke #272528
@@ -146,7 +205,7 @@
           stroke #7140B8
 
         &.icon-heart
-          
+
           & svg
             width 16px
             height 14px
@@ -154,7 +213,7 @@
         &.icon-bag
           & svg rect
             stroke #272528
-            
+
           &.active-icon svg rect
             stroke #7140B8
 
@@ -192,13 +251,7 @@
       padding-bottom 22px
 
     &__logo-link
-      margin-right 24px
-
-    &__logo
-      width 135px
-      height 36px
-
-    &__logo-link
+      margin-right 36px
       margin-bottom 0
 
     &__list-link
@@ -207,6 +260,10 @@
       padding 0
 
       list-style none
+
+    &__geo
+      margin-right 10px
+      margin-bottom 0
 
     &__list-item
       margin-right 20px
@@ -239,7 +296,7 @@
 
     & .header-result
       &__text
-        padding 24px 0
+        padding 24px 15px
 
         font-style: normal;
         font-weight: normal;
@@ -271,19 +328,18 @@
         position absolute
         left 0
         right 0
-        top 42px
+        top 48px
 
         margin 0
         padding 0
         list-style none
-        
+
         background: #FFFFFF;
         box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.08);
         border-radius: 4px;
 
       &__button
         display block
-        padding 0
         height 40px
         padding 0 18px
 
@@ -292,23 +348,16 @@
         font-size: 16px;
         line-height: 24px;
         letter-spacing: 0.1px;
-        color: #272528;
+        color: white
 
-        border: 1px solid #D4D6DE;
+        border: 0;
         box-sizing: border-box;
-        background-color transparent
+        background-color $blue
         border-radius: 44px;
-        transition color 0.3s ease-in-out 0s
+
         cursor pointer
 
-        &:hover
-        &:focus
-          outline 0
-
-        &:hover
-          color #7140B8
-
-          transition color 0.3s ease-in-out 0s
+        rm-outline()
 
       &__link
         position relative
@@ -370,16 +419,15 @@
           outline 0
 
         &:hover
-          color #5271ff
+          color $blue
 
     & .mobile-controls
       display none
 
     & .find-header
-      width 100%
       max-width 520px
       margin-right 30px
-      
+
       &__form
         display flex
         width 100%
@@ -389,7 +437,7 @@
         width 495px
 
       &__result-container
-        top 48px
+        top 40px
 
         max-width 462px
 
@@ -412,12 +460,13 @@
         padding 0
         margin-left -40px
 
-        background: #680FDC;
-        border 0
+        background-color white
+        border: 2px solid #ECECEC;
         border-radius: 0px 4px 4px 0px;
 
         z-index 10
         cursor pointer
+        transition all 0.3s ease-in-out 0s
 
         &--text
           font-size 0
@@ -435,11 +484,26 @@
 
           & svg circle
           & svg path
-            stroke white;
+            stroke #989BA8
+
+            transition all 0.3s ease-in-out 0s
 
         &:hover
         &:focus
-          outline 0
+        &.active-search-button
+          background-color $blue
+          border-color $blue
+
+          transition all 0.3s ease-in-out 0s
+
+          & span
+            & svg circle
+            & svg path
+              stroke white
+
+              transition all 0.3s ease-in-out 0s
+
+        rm-outline()
 
 @media(min-width 1280px)
   .header
@@ -448,3 +512,6 @@
       padding-right 0
       max-width 1280px
       margin 0 auto
+
+    &__geo
+      margin-right 50px

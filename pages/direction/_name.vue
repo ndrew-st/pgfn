@@ -72,15 +72,16 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 import SubscribeEmail from './-components/subscribe-email'
 import Full from './-components/full'
 import DescBlock from './-components/desc'
 import FilterBlock from './-components/filter'
-import isEmptyObject from '~/utils/isEmptyObject'
-import ocGroupCard from '~/components/ocGroupCard'
 
+import isEmptyObject from '~/utils/isEmptyObject'
+
+import ocGroupCard from '~/components/ocGroupCard'
 import ocCardDirection from '~/components/ocCardDirection'
 import ocCardItem from '~/components/ocCardItem'
 
@@ -99,7 +100,26 @@ export default {
     await store.dispatch(`main-page/getData`, params.name || `Крым`)
   },
   computed: {
-    ...mapGetters('main-page', ['direction', 'apartments', 'services', 'head', 'header'])
+    ...mapState('main-page', {
+      direction: state => state.result.direction,
+      apartments: state => state.result.apartments,
+      services: state => state.result.services || {},
+      head: (state) => {
+        return {
+          title: state.result.title,
+          description: state.result.description,
+          keywords: state.result.keywords
+        }
+      },
+      header: (state) => {
+        return {
+          title: state.result.header,
+          description: state.result.mainText,
+          background: state.result.background
+        }
+      },
+      count: state => state.result.count
+    })
   },
   methods: {
     isEmptyObj (obj) {
@@ -124,6 +144,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-</style>

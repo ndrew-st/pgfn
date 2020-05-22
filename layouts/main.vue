@@ -1,6 +1,6 @@
 <template>
   <div class="main-layout">
-    <MainHeader />
+    <ocMainHeader />
 
     <nuxt />
 
@@ -9,14 +9,10 @@
 </template>
 
 <script>
-import MainHeader from '~/components/ocMainHeader'
-import ocFooter from '~/components/ocFooter'
+import ocMainHeader from '~/components/blocks/ocMainHeader'
+import ocFooter from '~/components/blocks/ocFooter'
 
 export default {
-  components: { MainHeader, ocFooter }
+  components: { ocMainHeader, ocFooter }
 }
 </script>
-
-<style lang="stylus">
-
-</style>

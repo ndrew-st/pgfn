@@ -11,7 +11,7 @@
     padding 0
 
     list-style none
-  
+
   &__item
     width 100%
     max-width 248px
@@ -29,14 +29,12 @@
     letter-spacing: 0.1px;
     color: #FFFFFF;
 
-    background: #5604C1;
+    background-color $blue
     border-radius: 4px;
     border 0
     cursor pointer
 
-    &:hover
-    &:focus
-      outline 0
+    rm-outline()
 
   & .apartment
     position relative
@@ -53,7 +51,7 @@
       line-height: 32px;
       letter-spacing: 0.3px;
       text-transform: uppercase;
-      color: #272528; 
+      color: #272528;
 
     &__input
       width 100%
@@ -73,8 +71,8 @@
       border-radius: 4px 4px 0px 0px;
       box-sizing border-box
 
-      transition all 0.3s ease-in-out 
-      
+      transition all 0.3s ease-in-out
+
       &--block
         display flex
         align-items center
@@ -89,7 +87,7 @@
 
       &:hover
       &:focus
-        border-color #7140B8
+        border-color $blue
         transition border-color 0.3s ease-in-out 0s
 
     &__result-list

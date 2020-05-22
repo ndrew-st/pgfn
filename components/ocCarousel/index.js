@@ -116,18 +116,18 @@ export default {
     isConvex (item) {
       if (this.activeIndex < 1) {
         return item === this.activeIndex || item - 1 === this.activeIndex || item - 2 === this.activeIndex
-      } else if (this.activeIndex > 1 && this.activeIndex < this.items.length - 2) {
+      } else if (this.activeIndex >= 1 && this.activeIndex < this.items.length - 1) {
         return item === this.activeIndex || item - 1 === this.activeIndex || item + 1 === this.activeIndex
       } else {
         return item === this.activeIndex || item + 1 === this.activeIndex || item + 2 === this.activeIndex
       }
     },
     isSmall (item) {
-      if (this.activeIndex < 2) {
+      if (this.activeIndex < 4) {
         return item === 4
       }
 
-      if (this.activeIndex > this.items.length - 2) {
+      if (this.activeIndex > this.items.length - 3) {
         return item === this.items.length - 5
       }
     }
@@ -178,10 +178,8 @@ export default {
       }
     }
 
-    if (process.browser) {
-      window.addEventListener('resize', this.handlerResize)
-      this.widthWindow = window.screen.width
-    }
+    window.addEventListener('resize', this.handlerResize)
+    this.widthWindow = window.screen.width
   },
   beforeUpdate () {
     if (this.vertical) {
