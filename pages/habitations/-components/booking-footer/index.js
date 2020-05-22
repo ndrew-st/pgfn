@@ -5,5 +5,11 @@ export default {
       required: true,
       default: () => {}
     }
+  },
+  methods: {
+    // changeBookingActive () {
+    //   console.log('lalala')
+
+    // }
   }
 }

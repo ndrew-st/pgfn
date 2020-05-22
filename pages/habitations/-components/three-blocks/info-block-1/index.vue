@@ -10,6 +10,7 @@
         type="radio"
         name="tariff"
         class="tariff__radio-input"
+        :checked="index === 0"
       >
 
       <label

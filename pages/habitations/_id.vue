@@ -1,5 +1,7 @@
 <template>
-  <div class="habitation-page">
+  <div
+    class="habitation-page"
+  >
     <div class="habitation-page__padding">
       <TopLine :top-path="topPath" />
 
@@ -55,7 +57,15 @@
 
     <ocFooter />
 
-    <BookingFooter :booking-footer-info="bookingFooterInfo" />
+    <BookingFooter
+      :booking-footer-info="bookingFooterInfo"
+      @changeBookingActive="bookingActive = !bookingActive"
+    />
+
+    <Booking
+      v-if="bookingActive"
+      @changeBookingActive="changeBookingActive"
+    />
   </div>
 </template>
 
@@ -72,6 +82,7 @@ import Rules from './-components/rules/index.vue'
 import Location from './-components/location/index.vue'
 import Subscribe from './-components/subscribe/index.vue'
 import BookingFooter from './-components/booking-footer/index.vue'
+import Booking from './-components/booking/index.vue'
 import ocGroupCard from '~/components/ocGroupCard'
 import ocCardItem from '~/components/ocCardItem'
 import ocFooter from '~/components/ocFooter'
@@ -91,7 +102,8 @@ export default {
     ocCardItem,
     Subscribe,
     ocFooter,
-    BookingFooter
+    BookingFooter,
+    Booking
   },
   async asyncData ({ store }) {
     await store.dispatch(`main-page/getData`, `Крым`)
@@ -183,7 +195,8 @@ export default {
       period: '23 мая 2020 - 26 мая 2020',
       habitation: '3-к квартира, 146 м²... ',
       price: '4500₽/сутки'
-    }
+    },
+    bookingActive: false
   }),
   computed: {
     apartmentInfo1 () {
@@ -203,6 +216,9 @@ export default {
     },
     handlerLike (idCard, field) {
       // what do with likes
+    },
+    changeBookingActive () {
+      this.bookingActive = !this.bookingActive
     },
     ...mapActions('main-page', ['updateTabs'])
   }
