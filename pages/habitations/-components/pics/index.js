@@ -18,6 +18,16 @@ export default {
       zoomed: false
     }
   },
+  watch: {
+    showPopup (val) {
+      if (val) {
+        document.querySelector('html').scrollTop = 0
+        document.querySelector('html').style.overflowY = 'hidden'
+      } else {
+        document.querySelector('html').style.overflowY = 'auto'
+      }
+    }
+  },
   methods: {
     updateIndex (val) {
       this.activeIndex = val
@@ -36,19 +46,17 @@ export default {
       this.activeIndex = index
     },
     changeSwipe (arrow) {
-      console.log('changeSwipe ', arrow)
-
-      if (!this.showPopup) {
-        return false
-      }
-
-      if (arrow === 'right') {
-        this.activeIndex += 1
-      } else if (arrow === 'left') {
-        if (this.activeIndex > 0) {
-          this.activeIndex -= 1
-        }
-      }
+      // if (!this.showPopup) {
+      //   return false
+      // }
+      //
+      // if (arrow === 'right') {
+      //   this.activeIndex += 1
+      // } else if (arrow === 'left') {
+      //   if (this.activeIndex > 0) {
+      //     this.activeIndex -= 1
+      //   }
+      // }
     }
   }
 }

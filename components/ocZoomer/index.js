@@ -271,9 +271,10 @@ export default {
           this.translateX += pixelDeltaX / this.containerWidth
           this.translateY += pixelDeltaY / this.containerHeight
         }
+
+        this.pointerPosX = newMousePosX
+        this.pointerPosY = newMousePosY
       }
-      this.pointerPosX = newMousePosX
-      this.pointerPosY = newMousePosY
     },
     onMouseDown (ev) {
       this.refreshContainerPos()

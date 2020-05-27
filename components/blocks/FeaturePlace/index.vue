@@ -1,0 +1,187 @@
+<template>
+  <ul class="property-list">
+    <li
+      data-tooltip="Температура воздуха"
+      class="property-list__item property-list__item--temp"
+    >
+      {{ temperature }}˙C
+    </li>
+    <li
+      v-if="waterTemperature"
+      data-tooltip="Температура воды"
+      class="property-list__item property-list__item--water-temp"
+    >
+      {{ waterTemperature }}˙C
+    </li>
+    <li
+      data-tooltip="Количество объектов"
+      class="property-list__item property-list__item--current"
+    >
+      {{ count }}
+    </li>
+  </ul>
+</template>
+
+<script>
+export default {
+  props: {
+    temperature: {
+      type: Number,
+      default: 125
+    },
+    waterTemperature: {
+      type: Number,
+      default: 152
+    },
+    count: {
+      type: Number,
+      default: 125
+    }
+  }
+}
+</script>
+
+<style lang="stylus">
+.property-list
+  position relative
+
+  align-self flex-start
+  padding 0
+
+  list-style none
+
+  z-index 5
+
+  &__item
+    position relative
+
+    margin-bottom 4px
+    padding-left 24px
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    box-sizing border-box
+
+    &[data-tooltip]
+      position relative
+
+    &[data-tooltip]:after
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -43px;
+      left 5px
+
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+      transform-origin: top;
+      border-radius: 2px
+      display flex
+      align-items flex-end
+      height 37px
+      padding 0 6px
+      padding-bottom 5px
+
+      font-family Calibri
+      font-style: normal;
+      font-weight: normal;
+      text-transform none
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: -0.2px;
+      color: #FFFFFF;
+      white-space nowrap
+
+      background url('/bg-tooltip.svg') 0 0 no-repeat
+      background-size cover
+      box-sizing border-box
+
+      z-index 5
+
+    &[data-tooltip]:hover:after
+      transform: scale(1);
+
+    &:before
+      content ''
+
+      position absolute
+      left 0
+      top 0
+      bottom 0
+
+      margin auto 0
+
+      background-position 0 0
+      background-repeat no-repeat
+
+    &--temp:before
+      width 15px
+      height 15px
+
+      background-image url('/cart/temp.svg')
+      background-size 15px 15px
+
+    &--water-temp:before
+      width 13px
+      height 8px
+
+      background-image url('/cart/tempWater.svg')
+      background-size 13px 8px
+
+    &--current:before
+      width 11px
+      height 13px
+
+      background-image url('/cart/current.svg')
+      background-size 11px 13px
+
+    &:last-child
+      margin-bottom 0
+
+@media (min-width 1280px)
+  .property-list
+    display inline-flex
+
+    &__item
+      font-size 14px
+      margin-bottom 0
+      margin-right 20px
+
+      &[data-tooltip]:after
+        left 6px
+
+      &:last-child
+        margin-right 0
+
+      &--temp
+        padding-left 24px
+
+        &:before
+          width 18px
+          height 18px
+
+          background-size 18px 18px
+
+      &--water-temp
+        padding-left 21px
+
+        &:before
+          width 15px
+          height 9px
+
+          background-size 15px 9px
+
+      &--current
+        padding-left 18px
+
+        &:before
+          width 12px
+          height 15px
+
+          background-size 12px 15px
+</style>

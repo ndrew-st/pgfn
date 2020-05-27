@@ -48,24 +48,13 @@ export default {
   },
   computed: {
     maxWidthWrapper () {
-      if (this.widthWindow <= 1280) { // set
-        return this.widthWindow
-      }
+      return this.widthWindow <= 1280 ? this.widthWindow : 1280
+    },
+    length () {
+      return this.items.length
     }
   },
   methods: {
-    _updateWidthItem () {
-      if (this.$refs.list.children.length) {
-        const marginRight = parseInt(getComputedStyle(this.$refs.list.children[0], true).marginRight)
-        this.widthItem = this.$refs.list.children[0].clientWidth + marginRight
-      }
-    },
-    _updateHeightItem () {
-      if (this.$refs.listHeight.children.length) {
-        const marginBottom = parseInt(getComputedStyle(this.$refs.listHeight.children[0], true).marginBottom) || 0
-        this.heightItem = this.$refs.listHeight.children[0].clientHeight + marginBottom
-      }
-    },
     _updatePosX (arrow) {
       if (this.posX === -this.activeIndex * this.widthItem) {
         if (arrow === 'next') {
@@ -77,39 +66,44 @@ export default {
         this.posX = -this.activeIndex * this.widthItem
       }
     },
-    _updatePosDot (arrow) {
-      if (this.activeIndex > 1 && this.activeIndex < this.items.length - 3) {
-        if (arrow === 'prev') {
-          this.posDots += this.widthDot
-        } else if (arrow === 'next') {
-          this.posDots -= this.widthDot
-        }
-      }
-    },
     _updateHorizontalCarousel () {
-      if (this.$refs.list.children.length) {
-        this._updateWidthItem()
+      this.$nextTick(() => {
+        if (this.$refs.list && this.$refs.list.children.length) {
+          const marginRight = parseInt(getComputedStyle(this.$refs.list.children[0], true).marginRight)
+          this.widthOutMargin = parseInt(getComputedStyle(this.$refs.list.children[0], true).width)
+          this.widthItem = this.widthOutMargin + marginRight
 
-        this.widthOutMargin = this.$refs.list.children[0].clientWidth
-        this.listWidth = this.widthItem * this.items.length
-        this.widthWrapper = this.$refs.carousel.clientWidth
+          this.listWidth = this.widthItem * this.length
+          this.widthWrapper = this.$refs.carousel.clientWidth
 
-        if (this.widthWrapper < this.widthOutMargin * this.column) {
-          this.countColumn = Math.floor(this.widthWrapper / this.widthOutMargin)
-        } else {
-          this.countColumn = this.column
+          if (this.widthWrapper < this.widthOutMargin * this.column) {
+            this.countColumn = Math.floor(this.widthWrapper / this.widthOutMargin)
+          } else {
+            this.countColumn = this.column
+          }
         }
-      }
+      })
     },
     _updateVerticalCarousel () {
-      if (this.$refs.listHeight.children.length) {
-        this._updateHeightItem()
+      this.$nextTick(() => {
+        if (this.$refs.listHeight && this.$refs.listHeight.children.length) {
+          const marginBottom = parseInt(getComputedStyle(this.$refs.listHeight.children[0], true).marginBottom)
+          this.heightItem = this.$refs.listHeight.children[0].clientHeight + marginBottom
 
-        if (this.heightItem > 0) {
           this.maxHeightWrapper = this.heightItem * this.column
 
           this.posY = this.heightItem
         }
+      })
+    },
+    _sizeDiffDots (index) {
+      return this.$refs.dots.children[index].getBoundingClientRect().left - this.$refs.dots.getBoundingClientRect().left - 29
+    },
+    _updatePosDot (index) {
+      if (index < 3) {
+        this.posDots = 0
+      } else if (index > 2 && index < this.items.length - 2) {
+        this.posDots = this._sizeDiffDots(index)
       }
     },
     carouselPrev () {
@@ -135,15 +129,15 @@ export default {
         return false
       }
 
-      this.widthWindow = window.screen.width
-
-      this._updateWidthItem()
+      this.widthWindow = e.target.screen.width
 
       // update vertical carousel
       if (e.target.screen.width >= 1280) {
-        this.date = Date.now().toString() + Math.random()
+        this.date = Math.random()
 
-        this._updateVerticalCarousel()
+        setTimeout(() => {
+          this._updateVerticalCarousel()
+        })
       }
 
       this.posX = 0
@@ -197,9 +191,6 @@ export default {
       if (this.activeIndex > this.items.length - 3) {
         return item === this.items.length - 5
       }
-    },
-    _sizeDiffDots (index) {
-      return this.$refs.dots.children[index].getBoundingClientRect().left - this.$refs.dots.getBoundingClientRect().left - 29
     }
   },
   watch: {
@@ -207,13 +198,7 @@ export default {
       this.$refs.wrapper.scrollLeft = -val
     },
     activeIndex (val) {
-      console.log('this._sizeDiffDots() ', this._sizeDiffDots(val))
-
-      if (val < 3) {
-        this.posDots = 0
-      } else if (val > 2 && val < this.items.length - 2) {
-        this.posDots = this._sizeDiffDots(val)
-      }
+      this._updatePosDot(val)
 
       if (this.vertical && val < this.items.length - 5) {
         this.posY = (val + 1) * this.heightItem
@@ -228,27 +213,33 @@ export default {
       this.posX = -this.activeIndex * this.widthItem
     }
 
-    if (this.horizontal) {
-      this._updateHorizontalCarousel()
-
-      return null
-    }
-
-    if (this.vertical) {
-      this._updateVerticalCarousel()
-    }
-
     window.addEventListener('resize', this.handlerResize)
     this.widthWindow = window.screen.width
+
+    this.$nextTick(() => {
+      if (this.horizontal) {
+        this._updateHorizontalCarousel()
+
+        return null
+      }
+
+      if (this.vertical) {
+        this._updateVerticalCarousel()
+      }
+    })
   },
   updated () {
     if (this.activeItem !== null && this.widthItem) {
       this.activeIndex = this.activeItem
+
       this._updateHorizontalCarousel()
 
-      if (!this.vertical) {
-        this.posX = -this.activeIndex * this.widthItem
-      }
+      this.$nextTick(() => {
+        if (!this.vertical) {
+          this.posX = -this.activeItem * this.widthItem
+          this._updatePosDot(this.activeIndex)
+        }
+      })
     }
 
     if (this.activeItem !== null && this.activeItem !== this.activeIndex && this.heightItem > 1) {
@@ -279,7 +270,7 @@ export default {
       heightItem: 0,
       posDots: 0,
       arrow: '',
-      date: Date.now().toString()
+      date: Math.random()
     }
   }
 }

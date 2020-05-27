@@ -1,9 +1,17 @@
-.habitation {
+.habitation
     &__top {
+        position relative
+
         display: flex;
         justify-content: space-between;
         max-width: 1280px;
         margin: auto;
+
+        z-index 9999
+
+        @media (min-width 1280px) {
+            position static
+        }
 
         &__flex {
             display: flex;
@@ -38,6 +46,13 @@
 
         &-btns {
             display: flex;
+
+            @media (min-width 1280px) {
+                position relative
+
+                z-index 9999
+            }
+
         }
 
         &__btn {
@@ -77,4 +92,4 @@
             }
         }
     }
-}
+

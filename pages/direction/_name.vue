@@ -7,6 +7,7 @@
       :title="header.title"
       :description="header.description"
       :background="header.background"
+      :features="header.features"
     />
 
     <FilterBlock />
@@ -17,8 +18,8 @@
       :tabs="direction.tabs"
       :items="direction.items"
       :count="direction.count"
+      name="direction"
       title="Популярные направления"
-      @changeTab="handlerTab('direction', $event)"
     >
       <ocCardDirection
         v-for="(item, index) in direction.items"
@@ -36,7 +37,7 @@
       :items="apartments.items"
       :tabs="apartments.tabs"
       title="Жильё"
-      @changeTab="handlerTab('apartments', $event)"
+      name="apartments"
     >
       <ocCardItem
         v-for="(item, index) in apartments.items"
@@ -58,7 +59,7 @@
       :items="services.items"
       :tabs="services.tabs"
       title="Услуги"
-      @changeTab="handlerTab('services', $event)"
+      name="services"
     >
       <ocCardItem
         v-for="(item, index) in services.items"
@@ -70,7 +71,11 @@
       />
     </ocGroupCard>
 
-    <DescBlock />
+    <DescBlock
+      v-if="description"
+      :title="description.title"
+      :content="description.text"
+    />
   </div>
 </template>
 
@@ -100,7 +105,7 @@ export default {
     FilterBlock
   },
   async asyncData ({ params, store }) {
-    await store.dispatch(`main-page/getData`, params.name || `Крым`)
+    await store.dispatch(`direction/getData`, params.name || `Крым`)
   },
   data () {
     return {
@@ -118,7 +123,7 @@ export default {
     })
   },
   computed: {
-    ...mapState('main-page', {
+    ...mapState('direction', {
       direction: state => state.result.direction,
       apartments: state => state.result.apartments,
       services: state => state.result.services || {},
@@ -132,10 +137,12 @@ export default {
       header: (state) => {
         return {
           title: state.result.header,
+          features: state.result.features || {},
           description: state.result.mainText,
           background: state.result.background
         }
       },
+      description: state => state.result.description || null,
       count: state => state.result.count
     })
   },
@@ -146,9 +153,6 @@ export default {
     isEmptyObj (obj) {
       return isEmptyObject(obj)
     },
-    handlerTab (field, url) {
-      this.updateTabs({ field, url })
-    },
     handlerLike (idCard, field) {
       this.likes = {
         ...this.likes,
@@ -157,8 +161,7 @@ export default {
           idCard
         ]
       }
-    },
-    ...mapActions('main-page', ['updateTabs'])
+    }
   },
   head () {
     return {

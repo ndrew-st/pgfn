@@ -1,3 +1,5 @@
+import { mapActions } from 'vuex'
+
 import Carousel from '~/components/ocCarousel'
 
 export default {
@@ -36,17 +38,32 @@ export default {
     autoWidth: {
       type: Boolean,
       default: false
+    },
+    name: {
+      type: String,
+      required: true
     }
   },
   data () {
     return {
       tabSelect: '',
-      swiper: {}
+      swiper: {},
+      loading: false
     }
   },
   mounted () {
     if (this.tabs.length) {
       this.tabSelect = this.tabs[0].name === 'Популярные' ? this.tabs[0].url : ''
     }
+  },
+  methods: {
+    async change (url) {
+      this.loading = true
+
+      await this.updateTabs({ field: this.name, url })
+
+      this.loading = false
+    },
+    ...mapActions('direction', ['updateTabs'])
   }
 }

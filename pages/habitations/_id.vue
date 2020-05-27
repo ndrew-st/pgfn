@@ -106,7 +106,7 @@ export default {
     Booking
   },
   async asyncData ({ store }) {
-    // await store.dispatch(`main-page/getData`, `Крым`)
+    // await store.dispatch(`direction/getData`, `Крым`)
   },
   data: () => ({
     topPath: ['Главная', 'Жильё', '3-к квартира, 146 м2, 11/12'],
@@ -220,7 +220,7 @@ export default {
     changeBookingActive () {
       this.bookingActive = !this.bookingActive
     },
-    ...mapActions('main-page', ['updateTabs'])
+    ...mapActions('direction', ['updateTabs'])
   }
 }
 </script>

@@ -25,7 +25,7 @@
                 type="radio"
                 :name="`groups-card-${title}`"
                 class="visually-hidden"
-                @change="$emit('changeTab', tab.url)"
+                @change="change(tab.url)"
               >
               {{ tab.name }}
             </label>
@@ -36,6 +36,7 @@
 
     <div class="group-cart__slider-container">
       <Carousel
+        v-if="!loading"
         :column="4"
         :items="items"
         :auto-width="autoWidth"
@@ -44,6 +45,7 @@
       >
         <slot />
       </Carousel>
+      <ocLoader v-else />
     </div>
   </div>
 </template>

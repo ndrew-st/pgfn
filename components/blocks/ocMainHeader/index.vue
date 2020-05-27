@@ -137,19 +137,25 @@
             </transition>
           </li>
           <li class="header-controls__item">
+            <!--            <nuxt-link-->
+            <!--              v-if="!signIn"-->
+            <!--              to="/sign-in"-->
+            <!--              class="header-controls__link"-->
+            <!--            >-->
+            <!--              Войти-->
+            <!--            </nuxt-link>-->
             <nuxt-link
-              v-if="!signIn"
               to="/sign-in"
               class="header-controls__link"
             >
               Войти
             </nuxt-link>
-            <nuxt-link
-              v-else
-              to="/profile"
-              class="header-controls__link"
-            >
-            </nuxt-link>
+            <!--            <nuxt-link-->
+            <!--              v-else-->
+            <!--              to="/profile"-->
+            <!--              class="header-controls__link"-->
+            <!--            >-->
+            <!--            </nuxt-link>-->
           </li>
         </ul>
       </div>

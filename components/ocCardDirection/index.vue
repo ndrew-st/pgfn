@@ -1,31 +1,15 @@
 <template>
   <div
+    v-lazy:bg
     class="direction-card"
-    :style="{ 'background-image': `url(${image})` }"
+    :data-url="image"
     @click="goTo"
   >
-    <ul class="direction-card__property-list">
-      <li
-        data-tooltip="Температура воздуха"
-        class="direction-card__property direction-card__property--temp"
-      >
-        {{ weather.temperature }}˙C
-      </li>
-      <li
-        v-if="weather.waterTemperature"
-        data-tooltip="Температура воды"
-        class="direction-card__property direction-card__property--water-temp"
-      >
-        {{ weather.waterTemperature }}˙C
-      </li>
-      <li
-        data-tooltip="Количество объектов"
-        class="direction-card__property direction-card__property--current"
-      >
-        <!--        {{ item.current }}-->
-        358922
-      </li>
-    </ul>
+    <FeaturePlace
+      :temperature="weather.temperature"
+      :water-temperature="weather.waterTemperature"
+      :count="weather.current"
+    />
 
     <button
       :class="{ 'card-liked': isLiked }"

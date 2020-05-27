@@ -1,18 +1,19 @@
 export default {
-  inserted: (el) => {
+  bind: (el, { arg }) => {
     function loadImage () {
-      if (el.nodeName !== 'IMG') {
+      if (!el) {
         return false
       }
 
-      const imageElement = el
+      // imageElement.addEventListener('load', () => {
+      //   setTimeout(() => el.classList.add('loaded'), 100)
+      // })
+      // imageElement.addEventListener('error', () => console.log('error'))
 
-      if (imageElement) {
-        imageElement.addEventListener('load', () => {
-          setTimeout(() => el.classList.add('loaded'), 100)
-        })
-        imageElement.addEventListener('error', () => console.log('error'))
-        imageElement.src = imageElement.dataset.url
+      if (el.nodeName === `IMG`) {
+        el.src = el.dataset.url
+      } else if (arg && arg === `bg`) {
+        el.style.backgroundImage = `url(${el.dataset.url})`
       }
     }
 

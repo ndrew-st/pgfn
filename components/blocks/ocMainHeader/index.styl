@@ -26,6 +26,9 @@
 
     text-decoration none
 
+    @media (min-width 768px)
+      margin-bottom 0
+
   &__logo
     width 168px
     height 36px
@@ -38,6 +41,9 @@
   &__geo
     display inline-block
     margin-bottom 12px
+
+    @media (min-width 768px)
+      margin-bottom 0
 
   .header-geo
     position relative
@@ -107,14 +113,16 @@
   .find-header
     position relative
 
+    width: 100%
+
+    @media (min-width 768px)
+      max-width 440px
+
+    &__form
+      max-width 440px
+
     &__submit
       display none
-
-  .find-header
-    position relative
-
-    width: 100%
-    max-width 440px
 
     &__result-container
       position absolute
@@ -180,6 +188,9 @@
     box-sizing border-box
     box-shadow: inset 0px 1px 0px #E9E9EC;
 
+    @media (min-width 768px)
+      padding 0 40px
+
     &__item
       display flex
       justify-content center
@@ -236,6 +247,12 @@
 
         &.active-link
           color $blue
+
+@media(min-width 768px)
+  .header
+    &__container
+      padding-left: 40px
+      padding-right 40px
 
 @media(min-width 1090px)
   .header

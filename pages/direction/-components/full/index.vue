@@ -15,12 +15,24 @@
         class="full-block__description"
         v-html="description"
       />
+      <FeaturePlace
+
+        class="full-block__features"
+        :temperature="features.temp"
+        :water-temperature="features.waterTemp"
+        :count="features.current"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import FeaturePlace from '~/components/blocks/FeaturePlace'
+
+import isEmptyObject from '~/utils/isEmptyObject'
+
 export default {
+  components: { FeaturePlace },
   props: {
     title: {
       type: String,
@@ -36,6 +48,19 @@ export default {
       type: String,
       required: true,
       default: 'background'
+    },
+    features: {
+      type: Object,
+      default: () => ({
+        temp: 12,
+        waterTemp: 2345,
+        current: 45245
+      })
+    }
+  },
+  methods: {
+    isEmptyObj (obj) {
+      return isEmptyObject(obj)
     }
   }
 }
@@ -46,6 +71,15 @@ export default {
   margin-bottom 50px
   padding 0 18px
   padding-top 32px
+
+  text-align: center;
+
+  &__features
+    display none
+    margin-top 20px
+
+  @media (min-width 768px)
+    padding 0 40px
 
   &__bg-image
     display none
@@ -92,6 +126,9 @@ export default {
     overflow hidden
 
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 27.17%, rgba(0, 0, 0, 0.11) 38.21%, rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0.55) 99.87%);
+
+    &__features
+      display inline-flex
 
     &__bg-image
       position absolute
