@@ -64,6 +64,7 @@
 
     <Booking
       v-if="bookingActive"
+      :booking-active="bookingActive"
       @changeBookingActive="changeBookingActive"
     />
   </div>

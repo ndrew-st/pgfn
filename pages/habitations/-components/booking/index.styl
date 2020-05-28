@@ -7,7 +7,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 100;
+    z-index: 101;
     overflow: auto;
 
     &__container {
@@ -27,6 +27,7 @@
         display: flex;
         padding-bottom: 29px;
         border-bottom: 1px solid #F3F3F3;
+        position: relative;
 
         @media (max-width: 768px) {
             padding-bottom: 11px;
@@ -34,13 +35,18 @@
     }
 
     &__cross {
-        margin-top: 43px;
-        margin-left: 43px;
+        // margin-top: 43px;
+        // margin-left: 43px;
         cursor: pointer;
+        position: absolute;
+        top: 43px;
+        left: 43px;
 
         @media (max-width: 768px) {
-            margin-top: 22px;
-            margin-left: 18px;
+            // margin-top: 22px;
+            // margin-left: 18px;
+            top: 22px;
+            left: 18px;
         }
     }
 
@@ -151,7 +157,8 @@
 
             @media (max-width: 768px) {
                 margin-left: 0;
-                width: 284px;
+                // width: 284px;
+                width: 100%;
                 padding-top: 13px;
                 padding-bottom: 11px;
                 margin-top: 16px;

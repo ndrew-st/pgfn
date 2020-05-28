@@ -1,6 +1,10 @@
 <template>
-  <div class="hab-booking">
-    <div class="hab-booking__container">
+  <div
+    class="hab-booking"
+  >
+    <div
+      class="hab-booking__container"
+    >
       <div class="hab-booking__top-line">
         <svg
           class="hab-booking__cross"

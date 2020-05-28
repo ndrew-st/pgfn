@@ -6,10 +6,13 @@
       </p>
 
       <p class="desc2">
-        {{ info.desc2 }}
+        {{ active ? longDesc : info.desc2 }}
       </p>
 
-      <p class="more">
+      <p
+        :class="['more', {'more__active': active}]"
+        @click="active = !active"
+      >
         Читать далее
       </p>
     </div>

@@ -40,7 +40,12 @@
         margin-right: 5px;
 
         &__first {
-            margin-left: 0;
+            display: none;
+
+            @media (max-width: 768px) {
+                display: inline;
+                margin-left: 0;
+            }
         }
 
         @media (max-width: 768px) {
