@@ -36,10 +36,13 @@
     </yandex-map>
 
     <p class="loc__desc">
-      {{ locDesc }}
+      {{ readMoreActive ? locDescLong : locDesc }}
     </p>
 
-    <p class="loc__read-more">
+    <p
+      :class="['loc__read-more', {'loc__read-more__active': readMoreActive}]"
+      @click="readMoreActive = !readMoreActive"
+    >
       Читать далее
     </p>
   </div>
