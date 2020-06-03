@@ -1,5 +1,14 @@
 import Vue from 'vue'
 
-import lazy from '~/directives/lazy'
+const requireComponent = require.context(
+  '~/directives',
+  false,
+  /[a-z].js/
+)
 
-Vue.directive('lazy', lazy)
+requireComponent.keys().forEach((fn) => {
+  const cmpConfig = requireComponent(fn)
+  const cmpName = fn.split('/').pop().replace(/\.\w+$/, '')
+
+  Vue.directive(cmpName, cmpConfig.default)
+})

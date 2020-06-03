@@ -1,16 +1,12 @@
 <template>
   <div>
-    <div
-      tabindex="0"
-      class="margin20 filter-calendar"
-      @blur="active = false"
-    >
-      <div
-        class="input"
-        @click="active = !active"
-      >
-        {{ interval }}
-      </div>
+    <div class="margin20 filter-calendar">
+      <OcInput
+        readonly
+        kind="most"
+        type="text"
+        :placeholder="interval"
+      />
 
       <div
         :class="{active: active}"

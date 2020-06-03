@@ -18,15 +18,15 @@
           class="subscribe__form subscribe-form"
           @submit.prevent="handlerSubmit"
         >
-          <label class="subscribe-form__label">
-            <input
-              v-model="email"
-              type="email"
-              required
-              placeholder="Ваш электронный адрес"
-              class="subscribe-form__input"
-            >
-          </label>
+          <OcInput
+            v-model="email"
+            type="email"
+            kind="most"
+            name="subsc"
+            required
+            class="subscribe-form__input"
+            placeholder="Ваш электронный адрес"
+          />
           <button class="subscribe-form__submit">
             Отправить
           </button>

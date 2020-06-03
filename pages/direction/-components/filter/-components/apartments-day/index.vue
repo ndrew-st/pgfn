@@ -1,25 +1,20 @@
 <template>
   <div class="apartments">
     <ul class="apartments__list">
-      <li
-        tabindex="0"
-        class="apartments__item apartment"
-        @blur="touched = false"
-      >
-        <h3 class="apartment__title">
-          Где
-        </h3>
-        <label class="apartment__label">
-          <input
+      <li class="apartments__item apartment">
+        <label class="apartment__title">
+          <span class="apartment__title--text">Где</span>
+          <OcInput
             v-model="search"
-            placeholder="Где угодно"
+            kind="most"
             type="text"
-            class="apartment__input"
-            @input="throttledSearch"
-          >
+            placeholder="Где угодно"
+            @input="handlerSearch"
+          />
         </label>
+
         <ul
-          v-if="touched && searchedList.length"
+          v-if="searchedList.length"
           class="apartment__result-list"
         >
           <li

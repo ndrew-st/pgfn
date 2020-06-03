@@ -23,7 +23,7 @@ export default {
     return {
       left: {}, // left control
       right: {}, // right control
-      slider: {}, // main slider object
+      slider: {}, // search slider object
       leftRes: 0,
       _left: 0,
       isOver: false,

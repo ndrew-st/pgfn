@@ -2,15 +2,13 @@
   <div
     ref="guests"
     class="guests"
-    tabindex="0"
-    @blur.self="touched = false"
   >
-    <div
-      class="guests__input guests__input--block"
-      @click="touched = !touched"
-    >
-      Гости
-    </div>
+    <OcInput
+      readonly
+      kind="most"
+      type="text"
+      placeholder="Гости"
+    />
     <div
       v-show="touched"
       class="guests__content"

@@ -63,13 +63,15 @@ import { mapState } from 'vuex'
 
 import ocFilter from '~/components/ocFilter'
 import MobileFilter from '~/components/ocMobileFilter'
-import Paginate from '~/components/ocPagination'
+import Paginate from '~/components/global/ocPagination'
 
 export default {
   layout: 'main',
   components: { ocFilter, Paginate, MobileFilter },
   validate ({ query }) {
     return query.q && query.q.length
+  },
+  asyncData ({ app, query }) {
   },
   data () {
     return {
@@ -87,8 +89,6 @@ export default {
       return 3
     },
     ...mapState('search', ['search', 'result'])
-  },
-  asyncData ({ app, query }) {
   },
   mounted () {
   },

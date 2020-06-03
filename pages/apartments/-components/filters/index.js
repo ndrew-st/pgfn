@@ -8,7 +8,7 @@ import price from './-components/Items/price'
 import instantBooking from './-components/Items/instant-booking'
 import another from './-components/Items/another/index'
 
-import ocDropDown from '~/components/ocDropDown'
+import ocDropDown from '~/components/global/ocDropDown'
 
 export default {
   components: {

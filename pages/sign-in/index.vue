@@ -3,8 +3,8 @@
     <OcVerification>
       <OcPhoneNumber
         v-if="stage === 'phone'"
-        :error="error"
         v-model="phone"
+        :error="error"
         @next="next"
       />
 
@@ -32,9 +32,9 @@
 
       <OcPass
         v-if="stage === 'pass'"
+        v-model="pass"
         :error="error"
         btn-text="Далее"
-        v-model="pass"
         @next="next"
       />
 

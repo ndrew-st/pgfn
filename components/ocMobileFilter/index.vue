@@ -4,13 +4,15 @@
       <li
         v-for="filter in filters"
         :key="filter.name"
-        class="mobile-filter__item">
+        class="mobile-filter__item"
+      >
         <label class="mobile-filter__label">
-          {{filter.title}}
+          {{ filter.title }}
           <input
             :name="filter.name"
             type="checkbox"
-            class="visually-hidden">
+            class="visually-hidden"
+          >
         </label>
       </li>
     </ul>

@@ -100,7 +100,7 @@ export default {
     FilterBlock
   },
   async asyncData ({ params, store }) {
-    await store.dispatch(`main-page/getData`, params.name || `Крым`)
+    await store.dispatch(`direction/getData`, params.name || `Крым`)
   },
   data () {
     return {
@@ -112,13 +112,8 @@ export default {
       date: 0
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      this.date = Math.random()
-    })
-  },
   computed: {
-    ...mapState('main-page', {
+    ...mapState('direction', {
       direction: state => state.result.direction,
       apartments: state => state.result.apartments,
       services: state => state.result.services || {},
@@ -137,6 +132,11 @@ export default {
         }
       },
       count: state => state.result.count
+    })
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.date = Math.random()
     })
   },
   methods: {
@@ -158,7 +158,7 @@ export default {
         ]
       }
     },
-    ...mapActions('main-page', ['updateTabs'])
+    ...mapActions('direction', ['updateTabs'])
   },
   head () {
     return {
@@ -171,3 +171,10 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+  .simple-icon
+    & svg circle
+    & svg path
+      fill black
+</style>

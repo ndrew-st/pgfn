@@ -48,7 +48,7 @@ export default {
       return num2str(num, this.reviewsText)
     },
     goTo () {
-      this.$router.push(`/direction/${item.name}`)
+      this.$router.push(`/direction/${this.item.name}`)
     }
   }
 }

@@ -3,17 +3,17 @@
     <OcVerification>
       <OcPhoneNumber
         v-if="stage === 'phone'"
-        :error="error"
         v-model="phone"
+        :error="error"
         @next="next"
       />
 
       <OcSmsCode
         v-if="stage === 'sms'"
+        v-model="code"
         :phone="phone"
         :error="error"
         :time-counter="timeCounter"
-        v-model="code"
         @next="next"
       />
 
@@ -51,7 +51,6 @@
           </a>
           и даю своё согласие на обработку моей персональной информации
         </p>
-
         <a
           class="enter-bottom"
           href="/sign-in"
@@ -63,6 +62,5 @@
   </div>
 </template>
 
-<script src="./index.js"></script>
-
-<style src="./index.styl" lang="stylus"></style>
+<script src="./index.js"/>
+<style src="./index.styl" lang="stylus"/>

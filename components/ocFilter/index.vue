@@ -4,17 +4,20 @@
       <li
         v-for="filter in filters"
         :key="filter.name"
-        class="filter__item unit-filter">
+        class="filter__item unit-filter"
+      >
         <label
           :class="{ selected: selected === filter.name }"
-          class="unit-filter__label">
+          class="unit-filter__label"
+        >
           <span class="unit-filter__text">{{ filter.title }}</span>
           <input
-            :value="filter.name"
             v-model="selected"
+            :value="filter.name"
             type="radio"
             name="desktop-filter"
-            class="visually-hidden">
+            class="visually-hidden"
+          >
         </label>
       </li>
     </ul>

@@ -1,18 +1,18 @@
 <template>
   <div class="main-layout">
-    <ocMainHeader />
+    <MainHeader />
 
     <nuxt />
 
-    <ocFooter />
+    <Footer />
   </div>
 </template>
 
 <script>
-import ocMainHeader from '~/components/blocks/ocMainHeader'
-import ocFooter from '~/components/blocks/ocFooter'
+import MainHeader from '~/components/blocks/MainHeader'
+import Footer from '~/components/blocks/Footer'
 
 export default {
-  components: { ocMainHeader, ocFooter }
+  components: { MainHeader, Footer }
 }
 </script>

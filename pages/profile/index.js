@@ -18,7 +18,7 @@ export default {
     }
   },
   async mounted () {
-    const result = this.$api.users.getUser()
+    const result = await this.$api.users.getUser()
     this.userName = result.name
     this.userPhone = result.phone
   }

@@ -55,7 +55,7 @@
 
     <Subscribe />
 
-    <ocFooter />
+    <Footer />
 
     <BookingFooter
       :booking-footer-info="bookingFooterInfo"
@@ -85,7 +85,7 @@ import BookingFooter from './-components/booking-footer/index.vue'
 import Booking from './-components/booking/index.vue'
 import ocGroupCard from '~/components/ocGroupCard'
 import ocCardItem from '~/components/ocCardItem'
-import ocFooter from '~/components/blocks/ocFooter'
+import Footer from '~/components/blocks/Footer'
 
 export default {
   layout: 'clean',
@@ -101,12 +101,12 @@ export default {
     ocGroupCard,
     ocCardItem,
     Subscribe,
-    ocFooter,
+    Footer,
     BookingFooter,
     Booking
   },
   async asyncData ({ store }) {
-    // await store.dispatch(`main-page/getData`, `Крым`)
+    // await store.dispatch(`search-page/getData`, `Крым`)
   },
   data: () => ({
     topPath: ['Главная', 'Жильё', '3-к квартира, 146 м2, 11/12'],
@@ -220,7 +220,7 @@ export default {
     changeBookingActive () {
       this.bookingActive = !this.bookingActive
     },
-    ...mapActions('main-page', ['updateTabs'])
+    ...mapActions('search-page', ['updateTabs'])
   }
 }
 </script>

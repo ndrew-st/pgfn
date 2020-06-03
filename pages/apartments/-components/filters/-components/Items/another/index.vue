@@ -39,12 +39,10 @@
           </li>
         </ul>
       </div>
-      <ocScrollBar classes="another__scrollbar">
-        <component
-          :is="active"
-          class="another__content"
-        />
-      </ocScrollBar>
+      <component
+        :is="active"
+        class="another__content"
+      />
       <div class="another__footer another-footer">
         <button
           type="button"

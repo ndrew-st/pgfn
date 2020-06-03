@@ -30,7 +30,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/global-components.js',
+    { src: '@/plugins/global-components.js', ssr: false },
     '@/plugins/yandexMaps.js',
     '@/plugins/api.js',
     '@/plugins/directives.js'
@@ -89,6 +89,7 @@ export default {
     }
   },
   env: {
-    throttle_time: 1000
+    throttle_time: 1000,
+    header_auth: 'authorization'
   }
 }

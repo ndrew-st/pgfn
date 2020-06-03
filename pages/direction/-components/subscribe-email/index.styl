@@ -27,41 +27,12 @@
 .subscribe-form
   display flex
 
-  &__label
+  &__input
     display block
     width 100%
     margin-right -10px
 
-  &__input
-    display block
-    width 100%
-    height 56px
-    padding 0 16px
-    padding-right 26px
-
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 28px;
-    color: #272528;
-
-    background #F3F3F3
-    border 0
-    border-bottom 1px solid #D5D1DB
-    box-shadow inset 0px -1px 0px #D5D1DB
-    border-radius 4px 4px 0px 0px
-
     box-sizing border-box
-
-    &:focus
-      box-shadow inset 0px -2px 0px $blue-3
-
-      anim(box-shadow)
-
-    &:hover,
-    &:focus,
-    &:active
-      outline 0
 
   &__submit
     position relative
@@ -128,13 +99,12 @@
     width 100%
     max-width 755px
 
-    &__label
+    &__input
       width 100%
       max-width 612px
       margin-right 13px
 
-    &__input
-      width 100%
+      box-sizing border-box
 
     &__submit
       width auto

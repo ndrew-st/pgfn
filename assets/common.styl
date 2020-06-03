@@ -2,101 +2,45 @@
   font-family Calibri
   font-style normal
   font-weight normal
-  src url("/fonts/Calibri Regular.ttf")
-
-@font-face
-  font-family Calibri
-  font-weight normal
-  font-style italic
-  src url("/fonts/Calibri Italic.ttf")
+  src local("CalibriRegular"),
+  local("Calibri Regular"),
+  local("Calibri_Regular"),
+  local("Calibri-Regular"),
+  url("/fonts/CalibriRegular.woff") format('woff'),
+  url("/fonts/CalibriRegular.woff2") format('woff2')
 
 @font-face
   font-family Calibri
   font-weight bold
   font-style normal
-  src url("/fonts/Calibri Bold.ttf")
-
-@font-face
-  font-family Calibri Rouble
-  font-weight normal
-  font-style normal
-  src url("/fonts/calibrirouble-regular.woff") format('woff'),
-  url("/fonts/calibrirouble-regular.woff2") format('woff2')
-
-@font-face
-  font-family Calibri Rouble
-  font-weight bold
-  font-style normal
-  src url("/fonts/calibrirouble-bold.woff") format('woff'),
-  url("/fonts/calibrirouble-bold.woff2") format('woff2')
+  src local("CalibriBold"),
+  local("Calibri Bold"),
+  local("Calibri_Bold"),
+  local("Calibri-Bold"),
+  url("/fonts/CalibriBold.woff") format('woff'),
+  url("/fonts/CalibriBold.woff2") format('woff2'),
 
 @font-face
   font-family Rouble Sans
   font-weight normal
   font-style normal
-  src url("/fonts/PT Rouble Sans.woff") format('woff'),
-  url("/fonts/PT Rouble Sans.woff2") format('woff2')
+  src url("/fonts/rouble-sans.woff") format('woff'),
+  url("/fonts/rouble-sans.woff2") format('woff2')
 
 @font-face
   font-family Rouble Sans
   font-weight bold
   font-style normal
-  src url("/fonts/PT Rouble Sans.woff") format('woff'),
-  url("/fonts/PT Rouble Sans.woff2") format('woff2')
-
-@font-face
-  font-family Calibri
-  font-weight bold
-  font-style italic
-  src url("/fonts/Calibri Bold Italic.ttf")
-
-@font-face
-  font-family Airbnb Cereal App
-  font-weight 900
-  font-style normal
-  src url("/fonts/AirbnbCerealBlack.ttf")
-
-@font-face
-  font-family Airbnb Cereal App
-  font-weight bold
-  font-style normal
-  src url("/fonts/AirbnbCerealBold.ttf")
-
-@font-face
-  font-family Airbnb Cereal App
-  font-weight 300
-  font-style normal
-  src url("/fonts/AirbnbCerealBook.ttf")
-
-@font-face
-  font-family Airbnb Cereal App
-  font-weight 800
-  font-style normal
-  src url("/fonts/AirbnbCerealExtraBold.ttf")
-
-@font-face
-  font-family Airbnb Cereal App
-  font-weight 200
-  font-style normal
-  src url("/fonts/AirbnbCerealLight.ttf")
-
-@font-face
-  font-family Airbnb Cereal App
-  font-weight bold
-  font-style normal
-  src url("/fonts/AirbnbCerealMedium.ttf")
+  src url("/fonts/rouble-sans.woff") format('woff'),
+  url("/fonts/rouble-sans.woff2") format('woff2')
 
 body,p,h1,h2,h3,h4,h5,span,b,button,div
-  font-family Calibri
+  font-family Calibri, "Comic Sans MS", cursive, sans-serif
   margin 0
   padding 0
 
 body
   background #f9f9f9
-
-i
-  font-family fontawesome
-  font-style normal
 
 h2
   font-size $fs-3
