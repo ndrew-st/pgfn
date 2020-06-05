@@ -1,170 +1,146 @@
-.booking-footer {
-    height: 90px;
-    background: #FFFFFF;
-    box-shadow: 0px -8px 30px rgba(0, 0, 0, 0.1), 0px -4px 4px rgba(0, 0, 0, 0.04);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 99;
+.booking-footer
+    height: 90px
+    background: #FFFFFF
+    box-shadow: 0px -8px 30px rgba(0, 0, 0, 0.1), 0px -4px 4px rgba(0, 0, 0, 0.04)
+    position: fixed
+    bottom: 0
+    width: 100%
+    z-index: 99
 
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        max-width: 100%;
-        padding: 0 40px;
-        margin: auto;
+    &__container
+        display: flex
+        justify-content: space-between
+        max-width: 100%
+        padding: 0 40px
+        margin: auto
 
-        @media (max-width: 825px) {
-            padding: 0 18px;
-        }
+        @media (max-width: 825px)
+            padding: 0 18px
 
-        @media (min-width: 1440px) {
-            padding: 0 80px;
-            max-width: 1280px;
-        }
-    }
 
-    &__block-menu {
-        display: flex;
+        @media (min-width: 1440px)
+            padding: 0 80px
+            max-width: 1280px
 
-        @media (max-width: 1300px) {
-            display: none;
-        }
-    }
 
-    &__link {
-        margin-right: 12px;
-        margin-top: 33px;
-        font-family: Calibri;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 24px;
-        letter-spacing: 0.2px;
-        color: #272528;
 
-        &:hover {
-            color: #5604C1;
-            transition: color 0.3s ease-in-out 0s;
-        }
-    }
+    &__block-menu
+        display: flex
 
-    &__block-buttons {
-        margin-top: 25px;
-        display: flex;
-    }
+        @media (max-width: 1300px)
+            display: none
 
-    &__buttons {
-        font-family: Calibri;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 24px;
-        letter-spacing: 0.2px;
-        color: #272528;
-        height: 40px;
-        border: 1px solid #D4D6DE;
-        box-sizing: border-box;
-        border-radius: 44px;
-        padding-right: 18px;
-        padding-left: 18px;
-        padding-top: 9px;
-        flex-shrink: 0;
-        margin-left: 12px;
 
-        @media (max-width: 768px) {
-            display: none;
-        }
-    }
 
-    &__booking-block {
-        display: flex;
+    &__link
+        margin-right: 12px
+        margin-top: 33px
+        font-family: Calibri
+        font-style: normal
+        font-weight: normal
+        font-size: 18px
+        line-height: 24px
+        letter-spacing: 0.2px
+        color: #272528
 
-        @media (max-width: 768px) {
-            width: 100%;
-            justify-content: space-between;
-        }
-    }
+        &:hover
+            color: #5604C1
+            transition: color 0.3s ease-in-out 0s
 
-    &__hab-price-block {
-        width: 196px;
-        text-align: right;
-        flex-shrink: 0;
-        margin-top: 23px;
 
-        @media (max-width: 768px) {
-            text-align: left;
-            flex-grow: 1;
-        }
-    }
 
-    &__habitation {
-        font-family: Calibri;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 22px;
-        letter-spacing: 0.2px;
-        color: #272528;
-        height: 22px;
-        overflow: hidden;
+    &__block-buttons
+        margin-top: 25px
+        display: flex
 
-        @media (max-width: 768px) {
-            flex-grow: 1;
-            font-size: 13px;
-            line-height: 20px;
-        }
-    }
 
-    &__price {
-        font-family: Calibri;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
-        letter-spacing: 0.2px;
-        color: #272528;
+    &__buttons
+        font-family: Calibri
+        font-style: normal
+        font-weight: normal
+        font-size: 18px
+        line-height: 24px
+        letter-spacing: 0.2px
+        color: #272528
+        height: 40px
+        border: 1px solid #D4D6DE
+        box-sizing: border-box
+        border-radius: 44px
+        padding-right: 18px
+        padding-left: 18px
+        padding-top: 9px
+        flex-shrink: 0
+        margin-left: 12px
 
-        @media (max-width: 768px) {
-            font-size: 13px;
-            line-height: 20px;
-        }
-    }
+        @media (max-width: 768px)
+            display: none
 
-    &__btn-booking {
-        margin-top: 17px;
-        margin-left: 16px;
-        width: 160px;
-        height: 56px;
-        background: #CA1F03;
-        border-radius: 4px;
-        border: none;
-        outline: none;
-        font-family: Calibri;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: center;
-        letter-spacing: 0.1px;
-        color: #FFFFFF;
-        flex-shrink: 0;
 
-        @media (max-width: 768px) {
-            margin-top: 12px;
-            width: 124px;
-            height: 48px;
-            font-family: Calibri;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 13px;
-            line-height: 24px;
-            letter-spacing: 0.1px;
-        }
 
-        &:hover {
-            background: #BF1F05;
-            transition: background 0.3s ease-in-out 0s;
-        }
-    }
-}
+    &__booking-block
+        display: flex
+
+        @media (max-width: 768px)
+            width: 100%
+            justify-content: space-between
+
+
+
+    &__hab-price-block
+        width: 196px
+        text-align: right
+        flex-shrink: 0
+        margin-top: 23px
+
+        @media (max-width: 768px)
+            text-align: left
+            flex-grow: 1
+
+
+
+    &__habitation
+        font-family: Calibri
+        font-style: normal
+        font-weight: bold
+        font-size: 18px
+        line-height: 22px
+        letter-spacing: 0.2px
+        color: #272528
+        height: 22px
+        overflow: hidden
+
+        @media (max-width: 768px)
+            flex-grow: 1
+            font-size: 13px
+            line-height: 20px
+
+
+
+    &__price
+        font-family: Calibri
+        font-style: normal
+        font-weight: normal
+        font-size: 18px
+        line-height: 22px
+        letter-spacing: 0.2px
+        color: #272528
+
+        @media (max-width: 768px)
+            font-size: 13px
+            line-height: 20px
+
+
+
+    &__btn-booking
+        margin-top: 17px
+        margin-left: 16px
+        width: 160px
+        height: 56px
+
+        @media (max-width: 768px)
+            margin-top: 12px
+            width: 124px
+            height: 48px
+
+
+

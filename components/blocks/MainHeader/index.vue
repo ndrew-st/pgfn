@@ -1,5 +1,8 @@
 <template>
-  <div class="header">
+  <div
+    v-cloak
+    class="header"
+  >
     <div
       v-if="!showForm"
       class="header__main-container"
@@ -19,19 +22,16 @@
         <div class="header__geo header-geo">
           <OcDropDown>
             <template #button="{ show }">
-              <button
+              <OcButton
                 slot="button"
-                type="button"
-                class="header-geo__toggle"
-                :class="{ 'active-geo-button': show }"
+                :active="show"
+                name="geo"
+                icon="geo"
               >
-                <OcIcon
-                  class="header-geo__toggle--icon"
-                  name="geo"
-                />
-                <span class="header-geo__toggle--text">{{ geoSearch }}</span>
-              </button>
+                {{ geoSearch }}
+              </OcButton>
             </template>
+
             <SearchPanel
               slot="body"
               class="header-geo__content"
@@ -51,22 +51,20 @@
               v-model="search"
               icon="find"
               kind="search"
-              name="main-search"
               icon-position="left"
               placeholder="Например отели с бассейном"
               @input="handlerSearch"
               @focus="toggleFocus"
             />
-            <button
+            <OcButton
               class="find-header__submit"
-              :class="{ 'active-search-button': focused }"
+              type="submit"
+              :active="focused"
+              name="search"
+              icon="find"
             >
-              <OcIcon
-                name="find"
-                class="find-header__submit--icon"
-              />
-              <span class="find-header__submit--text">Поиск</span>
-            </button>
+              Поиск
+            </OcButton>
           </form>
 
           <transition name="fade">
@@ -83,13 +81,12 @@
                   :key="item.id"
                   class="header-result__item"
                 >
-                  <button
-                    type="button"
-                    class="header-result__button"
+                  <OcButton
+                    name="list"
                     @click="handlerSubmit(item.id)"
                   >
                     {{ item.content }}
-                  </button>
+                  </OcButton>
                 </li>
               </ul>
               <p
@@ -104,44 +101,47 @@
         </div>
 
         <ul class="header__controls header-controls">
-          <li
-            tabindex="0"
-            class="header-controls__item"
-            @blur.capture="show = false"
-          >
-            <button
-              type="button"
-              class="header-controls__button"
-              @click.prevent="show = !show"
-            >
-              Добавить
-            </button>
-            <transition name="fade">
-              <ul
-                v-if="list.length && show"
-                class="header-controls__select-list header-add"
+          <li class="header-controls__item">
+            <OcDropDown>
+              <OcButton
+                slot="button"
+                shape="oval"
               >
-                <li
-                  v-for="item in list"
-                  :key="item.id"
-                  class="header-add__item"
+                Добавить
+              </OcButton>
+              <transition
+                slot="body"
+                name="fade"
+              >
+                <ul
+                  v-if="list.length"
+                  class="header-controls__select-list header-add"
                 >
-                  <button
-                    type="button"
-                    class="header-add__button"
-                    @click="addObject(item.id)"
+                  <li
+                    v-for="item in list"
+                    :key="item.id"
+                    class="header-add__item"
                   >
-                    {{ item.content }}
-                  </button>
-                </li>
-              </ul>
-            </transition>
+                    <OcButton
+                      name="list"
+                      @click="addObject(item.id)"
+                    >
+                      {{ item.content }}
+                    </OcButton>
+                  </li>
+                </ul>
+              </transition>
+            </OcDropDown>
           </li>
           <li class="header-controls__item">
             <nuxt-link
               to="/sign-in"
               class="header-controls__link"
             >
+              <OcIcon
+                class="header-controls__link--icon"
+                name="user"
+              />
               Войти
             </nuxt-link>
             <!--            <nuxt-link-->

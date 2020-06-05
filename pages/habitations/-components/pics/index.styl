@@ -7,7 +7,7 @@
   &__vertical
     display none
 
-  &__button-gallery
+  &__button-container
     display none
 
 .pics-carousel
@@ -35,14 +35,14 @@
     display inline-block
     padding 0 8px
 
-    font-style: normal;
-    font-weight: normal;
-    font-size: 10px;
-    line-height: 20px;
-    color: #989BA8;
+    font-style: normal
+    font-weight: normal
+    font-size: 10px
+    line-height: 20px
+    color: #989BA8
 
-    background: #FFFFFF;
-    border-radius: 12px;
+    background: #FFFFFF
+    border-radius: 12px
 
   &__img-description
     display none
@@ -76,58 +76,24 @@
     position relative
 
     display flex
-    justify-content: space-between;
+    justify-content: space-between
     max-width 1280px
     margin 0 auto
 
     &__vertical
       display block
 
-    &__button-gallery
+    &__button-container
       position absolute
       bottom 16px
       right 16px
 
-      display flex
-      align-items center
-      justify-content center
-      padding: 0
-      min-width 135px
-      min-height 40px
-
-      font-style: normal;
-      font-weight: normal;
-      font-size: 18px;
-      line-height: 22px;
-      text-align: center;
-      color: #272528;
-
-      background: #FFFFFF;
-      border: 1px solid #D4D6DE;
-      box-sizing: border-box;
-      border-radius: 44px
+      display block
 
       z-index 99
-      cursor pointer
-      transition all 0.1s ease-in-out 0s
 
-      &:hover
-      &:focus
-        outline 0
-
-      &:hover
-        color #0082B4
-
-        transition all 0.1s ease-in-out 0s
-
-      &:focus
-        font-weight: bold;
-        line-height: 28px;
-        color: #272528;
-
-        border: 1.4px solid #272528;
-
-        transition all 0.1s ease-in-out 0
+      min-width 135px
+      min-height 40px
 
   .pics-vertical
     display block

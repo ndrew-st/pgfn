@@ -9,10 +9,9 @@
         <li
           v-for="item in list"
           :key="item.title"
-
           class="step-container__item-counter"
         >
-          <Counter
+          <OcCounter
             :key="date"
             :title="item.title"
             :current="peoples[item.name]"
@@ -26,10 +25,7 @@
 </template>
 
 <script>
-import Counter from '~/components/ocCounter'
-
 export default {
-  components: { Counter },
   data () {
     return {
       date: new Date().toString(),

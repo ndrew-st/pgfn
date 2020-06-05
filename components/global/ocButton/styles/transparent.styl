@@ -1,0 +1,96 @@
+.oc-button-transparent
+  padding 0
+
+  font-style: normal
+  font-weight: bold
+  font-size: 13px
+  line-height: 20px
+  color: $black-1
+
+  anim(all)
+
+  &:hover
+    opacity 0.7
+
+    anim(opacity)
+
+  &:disabled
+    color $gray
+
+  &.clear
+    font-weight normal
+
+  &.line-icon
+    display flex
+    align-items center
+    justify-content center
+    width 20px
+    height 20px
+
+    & > span.icon-content
+      display block
+      height 14px
+
+      & svg path
+        stroke $black-1
+
+    & > span.text-content
+      font-size 0
+
+  &.heart
+    width 22px
+    height 20px
+
+    & > span.text-content
+      font-size 0
+
+    & > span.icon-content
+      & svg path
+        stroke white
+
+        anim(all)
+
+    &.active
+    &:hover
+      opacity 1
+
+      & > span.icon-content svg path
+        stroke $red
+        fill $red
+
+        anim(all)
+
+  &.filter-button__clear
+    font-weight normal
+
+  &.desc-block-button
+    font-size 14px
+    line-height 24px
+
+  &.close
+    height 16px
+
+    & > span.text-content
+      font-size 0
+
+@media (min-width 1280px)
+  .oc-button-transparent
+    &.heart
+      width 24px
+      height 22px
+
+      & > span.icon-content svg
+        width 24px
+        height 22px
+
+    &.desc-block-button
+      font-size: 16px
+      line-height: 20px
+
+    &.filter-button
+      font-size: 16px
+
+      &__clear
+        font-weight normal
+
+

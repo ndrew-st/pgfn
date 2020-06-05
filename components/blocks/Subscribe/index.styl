@@ -1,0 +1,126 @@
+.subscribe
+  padding 20px 18px
+
+  box-sizing border-box
+
+  border-top 1px solid #ECECEC
+  border-bottom 1px solid #ECECEC
+
+  &__title
+    margin 0
+    margin-bottom 29px
+
+    font-style: normal
+    font-weight: bold
+    font-size: 13px
+    line-height: 20px
+    color $black-1
+
+  &__success
+    font-style: normal
+    font-weight: bold
+    font-size: 13px
+    line-height: 20px
+    color: #FFFFFF
+
+.subscribe-form
+  display flex
+
+  &__input
+    display block
+    width 100%
+    margin-right -10px
+
+    box-sizing border-box
+
+  &__submit
+    position relative
+
+    display block
+    width 100%
+    max-width 56px
+    height 56px
+
+    font-size 0
+
+    background-color $red
+    border 0
+    border-radius 0 5px 5px 0
+
+    cursor pointer
+
+    rm-outline()
+
+    &:hover
+      background-color $red-hover
+
+      anim(background-color)
+
+    &:after
+      content ''
+
+      position absolute
+      top 0
+      bottom 0
+      left 0
+      right 0
+
+      width 22px
+      height 18px
+      margin auto
+
+      background url('/subscribe/arrow.svg') 0 0 no-repeat
+      background-size 22px 18px
+
+@media(min-width 1280px)
+  .subscribe
+    padding 43px 0
+
+    &__container
+      max-width 1280px
+      margin 0 auto
+      display flex
+      justify-content space-between
+      align-items center
+
+    &__title
+      margin 0
+      font-size: 20px
+      line-height: 24px
+
+    &__success
+      font-size: 20px
+      line-height: 24px
+
+  .subscribe-form
+    justify-content space-between
+    width 100%
+    max-width 755px
+
+    &__input
+      width 100%
+      max-width 612px
+      margin-right 13px
+
+      box-sizing border-box
+
+    &__submit
+      width auto
+      max-width 100%
+      padding 0 25px
+
+      font-style: normal
+      font-weight: bold
+      font-size: 16px
+      line-height: 24px
+      text-align: center
+      letter-spacing: 0.1px
+      color: #FFFFFF
+
+      border-radius 5px
+
+      box-sizing border-box
+
+      &:after
+        display none
+

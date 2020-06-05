@@ -1,0 +1,46 @@
+.toggle
+  width 48px
+  height 28px
+
+  &__label
+    position relative
+
+    display block
+    width 48px
+    height 28px
+
+    background #989BA8
+    border-radius 30px
+    cursor pointer
+    box-sizing border-box
+
+    anim(all)
+
+    &:before
+      content ''
+      position absolute
+
+      left 1px
+      top 0
+      right auto
+      bottom 0
+
+      width 26px
+      height 26px
+      margin auto 0
+
+      background #FFFFFF
+      border-radius 19px
+
+      anim(all)
+
+    &.checked
+      background #5604C1
+
+      anim(all)
+
+      &:before
+        left auto
+        right 0.7px
+
+        anim(all)

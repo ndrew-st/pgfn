@@ -8,7 +8,7 @@
         @next="next"
       />
 
-      <OcSmsCode
+      <OcSms
         v-if="stage === 'sms'"
         v-model="code"
         :phone="phone"

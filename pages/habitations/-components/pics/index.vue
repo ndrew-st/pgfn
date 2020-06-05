@@ -80,13 +80,14 @@
       </ocCarousel>
     </div>
 
-    <button
-      type="button"
-      class="pics__button-gallery"
-      @click="toggleShow(true)"
-    >
-      Фотогалерея
-    </button>
+    <div class="pics__button-container">
+      <OcButton
+        name="border"
+        @click="toggleShow(true)"
+      >
+        Фотогалерея
+      </OcButton>
+    </div>
   </div>
 </template>
 

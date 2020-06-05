@@ -8,39 +8,4 @@
   </span>
 </template>
 
-<script>
-export default {
-  props: {
-    name: {
-      type: String,
-      default: ''
-    },
-    active: {
-      type: Boolean,
-      default: false
-    },
-    color: {
-      type: String,
-      default: ''
-    }
-  },
-  created () {
-    if (process.client) {
-      const requireComponent = require.context(
-        './icons/',
-        false, // sub-folders
-        /[a-z]\w+\.vue$/
-      )
-
-      requireComponent.keys().forEach((fileName) => {
-        const componentConfig = requireComponent(fileName)
-        const componentName = fileName
-          .split('/')
-          .pop()
-          .split('.')[0]
-        this.$options.components[componentName] = componentConfig.default
-      })
-    }
-  }
-}
-</script>
+<script src="./index.js"/>

@@ -48,13 +48,12 @@
         />
       </li>
     </ul>
-    <button
-      type="button"
+    <OcButton
       class="apartments__submit"
       @click="handlerSubmit"
     >
       поиск
-    </button>
+    </OcButton>
   </div>
 </template>
 

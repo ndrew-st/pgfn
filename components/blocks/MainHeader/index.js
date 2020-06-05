@@ -24,12 +24,16 @@ export default {
       // find-header block
       touched: false,
       search: '',
-      result: [],
+      result: [
+        // { id: 1, content: 'Search 1' },
+        // { id: 2, content: 'Search 2' },
+        // { id: 3, content: 'Search 3' },
+        // { id: 4, content: 'Search 4' }
+      ],
       focused: false,
       // Geo block
       geoSearch: 'Россия',
       // header-controls
-      show: false,
       list: [
         { id: 1, content: 'Жильё' },
         { id: 2, content: 'Услуги' }

@@ -1,5 +1,13 @@
 import Vue from 'vue'
 
+import ocPhoneNumber from '~/components/ocPhoneNumber'
+import ocPass from '~/components/ocPass'
+import ocSms from '~/components/ocSms'
+
+Vue.component('OcPhoneNumber', ocPhoneNumber)
+Vue.component('OcPass', ocPass)
+Vue.component('OcSms', ocSms)
+
 const requireComponent = require.context(
   '~/components/global',
   true,

@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import Calendar from '~/components/ocMonth'
+import Calendar from '~/components/global/ocMonth'
 
 export default {
   components: { Calendar },

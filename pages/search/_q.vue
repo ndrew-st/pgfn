@@ -21,7 +21,7 @@
           <span class="search-page__count-result">244</span>
         </div>
 
-        <ocFilter
+        <Filter
           :tabs="resTabs.tabs"
           class="search-page__filter"
           @changeTab="changeTab"
@@ -61,13 +61,13 @@
 <script>
 import { mapState } from 'vuex'
 
-import ocFilter from '~/components/ocFilter'
-import MobileFilter from '~/components/ocMobileFilter'
+import Filter from './-components/Filter'
+import MobileFilter from './-components/MobileFilter'
 import Paginate from '~/components/global/ocPagination'
 
 export default {
   layout: 'main',
-  components: { ocFilter, Paginate, MobileFilter },
+  components: { Filter, Paginate, MobileFilter },
   validate ({ query }) {
     return query.q && query.q.length
   },

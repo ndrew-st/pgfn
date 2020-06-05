@@ -15,13 +15,14 @@
       />
     </div>
 
-    <div
+    <OcButton
       v-if="comfort.length > 10 && !showAll"
+      name="border"
       class="show-all"
       @click="showAll = !showAll"
     >
       Показать все ({{ comfort.length }})
-    </div>
+    </OcButton>
   </div>
 </template>
 

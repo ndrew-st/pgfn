@@ -1,6 +1,6 @@
 <template>
   <div class="date-filter">
-    <ocCalendar
+    <Calendar
       class="date-filter__calendar"
       :is-input="false"
       :filter="true"
@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import ocCalendar from '~/components/ocCalendar'
+import Calendar from '~/components/blocks/Calendar'
 
 export default {
   name: `Date`,
-  components: { ocCalendar },
+  components: { Calendar },
   data () {
     return {
       date: ``

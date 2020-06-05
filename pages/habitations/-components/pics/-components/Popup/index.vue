@@ -8,13 +8,13 @@
       class="popup__container"
     >
       <div class="popup__header popup-header">
-        <button
-          type="button"
+        <OcButton
+          name="border"
           class="popup-header__button-close"
           @click="$emit('toggle', false)"
         >
           закрыть
-        </button>
+        </OcButton>
         <p class="popup-header__counter">
           {{ activeIndex + 1 }}/{{ length }}
         </p>

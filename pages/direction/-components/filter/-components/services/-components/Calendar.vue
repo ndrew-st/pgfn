@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Month from '~/components/ocMonth'
+import Month from '~/components/global/ocMonth'
 
 export default {
   components: { Month },

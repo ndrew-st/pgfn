@@ -27,7 +27,7 @@
 import Vue from 'vue'
 
 import Footer from './-components/Footer'
-import ocCounter from '~/components/ocCounter'
+import ocCounter from '~/components/global/ocCounter'
 
 export default {
   name: 'Guest',

@@ -1,5 +1,5 @@
 import Guests from './-components/guests'
-import Calendar from '~/components/ocCalendar'
+import Calendar from '~/components/blocks/Calendar'
 
 export default {
   components: { Calendar, Guests },

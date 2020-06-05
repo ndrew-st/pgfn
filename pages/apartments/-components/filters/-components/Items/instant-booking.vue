@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ocToggle from '~/components/ocToggle'
+import ocToggle from '~/components/global/ocToggle'
 
 export default {
   name: 'InstantBooking',

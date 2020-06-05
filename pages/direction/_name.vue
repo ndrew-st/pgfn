@@ -12,7 +12,7 @@
     <FilterBlock />
 
     <!-- Направление -->
-    <ocGroupCard
+    <GroupCard
       v-show="direction && direction.items.length"
       :tabs="direction.tabs"
       :items="direction.items"
@@ -20,17 +20,18 @@
       title="Популярные направления"
       @changeTab="handlerTab('direction', $event)"
     >
-      <ocCardDirection
+      <ocCard
         v-for="(item, index) in direction.items"
         :key="item.name + item.address"
+        kind="direction"
         :item="item"
         :is-liked="isLiked(index, 'direction')"
         @setLike="handlerLike(index, 'direction')"
       />
-    </ocGroupCard>
+    </GroupCard>
 
     <!-- Жильё -->
-    <ocGroupCard
+    <GroupCard
       :count="apartments.count"
       :auto-width="true"
       :items="apartments.items"
@@ -38,20 +39,21 @@
       title="Жильё"
       @changeTab="handlerTab('apartments', $event)"
     >
-      <ocCardItem
+      <ocCard
         v-for="(item, index) in apartments.items"
         :key="item.name + item.address"
+        kind="most"
         :item="item"
         type="housing"
         :is-liked="isLiked(index, 'apartments')"
         @setLike="handlerLike(index, 'apartments')"
       />
-    </ocGroupCard>
+    </GroupCard>
 
     <SubscribeEmail />
 
     <!-- Услуги -->
-    <ocGroupCard
+    <GroupCard
       v-if="!isEmptyObj(services)"
       :count="services.count"
       :auto-width="true"
@@ -60,43 +62,40 @@
       title="Услуги"
       @changeTab="handlerTab('services', $event)"
     >
-      <ocCardItem
+      <ocCard
         v-for="(item, index) in services.items"
         :key="item.name + item.address"
+        kind="most"
         :item="item"
         type="services"
         :is-liked="isLiked(index, 'services')"
         @setLike="handlerLike(index, 'services')"
       />
-    </ocGroupCard>
+    </GroupCard>
 
-    <DescBlock />
+    <Description />
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex'
 
-import SubscribeEmail from './-components/subscribe-email'
-import Full from './-components/full'
-import DescBlock from './-components/desc'
 import FilterBlock from './-components/filter'
+import Full from './-components/full'
+
+import SubscribeEmail from '~/components/blocks/Subscribe'
+import Description from '~/components/blocks/Description'
+import GroupCard from '~/components/blocks/GroupCard'
 
 import isEmptyObject from '~/utils/isEmptyObject'
-
-import ocGroupCard from '~/components/ocGroupCard'
-import ocCardDirection from '~/components/ocCardDirection'
-import ocCardItem from '~/components/ocCardItem'
 
 export default {
   layout: 'main',
   components: {
     Full,
-    DescBlock,
+    Description,
     SubscribeEmail,
-    ocCardItem,
-    ocCardDirection,
-    ocGroupCard,
+    GroupCard,
     FilterBlock
   },
   async asyncData ({ params, store }) {

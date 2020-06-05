@@ -1,0 +1,35 @@
+.search
+  & > .input
+    display block
+    width 100%
+    height 40px
+    padding 0 16px
+
+    font-style normal
+    font-weight normal
+    font-size 16px
+    line-height 20px
+    color #272528
+
+    border 2px solid #ECECEC
+    box-sizing border-box
+    border-radius 4px
+
+    rm-outline()
+
+    &.error
+
+    &:focus
+    &:active
+      border-color $blue
+
+    &--left
+      padding-left 32px
+
+    &--right
+      padding-right 32px
+
+  & > icon
+    & .icon-left
+    & .icon-right
+      display none

@@ -1,5 +1,5 @@
 import Popup from './-components/Popup'
-import ocCarousel from '~/components/ocCarousel'
+import ocCarousel from '~/components/global/ocCarousel'
 import ocZoomer from '~/components/global/ocZoomer'
 
 export default {

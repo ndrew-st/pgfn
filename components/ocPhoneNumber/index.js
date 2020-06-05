@@ -1,5 +1,3 @@
-import OcButtonNext from '@/components/ocVerification/ocButtonNext/index.vue'
-
 export default {
   props: {
     error: {
@@ -9,9 +7,6 @@ export default {
       type: String,
       required: true
     }
-  },
-  components: {
-    OcButtonNext
   },
   data: () => ({
     isActive: false,

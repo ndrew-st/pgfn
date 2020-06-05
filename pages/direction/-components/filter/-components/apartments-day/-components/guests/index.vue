@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import Counter from '~/components/ocCounter'
+import Counter from '~/components/global/ocCounter'
 
 export default {
   components: { Counter },

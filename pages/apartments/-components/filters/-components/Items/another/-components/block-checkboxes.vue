@@ -21,13 +21,14 @@
         />
       </li>
     </ul>
-    <button
+    <OcButton
       v-if="more"
-      type="button"
+      name="border"
+      add-class="more"
       class="checkboxes__more"
     >
       Показать ещё {{ count }}
-    </button>
+    </OcButton>
   </div>
 </template>
 
@@ -100,25 +101,7 @@ export default {
     right 0
     bottom -18px
 
-    height 36px
-    padding 0 16px
     margin 0 auto
-
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 20px;
-    color: #000000;
-
-    background: #FFFFFF;
-    border: 1px solid #F3F3F3;
-    box-sizing: border-box;
-    border-radius: 44px;
-    cursor: pointer;
-
-    &:hover
-    &:focus
-      outline 0
 
 @media (min-width 640px)
   .checkboxes
@@ -138,10 +121,4 @@ export default {
 
     &.more
       padding-bottom 55px
-
-    &__more
-      height: 40px
-      padding: 0 12px
-
-      font-size: 14px
 </style>

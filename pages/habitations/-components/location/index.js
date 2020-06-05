@@ -1,4 +1,7 @@
+import Description from '~/components/blocks/Description'
+
 export default {
+  components: { Description },
   props: {
     coords: {
       type: Array,

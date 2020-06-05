@@ -2,16 +2,47 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'solid'
+      default: 'button'
+    },
+    shape: {
+      type: String,
+      default: 'rect'
+    },
+    name: {
+      type: String,
+      default: 'most'
+    },
+    icon: {
+      type: String,
+      default: ''
     },
     color: {
       type: String,
-      default: 'grey'
+      default: 'blue'
+    },
+    active: {
+      type: Boolean,
+      default: false
+    },
+    addClass: {
+      type: String,
+      default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
+  },
+  inheritAttrs: false,
+  data () {
+    return { }
+  },
+  mounted () {
+    import(`./styles/${this.name}.styl`)
   },
   computed: {
     buttonClass () {
-      return `oc-button oc-button_${this.type} color-${this.color}`
+      return `oc-button oc-button-${this.name} shape-${this.shape} color-${this.color}`
     }
   }
 }

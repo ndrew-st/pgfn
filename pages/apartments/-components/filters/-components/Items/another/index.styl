@@ -7,7 +7,7 @@
     width: 100%
     height: 100%
 
-    background: rgba(0, 0, 0, 0.31);
+    background: rgba(0, 0, 0, 0.31)
     z-index 999
 
 .another
@@ -24,10 +24,10 @@
 
     background-color #FFFFFF
     box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.08)
-    border-radius: 12px;
+    border-radius: 12px
 
   & .another-header
-    position: relative;
+    position: relative
 
     display flex
     min-height 51px
@@ -40,49 +40,19 @@
       align-items center
       width 100%
 
-      font-style: normal;
-      font-weight: bold;
-      font-size: 15px;
-      line-height: 24px;
-      text-align: center;
-      color: #272528;
+      font-style: normal
+      font-weight: bold
+      font-size: 15px
+      line-height: 24px
+      text-align: center
+      color: #272528
 
     &__close
       position: absolute
       left: 18px
       top 22px
 
-      display block
-      width: 12px
-      height: 12px
-
-      font-size: 0
-
-      border: 0
-      background-color transparent
-      cursor pointer
-
-      &:hover
-      &:focus
-        outline 0
-
-      &:before
-      &:after
-        content ''
-        position: absolute
-        left: 4px
-        top: -2px
-
-        width: 2px
-        height 17px
-
-        background-color #989BA8
-
-      &:before
-        transform rotate(45deg)
-
-      &:after
-        transform rotate(-45deg)
+      height 16px
 
   & .another-controls
     border-bottom 1px solid #F3F3F3
@@ -103,68 +73,32 @@
       padding 0
       height 39px
 
-      font-style: normal;
-      font-weight: normal;
-      font-size: 13px;
-      line-height: 24px;
-      letter-spacing: 0.2px;
+      font-style: normal
+      font-weight: normal
+      font-size: 13px
+      line-height: 24px
+      letter-spacing: 0.2px
 
-      color: #989BA8;
+      color: #989BA8
       cursor pointer
 
-      border-bottom: 2px solid transparent;
+      border-bottom: 2px solid transparent
 
       &.checkbox-checked
         color #272528
         border-color #5604C1
 
   & .another-footer
-      display flex
-      align-items center
-      justify-content space-between
-      min-height 72px
-      padding 0 20px
+    display flex
+    align-items center
+    justify-content space-between
+    min-height 72px
+    padding 0 20px
 
-      border-top 1px solid #DADADA
+    border-top 1px solid #DADADA
 
-      &__button
-        cursor pointer
-
-        &:hover
-        &:focus
-          outline 0
-
-        &--clear
-          padding: 0
-
-          font-style: normal;
-          font-weight: bold;
-          font-size: 13px;
-          line-height: 20px;
-          color: #272528;
-
-          border: 0
-          background-color transparent
-
-        &--show
-          padding 0 22px
-          height 48px
-
-          font-style: normal;
-          font-weight: bold;
-          font-size: 13px;
-          line-height: 24px;
-          letter-spacing: 0.1px;
-          color: #FFFFFF;
-
-          border: 0
-          background: #CA1F03
-          border-radius: 4px
-          transition all 0.3s ease-in-out 0s
-
-          &:hover
-            transition all 0.3s ease-in-out 0s
-            background-color #CA1E03
+    &__save
+      width 184px
 
 @media (min-width 720px)
   .another
@@ -175,7 +109,7 @@
       max-width 720px
 
       background-color #FFFFFF
-      border-radius: 12px;
+      border-radius: 12px
 
     & .another-header
       min-height 75px
@@ -199,8 +133,10 @@
       padding 0 40px
       min-height 108px
 
-      &__button
-        font-size: 16px
+      &__clear
+        font-size 16px
 
-        &--show
-          height: 56px
+      &__save
+        width 210px
+
+        font-size 16px

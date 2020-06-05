@@ -35,7 +35,7 @@
         :loc-desc="locDesc"
       />
 
-      <ocGroupCard
+      <GroupCard
         :count="apartments.count"
         :auto-width="true"
         :items="apartments.items"
@@ -43,14 +43,15 @@
         title="Жильё"
         @changeTab="handlerTab('apartments', $event)"
       >
-        <ocCardItem
+        <ocCard
           v-for="item in apartments.items"
           :key="item.id"
+          kind="most"
           :item="item"
           type="housing"
           :is-liked="false"
         />
-      </ocGroupCard>
+      </GroupCard>
     </div>
 
     <Subscribe />
@@ -80,12 +81,12 @@ import ThreeBlocks from './-components/three-blocks/index.vue'
 import Comfort from './-components/comfort/index.vue'
 import Rules from './-components/rules/index.vue'
 import Location from './-components/location/index.vue'
-import Subscribe from './-components/subscribe/index.vue'
 import BookingFooter from './-components/booking-footer/index.vue'
 import Booking from './-components/booking/index.vue'
-import ocGroupCard from '~/components/ocGroupCard'
-import ocCardItem from '~/components/ocCardItem'
+
+import GroupCard from '~/components/blocks/GroupCard'
 import Footer from '~/components/blocks/Footer'
+import Subscribe from '~/components/blocks/Subscribe'
 
 export default {
   layout: 'clean',
@@ -98,12 +99,11 @@ export default {
     Comfort,
     Rules,
     Location,
-    ocGroupCard,
-    ocCardItem,
-    Subscribe,
+    GroupCard,
     Footer,
     BookingFooter,
-    Booking
+    Booking,
+    Subscribe
   },
   async asyncData ({ store }) {
     // await store.dispatch(`search-page/getData`, `Крым`)
@@ -120,9 +120,11 @@ export default {
       estimate: '4.3'
     },
     descInfo: {
-      desc1: 'Квартира 2 спальни 7 гостей',
-      desc2:
-        'Апартаменты представляют собой 3х комнатную квартиру, площадью 146 м2, находятся на 11 этаже 12-ти этажного кирпичного дома. В апартаментах могут расположиться до 7 гостей, в их распоряжении 3 комнаты, 4 кровати, кухня, ванная комната с джакузи и балкон. Оформлена в стиле модерн... ',
+      title: 'Квартира 2 спальни 7 гостей',
+      desc: [
+        'Апартаменты представляют собой 3х комнатную квартиру, площадью 146 м2, находятся на 11',
+        'Апартаменты представляют собой 3х комнатную квартиру, площадью 146 м2, находятся на 11 этаже 12-ти этажного кирпичного дома. В апартаментах могут расположиться до 7 гостей, в их распоряжении 3 комнаты, 4 кровати, кухня, ванная комната с джакузи и балкон. Оформлена в стиле модерн... '
+      ],
       owner: 'Артем А.',
       initials: 'АА',
       online: true,

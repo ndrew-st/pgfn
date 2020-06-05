@@ -1,0 +1,44 @@
+.oc-button-pagination
+  display flex
+  align-items center
+  justify-content center
+  width 40px
+  height 40px
+  padding 0
+
+  anim(all)
+
+  & > span.text-content
+    font-size 0
+
+  & > span.icon-content
+    display block
+    width 16px
+    height 14px
+
+    & svg
+      & rect
+        fill white
+        stroke $gray
+
+        anim(all)
+
+      & path
+        stroke $black-1
+
+        anim(all)
+
+  &.next > span.icon-content svg
+    transform rotate(180deg)
+
+  &:hover > span.icon-content svg
+    & rect
+      fill $red
+      stroke $red
+
+      anim(all)
+
+    & path
+      stroke white
+
+      anim(all)

@@ -15,7 +15,7 @@ export default {
       }
     ],
     base: [{ href: '/' }],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
     script: [{ src: 'https://kit.fontawesome.com/da5e54f6f7.js' }]
   },
   /*
@@ -90,6 +90,7 @@ export default {
   },
   env: {
     throttle_time: 1000,
-    header_auth: 'authorization'
+    header_auth: 'authorization',
+    ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65'
   }
 }

@@ -1,29 +1,14 @@
 <template>
   <div class="pagination">
     <div class="pagination__left">
-      <a
-        href="#"
-        @click.prevent="changePage(prevPage)"
+      <OcButton
+        name="pagination"
+        icon="pagination"
+        add-class="prev"
+        @click="changePage(prevPage)"
       >
-        <svg
-          width="18"
-          height="14"
-          viewBox="0 0 18 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17 7L2 7"
-            stroke="#272528"
-            stroke-linecap="round"
-          />
-          <path
-            d="M8 13L2 7L8 1"
-            stroke="#272528"
-            stroke-linecap="round"
-          />
-        </svg>
-      </a>
+        prev
+      </OcButton>
     </div>
 
     <div class="pagination__mid">
@@ -62,29 +47,14 @@
     </div>
 
     <div class="pagination__right">
-      <a
-        href="#"
-        @click.prevent="changePage(nextPage)"
+      <OcButton
+        name="pagination"
+        icon="pagination"
+        add-class="next"
+        @click="changePage(nextPage)"
       >
-        <svg
-          width="18"
-          height="14"
-          viewBox="0 0 18 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17 7L2 7"
-            stroke="#272528"
-            stroke-linecap="round"
-          />
-          <path
-            d="M8 13L2 7L8 1"
-            stroke="#272528"
-            stroke-linecap="round"
-          />
-        </svg>
-      </a>
+        next
+      </OcButton>
     </div>
   </div>
 </template>

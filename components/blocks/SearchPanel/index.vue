@@ -19,13 +19,12 @@
         :key="item.id"
         class="search-panel__item"
       >
-        <button
-          type="button"
-          class="search-panel__button"
+        <OcButton
+          name="list"
           @click="select(item.title)"
         >
           {{ item.title }}
-        </button>
+        </OcButton>
       </li>
     </ul>
   </div>

@@ -52,17 +52,18 @@
           </p>
         </div>
 
-        <button
+        <OcButton
+          name="most"
           class="booking-footer__btn-booking"
+          color="red"
           @click="$emit('changeBookingActive')"
         >
           Забронировать
-        </button>
+        </OcButton>
       </div>
     </div>
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus" scoped/>
-
 <script src="./index.js" />
+<style src="./index.styl" lang="stylus" scoped/>

@@ -1,7 +1,7 @@
 <template>
   <div class="password-recovery">
     <OcVerification>
-      <OcSmsCode
+      <OcSms
         v-if="stage === 'sms'"
         :phone="$route.params.phone"
         :error="error"
@@ -28,14 +28,12 @@
 </template>
 
 <script>
-import OcVerification from '@/components/ocVerification/index.vue'
-import OcSmsCode from '@/components/ocSmsCode/index.vue'
+import OcVerification from '@/components/global/ocVerification/index.vue'
 import OcPass from '@/components/ocPass'
 
 export default {
   components: {
     OcVerification,
-    OcSmsCode,
     OcPass
   },
   props: { phone: {

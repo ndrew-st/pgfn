@@ -1,12 +1,10 @@
-import OcVerification from '@/components/ocVerification/index.vue'
-import OcPhoneNumber from '@/components/ocPhoneNumber/index.vue'
+import OcVerification from '@/components/global/ocVerification/index.vue'
 import OcPass from '@/components/ocPass/index.vue'
 
 export default {
   layout: 'clean',
   components: {
     OcVerification,
-    OcPhoneNumber,
     OcPass
   },
   data: () => ({
