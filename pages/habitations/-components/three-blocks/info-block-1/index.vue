@@ -5,24 +5,17 @@
       :key="index"
       class="tariff"
     >
-      <input
-        :id="index"
+      <OcInput
+        v-model="current"
         type="radio"
+        icon="circle-radio"
+        icon-position="left"
         name="tariff"
-        class="tariff__radio-input"
-        :checked="index === 0"
-      >
-
-      <label
-        :for="index"
-        class="tariff__name"
-      >
-        {{ tariff.name }}
-      </label>
-
-      <p class="tariff__desc">
-        {{ tariff.desc }}
-      </p>
+        kind="circle-radio"
+        :check-value="tariff.value"
+        :label="tariff.name"
+        :add-desc="tariff.desc"
+      />
     </div>
 
     <a
@@ -34,6 +27,5 @@
   </InfoBlock>
 </template>
 
-<style src="./index.styl" lang="stylus" />
-
 <script src="./index.js"/>
+<style src="./index.styl" lang="stylus" />

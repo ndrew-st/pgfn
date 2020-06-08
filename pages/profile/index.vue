@@ -14,11 +14,12 @@
       </p>
 
       <div v-if="activeName">
-        <input
+        <OcInput
           type="text"
+          kind="most"
           class="input-name"
           placeholder="Новое имя"
-        >
+        />
         <input
           type="button"
           value="Сохранить"
@@ -54,11 +55,13 @@
       </p>
 
       <div v-if="activePass">
-        <input
+        <OcInput
           type="password"
+          kind="most"
           class="input-name"
           placeholder="Новый пароль"
-        >
+        />
+
         <input
           type="button"
           value="Сохранить"

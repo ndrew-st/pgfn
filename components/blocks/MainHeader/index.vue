@@ -12,11 +12,11 @@
           to="/"
           class="header__logo-link"
         >
-          <img
+          <OcImg
             src="/main-logo.svg"
             alt="Логотип"
             class="header__logo"
-          >
+          />
         </nuxt-link>
 
         <div class="header__geo header-geo">
@@ -51,11 +51,14 @@
               v-model="search"
               icon="find"
               kind="search"
+              class="find-header__input"
               icon-position="left"
               placeholder="Например отели с бассейном"
               @input="handlerSearch"
-              @focus="toggleFocus"
+              @focusin="focused = true"
+              @focusout="focused = false"
             />
+
             <OcButton
               class="find-header__submit"
               type="submit"

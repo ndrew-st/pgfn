@@ -1,22 +1,24 @@
 <template>
   <div class="hab-payment">
     <div class="hab-payment__name">
-      <input
+      <OcInput
         type="text"
+        kind="most"
         placeholder="Ваше имя"
         class="hab-payment__name__input-name"
-      >
+      />
     </div>
 
     <p class="hab-payment__p">
       Написать хозяину
     </p>
 
-    <input
+    <OcInput
       type="text"
+      kind="most"
       :placeholder="'Здраствуйте, ' + name + ', я хочу провести 25 дней в вашем доме'"
       class="hab-payment__input2"
-    >
+    />
 
     <p class="hab-payment__p">
       Быстрая регистрация

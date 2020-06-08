@@ -14,7 +14,6 @@ export default {
     return {
       activeStep: 0,
       result: { },
-      search: '',
       submitted: false,
       success: false,
       steps: [

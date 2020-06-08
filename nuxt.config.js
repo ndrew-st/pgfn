@@ -21,7 +21,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: '@/components/global/ocLoader/index.vue',
   /*
    ** Global CSS
    */
@@ -31,12 +31,13 @@ export default {
    */
   plugins: [
     { src: '@/plugins/global-components.js', ssr: false },
-    '@/plugins/yandexMaps.js',
-    '@/plugins/api.js',
-    '@/plugins/directives.js'
+    { src: '@/plugins/yandexMaps.js', ssr: false },
+    { src: '@/plugins/directives.js', ssr: false },
+    '@/plugins/api.js'
   ],
   router: {
     base: '/',
+    prefetchLinks: false,
     extendRoutes (routes, resolve) {
       routes.push(
         {
@@ -63,11 +64,7 @@ export default {
     '@nuxtjs/style-resources'
   ],
   styleResources: {
-    stylus: [
-      'assets/global-varibles.styl',
-      'assets/common.styl',
-      'assets/mixins.styl'
-    ]
+    stylus: 'assets/index.styl'
   },
   /*
    ** Axios module configuration

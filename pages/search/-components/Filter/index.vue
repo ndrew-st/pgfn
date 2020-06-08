@@ -4,21 +4,17 @@
       <li
         v-for="filter in filters"
         :key="filter.name"
-        class="filter__item unit-filter"
+        class="filter__item"
       >
-        <label
-          :class="{ selected: selected === filter.name }"
-          class="unit-filter__label"
-        >
-          <span class="unit-filter__text">{{ filter.title }}</span>
-          <input
-            v-model="selected"
-            :value="filter.name"
-            type="radio"
-            name="desktop-filter"
-            class="visually-hidden"
-          >
-        </label>
+        <OcInput
+          v-model="selected"
+          type="radio"
+          kind="checkbox-filter"
+          name="desktop-filter"
+          :label="filter.title"
+          :check-value="filter.name"
+          @input="$emit('input', $event)"
+        />
       </li>
     </ul>
   </div>

@@ -10,7 +10,7 @@
         :nav="true"
         :column="1"
         :dots="true"
-        :show="false"
+        :show="true"
         :scroll="false"
         :items="item.previewGallery"
         class="card-item__swiper"

@@ -1,0 +1,80 @@
+.oc-input-checkbox
+  cursor pointer
+
+  & .icon.icon-left.check
+    position: absolute
+    left: 0
+    top: 0
+    bottom: 0
+
+    display flex
+    align-items center
+    margin auto 0
+
+    & svg
+      & path
+        stroke transparent
+
+      & rect
+        fill white
+        stroke transparent
+
+  &:hover .icon.icon-left.check
+    & > svg
+      & > rect
+        stroke $black-1
+
+  &.checked .icon.icon-left.check
+    & > svg
+      & > path
+        stroke white
+
+      & > rect
+        fill $black-1
+        stroke $black-1
+
+  & .label
+    position relative
+
+    display flex
+    height: 24px
+    align-items center
+    padding-left: 40px
+
+    font-style: normal
+    font-weight: normal
+    font-size: 13px
+    line-height: 20px
+    color: #272528
+
+    anim(all)
+
+    cursor pointer
+
+    &:before
+      content ''
+
+      position: absolute
+      left 0
+      top 0
+      bottom 0
+
+      width: 24px
+      height: 24px
+      margin auto 0
+
+      background: #FFFFFF
+      border: 1px solid #DADADA
+      box-sizing: border-box
+      border-radius: 4px
+      cursor: pointer
+
+  &.checked .label
+    &:before
+      background-color black
+      border 2px solid #272528
+
+@media (min-width 640px)
+  .checkbox
+    & .label
+      font-size 16px

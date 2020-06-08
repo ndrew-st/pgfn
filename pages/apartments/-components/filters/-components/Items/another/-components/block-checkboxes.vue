@@ -12,11 +12,14 @@
         :key="item.value"
         class="checkboxes__item"
       >
-        <ocCheckbox
+        <OcInput
+          type="checkbox"
+          kind="checkbox"
+          icon="check"
+          icon-position="left"
           :name="name"
           :label="item.label"
-          :value="item.value"
-          :responsive="true"
+          :check-value="item.value"
           @input="$emit('input', $event)"
         />
       </li>
@@ -33,11 +36,8 @@
 </template>
 
 <script>
-import ocCheckbox from '~/components/ocCheckbox'
-
 export default {
   name: 'BlockCheckboxes',
-  components: { ocCheckbox },
   props: {
     title: {
       type: String,

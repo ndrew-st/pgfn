@@ -19,9 +19,20 @@
     @media(min-width 1280px)
       margin-top -56px
 
-    &__content
+    &__container
+      display flex
+      justify-content space-between
       min-height 124px
       padding 24px
       padding-top 12px
 
       box-sizing border-box
+
+    &__content
+      width 100%
+      max-width 768px
+
+    &__submit
+      align-self flex-end
+      width 130px
+      height 56px

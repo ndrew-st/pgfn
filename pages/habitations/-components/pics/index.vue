@@ -34,7 +34,7 @@
                   @click="toggleShow(true)"
                 >
                   <img
-                    :src="img.url"
+                    :data-url="img.url"
                     :alt="img.description"
                     class="pics-carousel__img"
                   >
@@ -72,7 +72,7 @@
         >
           <img
             v-lazy
-            :src="img.url"
+            :data-url="img.url"
             :alt="img.description"
             class="pics-vertical__img"
           >

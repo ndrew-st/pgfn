@@ -13,7 +13,7 @@ export default {
     phone1: ''
   }),
   methods: {
-    mask (item) {
+    mask () {
       const matrix = '___ ___-__-__'
       let i = 0
       const def = matrix.replace(/\D/g, '')

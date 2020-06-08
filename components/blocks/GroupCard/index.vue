@@ -15,27 +15,22 @@
             :key="tab.url"
             class="group-checkbox__item"
           >
-            <label
-              :class="{ checked: tabSelect === tab.url }"
-              class="group-checkbox__label"
-            >
-              <input
-                v-model="tabSelect"
-                :value="tab.url"
-                type="radio"
-                :name="`groups-card-${title}`"
-                class="visually-hidden"
-                @change="$emit('changeTab', tab.url)"
-              >
-              {{ tab.name }}
-            </label>
+            <OcInput
+              v-model="tabSelect"
+              :check-value="tab.url"
+              :name="`groups-card-${title}`"
+              kind="group-radio"
+              type="radio"
+              :label="tab.name"
+              @input="$emit('changeTab', $event)"
+            />
           </li>
         </ul>
       </div>
     </div>
 
     <div class="group-cart__slider-container">
-      <Carousel
+      <OcCarousel
         :column="4"
         :items="items"
         :auto-width="autoWidth"
@@ -43,7 +38,7 @@
         :nav="true"
       >
         <slot />
-      </Carousel>
+      </OcCarousel>
     </div>
   </div>
 </template>

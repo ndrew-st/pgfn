@@ -1,14 +1,4 @@
-.fade-enter-active
-.fade-leave-active
-  transition opacity .1s
-
-.fade-enter
-.fade-leave-to
-  opacity: 0
-
-[v-cloak]
-  display: none
-
+transition()
 
 .header
   font-family inherit
@@ -33,7 +23,6 @@
   &__logo
     width 168px
     height 36px
-    vertical-align bottom
 
     @media(min-width 1280px)
       width 186px
@@ -54,8 +43,7 @@
       z-index 99
 
       @media (min-width 1090px)
-        left 50%
-        right auto
+        margin-right -138px
 
   &__mobile-controls
     position fixed
@@ -79,12 +67,15 @@
     width: 100%
     max-width 440px
 
+    &__input
+      height 48px
+
     &__submit
       display none
 
     &__result-container
       position absolute
-      top 40px
+      top 49px
       left 0
       right 0
 
@@ -197,7 +188,7 @@
       padding-bottom 22px
 
     &__logo-link
-      margin-right 36px
+      width 186px
       margin-bottom 0
 
     &__list-link
@@ -319,6 +310,16 @@
         width 100%
         max-width 520px
 
+      &__input
+        height 40px
+
+        & > .input.input-left
+          padding-left 16px
+          padding-right 50px
+
+        & span.icon
+          display none
+
       &__result-container
         top 40px
 
@@ -329,6 +330,9 @@
 
 @media(min-width 1280px)
   .header
+    &__logo-link
+      margin-right 36px
+
     &__container
       padding-left 0
       padding-right 0

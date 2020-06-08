@@ -10,7 +10,7 @@
       <div class="carousel__wrapper-container">
         <div
           ref="wrapper"
-          :style="{ 'max-width': maxWidthWrapper || 1280 + 'px', 'overflow-x': scroll ? 'scroll' : 'hidden' }"
+          :style="{ 'max-width': maxWidthWrapper + 'px', 'overflow-x': scroll ? 'scroll' : 'hidden' }"
           :class="{ hide: !show, 'show-desktop': autoWidth, 'show-scroll': scroll }"
           class="carousel__wrapper"
           @scroll.passive="handlerScroll"
@@ -41,6 +41,7 @@
         <OcButton
           :disabled="activeIndex + countColumn >= items.length"
           class="btn-carousel__next"
+          add-class="next"
           icon="arrow"
           name="carousel"
           @click="carouselNext"
@@ -50,7 +51,7 @@
       </div>
 
       <div
-        v-if="dots"
+        v-show="dots"
         class="carousel__dots-container"
       >
         <ul
@@ -67,10 +68,10 @@
               'size-small': isSmall(i - 1)}"
           >
             <span
-              :class="{ 'active-dot': --i === activeIndex,
-                        convex: isConvex(i),
-                        'size-small': isSmall(i) }"
-              class="carousel__dot-item"
+              :class="{ 'active-dot': i - 1 === activeIndex,
+                        convex: isConvex(i - 1),
+                        'size-small': isSmall(i - 1) }"
+              class="carousel__dot--item"
             >
               {{ i }}
             </span>

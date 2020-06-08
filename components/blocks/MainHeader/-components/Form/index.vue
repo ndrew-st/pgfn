@@ -42,14 +42,6 @@
         v-if="success"
         class="form-result__success"
       >
-        <label class="form-result__success--label">
-          <input
-            type="text"
-            value="Крым, Ялта"
-            readonly
-            class="form-result__success--location"
-          >
-        </label>
         <span class="form-result__success--date">11.09-21.09</span>
       </div>
       <div

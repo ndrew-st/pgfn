@@ -1,10 +1,9 @@
 import { mapState } from 'vuex'
 
 import Filters from './-components/filters'
-import ocPaginate from '~/components/global/ocPagination'
 
 export default {
-  components: { ocPaginate, Filters },
+  components: { Filters },
   async asyncData ({ app }) {
     // await app.store.dispatch(`apartments/getData`)
   },

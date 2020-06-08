@@ -1,0 +1,18 @@
+anim(properies...)
+  $time = 0.2s
+  $easing = ease-in-out
+  $props = ()
+  for prop in properies
+    push($props, prop + ' ' + $time + ' ' + $easing)
+
+  transition unquote(join(', ', $props))
+
+
+transition()
+  .fade-enter-active
+  .fade-leave-active
+    transition opacity .1s
+
+  .fade-enter
+  .fade-leave-to
+    opacity: 0

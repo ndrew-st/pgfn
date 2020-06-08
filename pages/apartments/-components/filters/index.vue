@@ -7,16 +7,17 @@
         :class="{ 'apartments-filter__item--desktop': item.desktop }"
         class="apartments-filter__item unit-filter"
       >
-        <ocDropDown>
+        <OcDropDown>
           <template #button="{ show }">
-            <button
+            <OcButton
               slot="button"
-              type="button"
+              name="filter"
               class="unit-filter__button"
-              :class="{ 'selected-button': isSelected(item.name), 'active-button': show }"
+              :active="show"
+              :selected="isSelected(item.name)"
             >
               {{ item.title }}
-            </button>
+            </OcButton>
           </template>
           <component
             :is="item.name"
@@ -25,7 +26,7 @@
             class="unit-filter__content"
             @input="updateValue(item.name, $event)"
           />
-        </ocDropDown>
+        </OcDropDown>
       </li>
     </ul>
   </div>

@@ -24,6 +24,10 @@ export default {
       type: Boolean,
       default: false
     },
+    selected: {
+      type: Boolean,
+      default: false
+    },
     addClass: {
       type: String,
       default: ''
@@ -36,9 +40,6 @@ export default {
   inheritAttrs: false,
   data () {
     return { }
-  },
-  mounted () {
-    import(`./styles/${this.name}.styl`)
   },
   computed: {
     buttonClass () {

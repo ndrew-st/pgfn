@@ -25,7 +25,7 @@
   &__list
     display flex
 
-    transition left 0.5s ease-in-out 0s
+    anim(transform)
     backface-visibility hidden
     -webkit-backface-visibility hidden
 
@@ -40,20 +40,8 @@
       position absolute
       top 50%
 
-      width 56px
-      height 56px
       margin 0
       margin-top -27px
-
-    &__next
-      right 0
-      left auto
-      @media(min-width 1310px)
-        right -29px
-
-    &__prev
-      @media(min-width 1310px)
-        left -29px
 
   &__dots-container
     position absolute
@@ -82,7 +70,7 @@
     list-style none
     box-sizing border-box
 
-    transition transform 0.1s linear 0s
+    anim(transform)
 
   &__dot
     display flex
@@ -105,36 +93,36 @@
     &:last-child
       margin-right 0
 
-  &__dot-item
-    display block
-    width 8px
-    height 8px
+    &--item
+      display block
+      width 8px
+      height 8px
 
-    font-size 0
+      font-size 0
 
-    background-color rgba(255, 255, 255, 0.6)
-    border 0
-    border-radius 50%
-    transition all 0.1s ease-in-out 0s
-
-    &:hover
-    &:focus
-      outline 0
-
-    &.active-dot
-      background-color #D55F59
-
-    &.size-small
-      width 6px
-      height 6px
-
+      background-color rgba(255, 255, 255, 0.6)
+      border 0
+      border-radius 50%
       transition all 0.1s ease-in-out 0s
 
-    &.convex
-      width 10px
-      height 10px
+      &:hover
+      &:focus
+        outline 0
 
-      transition all 0.1s ease-in-out 0s
+      &.active-dot
+        background-color #D55F59
+
+      &.size-small
+        width 6px
+        height 6px
+
+        transition all 0.1s ease-in-out 0s
+
+      &.convex
+        width 10px
+        height 10px
+
+        transition all 0.1s ease-in-out 0s
 
 @media(min-width 1280px)
   .carousel

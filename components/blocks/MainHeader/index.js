@@ -42,6 +42,7 @@ export default {
   },
   methods: {
     handlerSearch () {
+      console.log('search val ', this.search)
       // try {
       //   const { data } = await this.searchByQuery(this.search)
       //   this.result = data

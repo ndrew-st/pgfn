@@ -1,0 +1,58 @@
+.oc-button-counter
+  width 32px
+  height 32px
+  padding 0
+
+  & > .text-content
+    font-size 0
+
+  & > .icon-content svg
+    & > circle
+      fill white
+      stroke $black-1
+
+  &.minus > .icon-content svg
+    & > .horizontal
+      stroke $black-1
+
+  &.plus > .icon-content svg
+    & > .vertical
+    & > .horizontal
+      stroke $black-1
+
+  &.minus:hover
+    & > .icon-content svg
+      & > circle
+        fill $black-1
+
+        anim(all)
+
+      & > .horizontal
+        stroke white
+        anim(all)
+
+  &.plus:hover
+    & > .icon-content svg
+      & > circle
+        fill $black-1
+
+        anim(all)
+
+      & > path
+        stroke white
+
+        anim(all)
+
+  &:disabled
+  &:disabled:hover
+    cursor auto
+
+    & > .icon-content svg
+      & > circle
+        fill white
+        stroke $gray
+
+      & > .horizontal
+        stroke $gray
+
+        anim(all)

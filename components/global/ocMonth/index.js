@@ -75,7 +75,7 @@ export default {
       let res = false
       for (let i = 0; i < this.occupiedDates.length; i++) {
         // debugger
-        // if (day <= this.occupiedDates[i].finish && day >= this.occupiedDates[i].start) {
+        // if (filters <= this.occupiedDates[i].finish && filters >= this.occupiedDates[i].start) {
         //   res = true
         //   break
         // }
@@ -99,8 +99,8 @@ export default {
     daysArray () {
       const weekDay = new Date(this.currentFirstDate).getDay()
       const emptyCount = (weekDay === 0 ? 6 : weekDay - 1)
-      const da = [] // day array
-      let cda = [] // current day array
+      const da = [] // filters array
+      let cda = [] // current filters array
       let key = 0
       this.flOccNone = false
       for (let i = 1; i <= emptyCount; i++) {
