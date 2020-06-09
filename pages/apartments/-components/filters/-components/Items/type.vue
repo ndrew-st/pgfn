@@ -6,13 +6,17 @@
         :key="item.value"
         class="type-filter__item"
       >
-        <ocCheckbox
+        <OcInput
           :key="date"
-          :name="name"
+          v-model="select"
+          icon="check"
+          icon-position="left"
+          type="checkbox"
+          kind="checkbox"
+          :name="$options.name"
           :label="item.label"
-          :value="item.value"
-          :checked="isChecked(item.value)"
-          @input="updateValue(item.value)"
+          :check-value="item.value"
+          @input="updateValue"
         />
       </li>
     </ul>
@@ -26,11 +30,9 @@
 <script>
 import Footer from './-components/Footer'
 
-import ocCheckbox from '~/components/ocCheckbox'
-
 export default {
-  name: 'Type',
-  components: { Footer, ocCheckbox },
+  name: 'TypeHousingFilter',
+  components: { Footer },
   props: {
     value: {
       type: Array,
@@ -48,7 +50,6 @@ export default {
         { label: 'Квартиры', value: 'flats' },
         { label: 'Комнаты', value: 'rooms' }
       ],
-      name: 'type-housing-filter',
       select: this.value || [],
       date: new Date().toString()
     }
@@ -65,11 +66,8 @@ export default {
         this.$root.$emit('dropdown:hide')
       }
     },
-    isChecked (value) {
-      return this.select.includes(value)
-    },
     updateValue (value) {
-      this.select.push(value)
+      console.log('updateValue ', value)
     }
   }
 }

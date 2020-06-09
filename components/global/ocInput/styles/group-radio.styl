@@ -1,0 +1,34 @@
+.oc-input-group-radio
+  & .label
+    display flex
+    align-items center
+    padding 0 16px
+    height 36px
+
+    white-space nowrap
+    font-style normal
+    font-weight normal
+    font-size 13px
+    line-height 28px
+    text-align center
+    color $primary
+
+    background #FFFFFF
+    box-shadow 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.04)
+    border-radius 20px
+
+    anim all
+
+    cursor pointer
+
+    &:hover
+      group-radio()
+
+  &.checked .label
+    group-radio()
+
+@media (min-width 1280px)
+  .oc-input-group-radio .label
+    padding 0 18px
+
+    font-size 18px

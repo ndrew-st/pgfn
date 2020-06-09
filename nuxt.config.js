@@ -15,13 +15,13 @@ export default {
       }
     ],
     base: [{ href: '/' }],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
     script: [{ src: 'https://kit.fontawesome.com/da5e54f6f7.js' }]
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: '@/components/global/ocLoader/index.vue',
   /*
    ** Global CSS
    */
@@ -30,12 +30,15 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/global-components.js',
-    '@/plugins/yandexMaps.js',
+    { src: '@/plugins/global-components.js', ssr: false },
+    { src: '@/plugins/yandexMaps.js', ssr: false },
+    { src: '@/plugins/directives.js', ssr: false },
+    { src: '@/plugins/storage.js', mode: 'client' },
     '@/plugins/api.js'
   ],
   router: {
     base: '/',
+    prefetchLinks: false,
     extendRoutes (routes, resolve) {
       routes.push(
         {
@@ -62,10 +65,7 @@ export default {
     '@nuxtjs/style-resources'
   ],
   styleResources: {
-    stylus: [
-      'assets/global-varibles.styl',
-      'assets/common.styl'
-    ]
+    stylus: 'assets/index.styl'
   },
   /*
    ** Axios module configuration
@@ -87,6 +87,8 @@ export default {
     }
   },
   env: {
-    throttle_time: 1000
+    throttle_time: 1000,
+    header_auth: 'authorization',
+    ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65'
   }
 }

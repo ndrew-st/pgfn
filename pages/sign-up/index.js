@@ -1,15 +1,10 @@
-import OcVerification from '@/components/ocVerification/index.vue'
-import { serverRequest } from '@/api/out.js'
-import OcPhoneNumber from '@/components/ocPhoneNumber/index.vue'
-import OcSmsCode from '@/components/ocSmsCode/index.vue'
+import OcVerification from '@/components/global/ocVerification/index.vue'
 import UserPass from './user-pass/index.vue'
 
 export default {
   layout: 'clean',
   components: {
     OcVerification,
-    OcPhoneNumber,
-    OcSmsCode,
     UserPass
   },
   data: () => ({

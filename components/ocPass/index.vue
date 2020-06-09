@@ -2,15 +2,16 @@
   <div>
     <div class="flex">
       <div>
-        <input
+        <OcInput
           v-model="password"
+          kind="most"
           class="pass"
           type="password"
           placeholder="Пароль"
-          :class="{red: error !== '', norm: error === ''}"
-          @change="change"
+          :error="error.length"
+          @input="change"
           @keyup.enter="next()"
-        >
+        />
 
         <p
           v-if="error !== ''"
@@ -22,7 +23,7 @@
 
       <button
         class="btn"
-        :class="{active: password.length > 5, sp: error !== '' }"
+        :class="{ active: password.length > 5, sp: error !== '' }"
         @click="next"
       >
         {{ btnText }}
@@ -31,8 +32,5 @@
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus" scoped>
-</style>
-
-<script src="./index.js">
-</script>
+<script src="./index.js"/>
+<style src="./index.styl" lang="stylus" scoped/>

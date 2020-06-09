@@ -1,25 +1,30 @@
 <template>
-  <div class="habitation__top">
-    <div class="habitation__top__flex">
+  <div class="habitation-top">
+    <div class="habitation-top__container">
       <span
         v-for="(item, index) in topPath"
         :key="index"
-        class="habitation__top__path"
+        class="habitation-top__path"
       >{{ item }}{{ topPath.length === index + 1 ? '' : ' • ' }}</span>
     </div>
 
-    <div class="habitation__top-btns">
-      <div class="habitation__top__btn">
+    <div class="habitation-top__btns">
+      <OcButton
+        name="border"
+        class="habitation-top__btn"
+      >
         Сохранить
-      </div>
+      </OcButton>
 
-      <div class="habitation__top__btn habitation__top__complain">
+      <OcButton
+        class="habitation-top__btn habitation-top__btn--complain"
+        name="border"
+      >
         Пожаловаться
-      </div>
+      </OcButton>
     </div>
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus" />
-
 <script src="./index.js"/>
+<style src="./index.styl" lang="stylus" scoped/>

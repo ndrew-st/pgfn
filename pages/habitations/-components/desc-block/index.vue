@@ -1,5 +1,6 @@
 <template>
   <div class="desc-block">
+<<<<<<< HEAD
     <div class="left-col">
       <p class="h1">
         {{ info.desc1 }}
@@ -16,6 +17,13 @@
         Читать далее
       </p>
     </div>
+=======
+    <Description
+      class="left-col"
+      :title="info.title"
+      :description="info.desc"
+    />
+>>>>>>> origin/feature/pgs-45
 
     <div>
       <div class="desc-block-row">
@@ -54,12 +62,13 @@
         </div>
       </div>
 
-      <button
+      <OcButton
+        name="most"
         class="connect"
         @click="connect()"
       >
         Связаться
-      </button>
+      </OcButton>
     </div>
   </div>
 </template>

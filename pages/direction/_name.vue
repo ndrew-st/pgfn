@@ -9,25 +9,26 @@
     <FilterBlock />
 
     <!-- Направление -->
-    <ocGroupCard
-      v-if="direction && direction.items.length"
+    <GroupCard
+      v-show="direction && direction.items.length"
       :tabs="direction.tabs"
       :items="direction.items"
       :count="direction.count"
       title="Популярные направления"
       @changeTab="handlerTab('direction', $event)"
     >
-      <ocCardDirection
-        v-for="item in direction.items"
-        :key="item.id"
+      <OcCard
+        v-for="(item, index) in direction.items"
+        :key="item.name + item.address"
+        kind="direction"
         :item="item"
-        :is-liked="false"
-        @setLike="handlerLike(item.id, 'direction')"
+        :is-liked="isLiked(index, 'direction')"
+        @setLike="handlerLike(index, 'direction')"
       />
-    </ocGroupCard>
+    </GroupCard>
 
     <!-- Жильё -->
-    <ocGroupCard
+    <GroupCard
       :count="apartments.count"
       :auto-width="true"
       :items="apartments.items"
@@ -35,20 +36,21 @@
       title="Жильё"
       @changeTab="handlerTab('apartments', $event)"
     >
-      <ocCardItem
-        v-for="item in apartments.items"
-        :key="item.id"
+      <OcCard
+        v-for="(item, index) in apartments.items"
+        :key="item.name + item.address"
+        kind="most"
         :item="item"
         type="housing"
-        :is-liked="false"
-        @setLike="handlerLike(item.id, 'apartments')"
+        :is-liked="isLiked(index, 'apartments')"
+        @setLike="handlerLike(index, 'apartments')"
       />
-    </ocGroupCard>
+    </GroupCard>
 
-    <SubscribeEmail />
+    <SubscribeEmail class="direction-page__subscribe" />
 
     <!-- Услуги -->
-    <ocGroupCard
+    <GroupCard
       v-if="!isEmptyObj(services)"
       :count="services.count"
       :auto-width="true"
@@ -57,73 +59,20 @@
       title="Услуги"
       @changeTab="handlerTab('services', $event)"
     >
-      <ocCardItem
-        v-for="item in services.items"
-        :key="item.id"
+      <OcCard
+        v-for="(item, index) in services.items"
+        :key="item.name + item.address"
+        kind="most"
         :item="item"
         type="services"
-        :is-liked="false"
-        @setLike="handlerLike(item.id, 'services')"
+        :is-liked="isLiked(index, 'services')"
+        @setLike="handlerLike(index, 'services')"
       />
-    </ocGroupCard>
+    </GroupCard>
 
-    <DescBlock />
+    <Description />
   </div>
 </template>
 
-<script>
-import { mapActions, mapGetters } from 'vuex'
-
-import SubscribeEmail from './-components/subscribe-email'
-import Full from './-components/full'
-import DescBlock from './-components/desc'
-import FilterBlock from './-components/filter'
-import isEmptyObject from '~/utils/isEmptyObject'
-import ocGroupCard from '~/components/ocGroupCard'
-
-import ocCardDirection from '~/components/ocCardDirection'
-import ocCardItem from '~/components/ocCardItem'
-
-export default {
-  layout: 'main',
-  components: {
-    Full,
-    DescBlock,
-    SubscribeEmail,
-    ocCardItem,
-    ocCardDirection,
-    ocGroupCard,
-    FilterBlock
-  },
-  async asyncData ({ params, store }) {
-    await store.dispatch(`main-page/getData`, params.name || `Крым`)
-  },
-  computed: {
-    ...mapGetters('main-page', ['direction', 'apartments', 'services', 'head', 'header'])
-  },
-  methods: {
-    isEmptyObj (obj) {
-      return isEmptyObject(obj)
-    },
-    handlerTab (field, url) {
-      this.updateTabs({ field, url })
-    },
-    handlerLike (idCard, field) {
-      // what do with likes
-    },
-    ...mapActions('main-page', ['updateTabs'])
-  },
-  head () {
-    return {
-      title: this.head.title,
-      meta: [
-        { name: 'description', content: this.head.description },
-        { name: 'keywords', content: this.head.keywords }
-      ]
-    }
-  }
-}
-</script>
-
-<style lang="stylus">
-</style>
+<script src="./index.js"/>
+<style lang="stylus" src="./index.styl"/>

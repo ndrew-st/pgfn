@@ -82,13 +82,11 @@
 <script>
 import Footer from './-components/Footer'
 
-import ocRangeSlider from '~/components/ocRangeSlider'
-
 import num2str from '~/utils/num2str'
 
 export default {
   name: 'Price',
-  components: { ocRangeSlider, Footer },
+  components: { Footer },
   props: {
     value: {
       type: Object,

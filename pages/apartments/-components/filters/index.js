@@ -1,20 +1,16 @@
 import Vue from 'vue'
 
-import direction from './-components/Items/direction'
-import date from './-components/Items/date'
 import guests from './-components/Items/guests'
 import type from './-components/Items/type'
 import price from './-components/Items/price'
 import instantBooking from './-components/Items/instant-booking'
 import another from './-components/Items/another/index'
 
-import ocDropDown from '~/components/ocDropDown'
+import direction from '~/components/blocks/SearchPanel'
 
 export default {
   components: {
-    ocDropDown,
     direction,
-    date,
     guests,
     type,
     price,

@@ -1,0 +1,91 @@
+.oc-button-most
+  display flex
+  align-items center
+  justify-content center
+  height 48px
+
+  font-style normal
+  font-weight bold
+  font-size 13px
+  line-height 24px
+  text-align center
+  letter-spacing 0.1px
+  color #FFFFFF
+
+  background-color $primary
+  border-radius 4px
+  border 0
+
+  anim all
+
+    &:hover
+      color $primary
+
+      background-color white
+
+      anim all
+
+
+  &.color-red
+    background-color $danger
+
+    &:hover
+      color white
+
+      background-color $danger-hover
+
+  &.subs
+    width 56px
+    height 56px
+
+    border-radius 0 4px 4px 0
+
+    & > span.icon-content
+      display block
+      width 22px
+      height 18px
+
+      & svg
+        display block
+        width 22px
+        height 18px
+        & path
+          fill white
+
+    & > span.text-content
+      display none
+
+  &.mobile-filter
+    width 184px
+    height 48px
+
+    & > span.text-content
+      font-size 13px
+      line-height 24px
+
+  &.shape-oval
+    width 102px
+    height 40px
+    padding 0 18px
+
+    font-weight normal
+
+    box-sizing border-box
+    border-radius 44px
+
+@media (min-width 1280px)
+  .oc-button-most
+    height 56px
+
+    font-size 16px
+
+    &.subs
+      width 130px
+
+      border-radius 4px
+
+      & > span.text-content
+        display block
+      & > span.icon-content
+        display none
+

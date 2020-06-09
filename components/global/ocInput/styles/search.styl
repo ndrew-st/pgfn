@@ -1,0 +1,76 @@
+.oc-input-search
+  height 40px
+
+  & .input
+    display block
+    width 100%
+    height 100%
+    padding 0 16px
+
+    font-style normal
+    font-weight normal
+    font-size 14px
+    line-height 28px
+    color $dark
+    letter-spacing -0.05px
+
+    border 2px solid #ECECEC
+    box-sizing border-box
+    border-radius 4px
+
+    rm-outline()
+
+    anim all
+
+    &.input-left
+      padding-left 32px
+
+    &.input-right
+      padding-right 32px
+
+    &.error
+      border-color $danger
+
+      anim(border-color)
+
+    &:focus
+    &:active
+      border-color $primary
+
+      anim(border-color)
+
+  & .icon
+    &.find
+      & svg circle
+      & svg path
+        stroke #DADADA
+
+        anim all
+
+      &.focused
+        & svg circle
+        & svg path
+          stroke $primary
+
+          anim all
+
+    &.clear
+      cursor pointer
+
+      & svg path
+        fill #DADADA
+
+@media(min-width 1090px)
+  .oc-input-search
+
+    & .input
+      font-size 16px
+      line-height 24px
+
+    //&.main-search
+//      & > input
+//        height 40px
+//        padding 0 16px
+//
+//      & > span
+//        display none

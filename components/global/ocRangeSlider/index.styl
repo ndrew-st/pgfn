@@ -1,0 +1,81 @@
+.slider
+  margin-top 50px
+  margin-bottom 50px
+
+  &__content
+    position relative
+
+    display flex
+    justify-content space-between
+    max-width 280px
+    height 4px
+
+    background-color #F3F3F3
+    border-radius 2px
+
+    &--line
+      position absolute
+      top 50%
+      left 32px
+
+      height 4px
+      width 100%
+      margin-top -2px
+      //margin-left 0
+      //margin-right 0
+
+      background-color $secondary
+      border-radius 2px
+
+  &__button-container
+    display flex
+    justify-content space-between
+    width auto
+
+  &__result
+    margin-top 30px
+
+  &__toggle
+    position relative
+    top -14px
+
+    display block
+    width 32px
+    height 32px
+    padding 0
+
+    font-size 0
+
+    border-radius 50%
+    border 0
+    background-color transparent
+    cursor pointer
+    z-index 3
+
+    &:hover
+    &:focus
+      z-index 5
+
+    &--res
+      position absolute
+      top 35px
+      left 50%
+
+      display block
+      width 40px
+      height 28px
+      margin-left -20px
+
+      font-style normal
+      font-weight normal
+      font-size 12px
+      line-height 32px
+      letter-spacing 0.3px
+      color $dark
+
+      background url('/icons/bg-range.svg') 0 0 no-repeat
+      background-size 40px 28px
+
+    &:hover
+    &:focus
+      outline 0
