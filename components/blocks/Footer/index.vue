@@ -37,7 +37,7 @@
               :key="soc.title"
               class="footer-contacts__social"
             >
-              <a
+              <OcLink
                 :href="soc.url"
                 target="_blank"
                 class="footer-contacts__social-link"
@@ -49,7 +49,7 @@
                   :height="32"
                   class="footer-contacts__social-img"
                 />
-              </a>
+              </OcLink>
             </li>
           </ul>
         </div>
@@ -79,22 +79,28 @@
         </p>
         <ul class="footer-author__list">
           <li class="footer-author__item">
-            <a
-              href=""
-              class="footer-author__link"
-            >Конфиденциальность</a>
+            <OcLink
+              to="/"
+              name="footer"
+            >
+              Конфиденциальность
+            </OcLink>
           </li>
           <li class="footer-author__item">
-            <a
-              href=""
-              class="footer-author__link"
-            >Условия</a>
+            <OcLink
+              to="/"
+              name="footer"
+            >
+              Условия
+            </OcLink>
           </li>
           <li class="footer-author__item">
-            <a
-              href=""
-              class="footer-author__link"
-            >Карта сайта</a>
+            <OcLink
+              to="/"
+              name="footer"
+            >
+              Карта сайта
+            </OcLink>
           </li>
         </ul>
       </div>

@@ -1,5 +1,8 @@
 <template>
-  <a :href="href">
+  <a
+    class="link"
+    :href="href"
+  >
     <slot name="icon" />
     <slot>перейти</slot>
   </a>

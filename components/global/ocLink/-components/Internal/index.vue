@@ -30,3 +30,4 @@
 <style lang="stylus" src="./styles/most.styl"/>
 <style lang="stylus" src="./styles/main-card-title.styl"/>
 <style lang="stylus" src="./styles/mobile-filter.styl"/>
+<style lang="stylus" src="./styles/footer.styl"/>
