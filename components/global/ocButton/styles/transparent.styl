@@ -1,13 +1,13 @@
 .oc-button-transparent
   padding 0
 
-  font-style: normal
-  font-weight: bold
-  font-size: 13px
-  line-height: 20px
-  color: $black-1
+  font-style normal
+  font-weight bold
+  font-size 13px
+  line-height 20px
+  color $dark
 
-  anim(all)
+  anim all
 
   &:hover
     opacity 0.7
@@ -15,7 +15,7 @@
     anim(opacity)
 
   &:disabled
-    color $gray
+    color $secondary
 
   &.clear
     font-weight normal
@@ -32,7 +32,7 @@
       height 14px
 
       & svg path
-        stroke $black-1
+        stroke $dark
 
     & > span.text-content
       font-size 0
@@ -48,17 +48,17 @@
       & svg path
         stroke white
 
-        anim(all)
+        anim all
 
     &.active
     &:hover
       opacity 1
 
       & > span.icon-content svg path
-        stroke $red
-        fill $red
+        stroke $danger
+        fill $danger
 
-        anim(all)
+        anim all
 
   &.filter-button__clear
     font-weight normal
@@ -84,11 +84,11 @@
         height 22px
 
     &.desc-block-button
-      font-size: 16px
-      line-height: 20px
+      font-size 16px
+      line-height 20px
 
     &.filter-button
-      font-size: 16px
+      font-size 16px
 
       &__clear
         font-weight normal

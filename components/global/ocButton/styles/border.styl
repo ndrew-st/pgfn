@@ -19,23 +19,23 @@
     line-height 20px
     color #000000
 
-    anim(color)
+    anim color
 
   &:hover > span.text-content
-    color $blue
+    color $primary
 
-    anim(color)
+    anim color
 
   &:active
-    border-color $black-1
+    border-color $dark
 
     anim(border-color)
 
     & > span.text-content
-      color $black-1
+      color $dark
       font-weight bold
 
-      anim(all)
+      anim all
 
 @media (min-width 640px)
   .oc-button-border

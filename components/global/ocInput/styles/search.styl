@@ -9,10 +9,10 @@
 
     font-style normal
     font-weight normal
-    font-size: 14px;
-    line-height: 28px;
-    color $black-1
-    letter-spacing: -0.05px
+    font-size 14px
+    line-height 28px
+    color $dark
+    letter-spacing -0.05px
 
     border 2px solid #ECECEC
     box-sizing border-box
@@ -20,7 +20,7 @@
 
     rm-outline()
 
-    anim(all)
+    anim all
 
     &.input-left
       padding-left 32px
@@ -29,13 +29,13 @@
       padding-right 32px
 
     &.error
-      border-color $red
+      border-color $danger
 
       anim(border-color)
 
     &:focus
     &:active
-      border-color $blue
+      border-color $primary
 
       anim(border-color)
 
@@ -45,14 +45,14 @@
       & svg path
         stroke #DADADA
 
-        anim(all)
+        anim all
 
       &.focused
         & svg circle
         & svg path
-          stroke $blue
+          stroke $primary
 
-          anim(all)
+          anim all
 
     &.clear
       cursor pointer

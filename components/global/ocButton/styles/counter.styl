@@ -9,39 +9,39 @@
   & > .icon-content svg
     & > circle
       fill white
-      stroke $black-1
+      stroke $dark
 
   &.minus > .icon-content svg
     & > .horizontal
-      stroke $black-1
+      stroke $dark
 
   &.plus > .icon-content svg
     & > .vertical
     & > .horizontal
-      stroke $black-1
+      stroke $dark
 
   &.minus:hover
     & > .icon-content svg
       & > circle
-        fill $black-1
+        fill $dark
 
-        anim(all)
+        anim all
 
       & > .horizontal
         stroke white
-        anim(all)
+        anim all
 
   &.plus:hover
     & > .icon-content svg
       & > circle
-        fill $black-1
+        fill $dark
 
-        anim(all)
+        anim all
 
       & > path
         stroke white
 
-        anim(all)
+        anim all
 
   &:disabled
   &:disabled:hover
@@ -50,9 +50,9 @@
     & > .icon-content svg
       & > circle
         fill white
-        stroke $gray
+        stroke $secondary
 
       & > .horizontal
-        stroke $gray
+        stroke $secondary
 
-        anim(all)
+        anim all

@@ -8,11 +8,11 @@ show-on-hover()
   padding 5px
 
   background-color white
-  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1)
+  box-shadow 0 5px 5px -5px rgba(0, 0, 0, 0.1)
   border-radius 5px
   box-sizing border-box
 
-  anim(all)
+  anim all
 
 .card-item
   position relative
@@ -82,11 +82,11 @@ show-on-hover()
     &--content
       margin 0
 
-      font-style: normal
-      font-weight: normal
-      font-size: 13px
-      line-height: 20px
-      color: #989BA8
+      font-style normal
+      font-weight normal
+      font-size 13px
+      line-height 20px
+      color $secondary
 
   &__address
     position relative
@@ -97,21 +97,21 @@ show-on-hover()
 
     overflow hidden
     z-index 3
-    anim(all)
+    anim all
 
     &--content
       display block
       width auto
       margin 0
 
-      font-style: normal
-      font-weight: normal
-      font-size: 13px
-      line-height: 20px
-      color: #272528
+      font-style normal
+      font-weight normal
+      font-size 13px
+      line-height 20px
+      color $dark
       white-space nowrap
 
-      anim(all)
+      anim all
 
     @media(min-width 1280px)
       margin-bottom 12px
@@ -120,7 +120,7 @@ show-on-hover()
       &:hover
         overflow visible
 
-        anim(all)
+        anim all
 
         & p
           show-on-hover()
@@ -138,27 +138,27 @@ show-on-hover()
       align-items center
       margin 0
 
-      font-style: normal
-      font-weight: normal
-      font-size: 13px
-      line-height: 20px
-      color: #989BA8
+      font-style normal
+      font-weight normal
+      font-size 13px
+      line-height 20px
+      color $secondary
 
     &__rate
       margin 0
       margin-right 10px
       padding 4px 8px
 
-      font-style: normal
-      font-weight: bold
-      font-size: 16px
-      line-height: 20px
-      letter-spacing: -0.5px
-      text-transform: uppercase
-      color: #FFFFFF
+      font-style normal
+      font-weight bold
+      font-size 16px
+      line-height 20px
+      letter-spacing -0.5px
+      text-transform uppercase
+      color #FFFFFF
 
-      background: #EB574F
-      border-radius: 4px
+      background #EB574F
+      border-radius 4px
 
     &__reviews
       display flex
@@ -184,7 +184,7 @@ show-on-hover()
         width 2px
         height 2px
 
-        background-color #989BA8
+        background-color $secondary
         border-radius 5px
 
     &__views
@@ -219,7 +219,7 @@ show-on-hover()
         width 2px
         height 2px
 
-        background-color #989BA8
+        background-color $secondary
         border-radius 5px
 
       &.view-more
@@ -229,7 +229,7 @@ show-on-hover()
 
           overflow visible
 
-          anim(all)
+          anim all
 
           & p
             show-on-hover()
@@ -275,11 +275,11 @@ show-on-hover()
 
     padding-left 13px
 
-    font-style: normal
-    font-weight: normal
-    font-size: 13px
-    line-height: 20px
-    color: #989BA8
+    font-style normal
+    font-weight normal
+    font-size 13px
+    line-height 20px
+    color $secondary
 
     &:before
       content ''
@@ -291,7 +291,7 @@ show-on-hover()
       width 2px
       height 2px
 
-      background-color #989BA8
+      background-color $secondary
       border-radius 5px
 
     &:first-child
@@ -311,12 +311,12 @@ show-on-hover()
   &__old-price
     margin-right 13px
 
-    font-style: normal
-    font-weight: bold
-    font-size: 20px
-    line-height: 24px
+    font-style normal
+    font-weight bold
+    font-size 20px
+    line-height 24px
     text-decoration line-through
-    color #272528
+    color $dark
 
     &--rouble
       font-family Rouble Sans
@@ -325,11 +325,11 @@ show-on-hover()
   &__price
     margin-right 5px
 
-    font-style: normal
-    font-weight: bold
-    font-size: 20px
-    line-height: 24px
-    color: #272528
+    font-style normal
+    font-weight bold
+    font-size 20px
+    line-height 24px
+    color $dark
 
     &--rouble
       font-family Rouble Sans
@@ -339,11 +339,11 @@ show-on-hover()
     display flex
     align-items flex-end
 
-    font-style: normal
-    font-weight: normal
-    font-size: 13px
-    line-height: 20px
-    color: #989BA8
+    font-style normal
+    font-weight normal
+    font-size 13px
+    line-height 20px
+    color $secondary
 
   &__swiper
     & .carousel
@@ -382,13 +382,13 @@ show-on-hover()
 
     & .card-settings
       &__content
-        font-size: 14px
-        line-height: 20px
+        font-size 14px
+        line-height 20px
 
     &__address
       &--content
-        font-size: 14px
-        line-height: 20px
+        font-size 14px
+        line-height 20px
 
     & .carousel
       &__button-container

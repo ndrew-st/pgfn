@@ -2,10 +2,10 @@
   cursor pointer
 
   & .icon.icon-left.check
-    position: absolute
-    left: 0
-    top: 0
-    bottom: 0
+    position absolute
+    left 0
+    top 0
+    bottom 0
 
     display flex
     align-items center
@@ -22,7 +22,7 @@
   &:hover .icon.icon-left.check
     & > svg
       & > rect
-        stroke $black-1
+        stroke $dark
 
   &.checked .icon.icon-left.check
     & > svg
@@ -30,49 +30,49 @@
         stroke white
 
       & > rect
-        fill $black-1
-        stroke $black-1
+        fill $dark
+        stroke $dark
 
   & .label
     position relative
 
     display flex
-    height: 24px
+    height 24px
     align-items center
-    padding-left: 40px
+    padding-left 40px
 
-    font-style: normal
-    font-weight: normal
-    font-size: 13px
-    line-height: 20px
-    color: #272528
+    font-style normal
+    font-weight normal
+    font-size 13px
+    line-height 20px
+    color $dark
 
-    anim(all)
+    anim all
 
     cursor pointer
 
     &:before
       content ''
 
-      position: absolute
+      position absolute
       left 0
       top 0
       bottom 0
 
-      width: 24px
-      height: 24px
+      width 24px
+      height 24px
       margin auto 0
 
-      background: #FFFFFF
-      border: 1px solid #DADADA
-      box-sizing: border-box
-      border-radius: 4px
-      cursor: pointer
+      background #FFFFFF
+      border 1px solid #DADADA
+      box-sizing border-box
+      border-radius 4px
+      cursor pointer
 
   &.checked .label
     &:before
       background-color black
-      border 2px solid #272528
+      border 2px solid $dark
 
 @media (min-width 640px)
   .checkbox

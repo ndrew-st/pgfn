@@ -7,7 +7,7 @@
     align-items center
     & svg
       & path
-        fill $black-1
+        fill $dark
 
         anim(fill)
 
@@ -20,25 +20,25 @@
     font-size 16px
     line-height 24px
     letter-spacing 0.1px
-    color $black-1
+    color $dark
 
-    border: 0
+    border 0
     background-color transparent
-    border-bottom 1px dashed #272528
+    border-bottom 1px dashed $dark
 
-    anim(all)
+    anim all
 
   &.active
     & > span
       & svg path
-        fill $blue
+        fill $primary
 
         anim(fill)
 
       &.text-content
-        color $blue
+        color $primary
 
-        border-color $blue
+        border-color $primary
 
-        anim(all)
+        anim all
 

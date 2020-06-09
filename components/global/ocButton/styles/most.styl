@@ -12,27 +12,27 @@
   letter-spacing 0.1px
   color #FFFFFF
 
-  background-color $blue
+  background-color $primary
   border-radius 4px
   border 0
 
-  anim(all)
+  anim all
 
     &:hover
-      color $blue
+      color $primary
 
       background-color white
 
-      anim(all)
+      anim all
 
 
   &.color-red
-    background-color $red
+    background-color $danger
 
     &:hover
       color white
 
-      background-color $red-hover
+      background-color $danger-hover
 
   &.subs
     width 56px
@@ -60,24 +60,24 @@
     height 48px
 
     & > span.text-content
-      font-size: 13px
-      line-height: 24px
+      font-size 13px
+      line-height 24px
 
   &.shape-oval
     width 102px
     height 40px
     padding 0 18px
 
-    font-weight: normal
+    font-weight normal
 
-    box-sizing: border-box
-    border-radius: 44px
+    box-sizing border-box
+    border-radius 44px
 
 @media (min-width 1280px)
   .oc-button-most
     height 56px
 
-    font-size: 16px
+    font-size 16px
 
     &.subs
       width 130px

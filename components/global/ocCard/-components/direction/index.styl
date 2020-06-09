@@ -14,8 +14,8 @@
 
   box-sizing border-box
   transition all 0.3s linear 0s
-  background-position: 0 0
-  background-repeat: no-repeat
+  background-position 0 0
+  background-repeat no-repeat
   background-size cover
   cursor pointer
 
@@ -32,7 +32,7 @@
     width 100%
     height 100%
 
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 11%, rgba(0, 0, 0, 0.11) 29.48%, rgba(0, 0, 0, 0.15) 53.13%, rgba(0, 0, 0, 0.55) 74.35%)
+    background linear-gradient(180deg, rgba(0, 0, 0, 0.2) 11%, rgba(0, 0, 0, 0.11) 29.48%, rgba(0, 0, 0, 0.15) 53.13%, rgba(0, 0, 0, 0.55) 74.35%)
     border-radius 20px
 
   &__property-list
@@ -52,13 +52,13 @@
     margin-bottom 4px
     padding-left 24px
 
-    font-style: normal
-    font-weight: bold
-    font-size: 12px
-    line-height: 20px
-    letter-spacing: 0.3px
-    text-transform: uppercase
-    color: #FFFFFF
+    font-style normal
+    font-weight bold
+    font-size 12px
+    line-height 20px
+    letter-spacing 0.3px
+    text-transform uppercase
+    color #FFFFFF
 
     box-sizing border-box
 
@@ -66,28 +66,28 @@
       position relative
 
     &[data-tooltip]:after
-      content: attr(data-tooltip)
-      position: absolute
-      bottom: -43px
+      content attr(data-tooltip)
+      position absolute
+      bottom -43px
       left 5px
 
-      transform: scale(0)
-      transition: transform 0.3s ease-in-out
-      transform-origin: top
-      border-radius: 2px
+      transform scale(0)
+      transition transform 0.3s ease-in-out
+      transform-origin top
+      border-radius 2px
       display flex
       align-items flex-end
       height 37px
       padding 0 6px
       padding-bottom 3px
 
-      font-family Calibri
-      font-style: normal
-      font-weight: normal
-      font-size: 13px
-      line-height: 20px
-      letter-spacing: -0.2px
-      color: #FFFFFF
+
+      font-style normal
+      font-weight normal
+      font-size 13px
+      line-height 20px
+      letter-spacing -0.2px
+      color #FFFFFF
       white-space nowrap
 
       background url('/bg-tooltip.svg') 0 0 no-repeat
@@ -98,7 +98,7 @@
 
 
     &[data-tooltip]:hover:after
-      transform: scale(1)
+      transform scale(1)
 
     &:before
       content ''
@@ -148,12 +148,12 @@
     flex-basis 100%
     margin-bottom -50px
 
-    font-style: normal
-    font-weight: bold
-    font-size: 18px
-    line-height: 20px
-    letter-spacing: 0.2px
-    color: #FFFFFF
+    font-style normal
+    font-weight bold
+    font-size 18px
+    line-height 20px
+    letter-spacing 0.2px
+    color #FFFFFF
 
     z-index 5
 
@@ -173,26 +173,26 @@
     margin-right 10px
     padding 4px 8px
 
-    font-style: normal
-    font-weight: bold
-    font-size: 16px
-    line-height: 20px
-    letter-spacing: -0.5px
-    text-transform: uppercase
-    color: #FFFFFF
+    font-style normal
+    font-weight bold
+    font-size 16px
+    line-height 20px
+    letter-spacing -0.5px
+    text-transform uppercase
+    color #FFFFFF
 
-    background: #EB574F
-    border-radius: 4px
+    background #EB574F
+    border-radius 4px
 
   &__reviews
     display flex
     align-items center
 
-    font-style: normal
-    font-weight: normal
-    font-size: 13px
-    line-height: 20px
-    color: #FFFFFF
+    font-style normal
+    font-weight normal
+    font-size 13px
+    line-height 20px
+    color #FFFFFF
 
   &__type
     position relative
@@ -201,11 +201,11 @@
     align-items center
     padding-left 13px
 
-    font-style: normal
-    font-weight: normal
-    font-size: 13px
-    line-height: 20px
-    color: #FFFFFF
+    font-style normal
+    font-weight normal
+    font-size 13px
+    line-height 20px
+    color #FFFFFF
 
     &:before
       content ''

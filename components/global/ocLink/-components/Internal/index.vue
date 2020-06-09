@@ -5,20 +5,22 @@
     class="inner-link"
     :class="[classLink]"
   >
-    <span
-      class="inner-link__icon-container icon-content"
-      :class="[icon, { 'active': isActive }]"
-    >
-      <slot name="icon" />
+    <span class="inner-link__container">
+      <span
+        class="inner-link__icon-container icon-content"
+        :class="[icon, { 'active': isActive }]"
+      >
+        <slot name="icon" />
+      </span>
+      <a
+        :href="href"
+        class="inner-link__content text-link"
+        :class="{ 'active': isActive }"
+        @click="navigate"
+      >
+        <slot />
+      </a>
     </span>
-    <a
-      :href="href"
-      class="inner-link__content text-link"
-      :class="{ 'active': isActive }"
-      @click="navigate"
-    >
-      <slot />
-    </a>
   </nuxt-link>
 </template>
 

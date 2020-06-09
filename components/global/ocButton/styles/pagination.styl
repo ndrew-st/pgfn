@@ -6,7 +6,7 @@
   height 40px
   padding 0
 
-  anim(all)
+  anim all
 
   & > span.text-content
     font-size 0
@@ -19,26 +19,26 @@
     & svg
       & rect
         fill white
-        stroke $gray
+        stroke $secondary
 
-        anim(all)
+        anim all
 
       & path
-        stroke $black-1
+        stroke $dark
 
-        anim(all)
+        anim all
 
   &.next > span.icon-content svg
     transform rotate(180deg)
 
   &:hover > span.icon-content svg
     & rect
-      fill $red
-      stroke $red
+      fill $danger
+      stroke $danger
 
-      anim(all)
+      anim all
 
     & path
       stroke white
 
-      anim(all)
+      anim all

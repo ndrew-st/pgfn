@@ -11,7 +11,7 @@
     font-size 18px
     line-height 28px
     letter-spacing 0.1px
-    color $black-1
+    color $dark
 
     background #F3F3F3
     border 0
@@ -19,13 +19,13 @@
     border-radius 4px 4px 0px 0px
     box-sizing border-box
 
-    anim(all)
+    anim all
 
     &--block
       display flex
       align-items center
 
-      color #989BA8
+      color $secondary
 
       cursor pointer
 
@@ -35,21 +35,21 @@
 
     &:hover
     &:focus
-      border-color $blue
+      border-color $primary
 
       anim(border-color)
 
     &.error
-      border-color $red
+      border-color $danger
 
   & .label
-    font-style: normal
-    font-weight: bold
-    font-size: 14px
-    line-height: 32px
-    letter-spacing: 0.3px
-    text-transform: uppercase
-    color: $black-1
+    font-style normal
+    font-weight bold
+    font-size 14px
+    line-height 32px
+    letter-spacing 0.3px
+    text-transform uppercase
+    color $dark
 
   &.subsc
     & .input
