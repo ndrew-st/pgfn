@@ -1,2 +1,4 @@
-components/**
-pages/**
+components/ocScrollBar/**
+components/ocZoomer/**
+pages/profile/**
+pages/sign-in/**

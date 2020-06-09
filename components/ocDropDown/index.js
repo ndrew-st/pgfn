@@ -12,7 +12,7 @@ export default {
     // hide dropdown, if click at another area
     document.onmousedown = (e) => {
       const target = e.target
-      const dropdown = target.closest('.dropdown__btn') || target.closest('.dropdown__content')
+      const dropdown = target.closest('.dropdownbtn') || target.closest('.dropdowncontent')
       if (!dropdown) {
         root.$emit('dropdown:hide')
       }
@@ -23,7 +23,21 @@ export default {
       this.isShow = false
     },
     toggle (e) {
-      if (!e.target.closest('.dropdown__content')) {
+      if (e.target.closest('.dropdownbtn')) {
+        if (!this.isShow) {
+          this.$root.$emit('dropdown:hide')
+          this.isShow = true
+
+          return null
+        } else {
+          this.$root.$emit('dropdown:hide')
+          this.isShow = false
+
+          return null
+        }
+      }
+
+      if (!e.target.closest('.dropdowncontent')) {
         // hide dropdown if other dropdowns show
         this.$root.$emit('dropdown:hide')
       }

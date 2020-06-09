@@ -1,6 +1,6 @@
 <template>
   <div>
-    <OcMainPanel />
+    <!-- <OcMainPanel /> -->
     <nuxt class="main__content" />
   </div>
 </template>
