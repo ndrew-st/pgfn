@@ -1,29 +1,10 @@
 <template>
   <div class="desc-block">
-<<<<<<< HEAD
-    <div class="left-col">
-      <p class="h1">
-        {{ info.desc1 }}
-      </p>
-
-      <p class="desc2">
-        {{ active ? longDesc : info.desc2 }}
-      </p>
-
-      <p
-        :class="['more', {'more__active': active}]"
-        @click="active = !active"
-      >
-        Читать далее
-      </p>
-    </div>
-=======
     <Description
       class="left-col"
       :title="info.title"
       :description="info.desc"
     />
->>>>>>> origin/feature/pgs-45
 
     <div>
       <div class="desc-block-row">

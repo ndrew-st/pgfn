@@ -1,4 +1,4 @@
-import OcDropDown from '@/components/ocDropDown/index.vue'
+import OcDropDown from '@/components/global/ocDropDown/index.vue'
 import ApButton from '../ap-button/index.vue'
 import ApListDropdown from '../ap-list-dropdown/index.vue'
 

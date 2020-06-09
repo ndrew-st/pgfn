@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import OcMainPanel from '@/components/ocMainPanel/index.vue'
+// import OcMainPanel from '@/components/ocMainPanel/index.vue'
 
 export default {
   components: {
-    OcMainPanel
+    // OcMainPanel
   }
 }
 </script>
