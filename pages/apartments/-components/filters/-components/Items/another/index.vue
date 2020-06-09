@@ -5,13 +5,15 @@
   >
     <div class="another__container">
       <div class="another__header another-header">
-        <button
-          type="button"
+        <OcButton
+          name="transparent"
+          icon="close"
+          add-class="close"
           class="another-header__close"
           @click="$root.$emit('dropdown:hide')"
         >
           закрыть
-        </button>
+        </OcButton>
         <h3 class="another-header__title">
           Другие фильтры
         </h3>
@@ -39,25 +41,25 @@
           </li>
         </ul>
       </div>
-      <ocScrollBar classes="another__scrollbar">
-        <component
-          :is="active"
-          class="another__content"
-        />
-      </ocScrollBar>
+      <component
+        :is="active"
+        class="another__content"
+      />
       <div class="another__footer another-footer">
-        <button
-          type="button"
-          class="another-footer__button another-footer__button--clear"
+        <OcButton
+          name="transparent"
+          add-class="filter-button"
+          class="another-footer__clear"
         >
           Очистить всё
-        </button>
-        <button
-          type="button"
-          class="another-footer__button another-footer__button--show"
+        </OcButton>
+        <OcButton
+          name="most"
+          color="red"
+          class="another-footer__save"
         >
           Показать {{ `${count} ${variant(count)}` }}
-        </button>
+        </OcButton>
       </div>
     </div>
   </div>

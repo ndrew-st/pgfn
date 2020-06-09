@@ -25,7 +25,7 @@
       <!--          />-->
       <!--        </li>-->
       <!--      </ul>-->
-      <ocPaginate
+      <OcPagination
         :current="currentPage"
         :total="items.length"
         :per-page="perPage"
@@ -37,4 +37,4 @@
 </template>
 
 <script src="./index.js"/>
-<style lang="stylus" src="./index.styl"/>
+<style lang="stylus" src="./index.styl" scoped/>

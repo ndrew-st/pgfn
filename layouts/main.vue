@@ -4,19 +4,15 @@
 
     <nuxt />
 
-    <ocFooter />
+    <Footer />
   </div>
 </template>
 
 <script>
-import MainHeader from '~/components/ocMainHeader'
-import ocFooter from '~/components/ocFooter'
+import MainHeader from '~/components/blocks/MainHeader'
+import Footer from '~/components/blocks/Footer'
 
 export default {
-  components: { MainHeader, ocFooter }
+  components: { MainHeader, Footer }
 }
 </script>
-
-<style lang="stylus">
-
-</style>

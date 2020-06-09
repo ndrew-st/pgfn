@@ -1,0 +1,140 @@
+.group-cart
+  position relative
+
+  display flex
+  flex-wrap wrap
+  margin-bottom 25px
+  padding 0 16px
+  padding-right 0
+
+  box-sizing border-box
+
+  &__title-container
+    display flex
+    flex-basis 100%
+    margin-bottom 20px
+
+    order 1
+
+  &__title
+    margin-right 8px
+
+    font-style normal
+    font-weight bold
+    font-size 18px
+    line-height 24px
+    letter-spacing -0.1px
+    color $dark
+
+  &__count-articles
+    font-style normal
+    font-weight normal
+    font-size 13px
+    line-height 16px
+    letter-spacing 0.2px
+    color $secondary
+
+  &__checkboxes
+    order 3
+
+  &__list
+    display flex
+    max-width 100%
+    margin 0 auto
+    padding 0
+    padding-top 15px
+
+    list-style none
+    overflow auto
+
+  &__item
+    min-width 252px
+    margin-right 16px
+
+  &__slider-container
+    position relative
+    max-width 1280px
+    width 100%
+    margin 0 auto
+    flex-basis 100%
+
+    order 2
+
+.group-checkbox
+  position relative
+
+  margin-left -16px
+
+  overflow hidden
+  box-sizing border-box
+
+  &__container
+    height 100%
+
+    overflow-x scroll
+    box-sizing content-box
+
+    -ms-overflow-style none
+    scrollbar-width none
+
+    &::-webkit-scrollbar
+      display none
+
+  &__list
+    display flex
+    width 100%
+    margin 0
+    padding 20px 16px
+
+    list-style none
+
+    @media(min-width 1280px)
+      padding-bottom 12px
+
+  &__item
+    margin-right 8px
+
+    &:last-child
+      padding-right 32px
+
+@media(min-width 1280px)
+  .group-cart
+    max-width 1280px
+    margin-left auto
+    margin-right auto
+    padding 0
+    margin-bottom 75px
+
+    &__title-container
+      margin-bottom 8px
+
+    &__title
+      font-size 24px
+
+    &__count-articles
+      font-size 18px
+
+    &__checkboxes
+      order 2
+
+    &__list
+      position relative
+
+      width 100%
+
+      order 3
+
+  .group-checkbox
+    margin-left -16px
+    padding-left 16px
+    margin-right 0
+
+    &__container
+      margin-left -16px
+
+    &__list
+      padding-right 0
+      margin-bottom 24px
+
+    &__item
+      margin-right 16px

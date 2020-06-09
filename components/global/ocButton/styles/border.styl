@@ -1,0 +1,52 @@
+.oc-button-border
+  display flex
+  align-items center
+  height 36px
+  margin 0 auto
+
+  background #FFFFFF
+  border 1px solid #F3F3F3
+  box-sizing border-box
+  border-radius 44px
+
+  & > span.text-content
+    display block
+    padding 0 16px
+
+    font-style normal
+    font-weight normal
+    font-size 13px
+    line-height 20px
+    color #000000
+
+    anim color
+
+  &:hover > span.text-content
+    color $primary
+
+    anim color
+
+  &:active
+    border-color $dark
+
+    anim(border-color)
+
+    & > span.text-content
+      color $dark
+      font-weight bold
+
+      anim all
+
+@media (min-width 640px)
+  .oc-button-border
+    height 40px
+
+    & > span.text-content
+      padding 0 18px
+
+      font-size 18px
+
+    &.more > span.text-content
+      padding 0 12px
+
+      font-size 14px

@@ -2,22 +2,22 @@
   <div class="footer">
     <ul class="footer__list">
       <li class="footer__item">
-        <button
-          type="button"
-          class="footer__button footer__button--clear"
+        <OcButton
+          name="transparent"
+          add-class="filter-button filter-button__clear"
           @click="$emit('clear')"
         >
           Очистить
-        </button>
+        </OcButton>
       </li>
       <li class="footer__item">
-        <button
-          type="button"
-          class="footer__button footer__button--save"
+        <OcButton
+          name="transparent"
+          add-class="filter-button filter-button__save"
           @click="$emit('save')"
         >
           Сохранить
-        </button>
+        </OcButton>
       </li>
     </ul>
   </div>
@@ -36,24 +36,4 @@
     list-style none
 
     border-radius 0 0 12px 12px
-
-  &__button
-    padding 0
-
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 20px;
-    color: #272528;
-
-    border 0
-    background-color transparent
-    cursor: pointer;
-
-    &:hover
-    &:focus
-      outline 0
-
-    &--save
-      font-weight bold
 </style>

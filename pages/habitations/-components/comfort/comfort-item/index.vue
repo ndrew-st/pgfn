@@ -1,7 +1,9 @@
 <template>
   <div class="comfort-item">
     <div class="comfort-item__img">
-      <img :src="item.image">
+      <OcImg
+        :src="item.image"
+      />
     </div>
 
     <p class="comfort-item__name">
@@ -11,5 +13,4 @@
 </template>
 
 <script src="./index.js" />
-
 <style src="./index.styl" lang="stylus" />

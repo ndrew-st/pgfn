@@ -1,5 +1,5 @@
 <template>
-    <nuxt class="main__content" />
+  <nuxt class="main__content" />
 </template>
 
 <style lang="stylus">

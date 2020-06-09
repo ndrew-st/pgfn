@@ -1,0 +1,98 @@
+.margin20
+    margin-left 20px
+
+.input
+    background #F3F3F3
+    border-bottom 2px solid #d5d1db
+    border-radius 4px 4px 0px 0px
+    width 216px
+    height 28px
+    padding 13px 16px
+
+    font-style normal
+    font-weight normal
+    font-size 18px
+    line-height 28px
+    letter-spacing 0.1px
+    color $secondary
+
+    transition all 0.3s ease-in-out 0s
+    cursor pointer
+
+    &:hover
+    &:focus
+        border-color $primary
+        transition all 0.3s ease-in-out 0s
+
+.calendar
+    visibility hidden
+    width 536px
+    // height 364px
+    background #FFFFFF
+    box-shadow 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.08)
+    border-radius 12px
+    margin-top 4px
+    -webkit-touch-callout none /* iOS Safari */
+    -webkit-user-select none /* Chrome/Safari/Opera */
+    -khtml-user-select none /* Konqueror */
+    -moz-user-select none /* Firefox */
+    -ms-user-select none /* Internet Explorer/Edge */
+    user-select none
+
+.active
+    visibility visible
+
+
+.first-month
+    border-right 1px solid #ECECEC
+    padding-right 16px
+
+
+.second-month
+    padding-left 16px
+
+
+.flex
+    display flex
+    height 51px
+
+
+.clear-div
+    width 100%
+    padding-top 19px
+
+
+.clear
+    margin-left 28px
+
+
+.save-div
+    text-align right
+    padding-top 19px
+
+
+.save
+    margin-right 28px
+
+
+.months
+    padding 28px 28px 26px 28px
+    display flex
+    border-bottom 1px solid #ECECEC
+
+
+.filter-calendar
+    position relative
+    margin-left 0
+
+    &:hover
+    &:focus
+    &:active
+        outline 0
+
+    &__content
+        position absolute
+        left 0
+        top 0
+
+        margin-top 60px

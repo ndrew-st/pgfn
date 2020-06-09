@@ -1,0 +1,41 @@
+.oc-input-circle-radio
+
+  cursor pointer
+
+  & .icon svg
+    & circle.border
+      stroke $dark
+
+  &.checked .icon svg
+    & circle.circle
+      fill $dark
+
+  & .label
+    display block
+    padding-left 48px
+
+    font-style normal
+    font-weight normal
+    font-size 18px
+    line-height 22px
+    color $dark
+
+    @media (max-width 768px)
+      font-size 16px
+      line-height 20px
+
+  & .description
+    font-style normal
+    font-weight normal
+    font-size 14px
+    line-height 17px
+    display block
+    color $secondary
+
+    @media (max-width 768px)
+      font-size 13px
+      line-height 16px
+
+
+
+

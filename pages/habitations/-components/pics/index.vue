@@ -7,8 +7,7 @@
         :active-index="activeIndex"
         @toggle="toggleShow"
       >
-        <ocCarousel
-          :key="date"
+        <OcCarousel
           :dots="true"
           :items="images"
           :column="1"
@@ -22,28 +21,31 @@
             :key="img.id"
             class="pics-carousel__img-container carousel-img-container"
           >
-            <ocZoomer
-              class="pics-carousel__zoomer carousel-zoomer"
-              :max-scale="10"
-              :off="!showPopup"
-              :zoomed.sync="zoomed"
-            >
-              <div
-                class="pics-carousel__img-wrapper"
-                @click="toggleShow(true)"
+            <div class="carousel-img-container__wrapper">
+              <OcZoomer
+                class="pics-carousel__zoomer carousel-zoomer"
+                :max-scale="10"
+                :off="!showPopup"
+                :zoomed.sync="zoomed"
+                @swipe="changeSwipe"
               >
-                <img
-                  :src="img.url"
-                  :alt="img.description"
-                  class="pics-carousel__img"
+                <div
+                  class="pics-carousel__img-wrapper"
+                  @click="toggleShow(true)"
                 >
-              </div>
-            </ocZoomer>
+                  <OcImg
+                    :data-url="img.url"
+                    :alt="img.description"
+                    class="pics-carousel__img"
+                  />
+                </div>
+              </OcZoomer>
+            </div>
             <p class="pics-carousel__img-description carousel-img-description">
               {{ img.description }}
             </p>
           </div>
-        </ocCarousel>
+        </OcCarousel>
       </Popup>
       <span
         v-if="!showPopup"
@@ -52,7 +54,7 @@
     </div>
 
     <div class="pics__vertical pics-vertical">
-      <ocCarousel
+      <OcCarousel
         :dots="true"
         :items="images"
         :column="2"
@@ -63,28 +65,30 @@
         @updateIndex="updateIndex"
       >
         <div
-          v-for="img in images"
+          v-for="(img, index) in images"
           :key="img.id"
           class="pics-vertical__img-container"
+          @click="changeActiveCarousel(index)"
         >
-          <img
+          <OcImg
             :src="img.url"
             :alt="img.description"
             class="pics-vertical__img"
-          >
+          />
         </div>
-      </ocCarousel>
+      </OcCarousel>
     </div>
 
-    <button
-      type="button"
-      class="pics__button-gallery"
-      @click="toggleShow(true)"
-    >
-      Фотогалерея
-    </button>
+    <div class="pics__button-container">
+      <OcButton
+        name="border"
+        @click="toggleShow(true)"
+      >
+        Фотогалерея
+      </OcButton>
+    </div>
   </div>
 </template>
 
 <script src="./index.js"/>
-<style src="./index.styl" lang="stylus" scoped/>
+<style src="./index.styl" lang="stylus"/>

@@ -1,5 +1,3 @@
-import OcButtonNext from '@/components/ocVerification/ocButtonNext/index.vue'
-
 export default {
   props: {
     error: {
@@ -10,15 +8,12 @@ export default {
       required: true
     }
   },
-  components: {
-    OcButtonNext
-  },
   data: () => ({
     isActive: false,
     phone1: ''
   }),
   methods: {
-    mask (item) {
+    mask () {
       const matrix = '___ ___-__-__'
       let i = 0
       const def = matrix.replace(/\D/g, '')

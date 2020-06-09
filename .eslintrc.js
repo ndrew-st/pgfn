@@ -26,6 +26,7 @@ module.exports = {
         }
       }
     ],
+    'no-console': process.env.NODE_ENV === 'development' ? 'off' : 'warn',
     'vue/require-component-is': 'warn',
     'vue/no-unused-components': 'warn',
     'no-unused-vars': 'warn'

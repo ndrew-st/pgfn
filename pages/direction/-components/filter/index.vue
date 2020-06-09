@@ -6,10 +6,19 @@
       @input="changeTab"
     />
 
-    <div class="filter__content">
+    <div class="filter__container">
       <component
         :is="currentActive"
+        class="filter__content"
       />
+      <OcButton
+        class="filter__submit"
+        kind="most"
+        color="blue"
+        @click="submit"
+      >
+        Поиск
+      </OcButton>
     </div>
   </div>
 </template>

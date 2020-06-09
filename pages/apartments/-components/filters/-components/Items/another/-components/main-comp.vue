@@ -1,21 +1,21 @@
 <template>
   <div class="main-filter">
-    <div class="main-filter__full main-full">
-      <ul class="main-full__list">
-        <li
-          v-for="(item, index) in radios"
-          :key="index"
-          class="main-full__item full-unit"
-        >
-          <p class="full-unit__desc">
-            {{ item.title }}
-          </p>
-          <ocToggle
-            :checked="item.checked"
-          />
-        </li>
-      </ul>
-    </div>
+    <!--    <div class="main-filter__full main-full">-->
+    <!--      <ul class="main-full__list">-->
+    <!--        <li-->
+    <!--          v-for="(item, index) in radios"-->
+    <!--          :key="index"-->
+    <!--          class="main-full__item full-unit"-->
+    <!--        >-->
+    <!--          <p class="full-unit__desc">-->
+    <!--            {{ item.title }}-->
+    <!--          </p>-->
+    <!--          <OcToggle-->
+    <!--            :checked="item.checked"-->
+    <!--          />-->
+    <!--        </li>-->
+    <!--      </ul>-->
+    <!--    </div>-->
 
     <!--  Объявление размещено  -->
     <BlockCheckboxes
@@ -27,22 +27,22 @@
       @input="updateValue(adPlaced.name, $event)"
     />
 
-    <ocRangeSlider
-      type="°С"
-      :from="0"
-      :to="40"
-    />
+    <div class="main-filter__range-container">
+      <OcRangeSlider
+        type="°С"
+        :from="0"
+        :to="40"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import BlockCheckboxes from './block-checkboxes'
-import ocToggle from '~/components/ocToggle'
-import ocRangeSlider from '~/components/ocRangeSlider'
 
 export default {
   name: 'Main',
-  components: { ocToggle, BlockCheckboxes, ocRangeSlider },
+  components: { BlockCheckboxes },
   data () {
     return {
       result: {},
@@ -80,6 +80,11 @@ export default {
   padding-bottom: 100px
 
   box-sizing border-box
+
+  &__range-container
+    height 32px
+    margin-top 50px
+
 .main-full
   padding: 26px 0
 
@@ -110,7 +115,7 @@ export default {
 @media (min-width: 720px)
   .main-filter
     padding: 0 40px
-    padding-bottom 20px
+    padding-bottom 100px
 
   .main-full
     padding: 35px 0
