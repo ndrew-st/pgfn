@@ -37,11 +37,11 @@
         </div>
 
         <div class="money__flex">
-          <img
+          <OcImg
             src="img/wheretostay/1.png"
             alt="house"
             class="money__img"
-          >
+          />
 
           <div class="money__right">
             <h2 class="money__app-name">
@@ -93,6 +93,5 @@
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus" scoped/>
-
 <script src="./index.js" />
+<style src="./index.styl" lang="stylus" scoped/>

@@ -10,8 +10,8 @@ export default {
     return {
       mobileLinks: [
         { title: 'Поиск', link: '/search', icon: 'find' },
-        { title: 'Закладки', link: '/bookmarks', icon: 'heart', iconClass: 'icon-heart' },
-        { title: 'Меню', link: '/menu', icon: 'home', iconClass: 'icon-menu' },
+        { title: 'Закладки', link: '/bookmarks', icon: 'heart' },
+        { title: 'Меню', link: '/menu', icon: 'home' },
         { title: 'Добавить', link: '/add-object', icon: 'add' },
         { title: 'Вход', link: '/sign-in', icon: 'user' }
       ],

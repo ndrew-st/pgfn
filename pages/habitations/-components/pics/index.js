@@ -1,6 +1,4 @@
 import Popup from './-components/Popup'
-import ocCarousel from '~/components/global/ocCarousel'
-import ocZoomer from '~/components/global/ocZoomer'
 
 export default {
   props: {
@@ -10,7 +8,7 @@ export default {
       default: () => []
     }
   },
-  components: { ocCarousel, Popup, ocZoomer },
+  components: { Popup },
   data () {
     return {
       activeIndex: 0,

@@ -3,12 +3,13 @@
     <h3 class="step-container__title">
       Что вам найти?
     </h3>
-    <nuxt-link
-      class="step-container__link"
+    <OcLink
       to="/more-info"
+      name="mobile-filter"
+      class="step-container__link"
     >
       {{ searchSel }}
-    </nuxt-link>
+    </OcLink>
 
     <ul class="step-container__content">
       <li
@@ -16,14 +17,12 @@
         :key="item.value"
         class="step-container__item"
       >
-        <img
+        <OcImg
           :alt="item.name"
           :src="item.img"
-          :srcset="item.img2x"
           width="80"
           height="65"
-          class="step-container__image"
-        >
+        />
         <OcInput
           type="radio"
           kind="radio"

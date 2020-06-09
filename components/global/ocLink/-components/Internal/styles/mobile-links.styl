@@ -1,0 +1,48 @@
+.oc-link-mobile-links
+  display flex
+  flex-wrap wrap
+  justify-content: center
+
+  & > .icon-content
+    padding 0
+
+    border 0
+    background-color transparent
+
+    &.active
+      &.heart svg path
+        stroke $blue
+
+      &.home svg path
+        fill $blue
+
+      &.find svg
+        & circle
+        & path
+          stroke $blue
+
+      &.add svg
+        & circle
+        & path
+          stroke $blue
+
+      &.user svg
+        & circle
+        & path
+          stroke $blue
+
+  & .text-link
+    display block
+    flex-basis 100%
+    margin-top 0
+
+    font-style: normal
+    font-weight: normal
+    font-size: 9px
+    line-height: 12px
+    text-align center
+    letter-spacing: -0.1px
+    color: $black-1
+
+    &.active
+      color $blue

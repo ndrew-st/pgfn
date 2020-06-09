@@ -2,33 +2,37 @@
   <div class="booking-footer">
     <div class="booking-footer__container">
       <div class="booking-footer__block-menu">
-        <nuxt-link
+        <OcLink
           to="#"
+          name="most"
           class="booking-footer__link"
         >
           Фотогалерея
-        </nuxt-link>
+        </OcLink>
 
-        <nuxt-link
+        <OcLink
           to="#"
+          name="most"
           class="booking-footer__link"
         >
           Удобства
-        </nuxt-link>
+        </OcLink>
 
-        <nuxt-link
+        <OcLink
           to="#"
+          name="most"
           class="booking-footer__link"
         >
           Отзывы
-        </nuxt-link>
+        </OcLink>
 
-        <nuxt-link
+        <OcLink
           to="#"
+          name="most"
           class="booking-footer__link"
         >
           Расположение
-        </nuxt-link>
+        </OcLink>
       </div>
 
       <div class="booking-footer__block-buttons">

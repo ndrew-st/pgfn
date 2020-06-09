@@ -1,12 +1,12 @@
 <template>
   <div class="full-block">
-    <img
+    <OcImg
       :alt="title"
       :src="background"
-      width="2400"
-      height="1600"
+      :width="2400"
+      :height="1600"
       class="full-block__bg-image"
-    >
+    />
     <div class="full-block__container">
       <h2 class="full-block__title">
         {{ title }}

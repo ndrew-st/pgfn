@@ -6,8 +6,8 @@ export default {
       nameSec: 'type-object',
       searchSel: '',
       list: [
-        { name: 'Услуги', value: 'services', img: '/form/services.png', img2x: '/form/services@2x.png' },
-        { name: 'Жильё', value: 'housing', img: '/form/housing.png', img2x: '/form/housing@2x.png' }
+        { name: 'Услуги', value: 'services', img: '/form/services.png' },
+        { name: 'Жильё', value: 'housing', img: '/form/housing.png' }
       ]
     }
   },

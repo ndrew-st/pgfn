@@ -29,7 +29,7 @@ export default {
         imageOffset: [0, 0]
         // content: '123 v12',
         // contentOffset: [0, 15],
-        // contentLayout: '<div style="background: red; width: 50px; color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+        // contentLayout: '<div styles="background: red; width: 50px; color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
       }
     }
   },

@@ -1,15 +1,13 @@
 <template>
-  <div
-    v-cloak
-    class="header"
-  >
+  <div class="header">
     <div
       v-if="!showForm"
       class="header__main-container"
     >
       <div class="header__container">
-        <nuxt-link
+        <OcLink
           to="/"
+          name="header-user"
           class="header__logo-link"
         >
           <OcImg
@@ -17,7 +15,7 @@
             alt="Логотип"
             class="header__logo"
           />
-        </nuxt-link>
+        </OcLink>
 
         <div class="header__geo header-geo">
           <OcDropDown>
@@ -137,16 +135,13 @@
             </OcDropDown>
           </li>
           <li class="header-controls__item">
-            <nuxt-link
+            <OcLink
               to="/sign-in"
-              class="header-controls__link"
+              name="header-user"
+              icon="user"
             >
-              <OcIcon
-                class="header-controls__link--icon"
-                name="user"
-              />
               Войти
-            </nuxt-link>
+            </OcLink>
             <!--            <nuxt-link-->
             <!--              v-else-->
             <!--              to="/profile"-->
@@ -164,24 +159,13 @@
         :key="item.title"
         class="mobile-controls__item"
       >
-        <nuxt-link
-          v-slot="{ href, route, navigate, isActive }"
+        <OcLink
           :to="item.link"
-          class="mobile-controls__button"
+          name="mobile-links"
+          :icon="item.icon"
         >
-          <span>
-            <OcIcon
-              :class="[{ 'active-icon': isActive }, item.iconClass]"
-              class="mobile-controls__button--icon"
-              :name="item.icon"
-            />
-            <a
-              :href="href"
-              :class="{ 'active-link': isActive }"
-              class="mobile-controls__button--link"
-            >{{ item.title }}</a>
-          </span>
-        </nuxt-link>
+          {{ item.title }}
+        </OcLink>
       </li>
     </ul>
 

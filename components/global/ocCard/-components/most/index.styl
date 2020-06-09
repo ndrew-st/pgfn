@@ -39,11 +39,10 @@ show-on-hover()
     overflow hidden
 
   &__image
-    display block
-    width 100%
-    height auto
-
-    vertical-align bottom
+    & > img
+      display block
+      width 100%
+      height auto
 
   &__list
     margin-bottom 16px
@@ -63,16 +62,6 @@ show-on-hover()
     &--link-cont
       margin 0
       display inline-block
-
-    &--link
-      font-style: normal
-      font-weight: bold
-      font-size: 18px
-      line-height: 24px
-      color: #272528
-      white-space nowrap
-
-      anim(all)
 
     &.title-more
       &:hover
@@ -380,10 +369,6 @@ show-on-hover()
 
     &__title
       margin-top 24px
-
-      &--link
-        font-size 20px
-        line-height 24px
 
     &__intro
       &--content

@@ -1,0 +1,21 @@
+.oc-link-header-user
+  & .text-link
+    font-style: normal
+    font-weight: normal
+    font-size: 16px
+    line-height: 24px
+    letter-spacing: 0.1px
+    color: #272528
+
+
+  &:hover
+    & .text-link
+      color $blue
+
+      anim(color)
+
+    & .icon-content
+      & svg
+        & circle
+        & path
+          stroke $blue

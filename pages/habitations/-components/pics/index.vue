@@ -7,7 +7,7 @@
         :active-index="activeIndex"
         @toggle="toggleShow"
       >
-        <ocCarousel
+        <OcCarousel
           :dots="true"
           :items="images"
           :column="1"
@@ -22,7 +22,7 @@
             class="pics-carousel__img-container carousel-img-container"
           >
             <div class="carousel-img-container__wrapper">
-              <ocZoomer
+              <OcZoomer
                 class="pics-carousel__zoomer carousel-zoomer"
                 :max-scale="10"
                 :off="!showPopup"
@@ -33,19 +33,19 @@
                   class="pics-carousel__img-wrapper"
                   @click="toggleShow(true)"
                 >
-                  <img
+                  <OcImg
                     :data-url="img.url"
                     :alt="img.description"
                     class="pics-carousel__img"
-                  >
+                  />
                 </div>
-              </ocZoomer>
+              </OcZoomer>
             </div>
             <p class="pics-carousel__img-description carousel-img-description">
               {{ img.description }}
             </p>
           </div>
-        </ocCarousel>
+        </OcCarousel>
       </Popup>
       <span
         v-if="!showPopup"
@@ -54,7 +54,7 @@
     </div>
 
     <div class="pics__vertical pics-vertical">
-      <ocCarousel
+      <OcCarousel
         :dots="true"
         :items="images"
         :column="2"
@@ -70,14 +70,13 @@
           class="pics-vertical__img-container"
           @click="changeActiveCarousel(index)"
         >
-          <img
-            v-lazy
-            :data-url="img.url"
+          <OcImg
+            :src="img.url"
             :alt="img.description"
             class="pics-vertical__img"
-          >
+          />
         </div>
-      </ocCarousel>
+      </OcCarousel>
     </div>
 
     <div class="pics__button-container">

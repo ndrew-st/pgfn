@@ -40,7 +40,6 @@ export default {
       ],
       payments: [
         { title: 'Master Card', src: '/payments/master-card.svg' },
-        { title: 'maestro', src: '/payments/maestro.svg' },
         { title: 'Visa', src: '/payments/visa.svg' },
         { title: 'Google pay', src: '/payments/gpay.png', width: 47.5, height: 20 },
         { title: 'Apple pay', src: '/payments/apple.svg' },

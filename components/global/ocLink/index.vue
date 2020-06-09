@@ -1,8 +1,20 @@
 <template>
-  <div>
+  <component
+    :is="kind"
+    v-bind="$attrs"
+    :to="to"
+    :href="href"
+  >
+    <OcIcon
+      v-if="icon"
+      slot="icon"
+      class="link-icon"
+      :class="[icon]"
+      :name="icon"
+    />
     <slot />
-  </div>
+  </component>
 </template>
 
 <script src="./index.js"/>
-<style lang="stylus" src="./index.styl" scoped/>
+<style lang="stylus" src="./index.styl"/>

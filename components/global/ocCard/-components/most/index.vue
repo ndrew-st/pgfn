@@ -20,12 +20,11 @@
           :key="index"
           class="card-item__img-container"
         >
-          <img
-            v-lazy
-            :data-url="gallery"
+          <OcImg
+            :src="gallery"
             :alt="item.name"
             class="card-item__image"
-          >
+          />
         </div>
       </Carousel>
     </div>
@@ -38,12 +37,12 @@
         ref="titleCt"
         class="card-item__title--link-cont"
       >
-        <nuxt-link
-          to=""
-          class="card-item__title--link"
+        <OcLink
+          to="/"
+          name="main-card-title"
         >
           {{ item.name }}
-        </nuxt-link>
+        </OcLink>
       </p>
     </div>
 

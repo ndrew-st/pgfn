@@ -17,7 +17,7 @@
       title="Популярные направления"
       @changeTab="handlerTab('direction', $event)"
     >
-      <ocCard
+      <OcCard
         v-for="(item, index) in direction.items"
         :key="item.name + item.address"
         kind="direction"
@@ -36,7 +36,7 @@
       title="Жильё"
       @changeTab="handlerTab('apartments', $event)"
     >
-      <ocCard
+      <OcCard
         v-for="(item, index) in apartments.items"
         :key="item.name + item.address"
         kind="most"
@@ -59,7 +59,7 @@
       title="Услуги"
       @changeTab="handlerTab('services', $event)"
     >
-      <ocCard
+      <OcCard
         v-for="(item, index) in services.items"
         :key="item.name + item.address"
         kind="most"

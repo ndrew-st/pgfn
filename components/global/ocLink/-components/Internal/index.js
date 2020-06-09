@@ -1,26 +1,26 @@
 export default {
   props: {
-    src: {
+    to: {
       type: String,
       default: ''
     },
-    width: {
-      type: Number,
-      default: null
+    icon: {
+      type: String,
+      default: ''
     },
-    height: {
-      type: Number,
-      default: null
-    },
-    alt: {
+    name: {
       type: String,
       default: ''
     }
   },
-  inheritAttrs: false,
   data () {
     return {
 
+    }
+  },
+  computed: {
+    classLink () {
+      return `oc-link-${this.name}`
     }
   }
 }
