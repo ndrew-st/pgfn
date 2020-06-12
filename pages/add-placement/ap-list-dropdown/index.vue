@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ap-list-dropdown">
     <ul
       class="ap-list-dropdown__ul"
     >

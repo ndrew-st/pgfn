@@ -24,6 +24,7 @@
 <style lang="stylus" src="./styles/carousel.styl"/>
 <style lang="stylus" src="./styles/counter.styl"/>
 <style lang="stylus" src="./styles/filter.styl"/>
+<style lang="stylus" src="./styles/filter-old.styl"/>
 <style lang="stylus" src="./styles/geo.styl"/>
 <style lang="stylus" src="./styles/list.styl"/>
 <style lang="stylus" src="./styles/most.styl"/>

@@ -36,9 +36,11 @@ export default {
     },
     selectItem (par) {
       this.selItem = par
+      this.$root.$emit('dropdown:hide')
     },
     selectItem2 (par) {
       this.selItem2 = par
+      this.$root.$emit('dropdown:hide')
     }
   }
 }

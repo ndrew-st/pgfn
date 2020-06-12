@@ -138,7 +138,7 @@ export default {
       if (this.type === 'radio') {
         return this.value === this.checkValue
       } else if (this.type === 'checkbox') {
-        return this.value.includes(this.checkValue)
+        return (this.value === null ? false : this.value.includes(this.checkValue))
       } else {
         return false
       }
