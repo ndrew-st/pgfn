@@ -4,7 +4,8 @@ export default {
       type: Array,
       default: () => ([
         {
-
+          title: '',
+          value: ''
         }
       ])
     },
@@ -15,5 +16,11 @@ export default {
   },
   data () {
     return {}
+  },
+  methods: {
+    select (title, value) {
+      this.$root.$emit('dropdown:hide')
+      this.$emit('input', { title, value })
+    }
   }
 }

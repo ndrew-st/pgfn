@@ -24,10 +24,6 @@ export default {
       type: Boolean,
       default: false
     },
-    selected: {
-      type: Boolean,
-      default: false
-    },
     addClass: {
       type: String,
       default: ''

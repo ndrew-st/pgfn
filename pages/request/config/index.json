@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Расположение",
+    "name": "location",
+    "cmp": "first"
+  },
+  {
+    "title": "Необходимое жильё",
+    "name": "required-housing",
+    "cmp": "second"
+  }
+]

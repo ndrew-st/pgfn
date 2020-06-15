@@ -9,7 +9,12 @@
         :key="index"
         class="result__item item"
       >
-        {{ item.title }}
+        <OcButton
+          name="select"
+          @click="select(item.title, item.value)"
+        >
+          {{ item.title }}
+        </OcButton>
       </li>
     </ul>
     <p

@@ -9,6 +9,18 @@ export default {
       required: true,
       default: 'most'
     },
+    addClass: {
+      type: String,
+      default: ''
+    },
+    measure: {
+      type: String,
+      default: null
+    },
+    required: {
+      type: Boolean,
+      default: false
+    },
     mask: {
       type: String,
       default: null
@@ -120,7 +132,11 @@ export default {
       return this.iconPosition === 'left'
     },
     rightIconName () {
-      return this.value.length > 0 ? 'clear' : this.icon
+      if (this.kind === 'search') {
+        return this.value.length > 0 ? 'clear' : this.icon
+      } else {
+        return this.icon
+      }
     },
     rightIcon () {
       return this.iconPosition === 'right'

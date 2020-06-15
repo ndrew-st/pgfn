@@ -87,6 +87,11 @@
   </div>
 </template>
 
+<<<<<<< HEAD
 <style src="./index.styl" lang="stylus"/>
 
 <script src="./index.js" />
+=======
+<script src="./index.js" />
+<style src="./index.styl" lang="stylus"/>
+>>>>>>> origin/feature/pgs-55

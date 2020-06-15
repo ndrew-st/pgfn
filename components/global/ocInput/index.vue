@@ -1,7 +1,7 @@
 <template>
   <div
     class="input-container"
-    :class="[mainClass, { 'active': active }, { 'checked': checkedInput }, { 'error': error }]"
+    :class="[mainClass, addClass, { 'active': active }, { 'checked': checkedInput }, { 'error': error }]"
   >
     <label
       v-if="label"
@@ -9,6 +9,10 @@
       class="input-container__label label"
     >
       {{ label }}
+      <span
+        v-if="required"
+        class="input-container__label--required"
+      >*</span>
       <span
         v-if="addDesc"
         class="input-container__label--text description"
@@ -33,10 +37,17 @@
       :checked="checkedInput"
       :name="name"
       :type="type"
+      :required="required"
       class="input-container__input input"
       :class="[additionalClass, hidden]"
       v-on="listeners"
     >
+
+    <span
+      v-if="measure"
+      class="input-container__measure measure"
+      v-html="measure"
+    />
 
     <OcIcon
       v-if="visibleIcon && leftIcon"

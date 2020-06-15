@@ -8,8 +8,11 @@ export default {
   components: {
     Step1,
     Step2,
+<<<<<<< HEAD
     Step3,
     Step4,
+=======
+>>>>>>> origin/feature/pgs-55
     StageBar
   },
   data () {
