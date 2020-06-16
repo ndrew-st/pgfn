@@ -15,14 +15,13 @@
             :key="tab.url"
             class="group-checkbox__item"
           >
-            <OcInput
+            <OcRadio
               v-model="tabSelect"
               :check-value="tab.url"
               :name="`groups-card-${title}`"
-              kind="group-radio"
-              type="radio"
+              kind="group"
               :label="tab.name"
-              @input="$emit('changeTab', $event)"
+              @change="$emit('changeTab', $event.target.value)"
             />
           </li>
         </ul>

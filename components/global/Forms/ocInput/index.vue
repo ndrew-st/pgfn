@@ -1,7 +1,7 @@
 <template>
   <div
     class="input-container"
-    :class="[mainClass, { 'active': active }, { 'checked': checkedInput }, { 'error': error }]"
+    :class="[mainClass, { 'active': active }, { 'error': error }]"
   >
     <label
       v-if="label"
@@ -30,11 +30,10 @@
       :value="value"
       v-bind="$attrs"
       :maxlength="maxLength"
-      :checked="checkedInput"
       :name="name"
-      :type="type"
+      type="text"
       class="input-container__input input"
-      :class="[additionalClass, hidden]"
+      :class="[additionalClass]"
       v-on="listeners"
     >
 
@@ -58,11 +57,5 @@
 <style lang="stylus" src="./index.styl" scoped/>
 
 <style lang="stylus" src="./styles/date.styl"/>
-<style lang="stylus" src="./styles/group-radio.styl"/>
 <style lang="stylus" src="./styles/most.styl"/>
-<style lang="stylus" src="./styles/radio.styl"/>
 <style lang="stylus" src="./styles/search.styl"/>
-<style lang="stylus" src="./styles/toggle.styl"/>
-<style lang="stylus" src="./styles/checkbox.styl"/>
-<style lang="stylus" src="./styles/checkbox-filter.styl"/>
-<style lang="stylus" src="./styles/circle-radio.styl"/>

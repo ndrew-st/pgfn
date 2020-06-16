@@ -16,13 +16,29 @@ const requireComponent = require.context(
 
 requireComponent.keys().forEach((fn) => {
   const arrFn = fn.split('/')
+  const regCmp = /oc[A-Z]\w+/
+  const regIdx = /index.vue/
 
-  if (arrFn.length > 3) {
-    return false
+  const idx = arrFn.findIndex(item => regCmp.test(item))
+
+  if (!regCmp.test(arrFn[idx]) || !regIdx.test(arrFn[idx + 1])) {
+    return
   }
 
+  const arrName = arrFn.filter((item) => {
+    if (regCmp.test(item)) {
+      return item
+    }
+  })
+
+  if (!arrName.length) {
+    return
+  }
+
+  const name = arrName[0]
+
   const cmpConfig = requireComponent(fn)
-  const cmpName = arrFn[1].charAt(0).toUpperCase() + arrFn[1].substr(1)
+  const cmpName = name.charAt(0).toUpperCase() + name.substr(1)
 
   Vue.component(cmpName, cmpConfig.default || cmpConfig)
 })

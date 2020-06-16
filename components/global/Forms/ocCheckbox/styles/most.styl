@@ -1,7 +1,5 @@
-.oc-input-checkbox
-  cursor pointer
-
-  & .icon.icon-left.check
+.oc-checkbox-most
+  & .icon.check
     position absolute
     left 0
     top 0
@@ -19,12 +17,12 @@
         fill white
         stroke transparent
 
-  &:hover .icon.icon-left.check
+  &:hover .icon.check
     & > svg
       & > rect
         stroke $dark
 
-  &.checked .icon.icon-left.check
+  &.checked .icon.check
     & > svg
       & > path
         stroke white
@@ -75,6 +73,6 @@
       border 2px solid $dark
 
 @media (min-width 640px)
-  .checkbox
+  .oc-checkbox-most
     & .label
       font-size 16px

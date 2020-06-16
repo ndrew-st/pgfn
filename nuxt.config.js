@@ -30,7 +30,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '@/plugins/global-components.js', ssr: false },
+    '@/plugins/global-components.js',
     { src: '@/plugins/yandexMaps.js', ssr: false },
     { src: '@/plugins/directives.js', ssr: false },
     { src: '@/plugins/storage.js', mode: 'client' },

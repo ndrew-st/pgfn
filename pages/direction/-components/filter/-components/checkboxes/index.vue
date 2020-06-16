@@ -6,14 +6,13 @@
         :key="item.name"
         class="checkboxes__item"
       >
-        <OcInput
+        <OcRadio
           v-model="current"
-          type="radio"
-          kind="checkbox-filter"
+          kind="filter"
           name="filter-search-check"
           :label="item.title"
           :check-value="item.name"
-          @input="$emit('input', $event)"
+          @change="$emit('input', $event.target.value)"
         />
       </li>
     </ul>

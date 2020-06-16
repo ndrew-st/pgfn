@@ -36,9 +36,11 @@ export default {
     OcVerification,
     OcPass
   },
-  props: { phone: {
-    type: String,
-    default: '' }
+  props: {
+    phone: {
+      type: String,
+      default: ''
+    }
   },
   data: () => ({
     stage: 'sms',
