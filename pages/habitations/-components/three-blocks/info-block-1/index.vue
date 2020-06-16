@@ -5,13 +5,11 @@
       :key="index"
       class="tariff"
     >
-      <OcInput
+      <OcRadio
         v-model="current"
-        type="radio"
         icon="circle-radio"
-        icon-position="left"
         name="tariff"
-        kind="circle-radio"
+        kind="circle"
         :check-value="tariff.value"
         :label="tariff.name"
         :add-desc="tariff.desc"

@@ -4,13 +4,12 @@
       <h3 class="instant-booking__title">
         Мгновенное бронирование
       </h3>
-      <OcInput
+      <OcCheckbox
         v-model="value"
         label="toggle"
         kind="toggle"
-        type="checkbox"
         check-value="instant-booking"
-        @input="$emit('input', $event)"
+        @change="$emit('input', $event.target.value)"
       />
     </div>
     <p class="instant-booking__desc">

@@ -1,19 +1,30 @@
-.oc-input-circle-radio
+.oc-radio-circle
+  display flex
+  flex-wrap wrap
+  align-items center
 
-  cursor pointer
+  padding-left 48px
+  width 100%
 
-  & .icon svg
-    & circle.border
-      stroke $dark
+  & .icon
+    position absolute
+    top 0
+    bottom 0
+    left 0
+
+    display flex
+    align-items center
+    margin auto 0
+
+    & svg
+      & circle.border
+        stroke $dark
 
   &.checked .icon svg
     & circle.circle
       fill $dark
 
   & .label
-    display block
-    padding-left 48px
-
     font-style normal
     font-weight normal
     font-size 18px
@@ -24,18 +35,16 @@
       font-size 16px
       line-height 20px
 
-  & .description
+  & .add-text
+    display flex
+    flex-basis 100%
+
     font-style normal
     font-weight normal
     font-size 14px
     line-height 17px
-    display block
     color $secondary
 
     @media (max-width 768px)
       font-size 13px
       line-height 16px
-
-
-
-

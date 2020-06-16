@@ -6,14 +6,13 @@
         :key="filter.name"
         class="filter__item"
       >
-        <OcInput
+        <OcRadio
           v-model="selected"
-          type="radio"
-          kind="checkbox-filter"
+          kind="filter"
           name="desktop-filter"
           :label="filter.title"
           :check-value="filter.name"
-          @input="$emit('input', $event)"
+          @change="$emit('input', $event.target.value)"
         />
       </li>
     </ul>

@@ -23,9 +23,7 @@
           width="80"
           height="65"
         />
-        <OcInput
-          type="radio"
-          kind="radio"
+        <OcRadio
           class="step-container__input"
           :name="nameSec"
           :label="item.name"

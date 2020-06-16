@@ -1,5 +1,4 @@
 import throttle from '~/utils/throttle'
-import isArray from '~/utils/isArray'
 
 export default {
   inheritAttrs: false,
@@ -8,30 +7,6 @@ export default {
       type: String,
       required: true,
       default: 'most'
-    },
-    addClass: {
-      type: String,
-      default: ''
-    },
-    measure: {
-      type: String,
-      default: null
-    },
-    required: {
-      type: Boolean,
-      default: false
-    },
-    mask: {
-      type: String,
-      default: null
-    },
-    checkValue: {
-      type: String,
-      default: null
-    },
-    type: {
-      type: String,
-      default: 'text'
     },
     label: {
       type: String,
@@ -50,7 +25,7 @@ export default {
       default: null
     },
     value: {
-      type: [String, Number, Array],
+      type: String,
       default: null
     },
     name: {
@@ -76,9 +51,6 @@ export default {
     }
   },
   computed: {
-    _isToggle () {
-      return this.type === 'radio' || this.type === 'checkbox'
-    },
     listeners () {
       const vm = this
 
@@ -101,19 +73,6 @@ export default {
 
             vm.$emit('keydown', e)
           },
-          change (evt) {
-            if (vm._isToggle) {
-              if (vm.checkedInput) {
-                vm.uncheck()
-              } else {
-                vm.check()
-              }
-
-              return false
-            }
-
-            vm.$emit('change', evt.target.value)
-          },
           focusin () {
             vm.focused = true
             vm.$emit('focusin')
@@ -126,7 +85,7 @@ export default {
       )
     },
     id () {
-      return this._isToggle && this.checkValue && this.checkValue.length ? this.checkValue : Math.random()
+      return Math.random()
     },
     leftIcon () {
       return this.iconPosition === 'left'
@@ -147,18 +106,6 @@ export default {
     additionalClass () {
       return this.visibleIcon ? this.leftIcon ? 'input-left' : 'input-right' : ''
     },
-    hidden () {
-      return this._isToggle ? 'visually-hidden' : ''
-    },
-    checkedInput () {
-      if (this.type === 'radio') {
-        return this.value === this.checkValue
-      } else if (this.type === 'checkbox') {
-        return (this.value === null ? false : this.value.includes(this.checkValue))
-      } else {
-        return false
-      }
-    },
     mainClass () {
       return `oc-input-${this.kind}`
     }
@@ -171,38 +118,6 @@ export default {
       if (this.rightIconName === 'clear') {
         this.$emit('input', '')
       }
-    },
-    check () {
-      if (this.type === 'checkbox' && isArray(this.value)) {
-        const value = this.value.slice(0) // Copy Array.
-
-        value.push(this.checkValue)
-        this.$emit('input', value)
-
-        return
-      }
-
-      this.$emit('input', this.checkValue)
-    },
-    uncheck () {
-      if (this.type === 'radio') { return }
-
-      if (isArray(this.value)) {
-        const value = this.value.slice(0)
-
-        value.splice(value.indexOf(this.checkValue), 1)
-        this.$emit('input', value)
-
-        return
-      }
-
-      if (this.checkValue === true) {
-        this.$emit('input', false)
-
-        return
-      }
-
-      this.$emit('input', null)
     }
   }
 }
