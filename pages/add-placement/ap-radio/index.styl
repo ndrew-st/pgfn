@@ -1,0 +1,22 @@
+.ap-radio
+    &__input
+        display none
+
+        &:checked + .ap-radio__label:before
+            background-image url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='9.5' fill='white' stroke='%23272528'/%3E%3Ccircle cx='10' cy='10' r='5' fill='%23272528'/%3E%3C/svg%3E%0A")
+
+    &__label
+        cursor pointer
+        font-size 16px
+        position relative
+        padding-left 25px
+
+        &:before
+            content ''
+            display inline-block
+            width 20px
+            height 20px
+            position absolute
+            left 0
+            bottom 1px
+            background-image url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='9.5' fill='white' stroke='%23272528'/%3E%3C/svg%3E%0A")
