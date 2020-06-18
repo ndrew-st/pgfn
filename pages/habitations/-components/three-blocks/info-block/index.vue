@@ -7,6 +7,5 @@
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus" scoped />
-
 <script src="./index.js" />
+<style src="./index.styl" lang="stylus" scoped />

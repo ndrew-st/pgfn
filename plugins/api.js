@@ -1,6 +1,3 @@
-import createApartmentsApi from '~/api/apartments'
-import createUsersApi from '~/api/user'
-
 export default ({ $axios }, inject) => {
   if (process.browser) {
     const token = localStorage.getItem('token')
@@ -40,13 +37,22 @@ export default ({ $axios }, inject) => {
 
   $axios.onResponse(res => res.data)
 
-  const apartWithAxios = createApartmentsApi($axios)
-  const usersWithAxios = createUsersApi($axios)
+  const requireComponent = require.context(
+    '~/api/services',
+    false,
+    /[a-z].js/
+  )
 
-  const rep = {
-    apartments: apartWithAxios('apartments'),
-    users: usersWithAxios('users')
-  }
+  let repositories = { }
 
-  inject('api', rep)
+  requireComponent.keys().forEach((fn) => {
+    const createSerApi = requireComponent(fn).default
+    const serName = fn.split('/').pop().replace(/\.\w+$/, '')
+
+    repositories = Object.assign(repositories, {
+      [serName]: createSerApi($axios)(serName)
+    })
+  })
+
+  inject('api', repositories)
 }

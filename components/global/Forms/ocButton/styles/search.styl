@@ -1,0 +1,48 @@
+.oc-button-search
+  position relative
+
+  width 60px
+  padding 0
+  margin-left -40px
+
+  background-color white
+  border 2px solid #ECECEC
+  border-radius 0px 4px 4px 0px
+
+  z-index 10
+  transition all 0.3s ease-in-out 0s
+
+  & > span.text-content
+    font-size 0
+
+  & > span
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    right 0
+
+    width 14px
+    height 16px
+    margin auto
+
+    & svg circle
+    & svg path
+      stroke $secondary
+
+      anim all
+
+  &:hover
+  &:focus
+  &.active
+    background-color $primary
+    border-color $primary
+
+    anim all
+
+    & span
+      & svg circle
+      & svg path
+        stroke white
+
+        anim all

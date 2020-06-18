@@ -1,18 +1,10 @@
 <template>
   <div class="desc-block">
-    <div class="left-col">
-      <p class="h1">
-        {{ info.desc1 }}
-      </p>
-
-      <p class="desc2">
-        {{ info.desc2 }}
-      </p>
-
-      <p class="more">
-        Читать далее
-      </p>
-    </div>
+    <Description
+      class="left-col"
+      :title="info.title"
+      :description="info.desc"
+    />
 
     <div>
       <div class="desc-block-row">
@@ -51,12 +43,13 @@
         </div>
       </div>
 
-      <button
+      <OcButton
+        name="most"
         class="connect"
         @click="connect()"
       >
         Связаться
-      </button>
+      </OcButton>
     </div>
   </div>
 </template>

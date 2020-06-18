@@ -3,8 +3,8 @@
     <OcVerification>
       <OcPhoneNumber
         v-if="stage === 'phone'"
-        :error="error"
         v-model="phone"
+        :error="error"
         @next="next"
       />
 
@@ -32,19 +32,19 @@
 
       <OcPass
         v-if="stage === 'pass'"
+        v-model="pass"
         :error="error"
         btn-text="Далее"
-        v-model="pass"
         @next="next"
       />
 
-      <a
+      <nuxt-link
         class="reg"
         :class="{ reg7: stage === 'timer' }"
-        href="/sign-up"
+        to="/sign-up"
       >
         Зарегистрироваться
-      </a>
+      </nuxt-link>
 
       <nuxt-link
         v-if="stage ==='pass'"
@@ -58,5 +58,4 @@
 </template>
 
 <script src="./index.js"/>
-
 <style src="./index.styl" lang="stylus"/>

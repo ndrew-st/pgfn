@@ -1,0 +1,62 @@
+.oc-input-most
+  height 100%
+
+  & .input
+    width 100%
+    height 56px
+    padding 0 16px
+
+    font-style normal
+    font-weight normal
+    font-size 18px
+    line-height 28px
+    letter-spacing 0.1px
+    color $dark
+
+    background #F3F3F3
+    border 0
+    border-bottom 2px solid #D5D1DB
+    border-radius 4px 4px 0px 0px
+    box-sizing border-box
+
+    anim all
+
+    &--block
+      display flex
+      align-items center
+
+      color $secondary
+
+      cursor pointer
+
+    &:hover
+    &:focus
+      outline 0
+
+    &:hover
+    &:focus
+      border-color $primary
+
+      anim(border-color)
+
+    &.error
+      border-color $danger
+
+  & .label
+    font-style normal
+    font-weight bold
+    font-size 14px
+    line-height 32px
+    letter-spacing 0.3px
+    text-transform uppercase
+    color $dark
+
+  &.subsc
+    & .input
+      font-size 15px
+
+@media (min-width 1280px)
+  .oc-input-most
+    &.subsc
+      & .input
+        font-size 16px

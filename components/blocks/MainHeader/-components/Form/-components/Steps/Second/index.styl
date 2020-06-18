@@ -1,0 +1,59 @@
+.step-container
+  &__date-container
+    max-width 320px
+    margin 0 auto
+    margin-top 10px
+
+.date-container
+  &__list
+    display flex
+    margin 0
+    margin-bottom 15px
+    padding 0
+    margin-left -18px
+    margin-right -18px
+
+    list-style none
+
+    box-sizing border-box
+
+.step-container
+  &__date-content
+    & .headline
+      font-weight normal
+
+    & .flex
+      & .arrow
+        position relative
+
+        width 100%
+        max-width 36px
+        height 28px
+
+        &_left
+        &_right
+          position absolute
+          top 0
+          bottom 0
+          left 0
+          right 0
+
+          margin auto
+
+      & .month-name
+        width 100%
+
+        font-weight bold
+        font-size 15px
+        line-height 21px
+
+    & .table
+      margin-left auto
+      margin-right auto
+
+      & .week-days
+      & .cell-box
+        width 40px
+        height 40px
+
+        box-sizing border-box

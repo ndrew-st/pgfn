@@ -1,22 +1,28 @@
 import Checkboxes from './-components/checkboxes'
 
-import apartmentsDay from './-components/apartments-day'
-import apartmentsLong from './-components/apartments-long'
+import filters from './-components/filters'
 
 export default {
-  components: { Checkboxes, apartmentsDay, apartmentsLong },
+  components: {
+    Checkboxes,
+    'day': filters,
+    'long': filters
+  },
   data () {
     return {
       checkboxes: [
-        { title: 'Жильё посуточно', name: 'apartmentsDay' },
-        { title: 'Жильё на длительный срок', name: 'apartmentsLong' }
+        { title: 'Жильё посуточно', name: 'day' },
+        { title: 'Жильё на длительный срок', name: 'long' }
       ],
-      currentActive: 'apartmentsDay'
+      currentActive: 'day'
     }
   },
   methods: {
     changeTab (cur) {
       this.currentActive = cur
+    },
+    submit () {
+      // what do with search
     }
   }
 }

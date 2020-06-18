@@ -4,11 +4,12 @@
       <h3 class="instant-booking__title">
         Мгновенное бронирование
       </h3>
-      <ocToggle
-        class="instant-booking__toggle"
-        value="instant-booking"
-        :checked="value || false"
-        @input="$emit('input', $event)"
+      <OcCheckbox
+        v-model="value"
+        label="toggle"
+        kind="toggle"
+        check-value="instant-booking"
+        @change="$emit('input', $event.target.value)"
       />
     </div>
     <p class="instant-booking__desc">
@@ -18,11 +19,8 @@
 </template>
 
 <script>
-import ocToggle from '~/components/ocToggle'
-
 export default {
   name: 'InstantBooking',
-  components: { ocToggle },
   props: {
     value: {
       type: Boolean,

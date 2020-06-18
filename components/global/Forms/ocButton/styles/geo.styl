@@ -1,0 +1,44 @@
+.oc-button-geo
+  display flex
+  align-items center
+
+  & > span
+    display inline-flex
+    align-items center
+    & svg
+      & path
+        fill $dark
+
+        anim(fill)
+
+  & > span.text-content
+    display block
+    margin-left 6px
+
+    font-style normal
+    font-weight normal
+    font-size 16px
+    line-height 24px
+    letter-spacing 0.1px
+    color $dark
+
+    border 0
+    background-color transparent
+    border-bottom 1px dashed $dark
+
+    anim all
+
+  &.active
+    & > span
+      & svg path
+        fill $primary
+
+        anim(fill)
+
+      &.text-content
+        color $primary
+
+        border-color $primary
+
+        anim all
+
