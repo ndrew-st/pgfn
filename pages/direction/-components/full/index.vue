@@ -15,6 +15,12 @@
         class="full-block__description"
         v-html="description"
       />
+      <!--      <FeaturePlace-->
+      <!--        class="full-block__features"-->
+      <!--        :temperature="features.temp"-->
+      <!--        :water-temperature="features.waterTemp"-->
+      <!--        :count="features.current"-->
+      <!--      />-->
     </div>
   </div>
 </template>

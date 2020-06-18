@@ -1,5 +1,9 @@
 export default {
+// <<<<<<< HEAD
   inserted: (el, { arg }) => {
+    // =======
+    //   bind: (el, { arg }) => {
+    // >>>>>>> bugfix/main-page-0.0.5
     function loadImage () {
       if (!el) {
         return false

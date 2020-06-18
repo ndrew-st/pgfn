@@ -1,6 +1,9 @@
 import num2str from '@/utils/num2str'
 
+import FeaturePlace from '~/components/blocks/FeaturePlace'
+
 export default {
+  components: { FeaturePlace },
   props: {
     item: {
       type: Object,
@@ -10,7 +13,7 @@ export default {
         name: 'Севастополь',
         weather: {
           temperature: '24',
-          waterTemperature: '18' // Опционально, может не быть
+          waterTemperature: '18' // Опционально
         },
         current: 4777,
         type: 'Город',

@@ -30,6 +30,7 @@
 
     <div class="group-cart__slider-container">
       <OcCarousel
+        v-if="!loading"
         :column="4"
         :items="items"
         :auto-width="autoWidth"
@@ -38,6 +39,7 @@
       >
         <slot />
       </OcCarousel>
+      <ocLoader v-else />
     </div>
   </div>
 </template>

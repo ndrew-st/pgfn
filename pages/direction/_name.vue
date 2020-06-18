@@ -4,6 +4,7 @@
       :title="header.title"
       :description="header.description"
       :background="header.background"
+      :features="header.features"
     />
 
     <FilterBlock />
@@ -14,8 +15,8 @@
       :tabs="direction.tabs"
       :items="direction.items"
       :count="direction.count"
+      name="direction"
       title="Популярные направления"
-      @changeTab="handlerTab('direction', $event)"
     >
       <OcCard
         v-for="(item, index) in direction.items"
@@ -34,7 +35,7 @@
       :items="apartments.items"
       :tabs="apartments.tabs"
       title="Жильё"
-      @changeTab="handlerTab('apartments', $event)"
+      name="apartments"
     >
       <OcCard
         v-for="(item, index) in apartments.items"
@@ -57,7 +58,7 @@
       :items="services.items"
       :tabs="services.tabs"
       title="Услуги"
-      @changeTab="handlerTab('services', $event)"
+      name="services"
     >
       <OcCard
         v-for="(item, index) in services.items"
@@ -70,7 +71,10 @@
       />
     </GroupCard>
 
-    <Description />
+    <Description
+      v-if="description"
+      class="direction-page__description"
+    />
   </div>
 </template>
 

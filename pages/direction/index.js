@@ -37,6 +37,7 @@ export default {
       direction: state => state.result.direction,
       apartments: state => state.result.apartments,
       services: state => state.result.services || {},
+      description: state => state.result.description,
       head: (state) => {
         return {
           title: state.result.title,
