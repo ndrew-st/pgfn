@@ -1,8 +1,6 @@
 import num2str from '~/utils/num2str'
-import Carousel from '~/components/global/ocCarousel'
 
 export default {
-  components: { Carousel },
   props: {
     item: {
       type: Object,
