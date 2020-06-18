@@ -6,7 +6,7 @@
       :description="info.desc"
     />
 
-    <div>
+    <div class="right-col">
       <div class="desc-block-row">
         <div class="name-icon">
           {{ info.initials }}
@@ -54,6 +54,5 @@
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus" />
-
 <script src="./index.js"/>
+<style src="./index.styl" lang="stylus" />

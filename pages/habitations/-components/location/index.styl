@@ -3,15 +3,19 @@
         border-bottom 1px solid #ECECEC
         max-width 1280px
         margin auto
+        margin-bottom 71px
+        padding-bottom 71px
 
+        @media (max-width 768px)
+            margin-bottom 24px
+            padding-bottom 24px
 
     &__h
-
         font-style normal
         font-weight bold
         font-size 32px
         line-height 39px
-        color $dark
+        color #272528
         margin-top 72px
 
         @media (max-width 768px)
@@ -19,10 +23,7 @@
             line-height 24px
             margin-top 42px
 
-
-
     &__a
-
         font-style normal
         font-weight normal
         font-size 18px
@@ -33,14 +34,10 @@
             font-size 16px
             line-height 20px
 
-
-
-    &__ahover
+    &__a:hover
         text-decoration-line underline
 
-
     &__span
-
         font-style normal
         font-weight normal
         font-size 18px
@@ -52,43 +49,36 @@
             font-size 16px
             line-height 20px
 
-
-
     &__flex
         display flex
         margin-top 28px
 
-
     &__inline
         display inline
-
 
     &__yandex-map-content
         max-width 1280px
         max-height 440px
         margin-top 28px
 
-
     &__desc
-
         font-style normal
         font-weight normal
         font-size 18px
         line-height 20px
         letter-spacing 0.2px
-        color $dark
+        color #272528
         margin-top 33px
 
-
     &__read-more
-
         font-style normal
         font-weight bold
         font-size 18px
         line-height 24px
         letter-spacing 0.1px
-        color $dark
+        color #272528
         margin-top 12px
-        margin-bottom 71px
+        cursor pointer
 
-
+        &__active
+            display none

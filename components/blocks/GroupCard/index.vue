@@ -21,7 +21,7 @@
               :name="`groups-card-${title}`"
               kind="group"
               :label="tab.name"
-              @change="$emit('changeTab', $event.target.value)"
+              @change="change"
             />
           </li>
         </ul>
@@ -39,7 +39,7 @@
       >
         <slot />
       </OcCarousel>
-      <ocLoader v-else />
+      <OcLoader v-else />
     </div>
   </div>
 </template>

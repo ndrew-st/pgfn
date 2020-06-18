@@ -1,12 +1,5 @@
-import OcVerification from '@/components/global/ocVerification/index.vue'
-import OcPass from '@/components/ocPass/index.vue'
-
 export default {
   layout: 'clean',
-  components: {
-    OcVerification,
-    OcPass
-  },
   data: () => ({
     stage: 'phone',
     error: '',

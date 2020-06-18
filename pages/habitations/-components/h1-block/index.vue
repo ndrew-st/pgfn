@@ -13,11 +13,15 @@
 
       <div class="fe">
         <p class="h1">
-          {{ h1Info.price }}
+          <nobr>
+            {{ h1Info.price }}
+          </nobr>
         </p>
 
         <p class="period">
-          {{ h1Info.period }}
+          <nobr>
+            {{ h1Info.period }}
+          </nobr>
         </p>
       </div>
     </div>

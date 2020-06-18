@@ -54,10 +54,10 @@ export default {
     }
   },
   methods: {
-    async change (url) {
+    async change (evt) {
       this.loading = true
 
-      await this.updateTabs({ field: this.name, url })
+      await this.updateTabs({ field: this.name, url: evt.target.value })
 
       this.loading = false
     },

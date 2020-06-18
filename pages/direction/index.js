@@ -67,9 +67,6 @@ export default {
     isEmptyObj (obj) {
       return isEmptyObject(obj)
     },
-    handlerTab (field, url) {
-      this.updateTabs({ field, url })
-    },
     handlerLike (idCard, field) {
       this.likes = {
         ...this.likes,
