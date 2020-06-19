@@ -38,7 +38,15 @@ export default {
       )
     },
     checkedInput () {
-      return this.value.includes(this.checkValue)
+      if (!this.value) {
+        return false
+      } else if (typeof this.value === 'boolean') {
+        return this.value
+      } else if (isArray(this.value)) {
+        return this.value.includes(this.checkValue)
+      } else {
+        return this.value === this.checkValue
+      }
     },
     addClass () {
       return `oc-checkbox-${this.kind}`
@@ -46,7 +54,7 @@ export default {
   },
   methods: {
     check () {
-      if (isArray(this.value)) {
+      if (this.value && isArray(this.value)) {
         const value = this.value.slice(0) // Copy Array.
 
         value.push(this.checkValue)
@@ -58,7 +66,7 @@ export default {
       this.$emit('input', this.checkValue)
     },
     uncheck () {
-      if (isArray(this.value)) {
+      if (this.value && isArray(this.value)) {
         const value = this.value.slice(0)
 
         value.splice(value.indexOf(this.checkValue), 1)
