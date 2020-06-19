@@ -1,5 +1,5 @@
-import OcButton from '@/components/global/ocButton/index.vue'
-import OcInput from '@/components/global/ocInput/index.vue'
+import OcButton from '@/components/global/Forms/ocButton/index.vue'
+import OcInput from '@/components/global/Forms/ocInput/index.vue'
 
 export default {
   components: {
