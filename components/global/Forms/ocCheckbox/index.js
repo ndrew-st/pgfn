@@ -6,12 +6,16 @@ export default {
       type: String,
       default: ''
     },
+    kind: { // For styles
+      type: String,
+      default: 'most'
+    },
     value: {
-      type: Array,
-      default: ''
+      type: [String, Number, Boolean, Array],
+      default: null
     },
     checkValue: {
-      type: [String, Array],
+      type: [String, Number],
       default: null
     },
     icon: {
@@ -33,6 +37,9 @@ export default {
             } else {
               vm.check()
             }
+          },
+          change ({ target: { value } }) {
+            vm.$emit('change', value)
           }
         }
       )
@@ -40,7 +47,7 @@ export default {
     checkedInput () {
       if (!this.value) {
         return false
-      } else if (typeof this.value === 'boolean') {
+      } else if (this._isBool(this.value)) {
         return this.value
       } else if (isArray(this.value)) {
         return this.value.includes(this.checkValue)
@@ -53,8 +60,33 @@ export default {
     }
   },
   methods: {
+    _isBool (val) {
+      return typeof val === 'boolean'
+    },
+    _isString (val) {
+      return typeof val === 'string'
+    },
     check () {
-      if (this.value && isArray(this.value)) {
+      if (this.value === null) {
+        return
+      }
+
+      if (this._isBool(this.value)) {
+        this.$emit('input', true)
+
+        return
+      }
+
+      if (this._isString(this.value) && this.value.length) {
+        const res = []
+        res.push(this.value, this.checkValue)
+
+        this.$emit('input', res)
+
+        return
+      }
+
+      if (isArray(this.value)) {
         const value = this.value.slice(0) // Copy Array.
 
         value.push(this.checkValue)
@@ -66,7 +98,13 @@ export default {
       this.$emit('input', this.checkValue)
     },
     uncheck () {
-      if (this.value && isArray(this.value)) {
+      if (this._isBool(this.value)) {
+        this.$emit('input', false)
+
+        return
+      }
+
+      if (isArray(this.value)) {
         const value = this.value.slice(0)
 
         value.splice(value.indexOf(this.checkValue), 1)

@@ -9,6 +9,7 @@
     >{{ label }}</span>
 
     <OcIcon
+      v-if="icon"
       class="oc-checkbox__icon icon"
       :class="[icon]"
       :name="icon"
@@ -19,8 +20,8 @@
       :value="checkValue"
       :checked="checkedInput"
       type="checkbox"
-      class="visually-hidden oc-checkbox__input"
-      v-on="$listeners"
+      class="visually-hidden"
+      v-on="listeners"
     >
   </label>
 </template>

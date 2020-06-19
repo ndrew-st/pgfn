@@ -51,9 +51,16 @@
       :is="'step'+state"
       @next="next"
     />
+
+    <hr>
+    <button
+      type="button"
+      @click="state += 1"
+    >
+      next
+    </button>
   </div>
 </template>
 
 <script src="./index.js"/>
-
 <style src="./index.styl" lang="stylus"/>
