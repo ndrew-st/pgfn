@@ -2,16 +2,15 @@
   <div>
     <div class="flex">
       <div>
-        <OcInput
+        <input
           v-model="password"
-          kind="most"
           class="pass"
           type="password"
           placeholder="Пароль"
-          :error="error.length"
-          @input="change"
+          :class="{red: error !== '', norm: error === ''}"
+          @change="change"
           @keyup.enter="next()"
-        />
+        >
 
         <p
           v-if="error !== ''"
