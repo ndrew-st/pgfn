@@ -1,4 +1,4 @@
-import OcCheckbox from '@/components/global/Forms/ocCheckbox/index.vue'
+// import OcCheckbox from '@/components/global/Forms/ocCheckbox/index.vue'
 import ApButton from '../ap-button/index.vue'
 import ApRadio from '../ap-radio/index.vue'
 import ApCheckbox from '../ap-checkbox/index.vue'
@@ -7,8 +7,7 @@ export default {
   components: {
     ApButton,
     ApRadio,
-    ApCheckbox,
-    OcCheckbox
+    ApCheckbox
   },
   data () {
     return {
