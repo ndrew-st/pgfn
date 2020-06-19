@@ -1,52 +1,40 @@
-.oc-button-filter
-  display flex
-  align-items center
-  height 36px
-  margin 0 auto
-
-  background #FFFFFF
-  border 1px solid #F3F3F3
-  box-sizing border-box
-  border-radius 44px
-
-  & > span.text-content
-    display block
-    padding 0 16px
+.oc-button-filter-old
+  & > .text-content
+    padding 4px 16px
 
     font-style normal
     font-weight normal
-    font-size 18px
-    line-height 20px
-    color #000000
+    font-size 13px
+    line-height 28px
+    color $secondary
 
-    anim color
+    background #FFFFFF
+    border 1.4px solid #DADADA
+    box-sizing border-box
+    border-radius 20px
 
-  &:hover > span.text-content
-    color $primary
+    cursor pointer
 
-    anim color
+    anim all
 
-  &:active
+  &.active > .text-content
+    color $dark
     border-color $dark
 
-    anim(border-color)
+    anim all
 
-    & > span.text-content
-      color $dark
-      font-weight bold
+  &.selected > .text-content
+    font-weight bold
+    color $dark
 
-      anim all
+    border-color $dark
 
-@media (min-width 640px)
-  .oc-button-border
-    height 40px
+    anim all
 
-    & > span.text-content
-      padding 0 18px
+@media (min-width 1280px)
+  .oc-button-filter
+    & > .text-content
+      padding 6px 18px
 
       font-size 18px
-
-    &.more > span.text-content
-      padding 0 12px
-
-      font-size 14px
+      line-height 28px

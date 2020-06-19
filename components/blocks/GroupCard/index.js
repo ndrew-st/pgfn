@@ -1,3 +1,5 @@
+import { mapActions } from 'vuex'
+
 export default {
   props: {
     tabs: {
@@ -33,16 +35,32 @@ export default {
     autoWidth: {
       type: Boolean,
       default: false
+    },
+    name: {
+      type: String,
+      required: true
     }
   },
   data () {
     return {
-      tabSelect: ''
+      tabSelect: '',
+      swiper: {},
+      loading: false
     }
   },
   mounted () {
     if (this.tabs.length) {
       this.tabSelect = this.tabs[0].name === 'Популярные' ? this.tabs[0].url : ''
     }
+  },
+  methods: {
+    async change (evt) {
+      this.loading = true
+
+      await this.updateTabs({ field: this.name, url: evt.target.value })
+
+      this.loading = false
+    },
+    ...mapActions('direction', ['updateTabs'])
   }
 }

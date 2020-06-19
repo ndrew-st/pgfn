@@ -1,8 +1,6 @@
 import num2str from '~/utils/num2str'
-import Carousel from '~/components/global/ocCarousel'
 
 export default {
-  components: { Carousel },
   props: {
     item: {
       type: Object,
@@ -51,33 +49,33 @@ export default {
     }
   },
   mounted () {
-    this.$nextTick(() => {
-      this.updateVals()
-    })
+    this.updateValues()
   },
   methods: {
-    updateVals () {
-      this.widthWindow = window.screen.width
-      this.widthContainer = this.$refs.card.clientWidth
-      this.addressWidth = this.$refs.addressCt.scrollWidth
-      this.titleWidth = this.$refs.titleCt.scrollWidth
-      this.attrsHeight = this.$refs.attrs.clientHeight
-      this.viewWidth = this.$refs.views && this.$refs.views.clientWidth
+    updateValues () {
+      this.$nextTick(() => {
+        this.widthWindow = window.screen.width
+        this.widthContainer = this.$refs.card.clientWidth
+        this.addressWidth = this.$refs.addressCt.scrollWidth
+        this.titleWidth = this.$refs.titleCt.scrollWidth
+        this.attrsHeight = this.$refs.attrs.clientHeight
+        this.viewWidth = this.$refs.views && this.$refs.views.clientWidth
+      })
     },
     handlerResize (e) {
       if (this.widthWindow === e.target.screen.width) {
         return false
       }
 
-      this.updateVals()
+      this.updateValues()
     },
     mouseEnter () {
       if (this.titleWidth < 1) {
-        this.updateVals()
+        this.updateValues()
       }
     },
     touchStart () {
-      this.updateVals()
+      this.updateValues()
     },
     reviewText (num) {
       return num2str(num, this.reviewsText)

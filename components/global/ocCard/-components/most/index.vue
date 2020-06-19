@@ -6,7 +6,7 @@
     @touchstart="touchStart"
   >
     <div class="card-item__list">
-      <Carousel
+      <OcCarousel
         :nav="true"
         :column="1"
         :dots="true"
@@ -26,7 +26,7 @@
             class="card-item__image"
           />
         </div>
-      </Carousel>
+      </OcCarousel>
     </div>
 
     <div

@@ -21,7 +21,7 @@
               :name="`groups-card-${title}`"
               kind="group"
               :label="tab.name"
-              @change="$emit('changeTab', $event.target.value)"
+              @change="change"
             />
           </li>
         </ul>
@@ -30,6 +30,7 @@
 
     <div class="group-cart__slider-container">
       <OcCarousel
+        v-if="!loading"
         :column="4"
         :items="items"
         :auto-width="autoWidth"
@@ -38,6 +39,7 @@
       >
         <slot />
       </OcCarousel>
+      <OcLoader v-else />
     </div>
   </div>
 </template>

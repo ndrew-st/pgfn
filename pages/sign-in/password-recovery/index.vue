@@ -27,34 +27,5 @@
   </div>
 </template>
 
-<script>
-import OcVerification from '@/components/global/ocVerification/index.vue'
-import OcPass from '@/components/ocPass'
-
-export default {
-  components: {
-    OcVerification,
-    OcPass
-  },
-  props: {
-    phone: {
-      type: String,
-      default: ''
-    }
-  },
-  data: () => ({
-    stage: 'sms',
-    picked: '',
-    timeCounter: 119
-  }),
-  methods: {
-    next () {
-      if (this.stage === 'sms') {
-        this.stage = 'pass'
-      }
-    }
-  }
-}
-</script>
-
-<style src="./index.styl" lang="stylus"></style>
+<script src="./index.js"/>
+<style src="./index.styl" lang="stylus"/>

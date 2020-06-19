@@ -1,3 +1,5 @@
+import FeaturePlace from '~/components/blocks/FeaturePlace'
+
 export default {
   props: {
     title: {
@@ -15,5 +17,6 @@ export default {
       required: true,
       default: 'background'
     }
-  }
+  },
+  components: { FeaturePlace }
 }

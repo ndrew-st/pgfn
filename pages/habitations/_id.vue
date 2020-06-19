@@ -37,6 +37,7 @@
 
       <GroupCard
         :count="apartments.count"
+        name="most"
         :auto-width="true"
         :items="apartments.items"
         :tabs="apartments.tabs"
