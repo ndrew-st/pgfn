@@ -174,6 +174,14 @@
     <p>kind: toggle</p>
 
     <OcInput kind="toggle" />
+
+    <button @click="createUser()">
+      Создать юзера Василия
+    </button>
+
+    <button @click="loginVasya()">
+      Зайти под Василием
+    </button>
   </div>
 </template>
 
