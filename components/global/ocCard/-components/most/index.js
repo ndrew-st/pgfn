@@ -54,6 +54,10 @@ export default {
   methods: {
     updateValues () {
       this.$nextTick(() => {
+        // if (!this.$refs.views) {
+        //   return
+        // }
+
         this.widthWindow = window.screen.width
         this.widthContainer = this.$refs.card.clientWidth
         this.addressWidth = this.$refs.addressCt.scrollWidth

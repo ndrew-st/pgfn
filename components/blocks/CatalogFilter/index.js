@@ -4,7 +4,7 @@ import guests from './-components/Items/guests'
 import type from './-components/Items/type'
 import price from './-components/Items/price'
 import instantBooking from './-components/Items/instant-booking'
-import another from './-components/Items/another/index'
+import another from './-components/Items/another'
 
 import direction from '~/components/blocks/SearchPanel'
 

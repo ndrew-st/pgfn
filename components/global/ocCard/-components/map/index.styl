@@ -1,0 +1,78 @@
+.card-map
+  width 100%
+  max-width 284px
+
+  overflow hidden
+
+  &__map-container
+    width 100%
+    height 168px
+    margin-bottom 16px
+
+  &__title-link
+    display block
+    margin-bottom 4px
+
+    & a.text-link
+      white-space normal
+
+  &__type
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: $dark
+
+  &__rooms
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #989BA8;
+
+  &__days
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: #989BA8;
+
+  &__price
+    display flex
+    align-items flex-end
+
+    &--count
+      display inline-block
+      margin-right 5px
+
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 20px;
+      letter-spacing: 0.2px;
+      color: #272528;
+
+    &--rouble
+      display flex
+      align-items center
+
+      font-family Rouble Sans
+      font-size 19px
+
+    &--measure
+      display inline-block
+      margin-left 9px
+
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      color: #989BA8;
+
+@media (min-width 1280px)
+  .card-map
+    max-width 296px
+
+
