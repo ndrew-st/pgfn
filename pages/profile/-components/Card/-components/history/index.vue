@@ -42,7 +42,7 @@
 
     <div class="card__footer">
       <p class="card__price">
-        <span class="card__price--text">{{ item.price }}</span>
+        <span class="card__price--text">{{ item.price.toLocaleString() }}</span>
         <span class="card__price--rouble">9</span>
       </p>
 
