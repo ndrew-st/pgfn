@@ -1,12 +1,13 @@
-import most from './-components/most'
-import map from './-components/map'
+import history from './-components/history'
+import request from './-components/request'
+import ads from './-components/ads'
 
 export default {
-  components: { most, map },
+  components: { history, ads, request },
   props: {
     type: {
       type: String,
-      default: 'most'
+      default: 'history'
     }
   }
 }

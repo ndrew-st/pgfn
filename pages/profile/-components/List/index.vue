@@ -13,7 +13,10 @@
         :key="item.id"
         class="container__item"
       >
-        {{ item.title }}
+        <Card
+          :type="type"
+          :item="item"
+        />
       </li>
     </ul>
 

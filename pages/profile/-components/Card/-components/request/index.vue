@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    map card
+    request card
   </div>
 </template>
 

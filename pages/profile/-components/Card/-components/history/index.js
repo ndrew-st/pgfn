@@ -1,4 +1,7 @@
+import Attrs from './-components/Attrs'
+
 export default {
+  components: { Attrs },
   props: {
     item: {
       type: Object,
@@ -8,8 +11,7 @@ export default {
         date: '',
         price: '',
         guests: [],
-        tariff: '',
-        reviews: ''
+        tariff: ''
       })
     }
   },

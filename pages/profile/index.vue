@@ -78,9 +78,24 @@
     </div>
 
     <List
+      class="profile-page__list"
       type="history"
       title="История бронирования"
       :list="history"
+    />
+
+    <List
+      class="profile-page__list"
+      type="ads"
+      title="Добавленные объявления"
+      :list="ads"
+    />
+
+    <List
+      class="profile-page__list"
+      type="request"
+      title="Опубликованные заявки на аренду жилья"
+      :list="request"
     />
   </div>
 </template>
