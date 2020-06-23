@@ -1,5 +1,5 @@
 <template>
-  <div class="margin-page">
+  <div class="profile-page">
     <p class="p1">
       Личная информация
     </p>
@@ -77,13 +77,11 @@
       </div>
     </div>
 
-    <p class="p4">
-      История бронирования
-    </p>
-
-    <p class="p5">
-      Пока вы не забронировали ни одного типа жилья, после бронирования жилья они отобразяться здесь.
-    </p>
+    <List
+      type="history"
+      title="История бронирования"
+      :list="history"
+    />
   </div>
 </template>
 
