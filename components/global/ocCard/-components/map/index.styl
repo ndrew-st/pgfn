@@ -8,13 +8,29 @@
     width 100%
     height 168px
     margin-bottom 16px
+    
+  &__title
+    position relative
 
-  &__title-link
-    display block
     margin-bottom 4px
+    min-height 48px
+    max-height 48px
 
-    & a.text-link
-      white-space normal
+    overflow hidden
+
+    &.title-more:hover
+      overflow visible
+
+      & .title-cont
+        show-on-hover()
+
+    &--cont
+      display inline-block
+      margin 0
+
+    &--link
+      & a.text-link
+        white-space normal
 
   &__type
     font-style: normal;
@@ -74,5 +90,8 @@
 @media (min-width 1280px)
   .card-map
     max-width 296px
+
+    &__title-link
+      margin-bottom 8px
 
 

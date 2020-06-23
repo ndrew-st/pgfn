@@ -123,7 +123,7 @@ export default {
 @media(min-width 1090px)
   .housing
     margin-top 91px
-    padding-bottom 55px
+    padding-bottom 70px
 
     &__container
       padding-top 56px
@@ -156,4 +156,7 @@ export default {
       margin-bottom 50px
 
       order 3
+
+    &__pagination.pagination
+      margin-bottom 0
 </style>

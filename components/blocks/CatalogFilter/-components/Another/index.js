@@ -20,7 +20,7 @@ export default {
         { title: 'Параметры жилья', name: 'parameters' },
         { title: 'Удобства', name: 'usability' }
       ],
-      name: 'another-filter',
+      name: 'Another-filter',
       active: 'mainComp',
       count: 2,
       text: [ 'вариант', 'варианта', 'вариантов' ]

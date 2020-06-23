@@ -11,13 +11,23 @@
       />
     </div>
 
-    <OcLink
-      to="/"
-      name="main-card-title"
-      class="card-map__title-link"
+    <div
+      class="card-map__title"
+      :class="{ 'title-more': titleHeight > 48 }"
     >
-      {{ item.name }}
-    </OcLink>
+      <p
+        ref="title"
+        class="card-map__title--cont title-cont"
+      >
+        <OcLink
+          to="/"
+          name="main-card-title"
+          class="card-map__title--link"
+        >
+          {{ item.name }}
+        </OcLink>
+      </p>
+    </div>
 
     <p class="card-map__type">
       {{ item.type }}

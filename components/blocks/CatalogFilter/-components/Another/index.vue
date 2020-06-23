@@ -18,6 +18,7 @@
           Другие фильтры
         </h3>
       </div>
+
       <div class="another__controls another-controls">
         <ul class="another-controls__list">
           <li
