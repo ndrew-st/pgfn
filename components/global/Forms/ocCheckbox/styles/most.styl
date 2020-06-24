@@ -1,4 +1,10 @@
 .oc-checkbox-most
+  position relative
+
+  display flex
+  flex-wrap wrap
+  align-items center
+
   & .icon.check
     position absolute
     right 0
@@ -12,6 +18,10 @@
     width 24px
     height 24px
 
+    opacity 0
+
+    z-index 4
+
     & svg
       & path
         stroke transparent
@@ -21,14 +31,18 @@
         stroke transparent
 
   &:hover .icon.check
+    opacity 1
+
     & > svg
       & > rect
         stroke $dark
 
   &.checked .icon.check
+    opacity 1
+
     & > svg
       & > path
-        stroke white
+        stroke #ffffff
 
       & > rect
         fill $dark
@@ -68,11 +82,6 @@
       border-radius 4px
       cursor pointer
 
-  &.checked .label
-      &:before
-        background-color black
-        border 2px solid $dark
-
 @media (min-width 640px)
   .oc-checkbox-most
     & .label
@@ -88,6 +97,6 @@
       &:before
         left 0
 
-    & .icon.icon-left.check
+    & .icon.check
       right auto
       left 0

@@ -115,8 +115,8 @@
       </p>
 
       <ApInput
-        placeholder="Москва"
         class="ap-step2__input1"
+        type="number"
       />
 
       <span class="ap-step2__span2">м²</span>

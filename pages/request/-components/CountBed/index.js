@@ -6,9 +6,9 @@ export default {
     list: {
       type: Array,
       default: () => ([
-        { title: 'jng kjdfnsg 1', value: 'jkfnkjsd 1' },
-        { title: 'jng kjdfnsg 2', value: 'jkfnkjsd 2' },
-        { title: 'jng kjdfnsg 3', value: 'jkfnkjsd 3' }
+        { title: 'Надувной матрас', value: 'air-mattress' },
+        { title: 'Водяной матрас', value: 'water-mattress' },
+        { title: 'Гамак', value: 'hammock' }
       ])
     }
   },
@@ -29,8 +29,13 @@ export default {
     }
   },
   methods: {
-    change (val) {
-      this.result.push(val)
+    change (val, flag) {
+      debugger
+      if (flag) {
+        this.result.push(val)
+      } else {
+        this.result.shift(val)
+      }
     },
     select (val) {
       this.beds.push(val)

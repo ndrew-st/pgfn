@@ -18,7 +18,7 @@
           <Counter
             class="count-bed__counter"
             :title="bed.title"
-            @input="change(bed.value)"
+            @change="change"
           />
         </li>
       </ul>

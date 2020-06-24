@@ -37,7 +37,7 @@
           />
         </svg>
 
-        <span class="add-placement__all-changes-saved"> Все изменения сохранены</span>
+        <span class="add-placement__all-changes-saved">Все изменения сохранены</span>
       </div>
     </div>
 
@@ -52,13 +52,21 @@
       @next="next"
     />
 
-    <hr>
+    <!-- <hr>
     <button
       type="button"
       @click="state += 1"
     >
       next
-    </button>
+    </button> -->
+
+    <!-- <ApButton
+      v-if="selItem !== ''"
+      name="red"
+      @click.native="state += 1"
+    >
+      Продолжить
+    </ApButton> -->
   </div>
 </template>
 

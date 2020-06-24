@@ -27,7 +27,7 @@
 </template>
 
 <script src="./index.js"/>
-<style lang="stylus" src="./index.styl" scoped/>
+<style lang="stylus" src="./index.styl"/>
 
 <style lang="stylus" src="./styles/most.styl"/>
 <style lang="stylus" src="./styles/toggle.styl"/>
