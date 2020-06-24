@@ -8,6 +8,30 @@ export default {
       required: true,
       default: 'most'
     },
+    addClass: {
+      type: String,
+      default: ''
+    },
+    measure: {
+      type: String,
+      default: null
+    },
+    required: {
+      type: Boolean,
+      default: false
+    },
+    mask: {
+      type: String,
+      default: null
+    },
+    checkValue: {
+      type: String,
+      default: null
+    },
+    type: {
+      type: String,
+      default: 'text'
+    },
     label: {
       type: String,
       default: null
@@ -43,14 +67,6 @@ export default {
     maxLength: {
       type: Number,
       default: 200
-    },
-    measure: {
-      type: String,
-      default: null
-    },
-    required: {
-      type: Boolean,
-      default: false
     }
   },
   data () {

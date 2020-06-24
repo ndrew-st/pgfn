@@ -3,13 +3,26 @@
   width 100%
   margin 0
 
-  & > .label
+  &__label
     cursor pointer
 
-  & > .input
+    box-sizing border-box
+
+    &--required
+      color $danger
+
+  &__input
     rm-outline()
 
-  & > .icon
+    &::-webkit-outer-spin-button
+    &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+
+    &[type=number]
+      -moz-appearance textfield
+
+  &__icon
     position absolute
     top 0
     bottom 0
@@ -19,13 +32,13 @@
     margin auto 0
     height 100%
 
-    color $secondary-1
+    color $secondary
     font-size $fs-1
 
     z-index 1
 
-    &.icon-left
+    &--left
       left 12px
 
-    &.icon-right
+    &--right
       right 12px

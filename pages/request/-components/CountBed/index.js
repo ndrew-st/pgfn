@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     change (val, flag) {
-      debugger
+      // debugger
       if (flag) {
         this.result.push(val)
       } else {
