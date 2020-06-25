@@ -14,13 +14,17 @@
         :key="item.value"
         class="two-column-checkboxes__item"
       >
-        <OcCheckbox
+        <!-- <OcCheckbox
           v-model="checkedItems"
           kind="most"
           icon="check"
           :label="item.label"
           :check-value="item.value"
-        />
+        /> -->
+
+        <ApCheckbox>
+          {{ item.label }}
+        </ApCheckbox>
       </li>
     </ul>
   </div>

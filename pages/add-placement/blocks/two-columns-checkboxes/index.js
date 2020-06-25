@@ -1,4 +1,9 @@
+import ApCheckbox from '../../ap-checkbox'
+
 export default {
+  components: {
+    ApCheckbox
+  },
   props: {
     titleBlock: {
       type: String,

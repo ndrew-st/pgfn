@@ -175,6 +175,28 @@
 
     <OcInput kind="toggle" />
 
+    <OcCheckbox
+      kind="toggle"
+      label="Тестовый чекбокс kind toggle icon check"
+      icon="check"
+    />
+
+    <OcCheckbox
+      kind="most"
+      label="Тестовый чекбокс kind most icon none"
+    />
+
+    <OcCheckbox
+      kind="toggle"
+      label="Тестовый чекбокс kind toggle icon check"
+      icon="check"
+    />
+
+    <OcCheckbox
+      kind="most"
+      label="Тестовый чекбокс kind most icon none"
+    />
+
     <button @click="createUser()">
       Создать юзера Василия
     </button>

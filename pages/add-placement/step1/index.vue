@@ -42,7 +42,8 @@
       <OcDropDown class="ap-step1__button-filter">
         <OcButton
           slot="button"
-          name="filter"
+          name="border"
+          class="ap-step1__oc-btn"
         >
           {{ selItem === '' ? 'Вы собственник или посредник?' : selItem }}
           <span class="add-placement__red-star">*</span>
@@ -61,7 +62,8 @@
       >
         <OcButton
           slot="button"
-          name="filter"
+          name="border"
+          class="ap-step1__oc-btn"
         >
           {{ selItem2 ==='' ? 'Источник аренды/тип арендодателя' : selItem2 }}
           <span class="add-placement__red-star">*</span>

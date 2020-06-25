@@ -3,6 +3,7 @@ import ApRadio from '../ap-radio/index.vue'
 import ApCheckbox from '../ap-checkbox/index.vue'
 import CheckBlock from '../blocks/two-columns-checkboxes/index.vue'
 import CountBed from '../../request/-components/CountBed/index.vue'
+import ApFolding from '../blocks/ap-folding'
 
 export default {
   components: {
@@ -10,7 +11,8 @@ export default {
     ApRadio,
     ApCheckbox,
     CheckBlock,
-    CountBed
+    CountBed,
+    ApFolding
   },
   watch: {
     furniture (val) {
@@ -39,7 +41,7 @@ export default {
         { label: 'Можно курить', value: 'weed' }
       ],
       internet: '',
-      listinternet: [
+      listInternet: [
         { label: 'Wi-Fi менее 10 Мбит/с', value: 'less10' },
         { label: 'Wi-Fi от 10 Мбит/с', value: 'more10' },
         { label: 'Wi-Fi от 30 Мбит/с', value: 'more30' },

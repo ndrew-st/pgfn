@@ -51,22 +51,6 @@
       :is="'step'+state"
       @next="next"
     />
-
-    <!-- <hr>
-    <button
-      type="button"
-      @click="state += 1"
-    >
-      next
-    </button> -->
-
-    <!-- <ApButton
-      v-if="selItem !== ''"
-      name="red"
-      @click.native="state += 1"
-    >
-      Продолжить
-    </ApButton> -->
   </div>
 </template>
 

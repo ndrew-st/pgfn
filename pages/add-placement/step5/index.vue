@@ -36,14 +36,9 @@
         :key="item.value"
         class="ap-step5__item"
       >
-        <OcCheckbox
-          v-model="limits"
-          kind="most"
-          icon="check"
-          :label="item.label"
-          name="limits"
-          :check-value="item.value"
-        />
+        <ApCheckbox>
+          {{ item.label }}
+        </ApCheckbox>
       </li>
     </ul>
 
@@ -71,59 +66,64 @@
       </li>
     </ul>
 
-    <p class="add-placement__h2 ap-step5__h2 add-placement__uppercase">
-      Расскажите, какие Удобства вы можете предложить гостям
-      <span class="add-placement__red-star">*</span>
-    </p>
+    <ApFolding
+      caption="Расскажите, какие Удобства вы можете предложить гостям"
+      class="ap-step5__folding-block"
+    >
+      <!-- <p class="add-placement__h2 ap-step5__h2 add-placement__uppercase">
+        Расскажите, какие Удобства вы можете предложить гостям
+        <span class="add-placement__red-star">*</span>
+      </p> -->
 
-    <CheckBlock
-      title-block="Специальная особенность"
-      :list="specials"
-      :red-star="false"
-      class="add-placement__mt48"
-    />
+      <CheckBlock
+        title-block="Специальная особенность"
+        :list="specials"
+        :red-star="false"
+        class="add-placement__mt48"
+      />
 
-    <CheckBlock
-      title-block="Климатконтроль"
-      :list="climate"
-      :red-star="false"
-      class="add-placement__mt48"
-    />
+      <CheckBlock
+        title-block="Климатконтроль"
+        :list="climate"
+        :red-star="false"
+        class="add-placement__mt48"
+      />
 
-    <CheckBlock
-      title-block="Тип отделки"
-      :list="interior"
-      :red-star="false"
-      class="add-placement__mt48"
-    />
+      <CheckBlock
+        title-block="Тип отделки"
+        :list="interior"
+        :red-star="false"
+        class="add-placement__mt48"
+      />
 
-    <CheckBlock
-      title-block="Комнаты"
-      :list="rooms"
-      :red-star="false"
-      class="add-placement__mt48"
-    />
+      <CheckBlock
+        title-block="Комнаты"
+        :list="rooms"
+        :red-star="false"
+        class="add-placement__mt48"
+      />
 
-    <CheckBlock
-      title-block="Технические удобства"
-      :list="facilities"
-      :red-star="false"
-      class="add-placement__mt48"
-    />
+      <CheckBlock
+        title-block="Технические удобства"
+        :list="facilities"
+        :red-star="false"
+        class="add-placement__mt48"
+      />
 
-    <CheckBlock
-      title-block="Посуда"
-      :list="dishes"
-      :red-star="false"
-      class="add-placement__mt48"
-    />
+      <CheckBlock
+        title-block="Посуда"
+        :list="dishes"
+        :red-star="false"
+        class="add-placement__mt48"
+      />
 
-    <CheckBlock
-      title-block="Средства гигиены"
-      :list="hygiene"
-      :red-star="false"
-      class="add-placement__mt48 ap-step5__pb80"
-    />
+      <CheckBlock
+        title-block="Средства гигиены"
+        :list="hygiene"
+        :red-star="false"
+        class="add-placement__mt48 ap-step5__pb80"
+      />
+    </ApFolding>
 
     <ApButton
       v-if="selItem !== ''"

@@ -138,19 +138,29 @@
         </div>
 
         <div class="ap-step4__radio-item">
-          <input
-            id="fid-8"
-            v-model="picked3"
-            type="radio"
-            name="radio3"
-            class="ap-step2__radio"
-            value="Выбранные дни"
-          >
+          <OcDropDown class="ap-step4__drop-time">
+            <template v-slot:button>
+              <input
+                id="fid-8"
+                v-model="picked3"
+                type="radio"
+                name="radio3"
+                class="ap-step2__radio ap-step4__sel-days"
+                value="Выбранные дни"
+              >
 
-          <label
-            id="fid-8"
-            class="ap-step2__label"
-          >Выбранные дни</label>
+              <label
+                for="fid-8"
+                class="ap-step2__label"
+              >Выбранные дни</label>
+            </template>
+
+            <template v-slot:body>
+              <WeekTime
+                class="ap-step4__drop-time-list"
+              />
+            </template>
+          </OcDropDown>
         </div>
       </div>
     </div>
@@ -162,7 +172,8 @@
       </p>
 
       <ApRadio
-        id="aasdf2"
+        id="fid-9"
+        v-model="picked4"
         name="radio4"
         value="Любое время"
         label="Любое время и дни недели"
@@ -171,19 +182,31 @@
 
       <ApRadio
         id="aas3"
+        v-model="picked4"
         name="radio4"
         value="Любые дни недели"
         label="Любые дни недели с"
         class="ap-step4__radio"
       />
 
-      <ApRadio
-        id="aas4"
-        name="radio4"
-        value="Выбранные дни"
-        label="Выбранные дни"
-        class="ap-step4__radio"
-      />
+      <OcDropDown class="ap-step4__drop-time">
+        <template v-slot:button>
+          <ApRadio
+            id="aas4"
+            v-model="picked4"
+            name="radio4"
+            value="Выбранные дни"
+            label="Выбранные дни"
+            class="ap-step4__radio"
+          />
+        </template>
+
+        <template v-slot:body>
+          <WeekTime
+            class="ap-step4__drop-time-list"
+          />
+        </template>
+      </OcDropDown>
 
       <p class="add-placement__h2 ap-step4__type-booking">
         Время выезда гостей
@@ -191,24 +214,35 @@
       </p>
 
       <ApRadio
-        id="aasdf2"
-        name="radio4"
+        id="wer34"
+        v-model="picked5"
+        name="radio5"
         value="Любое время"
         label="Любое время и дни недели"
         class="ap-step4__radio-item ap-step4__radio"
       />
 
-      <ApRadio
-        id="aas3"
-        name="radio4"
-        value="Любые дни недели"
-        label="Любые дни недели с"
-        class="ap-step4__radio"
-      />
+      <div class="ap-step4__flex-time">
+        <ApRadio
+          id="hrty4"
+          v-model="picked5"
+          name="radio5"
+          value="Любые дни недели"
+          label="Любые дни недели с"
+          class="ap-step4__radio"
+        />
+
+        <ApTimeSelect class="ap-step4__time-block" />
+
+        <span>по</span>
+
+        <ApTimeSelect class="ap-step4__time-block" />
+      </div>
 
       <ApRadio
-        id="aas4"
-        name="radio4"
+        id="hgjyh5"
+        v-model="picked5"
+        name="radio5"
         value="Выбранные дни"
         label="Выбранные дни"
         class="ap-step4__radio"
