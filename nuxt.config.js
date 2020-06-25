@@ -72,7 +72,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://dev.personal.guide/api/'
+    // baseURL: 'https://dev.personal.guide/api/'
+    baseURL: 'http://192.168.99.100:4000/'
   },
   /*
    ** Build configuration
@@ -89,6 +90,10 @@ export default {
   env: {
     throttle_time: 1000,
     header_auth: 'authorization',
-    ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65'
+    ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65',
+    token: {
+      access: 'access_token',
+      refresh: 'refresh_token'
+    }
   }
 }

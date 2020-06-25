@@ -1,5 +1,6 @@
 export default {
   layout: 'main',
+  middleware: 'auth',
   data () {
     return {
       userName: 'Иван Иванов',

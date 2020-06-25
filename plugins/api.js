@@ -1,12 +1,17 @@
+import authHeader from '~/utils/authHeader'
+
 export default ({ $axios }, inject) => {
   if (process.browser) {
-    const token = localStorage.getItem('token')
-    if (token) {
-      $axios.defaults.headers.authorization = token
-    }
+    $axios.defaults.headers[process.env.header_auth] = authHeader()
   }
 
+  console.log('$axios ', $axios.interceptors)
+
   $axios.onResponseError((e) => {
+    if (e.response.status === 401) {
+      console.log('Here ', e.response.status)
+    }
+
     if (e.response && e.response.data && e.response.data.error) {
       return {
         error: e.response.data
@@ -39,7 +44,7 @@ export default ({ $axios }, inject) => {
 
   const requireComponent = require.context(
     '~/api/services',
-    false,
+    true,
     /[a-z].js/
   )
 

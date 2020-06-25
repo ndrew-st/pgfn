@@ -1,3 +1,5 @@
+import authHeader from '~/utils/authHeader'
+
 export default {
   layout: 'clean',
   data: () => ({
@@ -10,22 +12,30 @@ export default {
     timeCounter: 119
   }),
   methods: {
-    async login (pass) {
-      const result = await this.$api.users.login(this.phone, pass)
+    _getNumPhone (str) {
+      return str.replace(/\D/g, '')
+    },
+    async logIn (pass) {
+      const phoneNum = this._getNumPhone(this.phone)
+      const result = await this.$api.users.login(phoneNum, pass)
+
+      console.log('result ', result)
+
       if (!result.error) {
-        localStorage.setItem('token', result.tokens.accessToken)
-        this.$axios.defaults.headers[process.env.header_auth] = result.tokens.accessToken
+        this.$storage.setItem(process.env.token.access, result.tokens.accessToken)
+        this.$storage.setItem(process.env.token.refresh, result.tokens.refreshToken)
+
+        this.$axios.defaults.headers[process.env.header_auth] = authHeader(result.tokens.accessToken)
         this.$router.push('/profile')
       }
     },
-    next (par) {
-      console.log('next sign-in ')
+    async next (par) {
       switch (this.stage) {
         case 'phone':
           this.stage = 'pass'
           break
         case 'pass':
-          this.login(par)
+          await this.logIn(par)
           break
       }
     }
