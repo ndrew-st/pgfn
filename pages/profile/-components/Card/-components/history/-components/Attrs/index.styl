@@ -1,0 +1,36 @@
+.attrs
+  display flex
+
+  &__name
+    margin-right 4px
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 28px;
+    color: $secondary
+
+  &__list
+    margin 0
+    padding 0
+
+    list-style none
+
+  &__item
+    display inline-block
+    margin 0
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 28px;
+    color: $dark
+
+@media (min-width 1280px)
+  .attrs
+    &__name
+      font-size 18px
+
+    &__item
+      font-size 18px
+
