@@ -21,7 +21,9 @@
       >
         Меньше
       </OcButton>
+
       <span class="counter__current">{{ cur }}+</span>
+
       <OcButton
         name="counter"
         icon="counter"

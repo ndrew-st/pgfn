@@ -72,7 +72,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://dev.personal.guide/api/'
+    // baseURL: 'https://dev.personal.guide/api/'
+    baseURL: 'http://localhost:8000/api/'
   },
   /*
    ** Build configuration

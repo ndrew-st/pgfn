@@ -18,17 +18,19 @@ export default {
       cur: this.current
     }
   },
-  watch: {
-    cur (val) {
-      this.$emit('input', val)
-    }
-  },
+  // watch: {
+  //   cur (val) {
+  //     this.$emit('input', val)
+  //   }
+  // },
   methods: {
     changeCount (flag) {
       if (flag) {
         this.cur += 1
+        this.$emit('change', this.cur, flag)
       } else if (this.cur >= 1) {
         this.cur -= 1
+        this.$emit('change', this.cur, flag)
       }
     }
   }
