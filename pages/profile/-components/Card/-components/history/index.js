@@ -1,4 +1,4 @@
-import Attrs from './-components/Attrs'
+import Attrs from '../Attrs'
 
 export default {
   components: { Attrs },

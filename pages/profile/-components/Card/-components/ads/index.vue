@@ -22,7 +22,7 @@
       </p>
 
       <p class="card__price">
-        <span class="card__price--text">от {{ item.price }}</span>
+        <span class="card__price--text">от {{ item.price.toLocaleString() }}</span>
         <span class="card__price--rouble">9</span>
         <span class="card__price--measure">за сутки</span>
       </p>
