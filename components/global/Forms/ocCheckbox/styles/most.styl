@@ -1,10 +1,4 @@
 .oc-checkbox-most
-  position relative
-
-  display flex
-  flex-wrap wrap
-  align-items center
-
   & .icon.check
     position absolute
     right 0
@@ -27,15 +21,11 @@
         stroke transparent
 
   &:hover .icon.check
-    opacity 1
-
     & > svg
       & > rect
         stroke $dark
 
   &.checked .icon.check
-    opacity 1
-
     & > svg
       & > path
         stroke #ffffff
@@ -85,7 +75,7 @@
       border 2px solid $dark
 
 @media (min-width 640px)
-  .oc-input-checkbox
+  .oc-checkbox-most
     & .label
       font-size 16px
 

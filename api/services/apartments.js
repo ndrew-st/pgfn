@@ -7,5 +7,8 @@ export default axios => resource => ({
   },
   updateTabs (url) {
     return axios.get(`${resource}${url}`)
+  },
+  getFilteredData () {
+    return axios.get(`${resource}`)
   }
 })

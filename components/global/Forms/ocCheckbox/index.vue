@@ -9,7 +9,6 @@
     >{{ label }}</span>
 
     <OcIcon
-      v-if="icon"
       class="oc-checkbox__icon icon"
       :class="[icon]"
       :name="icon"
@@ -20,14 +19,14 @@
       :value="checkValue"
       :checked="checkedInput"
       type="checkbox"
-      class="visually-hidden"
-      v-on="listeners"
+      class="visually-hidden oc-checkbox__input"
+      v-on="$listeners"
     >
   </label>
 </template>
 
 <script src="./index.js"/>
-<style lang="stylus" src="./index.styl"/>
+<style lang="stylus" src="./index.styl" scoped/>
 
 <style lang="stylus" src="./styles/most.styl"/>
 <style lang="stylus" src="./styles/toggle.styl"/>
