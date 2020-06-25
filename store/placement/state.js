@@ -1,8 +1,5 @@
 export default () => ({
   result: {
-    items: [
-      // {  }
-    ]
-  },
-  filters: []
+    typeOfTenant: 0
+  }
 })
