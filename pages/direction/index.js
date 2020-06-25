@@ -56,6 +56,8 @@ export default {
     })
   },
   mounted () {
+    console.log('apartments ', this.apartments)
+
     this.$nextTick(() => {
       this.showComp = true
     })

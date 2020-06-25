@@ -6,6 +6,10 @@ export default {
       type: String,
       default: ''
     },
+    kind: {
+      type: String,
+      default: 'most'
+    },
     value: {
       type: Array,
       default: ''
