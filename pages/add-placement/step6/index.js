@@ -5,5 +5,11 @@ export default {
   components: {
     ApAddPhoto,
     ApButton
+  },
+  methods: {
+    addPlacement () {
+      // debugger
+      this.$store.dispatch('placement/addPlacement')
+    }
   }
 }
