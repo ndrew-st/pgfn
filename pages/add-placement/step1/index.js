@@ -40,7 +40,7 @@ export default {
       this.$root.$emit('dropdown:hide')
       // this.$store.dispatch('setItem', )
       // debugger
-      this.setItem(par)
+      this.setItem({ key: 'typeOfTenant', par })
     },
     selectItem2 (par) {
       this.selItem2 = par

@@ -4,7 +4,8 @@ export default {
 
   //   commit('addData', data)
   // }
-  setItem (par) {
-    console.log('aee ' + par)
+  setItem (ctx, key, par) {
+    debugger
+    console.log('aee ' + JSON.stringify(par))
   }
 }
