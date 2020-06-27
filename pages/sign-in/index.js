@@ -1,4 +1,7 @@
+import { mapActions } from 'vuex'
 import authHeader from '~/utils/authHeader'
+
+import { login } from '~/constants/actions/auth'
 
 export default {
   layout: 'clean',
@@ -17,18 +20,16 @@ export default {
     },
     async logIn (pass) {
       const phoneNum = this._getNumPhone(this.phone)
-      const result = await this.$api.users.login(phoneNum, pass)
 
-      console.log('result ', result)
+      try {
+        await this[login]({ phone: phoneNum, password: pass })
 
-      if (!result.error) {
-        this.$storage.setItem(process.env.token.access, result.tokens.accessToken)
-        this.$storage.setItem(process.env.token.refresh, result.tokens.refreshToken)
-
-        this.$axios.defaults.headers[process.env.header_auth] = authHeader(result.tokens.accessToken)
         this.$router.push('/profile')
+      } catch (e) {
+        console.log('Error ', e)
       }
     },
+    ...mapActions('auth', [ login ]),
     async next (par) {
       switch (this.stage) {
         case 'phone':

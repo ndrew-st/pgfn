@@ -1,11 +1,5 @@
-export default function authHeader (val) {
-  let token
-
-  if (!val) {
-    token = localStorage.getItem(process.env.token.access)
-  } else {
-    token = val
-  }
+export default function authHeader () {
+  const token = JSON.parse(localStorage.getItem(process.env.token_key.access))
 
   if (token) {
     return `Bearer ${token}`

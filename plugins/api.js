@@ -1,20 +1,32 @@
 import authHeader from '~/utils/authHeader'
+import { refreshToken, initAuth } from '~/constants/actions/auth'
+import { isAuth } from '~/constants/getters/auth'
 
-export default ({ $axios }, inject) => {
-  if (process.browser) {
-    $axios.defaults.headers[process.env.header_auth] = authHeader()
+export default ({ $axios, store: { state, dispatch, getters }, redirect }, inject) => {
+  if (process.browser && authHeader()) {
+    dispatch(`auth/${initAuth}`)
   }
 
-  console.log('$axios ', $axios.interceptors)
-
-  $axios.onResponseError((e) => {
-    if (e.response.status === 401) {
-      console.log('Here ', e.response.status)
+  $axios.onResponseError(({ response }) => {
+    if (response && response.status === 401) {
+      if (getters[`auth/${isAuth}`]) {
+        return dispatch(refreshToken)
+          .then(() => {
+            return $axios.$request({
+              method: response.config.method,
+              url: response.config.url,
+              data: response.config.data
+            })
+          })
+          .catch(err => ({ error: err }))
+      } else {
+        redirect('/sign-in')
+      }
     }
 
-    if (e.response && e.response.data && e.response.data.error) {
+    if (response && response.data && response.data.error) {
       return {
-        error: e.response.data
+        error: response.data
       }
     }
   })
@@ -40,7 +52,7 @@ export default ({ $axios }, inject) => {
     }
   })
 
-  $axios.onResponse(res => res.data)
+  $axios.onResponse(({ data }) => data) // Maybe error when user is not authorized
 
   const requireComponent = require.context(
     '~/api/services',
