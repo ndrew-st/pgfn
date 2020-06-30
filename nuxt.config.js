@@ -91,5 +91,6 @@ export default {
     throttle_time: 1000,
     header_auth: 'authorization',
     ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65'
-  }
+  },
+  debug: true
 }
