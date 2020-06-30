@@ -22,8 +22,8 @@
                 <span class="item-privacy__title">{{ item.title }}</span>
                 <ul class="item-privacy__list">
                   <li
-                    v-for="(it, index) in item.desc"
-                    :key="index"
+                    v-for="(it, idx) in item.desc"
+                    :key="idx"
                     class="item-privacy__item"
                   >
                     {{ it }}
@@ -52,8 +52,8 @@
                 <span class="item-privacy__title">{{ item.title }}</span>
                 <ul class="item-privacy__list">
                   <li
-                    v-for="(it, index) in item.desc"
-                    :key="index"
+                    v-for="(it, idx) in item.desc"
+                    :key="idx"
                     class="item-privacy__item"
                   >
                     {{ it }}

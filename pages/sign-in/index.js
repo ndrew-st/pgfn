@@ -1,5 +1,4 @@
 import { mapActions } from 'vuex'
-import authHeader from '~/utils/authHeader'
 
 import { login } from '~/constants/actions/auth'
 

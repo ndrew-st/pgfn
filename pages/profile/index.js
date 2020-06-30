@@ -4,6 +4,7 @@ import List from './-components/List'
 
 export default {
   layout: 'main',
+  components: { List },
   middleware: 'auth',
   data () {
     return {
