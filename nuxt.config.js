@@ -1,3 +1,5 @@
+process.env.DEBUG = 'nuxt:*'
+
 export default {
   mode: 'universal',
   /*
