@@ -3,22 +3,22 @@ import { refreshToken, initAuth } from '~/constants/actions/auth'
 import { isAuth } from '~/constants/getters/auth'
 
 export default ({ $axios, store: { state, dispatch, getters }, redirect }, inject) => {
-  // if (process.browser && authHeader()) {
-  //   dispatch(`auth/${initAuth}`)
-  // }
+  if (process.browser && authHeader()) {
+    dispatch(`auth/${initAuth}`)
+  }
 
   $axios.onResponseError(({ response }) => {
     if (response && response.status === 401) {
       if (getters[`auth/${isAuth}`]) {
-        // return dispatch(refreshToken)
-        //   .then(() => {
-        //     return $axios.$request({
-        //       method: response.config.method,
-        //       url: response.config.url,
-        //       data: response.config.data
-        //     })
-        //   })
-        //   .catch(err => ({ error: err }))
+        return dispatch(refreshToken)
+          .then(() => {
+            return $axios.$request({
+              method: response.config.method,
+              url: response.config.url,
+              data: response.config.data
+            })
+          })
+          .catch(err => ({ error: err }))
       } else {
         redirect('/sign-in')
       }
