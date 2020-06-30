@@ -11,7 +11,7 @@
 
     <!-- Направление -->
     <GroupCard
-      v-show="direction && direction.items.length"
+      v-if="direction && direction.items.length"
       :tabs="direction.tabs"
       :items="direction.items"
       :count="direction.count"
@@ -30,6 +30,7 @@
 
     <!-- Жильё -->
     <GroupCard
+      v-if="apartments && apartments.items.length"
       :count="apartments.count"
       :auto-width="true"
       :items="apartments.items"

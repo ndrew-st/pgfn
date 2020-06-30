@@ -19,7 +19,7 @@ export default {
     FilterBlock
   },
   async asyncData ({ params, store }) {
-    await store.dispatch(`direction/getData`, params.name || `Крым`)
+    await store.dispatch(`direction/getData`, params.city || `Крым`)
   },
   data () {
     return {
@@ -34,8 +34,8 @@ export default {
   },
   computed: {
     ...mapState('direction', {
-      direction: state => state.result.direction,
-      apartments: state => state.result.apartments,
+      direction: state => state.result.direction && state.dir,
+      apartments: state => state.result.apartments && state.dir,
       services: state => state.result.services || {},
       description: state => state.result.description,
       head: (state) => {
