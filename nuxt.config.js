@@ -97,5 +97,6 @@ export default {
       refresh: 'refresh_token'
     }
   },
-  debug: true
+  debug: true,
+  publicPath: '/'
 }
