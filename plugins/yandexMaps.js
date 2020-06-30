@@ -12,3 +12,5 @@ const settings = {
 if (process.browser) {
   Vue.use(YmapPlugin, settings)
 }
+
+export default settings

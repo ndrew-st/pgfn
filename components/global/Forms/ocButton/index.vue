@@ -1,7 +1,7 @@
 <template>
   <button
     :type="type"
-    :class="[buttonClass, addClass, { 'active': active, 'selected': selected }]"
+    :class="[buttonClass, addClass, { 'active': active }]"
     :disabled="disabled"
     v-on="$listeners"
   >
@@ -24,9 +24,14 @@
 <style lang="stylus" src="./styles/carousel.styl"/>
 <style lang="stylus" src="./styles/counter.styl"/>
 <style lang="stylus" src="./styles/filter.styl"/>
+<style lang="stylus" src="./styles/filter-old.styl"/>
 <style lang="stylus" src="./styles/geo.styl"/>
 <style lang="stylus" src="./styles/list.styl"/>
 <style lang="stylus" src="./styles/most.styl"/>
 <style lang="stylus" src="./styles/pagination.styl"/>
 <style lang="stylus" src="./styles/search.styl"/>
 <style lang="stylus" src="./styles/transparent.styl"/>
+<style lang="stylus" src="./styles/arrow-prev.styl"/>
+<style lang="stylus" src="./styles/select.styl"/>
+<style lang="stylus" src="./styles/drop.styl"/>
+<style lang="stylus" src="./styles/title-more.styl"/>

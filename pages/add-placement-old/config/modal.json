@@ -1,0 +1,562 @@
+[
+  {
+    "name": "Жильё · Квартира/апартаменты целиком",
+    "fields": [
+      {
+        "type": "Select",
+        "label": "Тип предложения",
+        "name": "type-tender",
+        "params": {
+          "validation": "required",
+          "main": true,
+          "placeholder": "Выберите 1 вариант",
+          "request": "get:options-type-tender",
+          "options": [
+            {
+              "value": "Sale",
+              "name": "Продажа"
+            },
+            {
+              "value": "Buy",
+              "name": "Покупка"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Select",
+        "name": "category",
+        "params": {
+          "main": true,
+          "validation": "required",
+          "label": "Категория",
+          "depend": "type-tender",
+          "placeholder": "Выберите 1 вариант",
+          "request": "get:options-category",
+          "options": [
+            {
+              "value": "cat-1",
+              "name": "Category 1"
+            },
+            {
+              "value": "cat-2",
+              "name": "Category 2"
+            }
+          ]
+        }
+      },
+      {
+        "type": "CheckBoxes",
+        "name": "deadlines",
+        "params": {
+          "depend": "category",
+          "validation": "required",
+          "label": "Сроки размещения",
+          "desc": "Можно выбрать несколько вариантов (минимум 1).",
+          "children": [
+            {
+              "name": "daily",
+              "label": "Посуточно",
+              "desc": "Аренда жилья от 1х суток"
+            },
+            {
+              "name": "from-5-days",
+              "label": "От 5 дней (необходимо для участия в турах)",
+              "desc": "Цена за аренду от 5 суток – более выгодное предложение для гостя по стоимости, чем посуточная аренда."
+            },
+            {
+              "name": "long-term",
+              "label": "На длительный срок (от 1 месяца)",
+              "desc": "Длительная аренда сроком от 1-го месяца – более выгодное предложение для гостя по стоимости, чем остальные варианты."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Адрес и контакты",
+    "fields": [
+      {
+        "type": "Map",
+        "label": "Адрес",
+        "name": "current-location",
+        "params": {
+          "validation": "required",
+          "placeholder": "Начните вводить адрес и выберете совпадения из списка"
+        }
+      },
+      {
+        "type": "RadioButton",
+        "name": "views-address-after-reg",
+        "params": {
+          "label": "Показывать точный адрес только после оформления бронирования?",
+          "children": [
+            {
+              "name": "yes",
+              "label": "Да",
+              "checked": true
+            },
+            {
+              "name": "not",
+              "label": "Нет, пусть видят сразу"
+            }
+          ]
+        }
+      },
+      {
+        "type": "PhoneInput",
+        "name": "phone",
+        "label": "Телефон",
+        "params": {
+          "validation": "required",
+          "placeholder": "(___) ___-__-__",
+          "request": "getRegPhones"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Параметры жилья",
+    "fields": [
+      {
+        "type": "Select",
+        "label": "Параметры жилья",
+        "name": "count-rooms",
+        "params": {
+          "validation": "required",
+          "placeholder": "Выберите 1 вариант",
+          "label": "Количество комнат",
+          "options": [
+            {
+              "value": "atelier",
+              "name": "Студия"
+            },
+            {
+              "value": "1",
+              "name": "1"
+            },
+            {
+              "value": "2",
+              "name": "2"
+            },
+            {
+              "value": "3",
+              "name": "3"
+            },
+            {
+              "value": "4",
+              "name": "4"
+            },
+            {
+              "value": "5",
+              "name": "5"
+            },
+            {
+              "value": "6",
+              "name": "6"
+            },
+            {
+              "value": "7",
+              "name": "7"
+            },
+            {
+              "value": "8",
+              "name": "8"
+            },
+            {
+              "value": "more-8",
+              "name": ">8"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Select",
+        "name": "type-house",
+        "params": {
+          "validation": "required",
+          "label": "Тип дома",
+          "placeholder": "Выберите 1 вариант",
+          "options": [
+            {
+              "value": "brick",
+              "name": "Кирпичный"
+            },
+            {
+              "value": "panel",
+              "name": "Панельный"
+            },
+            {
+              "value": "block",
+              "name": "Блочный"
+            },
+            {
+              "value": "monolithic",
+              "name": "Монолитный"
+            },
+            {
+              "value": "wooden",
+              "name": "Деревянный"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Input",
+        "name": "level",
+        "params": {
+          "validation": "required",
+          "type": "number",
+          "label": "Этаж",
+          "size": "half"
+        }
+      },
+      {
+        "type": "Input",
+        "name": "count-level",
+        "params": {
+          "validation": "required",
+          "type": "number",
+          "label": "Этажей в доме",
+          "size": "half"
+        }
+      },
+      {
+        "type": "Input",
+        "name": "amount-area",
+        "params": {
+          "type": "number",
+          "validation": "required",
+          "label": "Общая площадь",
+          "size": "half",
+          "measure": "м2"
+        }
+      },
+      {
+        "type": "Input",
+        "name": "living-area",
+        "params": {
+          "type": "number",
+          "label": "Жилая площадь",
+          "size": "half",
+          "measure": "м2"
+        }
+      },
+      {
+        "type": "Input",
+        "name": "area-kitchen",
+        "params": {
+          "type": "number",
+          "label": "Площадь кухни",
+          "size": "half",
+          "measure": "м2"
+        }
+      },
+      {
+        "type": "Count",
+        "name": "full-bathroom",
+        "label": "Ванные комнаты",
+        "desc": "Ванная комната без душа или ванной считается туалетом.",
+        "params": {
+          "label": "Полноценная ванная"
+        }
+      },
+      {
+        "type": "Count",
+        "name": "shower-room",
+        "params": {
+          "label": "Душевая комната"
+        }
+      },
+      {
+        "type": "Count",
+        "name": "count-toilets",
+        "params": {
+          "label": "Количество туалетов"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Количество гостей",
+    "fields": [
+      {
+        "type": "Count",
+        "name": "guests-count",
+        "label": "Сколько гостей вмещает ваше жилье?",
+        "desc": "У каждого гостя должно быть свое комфортное спальное место.",
+        "params": {
+          "label": "Гости"
+        }
+      },
+      {
+        "type": "CountBed",
+        "name": "count-bed",
+        "label": "Жилые помещения",
+        "desc": "Расскажите гостям подробнее о том, какие кровати есть у вас в каждой комнате.",
+        "params": {
+          "beds": [
+            {
+              "value": "sofa-bed",
+              "name": "Диван-кровать"
+            },
+            {
+              "value": "1-bed",
+              "name": "Односпальная кровать"
+            },
+            {
+              "value": "1.5-bed",
+              "name": "Полуторная кровать"
+            },
+            {
+              "value": "2-bed",
+              "name": "Двуспальная кровать"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Удобства",
+    "fields": [
+        {
+          "type": "CheckboxGroup",
+          "name": "comfort",
+          "label": "Удобства",
+          "desc": "Отметьте что есть в распоряжении гостей.",
+          "params": {
+            "label": "Комфорт",
+            "children": [
+              {
+                "name": "condition",
+                "value": "condition",
+                "label": "Кондиционер"
+              },
+              {
+                "name": "parking",
+                "value": "parking",
+                "label": "Парковочное место"
+              },
+              {
+                "name": "fireplace",
+                "value": "fireplace",
+                "label": "Камин"
+              },
+              {
+                "name": "balcony",
+                "value": "balcony",
+                "label": "Балкон / Лоджия"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CheckboxGroup",
+          "name": "multimedia",
+          "params": {
+            "label": "Мультимедия",
+            "children": [
+              {
+                "name": "wi-fi",
+                "value": "wi-fi",
+                "label": "Wi-Fi"
+              },
+              {
+                "name": "cable",
+                "value": "cable",
+                "label": "Кабельное / Цифровое ТВ"
+              },
+              {
+                "name": "tele",
+                "value": "tele",
+                "label": "Телевизор"
+              },
+              {
+                "name": "audio",
+                "value": "audio",
+                "label": "Аудио-система"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CheckboxGroup",
+          "name": "appliances",
+          "params": {
+            "label": "Бытовая техника",
+            "children": [
+              {
+                "name": "plate",
+                "value": "plate",
+                "label": "Плита"
+              },
+              {
+                "name": "nuke",
+                "value": "nuke",
+                "label": "Микроволновка"
+              },
+              {
+                "name": "fan",
+                "value": "fan",
+                "label": "Фен"
+              },
+              {
+                "name": "oven",
+                "value": "oven",
+                "label": "Духовка"
+              },
+              {
+                "name": "fridge",
+                "value": "fridge",
+                "label": "Холодильник"
+              },
+              {
+                "name": "iron",
+                "value": "iron",
+                "label": "Утюг"
+              },
+              {
+                "name": "washing-machine",
+                "value": "washing-machine",
+                "label": "Стиральная машина"
+              },
+              {
+                "name": "dishwasher",
+                "value": "dishwasher",
+                "label": "Посудомоечная машина"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CheckboxGroup",
+          "name": "additional",
+          "params": {
+            "label": "Дополнительно",
+            "children": [
+              {
+                "name": "tea-coffee-sugar",
+                "value": "tea-coffee-sugar",
+                "label": "Чай, кофе, сахар"
+              },
+              {
+                "name": "linen",
+                "value": "linen",
+                "label": "Постельное белье"
+              },
+              {
+                "name": "dishes",
+                "value": "dishes",
+                "label": "Посуда"
+              },
+              {
+                "name": "towels",
+                "value": "towels",
+                "label": "Полотенца"
+              },
+              {
+                "name": "cooking-food",
+                "value": "cooking-food",
+                "label": "Все для готовки еды"
+              },
+              {
+                "name": "soap-shampoo",
+                "value": "soap-shampoo",
+                "label": "Мыло / шампунь"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CheckboxGroup",
+          "name": "deregulation",
+          "params": {
+            "label": "Снятие ограничений",
+            "children": [
+              {
+                "name": "with-children",
+                "value": "with-children",
+                "label": "Можно с детьми"
+              },
+              {
+                "name": "smoke",
+                "value": "smoke",
+                "label": "Можно курить"
+              },
+              {
+                "name": "animals",
+                "value": "animals",
+                "label": "Можно с животными"
+              },
+              {
+                "name": "events",
+                "value": "events",
+                "label": "Можно для мероприятий"
+              }
+            ]
+          }
+        }
+      ]
+  },
+  {
+    "name": "Фото / видео",
+    "fields": [
+      {
+        "type": "Gallery",
+        "name": "gallery",
+        "label": "Фотографии",
+        "desc": "Качественные фотографии всех помещений в несколько раз повышают привлекательность предложения.",
+        "params": {}
+      }
+    ]
+  },
+  {
+    "name": "Описание",
+    "fields": [
+      {
+        "type": "TextEditor",
+        "name": "text-editor",
+        "label": "Описание",
+        "desc": "Добавьте информацию, которая может быть полезна гостям.",
+        "params": {
+          "max-character": 5000
+        }
+      },
+      {
+        "type": "Price",
+        "name": "price",
+        "label": "Цена",
+        "params": {
+          "attention": "После завершения создания предложения откроется возможность управлять ценой и скидками в календаре бронирования.",
+          "list": [
+            { "name": "every-day", "label": "Посуточно", "subLabel": "за сутки" },
+            { "name": "from-5", "label": "От 5-ти дней", "subLabel": "за сутки" },
+            { "name": "from-month", "label": "От 1-го месяца", "subLabel": "за месяц" }
+          ]
+        }
+      },
+      {
+        "type": "Booking",
+        "name": "booking-with-prepayment",
+        "label": "Онлайн бронирование",
+        "desc": "Можно выбрать несколько вариантов.",
+        "params": {
+          "items": [
+            {
+              "name": "without-prepayment",
+              "value": false,
+              "label": "Онлайн бронирование без предоплаты"
+            },
+            {
+              "name": "with-prepayment",
+              "value": true,
+              "label": "Онлайн бронирование с предоплатой"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

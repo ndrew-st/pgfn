@@ -4,6 +4,7 @@
       :is="name"
       :active="active"
       :color="color"
+      :width="width"
     />
   </span>
 </template>

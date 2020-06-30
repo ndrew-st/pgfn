@@ -1,3 +1,5 @@
+process.env.DEBUG = 'nuxt:*'
+
 export default {
   mode: 'universal',
   /*
@@ -44,7 +46,7 @@ export default {
         {
           name: 'main',
           path: '/',
-          component: resolve(__dirname, 'pages/direction/_name')
+          component: resolve(__dirname, 'pages/direction/_city')
         }
       )
     }
@@ -72,8 +74,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    // baseURL: 'https://dev.personal.guide/api/'
-    baseURL: 'http://192.168.99.100:4000/'
+    baseURL: 'http://dev.personal.guide/api/'
   },
   /*
    ** Build configuration
@@ -95,5 +96,6 @@ export default {
       access: 'access_token',
       refresh: 'refresh_token'
     }
-  }
+  },
+  debug: true
 }
