@@ -46,7 +46,7 @@ export default {
         {
           name: 'main',
           path: '/',
-          component: resolve(__dirname, '/pages/direction/_city')
+          component: resolve(__dirname, 'pages/direction/_city')
         }
       )
     }
