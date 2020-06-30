@@ -34,9 +34,9 @@ export default {
   },
   computed: {
     ...mapState('direction', {
-      direction: state => state.result.direction && state.dir,
-      apartments: state => state.result.apartments && state.dir,
-      services: state => state.result.services || {},
+      direction: state => state.result.direction || state.dir,
+      apartments: state => state.result.apartments || state.dir,
+      services: state => state.result.services || state.dir,
       description: state => state.result.description,
       head: (state) => {
         return {

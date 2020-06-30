@@ -51,10 +51,6 @@ export default {
     maxLength: {
       type: Number,
       default: 200
-    },
-    measure: {
-      type: String,
-      default: null
     }
   },
   data () {
