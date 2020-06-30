@@ -1,10 +1,8 @@
-import OcVerification from '@/components/global/ocVerification/index.vue'
 import UserPass from './user-pass/index.vue'
 
 export default {
   layout: 'clean',
   components: {
-    OcVerification,
     UserPass
   },
   data: () => ({
@@ -17,6 +15,9 @@ export default {
     timeCounter: 119
   }),
   methods: {
+    _getNumPhone (str) {
+      return str.replace(/\D/g, '')
+    },
     setError (error) {
       switch (error) {
         case 'You only recently sent SMS!':
@@ -34,6 +35,8 @@ export default {
     },
     async register ({ name, password }) {
       const result = await this.$api.users.register(this.phone, name, password)
+      console.log('register result ', result)
+
       if (!result.error) {
         this.$router.push('/sign-in')
       } else {
@@ -44,24 +47,26 @@ export default {
       switch (this.stage) {
         case 'phone':
 
-          const reply = await this.$api.users.getCode(this.phone)
-          console.log(reply)
-          if (reply.success) {
+          this.phone = this._getNumPhone(this.phone)
+          const res = await this.$api.users.getCode(this.phone)
+
+          if (res && !res.error) {
             this.stage = 'sms'
             this.error = ''
           } else {
-            this.setError(reply.error.error)
+            this.setError(res.error)
           }
 
           break
         case 'sms':
           const result = await this.$api.users.checkCode(this.phone, this.code)
-          console.log(result)
-          if (result.success) {
+          console.log('checkCode ', result)
+
+          if (result && !result.error) {
             this.stage = 'userpass'
             this.error = ''
           } else {
-            this.setError(reply.error.error)
+            this.setError(result.error)
           }
 
           break

@@ -4,7 +4,11 @@ export default ({ $axios }, inject) => {
       localStorage.setItem(name, JSON.stringify(data))
     },
     getItem (name) {
-      return JSON.parse(localStorage.getItem(name))
+      if (localStorage.getItem(name)) {
+        return JSON.parse(localStorage.getItem(name))
+      } else {
+        return null
+      }
     },
     rmItem (name) {
       localStorage.removeItem(name)

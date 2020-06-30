@@ -75,7 +75,6 @@ export default {
    */
   axios: {
     baseURL: 'http://dev.personal.guide/api/'
-    // baseURL: 'http://localhost:8000/api/'
   },
   /*
    ** Build configuration
@@ -92,7 +91,11 @@ export default {
   env: {
     throttle_time: 1000,
     header_auth: 'authorization',
-    ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65'
+    ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65',
+    token_key: {
+      access: 'access_token',
+      refresh: 'refresh_token'
+    }
   },
   debug: true
 }
