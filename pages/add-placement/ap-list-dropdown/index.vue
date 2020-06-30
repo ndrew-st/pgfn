@@ -9,7 +9,7 @@
         class="ap-list-dropdown__li"
         @click="$emit('selectItem', item)"
       >
-        {{ item }}
+        {{ item.name }}
       </li>
     </ul>
   </div>

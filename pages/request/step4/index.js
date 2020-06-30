@@ -1,29 +1,18 @@
-import ApButton from '../ap-button/index.vue'
-import ApRadio from '../ap-radio/index.vue'
-import ApCheckbox from '../ap-checkbox/index.vue'
-import CheckBlock from '../blocks/two-columns-checkboxes/index.vue'
-import CountBed from '../../request/-components/CountBed/index.vue'
-import ApFolding from '../blocks/ap-folding'
+import ApButton from '../../add-placement/ap-button/index.vue'
+import ApRadio from '../../add-placement/ap-radio/index.vue'
+import ApCheckbox from '../../add-placement/ap-checkbox/index.vue'
+import CheckboxesList from '../../add-placement/blocks/two-columns-checkboxes/index.vue'
+import ApFolding from '../../add-placement/blocks/ap-folding'
+import CountBed from '../-components/CountBed/index.vue'
 
 export default {
   components: {
     ApButton,
     ApRadio,
     ApCheckbox,
-    CheckBlock,
+    CheckboxesList,
     CountBed,
     ApFolding
-  },
-  watch: {
-    furniture (val) {
-      console.log('furniture ', val)
-    },
-    listTimeCall (val) {
-      console.log('listTimeCall ', val)
-    },
-    starCheckbox (val) {
-      console.log('starCheckbox ', val)
-    }
   },
   data () {
     return {
@@ -103,12 +92,11 @@ export default {
         { label: 'Гель для душа', value: 'shower-gel' }
       ],
       specials: [
-        { label: 'Подходит для праздников', value: 'good-for-party' },
-        { label: 'Удобно с детьми', value: 'good-for-kids' },
-        { label: 'Удобно пожилым', value: 'good-for-aged' },
-        { label: 'Удобно для двоих', value: 'good-for-pairs' },
-        { label: 'Удобно для больших компаний', value: 'good-for-big-company' },
-        { label: 'Удобно людям с ограниченными возможностями', value: 'good-for-invalids' }
+        { label: 'Баня/сауна', value: 'sauna' },
+        { label: 'Бассейн', value: 'pool' },
+        { label: 'Спортзал', value: 'gym' },
+        { label: 'Бильярд', value: 'billiards' },
+        { label: 'Домашний кинотеатр', value: 'home-theater' }
       ],
       starCheckbox: false
     }
