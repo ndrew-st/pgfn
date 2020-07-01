@@ -5,6 +5,9 @@ import List from './-components/List'
 export default {
   layout: 'main',
   components: { List },
+  // async asyncData ({ store }) {
+  //   await store.dispatch(`profile/getData`)
+  // },
   middleware: 'auth',
   data () {
     return {
@@ -25,9 +28,9 @@ export default {
   },
   computed: {
     ...mapState(`profile`, {
-      history: state => state.result.history,
-      ads: state => state.result.ads,
-      request: state => state.result.request
+      history: state => state.history,
+      ads: state => state.ads,
+      request: state => state.request
     })
   },
   async mounted () {
