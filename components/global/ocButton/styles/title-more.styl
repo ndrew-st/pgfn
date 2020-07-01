@@ -1,0 +1,46 @@
+.oc-button-title-more
+  display inline-flex
+  align-items center
+
+  & .text-content
+    display block
+    padding-left 11px
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0.3px;
+    color: #272528;
+
+    box-sizing border-box
+
+  & .icon-content
+    position relative
+
+    width 4px
+    height 8px
+
+    & svg
+      position absolute
+      top 0
+      left 0
+
+      width 4px
+      height 8px
+
+      transform rotate(180deg)
+      anim transform
+
+      & path
+        stroke $dark
+
+  &.active .icon-content
+    & svg
+      transform rotate(270deg)
+      anim transform
+
+@media (min-width 1280px)
+  .oc-button-title-more
+    & .text-content
+      text-transform: uppercase;

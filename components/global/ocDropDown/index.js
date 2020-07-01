@@ -9,10 +9,10 @@ export default {
 
     root.$on('dropdown:hide', () => this._hideDropDown())
 
-    // hide dropdown, if click at another area
+    // hide dropdown, if click at Another area
     document.onmousedown = (e) => {
       const target = e.target
-      const dropdown = target.closest('.dropdown__btn') || target.closest('.dropdown__content')
+      const dropdown = target.closest('.dropdownbtn') || target.closest('.dropdowncontent')
       if (!dropdown) {
         root.$emit('dropdown:hide')
       }

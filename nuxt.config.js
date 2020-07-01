@@ -8,6 +8,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { 'http-equiv': 'content-type', content: 'application/javascript' },
       {
         hid: 'description',
         name: 'description',
@@ -30,11 +31,11 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/global-components.js',
-    { src: '@/plugins/yandexMaps.js', ssr: false },
-    { src: '@/plugins/directives.js', ssr: false },
-    { src: '@/plugins/storage.js', ssr: 'client' },
-    '@/plugins/api.js'
+    { src: '~/plugins/global-components.js', ssr: false },
+    { src: '~/plugins/yandexMaps.js', ssr: false },
+    { src: '~/plugins/directives.js', ssr: false },
+    { src: '~/plugins/storage.js', ssr: false },
+    '~/plugins/api.js'
   ],
   router: {
     base: '/',
@@ -44,7 +45,7 @@ export default {
         {
           name: 'main',
           path: '/',
-          component: resolve(__dirname, 'pages/direction/_name')
+          component: resolve(__dirname, 'pages/direction/_city')
         }
       )
     }
@@ -72,7 +73,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://dev.personal.guide/api/'
+    baseURL: 'http://dev.personal.guide/api/'
   },
   /*
    ** Build configuration
@@ -89,6 +90,11 @@ export default {
   env: {
     throttle_time: 1000,
     header_auth: 'authorization',
-    ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65'
-  }
+    ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65',
+    token_key: {
+      access: 'access_token',
+      refresh: 'refresh_token'
+    }
+  },
+  debug: true
 }

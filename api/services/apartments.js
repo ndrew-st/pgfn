@@ -1,6 +1,6 @@
 export default axios => resource => ({
-  getDirection (name) {
-    return axios.get(`${resource}/direction?name=${name}`)
+  getDirection (city) {
+    return axios.get(`${resource}?city=${city}`)
   },
   getSearch (search) {
     return axios.get(`${resource}/search?q=${search}`)
@@ -10,5 +10,8 @@ export default axios => resource => ({
   },
   getUserPlacement () {
     return axios.get(`${resource}?user=true`)
+  },
+  getFilteredData () {
+    return axios.get(`${resource}`)
   }
 })

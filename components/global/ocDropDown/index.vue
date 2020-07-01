@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown">
     <span
-      class="dropdown__btn"
+      class="dropdownbtn"
       @click="toggle"
     >
       <slot
@@ -9,10 +9,11 @@
         name="button"
       />
     </span>
+
     <transition name="fade">
       <div
         v-if="isShow"
-        class="dropdown__content"
+        class="dropdowncontent"
       >
         <slot name="body" />
       </div>

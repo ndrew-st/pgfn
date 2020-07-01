@@ -8,6 +8,7 @@ export default {
   // async asyncData ({ store }) {
   //   await store.dispatch(`profile/getData`)
   // },
+  middleware: 'auth',
   data () {
     return {
       userName: 'Иван Иванов',

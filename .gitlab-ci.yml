@@ -1,7 +1,7 @@
 stages:
   - build
   - deploy
-  
+
 build:
   stage: build
   only:
@@ -17,7 +17,7 @@ build:
   script:
     - docker build . -t cr.yandex/crpfc5a15qquo7kl91as/front:gitlab-$CI_COMMIT_SHORT_SHA
     - docker push cr.yandex/crpfc5a15qquo7kl91as/front:gitlab-$CI_COMMIT_SHORT_SHA
-      
+
 deploy:
   image: gcr.io/cloud-builders/kubectl:latest
   stage: deploy
