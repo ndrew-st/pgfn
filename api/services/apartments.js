@@ -7,5 +7,8 @@ export default axios => resource => ({
   },
   updateTabs (url) {
     return axios.get(`${resource}${url}`)
+  },
+  getUserPlacement () {
+    return axios.get(`${resource}?user=true`)
   }
 })

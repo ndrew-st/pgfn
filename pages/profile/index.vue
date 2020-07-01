@@ -13,7 +13,10 @@
         {{ userName }}
       </p>
 
-      <div v-if="activeName">
+      <div
+        v-if="activeName"
+        class="profile-page__cont"
+      >
         <OcInput
           type="text"
           kind="most"
@@ -54,7 +57,10 @@
         Пароль
       </p>
 
-      <div v-if="activePass">
+      <div
+        v-if="activePass"
+        class="profile-page__cont"
+      >
         <OcInput
           type="password"
           kind="most"

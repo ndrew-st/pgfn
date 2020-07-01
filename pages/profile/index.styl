@@ -8,6 +8,9 @@
   &__list
     margin-bottom 60px
 
+  &__cont
+    display flex
+
 .div1
     width 679px
     margin-bottom 60px
@@ -75,24 +78,12 @@
   user-select none
 
 .input-name
-  background #F3F3F3
-  box-shadow inset 0px -1px 0px #D5D1DB
-  border-radius 4px 4px 0px 0px
-
-  font-style normal
-  font-weight normal
-  font-size 18px
-  line-height 28px
-  letter-spacing 0.1px
-  color #272528
-  padding 14px 0 14px 16px
   width 276px
-  height 28px
-  outline none
+  height 56px
   margin-bottom 34px
-  border none
 
 .btn-save
+  align-self flex-start
   background #3D88C8
   border-radius 4px
 
@@ -127,6 +118,9 @@
 
     &__list
       margin-bottom 28px
+
+    &__cont
+      flex-wrap wrap
 
 @media (min-width 1280px)
   .profile-page

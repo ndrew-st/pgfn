@@ -33,7 +33,7 @@ export default {
     '@/plugins/global-components.js',
     { src: '@/plugins/yandexMaps.js', ssr: false },
     { src: '@/plugins/directives.js', ssr: false },
-    { src: '@/plugins/storage.js', mode: 'client' },
+    { src: '@/plugins/storage.js', ssr: 'client' },
     '@/plugins/api.js'
   ],
   router: {
