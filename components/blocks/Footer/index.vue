@@ -37,7 +37,7 @@
               :key="soc.title"
               class="footer-contacts__social"
             >
-              <OcLink
+              <a
                 :href="soc.url"
                 target="_blank"
                 class="footer-contacts__social-link"
@@ -49,7 +49,7 @@
                   :height="32"
                   class="footer-contacts__social-img"
                 />
-              </OcLink>
+              </a>
             </li>
           </ul>
         </div>
