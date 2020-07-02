@@ -32,10 +32,10 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/global-components.js', mode: 'client' },
-    { src: '~/plugins/yandexMaps.js', mode: 'client' },
-    { src: '~/plugins/directives.js', mode: 'client' },
-    { src: '~/plugins/storage.js', mode: 'client' },
+    '~/plugins/global-components.js',
+    '~/plugins/yandexMaps.js',
+    '~/plugins/directives.js',
+    '~/plugins/storage.js',
     '~/plugins/api.js'
   ],
   router: {
@@ -86,8 +86,7 @@ export default {
     vendor: ['vue-yandex-maps'],
     extend (config, ctx) {
       config.resolve.extensions = [ '.vue', ...config.resolve.extensions ]
-    },
-    html: { minify: { collapseWhitespace: true, removeComments: true } }
+    }
   },
   env: {
     throttle_time: 1000,
