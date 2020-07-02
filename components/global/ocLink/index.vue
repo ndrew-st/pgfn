@@ -1,6 +1,7 @@
 <template>
   <nuxt-link
     v-bind="$attrs"
+    :to="to"
     class="inner-link"
     :class="[classLink]"
     v-on="$listeners"
