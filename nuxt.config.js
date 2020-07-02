@@ -86,7 +86,8 @@ export default {
     vendor: ['vue-yandex-maps'],
     extend (config, ctx) {
       config.resolve.extensions = [ '.vue', ...config.resolve.extensions ]
-    }
+    },
+    html: { minify: { collapseWhitespace: true, removeComments: true } }
   },
   env: {
     throttle_time: 1000,
