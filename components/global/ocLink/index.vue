@@ -1,28 +1,25 @@
 <template>
   <nuxt-link
-    v-slot="{ href, navigate, isActive }"
-    :to="to"
+    v-bind="$attrs"
     class="inner-link"
     :class="[classLink]"
+    v-on="$listeners"
   >
     <span class="inner-link__container">
       <span
         v-if="icon"
         class="inner-link__icon-container icon-content"
-        :class="[icon, { 'active': isActive }]"
+        :class="[icon]"
       >
         <OcIcon
           :name="icon"
         />
       </span>
-      <a
-        :href="href"
+      <span
         class="inner-link__content text-link"
-        :class="{ 'active': isActive }"
-        @click="navigate"
       >
         <slot />
-      </a>
+      </span>
     </span>
   </nuxt-link>
 </template>
