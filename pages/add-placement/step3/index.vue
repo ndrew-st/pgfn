@@ -26,9 +26,11 @@
       </div>
 
       <ApRow
-        v-for="(item, index) in items"
-        :key="index"
+        v-for="(item, days) in items"
+        :key="days"
         :item="item"
+        type="byTheDay"
+        @changeCheck="changeCheck"
       />
 
       <p class="add-placement__h2 ap-step3__h2-2">
@@ -39,11 +41,11 @@
         <div class="ap-step2__radio-item">
           <input
             id="fid-1"
-            v-model="picked"
+            v-model="byTheDay"
             type="radio"
             name="radio"
             class="ap-step2__radio"
-            value="Целиком"
+            value="0"
           >
 
           <label
@@ -59,7 +61,7 @@
             type="radio"
             name="radio"
             class="ap-step2__radio"
-            value="Номер"
+            value="1"
           >
 
           <label
@@ -94,6 +96,8 @@
         v-for="(item, index) in items2"
         :key="index"
         :item="item"
+        type="longTerm"
+        @changeCheck="changeCheck"
       />
 
       <p class="add-placement__h2 ap-step3__h2-2">
@@ -104,11 +108,11 @@
         <div class="ap-step2__radio-item">
           <input
             id="fid-3"
-            v-model="picked2"
+            v-model="longTerm"
             type="radio"
             name="radio2"
             class="ap-step2__radio"
-            value="Целиком"
+            value="0"
           >
 
           <label
@@ -124,7 +128,7 @@
             type="radio"
             name="radio2"
             class="ap-step2__radio"
-            value="Номер"
+            value="1"
           >
 
           <label
@@ -138,7 +142,7 @@
     <ApButton
       v-if="selItem !== ''"
       name="red"
-      @click.native="$emit('next')"
+      @click.native="next()"
     >
       Продолжить
     </ApButton>

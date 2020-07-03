@@ -1,13 +1,15 @@
 <template>
   <div class="ap-sums">
     <input
-      v-model="cost"
+      v-model="locPrice"
       class="ap-sums__input"
       placeholder="Стоимость"
+      type="number"
+      @change="$emit('changePrice', locPrice)"
     >
 
     <span
-      v-if="cost !==''"
+      v-if="locPrice > 0"
       class="ap-sums__rub"
     >₽</span>
 
@@ -16,13 +18,15 @@
     >/</span>
 
     <input
-      v-model="pledge"
+      v-model="locPledge"
       class="ap-sums__input"
       placeholder="Сумма залога"
+      type="number"
+      @change="$emit('changePledge', locPledge)"
     >
 
     <span
-      v-if="pledge !==''"
+      v-if="locPledge > 0"
       class="ap-sums__rub"
     >₽</span>
 
@@ -31,13 +35,15 @@
     >/</span>
 
     <input
-      v-model="interest"
+      v-model="locCommission"
       class="ap-sums__input"
       placeholder="Комиссия"
+      type="number"
+      @change="$emit('changeCommission', locCommission)"
     >
 
     <span
-      v-if="interest !==''"
+      v-if="locCommission > 0"
       class="ap-sums__rub"
     >₽</span>
   </div>

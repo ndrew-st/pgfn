@@ -65,19 +65,19 @@
           name="border"
           class="ap-step1__oc-btn"
         >
-          {{ typeOfHousing === null ? 'Источник аренды/тип арендодателя' : listTypeOfHousing[typeOfHousing.id].name }}
+          {{ typeOfHousing === null ? 'Источник аренды/тип арендодателя' : typeOfTenant.id === 0 ? listTypeOfHousing1[typeOfHousing.id].name : listTypeOfHousing2[typeOfHousing.id].name }}
           <span class="add-placement__red-star">*</span>
         </OcButton>
 
         <ApListDropdown
           slot="body"
-          :list="listTypeOfHousing"
+          :list="typeOfTenant !== null && typeOfTenant.id === 0 ? listTypeOfHousing1 : listTypeOfHousing2"
           @selectItem="selectTypeOfHousing"
         />
       </OcDropDown>
 
       <OcButton
-        v-if="selItem2 !== ''"
+        v-if="typeOfTenant !== null && typeOfHousing !== null"
         name="most"
         color="red"
         class="ap-step1__button-next"

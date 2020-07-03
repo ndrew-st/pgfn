@@ -107,6 +107,7 @@
       </p>
 
       <ApInput
+        v-model="area"
         class="ap-step2__input1"
         type="number"
       />
@@ -114,8 +115,10 @@
       <span class="ap-step2__span2">м²</span>
     </div>
 
+    <p>{{ area }}</p>
+
     <ApButton
-      v-if="selItem !== ''"
+      v-if="selItem !== null && area > 0"
       name="red"
       @click.native="next"
     >

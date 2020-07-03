@@ -17,16 +17,22 @@ export default () => ({
     areaOfHousin: 0,
     price: {
       byTheDay: [
-        {
-          days: 0,
-          price: 0
-        }
+        // {
+        //   days: 0,
+        //   price: 0,
+        //   pledge: 0,
+        //   commission: 0,
+        //   defaultValue: false
+        // }
       ],
       longTerm: [
-        {
-          days: 0,
-          price: 0
-        }
+        // {
+        //   days: 0,
+        //   price: 0,
+        //   pledge: 0,
+        //   commission: 0,
+        //   defaultValue: false
+        // }
       ]
     },
     firstPaymentAmount: {
@@ -37,42 +43,44 @@ export default () => ({
       typeOfReservation: '',
       cancellationPolicy: '',
       departureTime: [
-        {
-          day: '',
-          intervalTime: {
-            start: '2020-06-26T11:36:49.157Z',
-            end: '2020-06-26T11:36:49.157Z'
-          }
-        }
+        // {
+        //   day: '',
+        //   intervalTime: {
+        //     start: '2020-06-26T11:36:49.157Z',
+        //     end: '2020-06-26T11:36:49.157Z'
+        //   }
+        // }
       ],
       timeForCalls: [
-        {
-          day: '',
-          intervalTime: {
-            start: '2020-06-26T11:36:49.157Z',
-            end: '2020-06-26T11:36:49.157Z'
-          }
-        }
+        // {
+        //   day: '',
+        //   intervalTime: {
+        //     start: '2020-06-26T11:36:49.157Z',
+        //     end: '2020-06-26T11:36:49.157Z'
+        //   }
+        // }
       ]
     },
+    // спальные места
     sleepingPlace: [
-      {
-        typeOfPlace: '',
-        amount: 0
-      }
+      // {
+      //   typeOfPlace: '',
+      //   amount: 0
+      // }
     ],
     params: [
-      {
-        typeOfParam: '',
-        paramValue: ''
-      }
+      // {
+      //   typeOfParam: '',
+      //   paramValue: ''
+      // }
     ],
-    facilities: [
-      {
-        facilitiesId: '',
-        facilitiesValue: ''
-      }
-    ],
+    // удобства
+    // facilities: [
+    //   {
+    //     facilitiesId: '',
+    //     facilitiesValue: ''
+    //   }
+    // ],
     images: [
       ''
     ],

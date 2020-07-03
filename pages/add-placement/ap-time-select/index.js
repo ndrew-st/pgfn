@@ -1,4 +1,10 @@
 export default {
+  props: {
+    selTime: {
+      type: String,
+      required: true
+    }
+  },
   data () {
     return {
       timeArray: [
@@ -26,7 +32,8 @@ export default {
         '21:00',
         '22:00',
         '23:00'
-      ]
+      ],
+      locSelTime: this.selTime
     }
   }
 }

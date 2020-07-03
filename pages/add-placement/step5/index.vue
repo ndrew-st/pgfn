@@ -36,7 +36,7 @@
         :key="item.value"
         class="ap-step5__item"
       >
-        <ApCheckbox>
+        <ApCheckbox :par-name="item.value">
           {{ item.label }}
         </ApCheckbox>
       </li>
@@ -128,7 +128,7 @@
     <ApButton
       v-if="selItem !== ''"
       name="red"
-      @click.native="$emit('next')"
+      @click.native="next()"
     >
       Продолжить
     </ApButton>

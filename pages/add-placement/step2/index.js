@@ -23,17 +23,22 @@ export default {
       selItem: null,
       numberOfRooms: 1,
       picked: 'Целиком',
-      current: 'standard'
+      current: 'standard',
+      area: 0
     }
   },
   methods: {
     selectItem (par) {
       this.selItem = par.id
       this.$root.$emit('dropdown:hide')
-      // this.setItem({ key: 'typeOfHousing', value: par.id }) непонятно какое это значение на бэке
+      this.$store.dispatch('placement/setItem', { key: 'typeOfHousing', value: par.id })
+      // setItem({ key: 'typeOfHousing', value: par.id })
     },
     next () {
       // this.setItem({ key: 'numberOfRooms', value: this.numberOfRooms })
+      // this.setItem({ key: 'areaOfHousin', value: this.area })
+      this.$store.dispatch('placement/setItem', { key: 'numberOfRooms', value: this.numberOfRooms })
+      this.$store.dispatch('placement/setItem', { key: 'areaOfHousin', value: this.area })
       this.$emit('next')
     }
   }

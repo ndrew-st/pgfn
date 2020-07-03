@@ -18,7 +18,7 @@ export default {
   },
   data () {
     return {
-      state: 1
+      state: 4
     }
   },
   methods: {

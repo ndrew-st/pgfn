@@ -11,6 +11,10 @@ export default {
     current: {
       type: Number,
       default: 0
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -25,12 +29,13 @@ export default {
   // },
   methods: {
     changeCount (flag) {
+      // debugger
       if (flag) {
         this.cur += 1
-        this.$emit('change', this.cur, flag)
+        this.$emit('change', this.cur, flag, this.value)
       } else if (this.cur >= 1) {
         this.cur -= 1
-        this.$emit('change', this.cur, flag)
+        this.$emit('change', this.cur, flag, this.value)
       }
     }
   }

@@ -4,8 +4,8 @@
       :id="$attrs.id"
       class="ap-radio__input"
       type="radio"
-      :value="$attrs.value"
-      :name="$attrs.name"
+      :checked="checked"
+      @change="$emit('change', value)"
     >
 
     <label
