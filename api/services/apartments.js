@@ -13,5 +13,12 @@ export default axios => resource => ({
   },
   getFilteredData () {
     return axios.get(`${resource}`)
+  },
+  getCatalog (limit, offset) {
+    return axios.get(`${resource}?limit=${limit}&offset=${offset}`)
+  },
+  getCatalogFilter () {
+    // return axios.get(`${resource}/apartments-filter`)
+    return axios.get(`apartments-filter`)
   }
 })

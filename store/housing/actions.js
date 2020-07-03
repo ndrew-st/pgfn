@@ -1,9 +1,13 @@
 export default {
-  async getData ({ commit }) {
-    const data = await this.$api.apartments.getFilteredData()
+  getAllData ({ commit, state }) {
+    const offset = state.result.count - (state.page * state.limit)
+    console.log('page ', state.page)
 
-    console.log('catalog ', data)
+    // const data = await this.$api.apartments.getCatalog(state.limit, offset)
 
-    commit('addData', data)
+    // commit('addData', data)
+  },
+  changePage ({ commit }, page) {
+    commit(`setPage`, parseInt(page))
   }
 }

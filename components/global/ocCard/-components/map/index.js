@@ -7,8 +7,8 @@ export default {
       })
     },
     coords: {
-      type: Array,
-      default: () => ([])
+      type: Object,
+      default: () => ({})
     }
   },
   data () {
@@ -19,9 +19,9 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      this.titleHeight = this.$refs.title.clientHeight
-
-      console.log('this.titleHeight ', this.titleHeight)
+      if (this.$refs.title) {
+        this.titleHeight = this.$refs.title.clientHeight
+      }
     })
   }
 }
