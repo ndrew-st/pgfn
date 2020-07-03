@@ -13,5 +13,8 @@ export default axios => resource => ({
   },
   getFilteredData () {
     return axios.get(`${resource}`)
+  },
+  addPlacement (apData) {
+    return axios.post(`${resource}`, apData)
   }
 })

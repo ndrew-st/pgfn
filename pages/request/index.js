@@ -1,43 +1,29 @@
-import Header from './-components/Header'
-
-import first from './-components/Steps/First'
-import second from './-components/Steps/Second'
-
-import Conf from './config/index.json'
+import StageBar from '../add-placement/stage-bar'
+import Step1 from './step1/index.vue'
+import Step2 from './step2/index.vue'
+import Step3 from './step3/index.vue'
+import Step4 from './step4/index.vue'
+import Step5 from './step5/index.vue'
+import Step6 from './step6/index.vue'
 
 export default {
-  layout: 'clean',
   components: {
-    Header,
-    first,
-    second
+    Step1,
+    Step2,
+    Step3,
+    Step4,
+    Step5,
+    Step6,
+    StageBar
   },
   data () {
     return {
-      current: 0,
-      result: {},
-      error: null,
-      loading: false
-    }
-  },
-  computed: {
-    buttonText () {
-      return this.current < this.config.length - 1 ? 'Продолжить' : 'Опубликовать заявку'
-    },
-    config () {
-      return Conf
+      state: 1
     }
   },
   methods: {
     next () {
-      if (this.current < this.config.length - 1) {
-        this.current += 1
-      }
-    },
-    prev () {
-      if (this.current > 0) {
-        this.current -= 1
-      }
+      this.state++
     }
   }
 }

@@ -18,6 +18,7 @@
           <Counter
             class="count-bed__counter"
             :title="bed.title"
+            :value="bed.value"
             @change="change"
           />
         </li>

@@ -6,9 +6,13 @@ export default {
     list: {
       type: Array,
       default: () => ([
-        { title: 'Надувной матрас', value: 'air-mattress' },
-        { title: 'Водяной матрас', value: 'water-mattress' },
-        { title: 'Гамак', value: 'hammock' }
+        { title: 'Диван-кровать', value: 'sofaBed' },
+        { title: 'Кресло-кровать', value: 'chairBed' },
+        { title: 'Двухъярусная кровать', value: 'bunkBed' },
+        { title: 'Детская кровать', value: 'childrensBed' },
+        { title: 'Раскладушка', value: 'cot' },
+        { title: 'Надувной матрас', value: 'airMattress' },
+        { title: 'Матрас на полу', value: 'MattressOnTheFloor' }
       ])
     }
   },
@@ -17,9 +21,9 @@ export default {
       content: [],
       result: [],
       beds: [
-        { title: 'Односпальная кровать', value: 'single-bed' },
-        { title: 'Полутороспальная кровать', value: 'one-half-bed' },
-        { title: 'Двуспальная кровать', value: 'two-bed' }
+        { title: 'Односпальная кровать', value: 'singleBed' },
+        { title: 'Полутороспальная кровать', value: 'oneHalfBed' },
+        { title: 'Двуспальная кровать', value: 'twoBed' }
       ]
     }
   },
@@ -29,12 +33,14 @@ export default {
     }
   },
   methods: {
-    change (val, flag) {
+    change (val, flag, value) {
       // debugger
       if (flag) {
         this.result.push(val)
+        this.$store.dispatch('placement/setBed', { typeOfPlace: value, amount: val })
       } else {
         this.result.shift(val)
+        this.$store.dispatch('placement/removeBed', { typeOfPlace: value, amount: val })
       }
     },
     select (val) {

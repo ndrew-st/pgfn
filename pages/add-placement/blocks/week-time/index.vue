@@ -4,6 +4,7 @@
       v-for="(day, index) in daysArray"
       :key="index"
       :day="day"
+      :type="type"
     />
 
     <div class="week-time__flex">
