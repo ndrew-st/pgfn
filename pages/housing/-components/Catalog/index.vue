@@ -12,7 +12,8 @@
         class="catalog__item"
       >
         <OcCard
-          kind="maps"
+          type="housing"
+          :kind="type"
           :item="item"
           :is-liked="false"
         />

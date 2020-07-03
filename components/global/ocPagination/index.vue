@@ -5,6 +5,7 @@
         name="pagination"
         icon="pagination"
         add-class="prev"
+        :disabled="!hasPrev()"
         @click="changePage(prevPage)"
       >
         prev
@@ -51,6 +52,7 @@
         name="pagination"
         icon="pagination"
         add-class="next"
+        :disabled="!hasNext()"
         @click="changePage(nextPage)"
       >
         next

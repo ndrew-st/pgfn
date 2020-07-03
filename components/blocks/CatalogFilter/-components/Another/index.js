@@ -1,4 +1,4 @@
-import mainComp from './-components/main-comp'
+import mainComp from './-components/Main'
 import parameters from './-components/parameters'
 import usability from './-components/usability'
 
@@ -25,6 +25,15 @@ export default {
       count: 2,
       text: [ 'вариант', 'варианта', 'вариантов' ]
     }
+  },
+  async created () {
+    console.log('log ')
+
+    const res = await this.$api.apartments.getCatalogFilter()
+
+    console.log('log after')
+
+    console.log('res ', res)
   },
   methods: {
     variant (val) {

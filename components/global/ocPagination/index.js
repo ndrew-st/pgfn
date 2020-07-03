@@ -61,6 +61,7 @@ export default {
       return this.current < this.totalPages
     },
     changePage (page) {
+      console.log('changePage ', page)
       this.$emit('page-changed', page)
     }
   }

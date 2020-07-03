@@ -31,9 +31,9 @@ export default {
    */
   plugins: [
     '@/plugins/global-components.js',
-    { src: '@/plugins/yandexMaps.js', ssr: false },
-    { src: '@/plugins/directives.js', ssr: false },
-    { src: '@/plugins/storage.js', mode: 'client' },
+    '@/plugins/yandexMaps.js',
+    '@/plugins/directives.js',
+    '@/plugins/storage.js',
     '@/plugins/api.js'
   ],
   router: {
@@ -72,7 +72,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://dev.personal.guide/api/'
+    // baseURL: 'https://dev.personal.guide/api/'
+    baseURL: 'http://192.168.99.100:5000/'
   },
   /*
    ** Build configuration

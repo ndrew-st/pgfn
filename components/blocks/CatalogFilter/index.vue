@@ -9,15 +9,13 @@
       >
         <OcDropDown>
           <template #button="{ show }">
-            <OcButton
-              slot="button"
-              name="filter"
-              class="unit-filter__button"
+            <Toggle
               :active="show"
               :selected="isSelected(item.name)"
+              @clear="clear(item.name)"
             >
               {{ item.title }}
-            </OcButton>
+            </Toggle>
           </template>
           <component
             :is="item.name"

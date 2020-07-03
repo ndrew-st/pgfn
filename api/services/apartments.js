@@ -8,7 +8,11 @@ export default axios => resource => ({
   updateTabs (url) {
     return axios.get(`${resource}${url}`)
   },
-  getFilteredData () {
-    return axios.get(`${resource}`)
+  getCatalog (limit, offset) {
+    return axios.get(`${resource}?limit=${limit}&offset=${offset}`)
+  },
+  getCatalogFilter () {
+    // return axios.get(`${resource}/apartments-filter`)
+    return axios.get(`apartments-filter`)
   }
 })

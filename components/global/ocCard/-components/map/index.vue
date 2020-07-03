@@ -4,11 +4,13 @@
     class="card-map"
   >
     <div class="card-map__map-container">
-      <OcMaps
-        class="card-map__map"
-        :zoom="11"
-        :coords="item.coords"
-      />
+      <client-only>
+        <OcMaps
+          class="card-map__map"
+          :zoom="11"
+          :coords="item.address.coords"
+        />
+      </client-only>
     </div>
 
     <div

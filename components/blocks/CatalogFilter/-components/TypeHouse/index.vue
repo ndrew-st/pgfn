@@ -10,7 +10,7 @@
           :key="date"
           v-model="select"
           icon="check"
-          kind="checkbox"
+          kind="most"
           :name="$options.name"
           :label="item.label"
           :check-value="item.value"
