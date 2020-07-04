@@ -7,7 +7,7 @@
         :class="{ 'apartments-filter__item--desktop': item.desktop }"
         class="apartments-filter__item unit-filter"
       >
-        <OcDropDown>
+        <OcDropDown v-show="isShow(item.name)">
           <template #button="{ show }">
             <Toggle
               :active="show"

@@ -42,10 +42,12 @@
           </li>
         </ul>
       </div>
+
       <component
         :is="active"
         class="another__content"
       />
+
       <div class="another__footer another-footer">
         <OcButton
           name="transparent"
@@ -58,8 +60,9 @@
           name="most"
           color="red"
           class="another-footer__save"
+          @click="showResult"
         >
-          Показать {{ `${count} ${variant(count)}` }}
+          Показать {{ variant }}
         </OcButton>
       </div>
     </div>

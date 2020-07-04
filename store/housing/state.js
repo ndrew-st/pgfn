@@ -666,7 +666,7 @@ export default () => ({
     ],
     count: 233
   },
-  filters: [],
   limit: 6,
-  page: 1
+  page: 1,
+  typeFilter: null // For view another filter
 })

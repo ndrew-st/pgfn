@@ -17,8 +17,8 @@ export default axios => resource => ({
   getCatalog (limit, offset) {
     return axios.get(`${resource}?limit=${limit}&offset=${offset}`)
   },
-  getCatalogFilter () {
-    // return axios.get(`${resource}/apartments-filter`)
-    return axios.get(`apartments-filter`)
+  getCatalogFilter (type, page) {
+    // type - step, page - request or placement
+    return axios.get(`${resource}/filter?type=${type}&page=${page}`)
   }
 })
