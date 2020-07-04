@@ -1,20 +1,30 @@
 <template>
   <div class="flex">
-    <ApCheckbox class="day-week">
+    <ApCheckbox
+      class="day-week"
+      :checked="checked"
+      @change="checkState"
+    >
       <div class="day-week__flex">
         <span>
-          {{ day }}
+          {{ day.name }}
         </span>
 
         <span>с</span>
       </div>
     </ApCheckbox>
 
-    <ApTimeSelect />
+    <ApTimeSelect
+      :sel-time="timeStart"
+      @change="changeStart"
+    />
 
     <span class="day-week__to">по</span>
 
-    <ApTimeSelect />
+    <ApTimeSelect
+      :sel-time="timeFinish"
+      @change="changeFinish"
+    />
   </div>
 </template>
 

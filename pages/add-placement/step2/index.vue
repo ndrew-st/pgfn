@@ -10,7 +10,7 @@
           slot="button"
           name="filter"
         >
-          {{ selItem ==='' ? 'Выберите тип жилья' : selItem }}
+          {{ selItem === null ? 'Выберите тип жилья' : list[selItem].name }}
           <span class="add-placement__red-star">*</span>
         </ApButton>
 
@@ -90,22 +90,14 @@
       <span class="ap-step2__span">Количество комнат</span>
 
       <select
+        v-model="numberOfRooms"
         class="ap-step2__sel"
       >
-        <option>
-          1
-        </option>
-        <option>
-          2
-        </option>
-        <option>
-          3
-        </option>
-        <option>
-          4
-        </option>
-        <option>
-          5
+        <option
+          v-for="n in 5"
+          :key="n"
+        >
+          {{ n }}
         </option>
       </select>
 
@@ -115,6 +107,7 @@
       </p>
 
       <ApInput
+        v-model="area"
         class="ap-step2__input1"
         type="number"
       />
@@ -122,10 +115,12 @@
       <span class="ap-step2__span2">м²</span>
     </div>
 
+    <p>{{ area }}</p>
+
     <ApButton
-      v-if="selItem !== ''"
+      v-if="selItem !== null && area > 0"
       name="red"
-      @click.native="$emit('next')"
+      @click.native="next"
     >
       Продолжить
     </ApButton>

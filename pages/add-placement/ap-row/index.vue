@@ -4,7 +4,7 @@
       <div
         class="ap-row__checkbox"
         :class="{'ap-row__checkbox--black': checked}"
-        @click="checked = !checked"
+        @click="checkRow"
       >
         <svg
           v-if="checked"
@@ -23,12 +23,22 @@
         </svg>
       </div>
 
-      <span class="ap-row__span"> {{ item }} </span>
+      <span
+        class="ap-row__span"
+        @click="checkRow"
+      > {{ item.name }} </span>
 
-      <ApSums />
+      <ApSums
+        :price="price"
+        :pledge="pledge"
+        :commission="commission"
+        @changePrice="changePrice"
+        @changePledge="changePledge"
+        @changeCommission="changeCommission"
+      />
 
       <svg
-        v-if="checked"
+        v-if="item.defaultValue"
         class="ap-row__v"
         width="20"
         height="20"
@@ -48,11 +58,15 @@
     </div>
 
     <p
-      v-if="checked"
+      v-if="item.defaultValue"
       class="ap-row__def"
     >
       Эта сумма сейчас видна в каталоге по умолчанию
     </p>
+
+    <!-- <hr>
+
+    <span>{{ price }}, {{ pledge }}, {{ commission }}</span> -->
   </div>
 </template>
 

@@ -48,6 +48,7 @@
     <ApButton
       v-if="selItem !== ''"
       name="red"
+      @click.native="addPlacement()"
     >
       Разместить объявление
     </ApButton>

@@ -20,5 +20,8 @@ export default axios => resource => ({
   getCatalogFilter (type, page) {
     // type - step, page - request or placement
     return axios.get(`${resource}/filter?type=${type}&page=${page}`)
+  },
+  addPlacement (apData) {
+    return axios.post(`${resource}`, apData)
   }
 })
