@@ -32,11 +32,11 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/global-components.js',
-    '~/plugins/yandexMaps.js',
-    '~/plugins/directives.js',
-    '~/plugins/storage.js',
-    '~/plugins/api.js'
+    '@/plugins/global-components.js',
+    '@/plugins/yandexMaps.js',
+    '@/plugins/directives.js',
+    '@/plugins/storage.js',
+    '@/plugins/api.js'
   ],
   router: {
     base: '/',

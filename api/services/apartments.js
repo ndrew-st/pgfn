@@ -14,6 +14,13 @@ export default axios => resource => ({
   getFilteredData () {
     return axios.get(`${resource}`)
   },
+  getCatalog (limit, offset) {
+    return axios.get(`${resource}?limit=${limit}&offset=${offset}`)
+  },
+  getCatalogFilter (type, page) {
+    // type - step, page - request or placement
+    return axios.get(`${resource}/filter?type=${type}&page=${page}`)
+  },
   addPlacement (apData) {
     return axios.post(`${resource}`, apData)
   }

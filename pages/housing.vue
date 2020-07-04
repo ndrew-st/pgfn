@@ -3,23 +3,25 @@
     <div class="housing__container">
       <div class="housing__title-container">
         <h1 class="housing__title">
-          {{ header.title }}
+          {{ title }}
         </h1>
-        <span class="housing__count">{{ header.count }}</span>
+        <span class="housing__count">{{ count }}</span>
       </div>
 
       <CatalogFilter
         class="housing__filters"
       />
 
-      <div class="housing__content">
-        <nuxt-child />
-      </div>
+      <client-only>
+        <div class="housing__content">
+          <nuxt-child />
+        </div>
+      </client-only>
 
       <OcPagination
-        :current="currentPage"
-        :total="itemsLength"
-        :per-page="perPage"
+        :current="page"
+        :total="count"
+        :per-page="limit"
         class="housing__pagination"
         @page-changed="fetchItems"
       />
@@ -28,37 +30,30 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 import CatalogFilter from '~/components/blocks/CatalogFilter'
 
 export default {
   components: { CatalogFilter },
-  // async asyncData ({ app }) {
-  //   await app.store.dispatch(`housing/getData`)
-  // },
-  layout: 'main',
-  data () {
-    return {
-      perPage: 9,
-      currentPage: 1
-    }
+  asyncData ({ app: { store }, query: { page } }) {
+    store.dispatch(`housing/changePage`, page || 1)
   },
+  layout: 'main',
   computed: {
     ...mapState(`housing`, {
-      header: (state) => {
-        return {
-          title: state.result.title || 'Title 12',
-          count: state.result.count || 124
-        }
-      },
-      itemsLength: state => state.result.items.length
+      title: state => state.result.title,
+      count: state => state.result.count,
+      limit: state => state.limit,
+      page: state => state.page
     })
   },
   methods: {
-    fetchItems () {
-
-    }
+    fetchItems (nextStep) {
+      this.$router.push({ query: { page: nextStep } })
+      this.changePage(nextStep)
+    },
+    ...mapActions(`housing`, [`changePage`])
   }
 }
 </script>

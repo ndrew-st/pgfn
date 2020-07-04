@@ -34,9 +34,6 @@ export default {
     }
   },
   inheritAttrs: false,
-  data () {
-    return { }
-  },
   computed: {
     buttonClass () {
       return `oc-button oc-button-${this.name} shape-${this.shape} color-${this.color}`

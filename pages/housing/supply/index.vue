@@ -1,9 +1,10 @@
 <template>
-  <CatalogMap
+  <Catalog
     :coords="coords"
-    :list="items"
+    type="most"
+    :city="city"
+    :list="list"
   />
 </template>
 
 <script src="./index.js"/>
-<style lang="stylus" src="./index.styl" scoped/>

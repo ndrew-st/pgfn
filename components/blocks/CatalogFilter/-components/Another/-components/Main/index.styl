@@ -1,0 +1,51 @@
+.main-filter
+  padding 0 18px
+  padding-bottom: 100px
+
+  box-sizing border-box
+
+  &__range-container
+    height 32px
+    margin-top 50px
+
+.main-full
+  padding: 26px 0
+
+  border-bottom 1px solid #F3F3F3
+  &__list
+    margin: 0
+    padding: 0
+
+    list-style none
+
+  &__item
+    display flex
+    align-items center
+    justify-content space-between
+    margin-bottom: 20px
+
+    &:last-child
+      margin-bottom: 0
+
+  & .full-unit
+    &__desc
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 20px;
+      color: #272528;
+
+@media (min-width: 720px)
+  .main-filter
+    padding: 0 40px
+    padding-bottom 100px
+
+  .main-full
+    padding: 35px 0
+
+    &__item
+      margin-bottom 24px
+
+    & .full-unit
+      &__desc
+        font-size 16px

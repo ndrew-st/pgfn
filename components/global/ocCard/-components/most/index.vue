@@ -6,27 +6,29 @@
     @touchstart="touchStart"
   >
     <div class="card-item__list">
-      <OcCarousel
-        :nav="true"
-        :column="1"
-        :dots="true"
-        :show="true"
-        :scroll="false"
-        :items="item.previewGallery"
-        class="card-item__swiper"
-      >
-        <div
-          v-for="(gallery, index) in item.previewGallery"
-          :key="index"
-          class="card-item__img-container"
+      <client-only>
+        <OcCarousel
+          :nav="true"
+          :column="1"
+          :dots="true"
+          :show="true"
+          :scroll="false"
+          :items="item.previewGallery"
+          class="card-item__swiper"
         >
-          <OcImg
-            :src="gallery"
-            :alt="item.name"
-            class="card-item__image"
-          />
-        </div>
-      </OcCarousel>
+          <div
+            v-for="(gallery, index) in item.previewGallery"
+            :key="index"
+            class="card-item__img-container"
+          >
+            <OcImg
+              :src="gallery"
+              :alt="item.name"
+              class="card-item__image"
+            />
+          </div>
+        </OcCarousel>
+      </client-only>
     </div>
 
     <div
@@ -46,11 +48,9 @@
       </p>
     </div>
 
-    <div
-      class="card-item__intro"
-    >
+    <div class="card-item__intro">
       <p
-        v-if="item.intro"
+        v-show="item.intro"
         class="card-item__intro--content"
       >
         {{ item.intro }}
@@ -69,7 +69,7 @@
           {{ item.type }}
         </p>
         <div
-          v-if="item.views"
+          v-show="item.views"
           class="card-settings__views"
           :class="{ 'view-more': viewWidth > 100 }"
         >
@@ -77,7 +77,7 @@
             ref="views"
             class="card-settings__views--content"
           >
-            {{ `${item.views.toLocaleString()} ${viewText(item.views)}` }}
+            {{ `${item.views && item.views.toLocaleString()} ${viewText(item.views)}` }}
           </p>
         </div>
       </div>
@@ -107,7 +107,7 @@
     </div>
 
     <div
-      v-if="type === 'housing'"
+      v-show="type === 'housing'"
       class="card-item__attrs"
       :class="{ 'more-attrs': attrsHeight > 40 }"
     >
@@ -130,12 +130,12 @@
         v-if="item.oldprice"
         class="card-item__old-price"
       >
-        {{ item.oldprice.toLocaleString() }}
+        {{ item.oldprice && item.oldprice.toLocaleString() }}
         <span class="card-item__old-price--rouble">
           9
         </span>
       </span>
-      <span class="card-item__price">от {{ item.price.toLocaleString() }}
+      <span class="card-item__price">от {{ item.price && item.price.toLocaleString() }}
         <span class="card-item__price--rouble">
           9
         </span>
