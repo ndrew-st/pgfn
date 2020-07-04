@@ -8,14 +8,6 @@
   height: 28px;
   border: none;
   outline: none;
-  font-family: Calibri;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: 0.1px;
-  color: #1F1D21;
-  padding: 14px 16px;
 
   //
   //background #ECECEC
@@ -35,10 +27,10 @@
 
 
 .norm
-    box-shadow inset 0px -2px 0px #7140B8
+    box-shadow inset 0px -2px 0px $primary
 
 .red
-    box-shadow inset 0px -2px 0px #CA1F03
+    box-shadow inset 0px -2px 0px $danger
 
 .btn
     width 160px
@@ -62,7 +54,7 @@
 
 .active
     color #ffffff
-    background-color #3D88C8
+    background-color $primary
 
 .red-p
     font-style normal
@@ -70,7 +62,7 @@
     font-size 16px
     line-height 20px
     letter-spacing 0.1px
-    color #CA1F03
+    color $danger
     padding-top 8px
 
 @media (max-width 750px)

@@ -24,7 +24,7 @@ export default {
       map: {},
       markerIcon: {
         layout: 'default#imageWithContent',
-        imageHref: '/icons/map-house.svg',
+        imageHref: '/icons/ads-house.svg',
         imageSize: [56, 56],
         imageOffset: [0, 0]
         // content: '123 v12',

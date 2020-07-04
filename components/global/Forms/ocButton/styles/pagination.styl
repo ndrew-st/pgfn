@@ -31,7 +31,10 @@
   &.next > span.icon-content svg
     transform rotate(180deg)
 
-  &:hover > span.icon-content svg
+  &:disabled
+    cursor auto
+
+  &:hover:not(:disabled) > span.icon-content svg
     & rect
       fill $danger
       stroke $danger

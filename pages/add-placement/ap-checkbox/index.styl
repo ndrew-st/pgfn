@@ -1,0 +1,38 @@
+.ap-checkbox
+    font-family Calibri
+    font-style normal
+    font-weight normal
+    font-size 16px
+    line-height 20px
+    color $dark
+
+    &__input
+        display none
+
+        &:checked
+            & ~ .ap-checkbox__label-text:before
+                font-size 25px
+                background-color $dark
+
+    &__label-text
+        display flex
+        align-items center
+
+        &:before
+            content ''
+            display inline-block
+            background-color #FFFFFF
+            border 1px solid #DADADA
+            border-radius 4px
+            background url("data:image/svg+xml,%3Csvg class='ap-checkbox__svg' width='13' height='12' viewBox='0 0 13 12' fill='none' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M1 6.5L4.5 10.5L12 1' stroke='white' stroke-width='1.4' stroke-linejoin='round' /%3E%3C/svg%3E") no-repeat
+            background-position center
+            width 22px
+            height 22px
+            transition all 0.3s ease-in-out 0s
+            margin-bottom 3px
+            margin-right 16px
+            position relative
+
+    &:hover
+        .ap-checkbox__label-text:before
+            border-color $dark

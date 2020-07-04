@@ -1,5 +1,5 @@
 <template>
-  <div class="margin-page">
+  <div class="profile-page">
     <p class="p1">
       Личная информация
     </p>
@@ -13,7 +13,10 @@
         {{ userName }}
       </p>
 
-      <div v-if="activeName">
+      <div
+        v-if="activeName"
+        class="profile-page__cont"
+      >
         <OcInput
           type="text"
           kind="most"
@@ -54,7 +57,10 @@
         Пароль
       </p>
 
-      <div v-if="activePass">
+      <div
+        v-if="activePass"
+        class="profile-page__cont"
+      >
         <OcInput
           type="password"
           kind="most"
@@ -77,13 +83,26 @@
       </div>
     </div>
 
-    <p class="p4">
-      История бронирования
-    </p>
+    <List
+      class="profile-page__list"
+      type="history"
+      title="История бронирования"
+      :list="history"
+    />
 
-    <p class="p5">
-      Пока вы не забронировали ни одного типа жилья, после бронирования жилья они отобразяться здесь.
-    </p>
+    <List
+      class="profile-page__list"
+      type="ads"
+      title="Добавленные объявления"
+      :list="ads"
+    />
+
+    <List
+      class="profile-page__list"
+      type="request"
+      title="Опубликованные заявки на аренду жилья"
+      :list="request"
+    />
   </div>
 </template>
 

@@ -1,13 +1,16 @@
 .oc-checkbox-most
   & .icon.check
     position absolute
-    left 0
+    right 0
     top 0
     bottom 0
 
     display flex
     align-items center
     margin auto 0
+    margin-left auto
+    width 24px
+    height 24px
 
     & svg
       & path
@@ -25,7 +28,7 @@
   &.checked .icon.check
     & > svg
       & > path
-        stroke white
+        stroke #ffffff
 
       & > rect
         fill $dark
@@ -35,9 +38,7 @@
     position relative
 
     display flex
-    height 24px
-    align-items center
-    padding-left 40px
+    width 100%
 
     font-style normal
     font-weight normal
@@ -53,7 +54,7 @@
       content ''
 
       position absolute
-      left 0
+      right 0
       top 0
       bottom 0
 
@@ -67,6 +68,7 @@
       border-radius 4px
       cursor pointer
 
+
   &.checked .label
     &:before
       background-color black
@@ -76,3 +78,17 @@
   .oc-checkbox-most
     & .label
       font-size 16px
+
+@media (min-width 768px)
+  .oc-input-checkbox
+    & .label
+      align-items center
+      height 24px
+      padding-left 40px
+
+      &:before
+        left 0
+
+    & .icon.icon-left.check
+      right auto
+      left 0

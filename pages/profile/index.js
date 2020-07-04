@@ -1,5 +1,14 @@
+import { mapState } from 'vuex'
+
+import List from './-components/List'
+
 export default {
   layout: 'main',
+  components: { List },
+  // async asyncData ({ store }) {
+  //   await store.dispatch(`profile/getData`)
+  // },
+  middleware: 'auth',
   data () {
     return {
       userName: 'Иван Иванов',
@@ -17,9 +26,16 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState(`profile`, {
+      history: state => state.history,
+      ads: state => state.ads,
+      request: state => state.request
+    })
+  },
   async mounted () {
-    const result = await this.$api.users.getUser()
-    this.userName = result.name
-    this.userPhone = result.phone
+    // const result = await this.$api.users.getUser()
+    // this.userName = result.name
+    // this.userPhone = result.phone
   }
 }

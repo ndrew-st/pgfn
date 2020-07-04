@@ -1,0 +1,47 @@
+.oc-button-drop
+  position relative
+
+  min-height 24px
+
+  & .text-content
+    display flex
+    padding 0
+    padding-left 10px
+    padding-right 26px
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 28px;
+    color: #272528;
+
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+  & .icon-content
+    position absolute
+    top 0
+    bottom 0
+    right 8px
+    left auto
+
+    display flex
+    align-items center
+
+    & svg
+      width 4px
+      height 8px
+
+      transform rotate(-90deg)
+      anim transform
+
+      & path
+        stroke $secondary
+
+  &.active .icon-content svg
+    transform rotate(180deg)
+    anim transform
+
+

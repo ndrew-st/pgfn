@@ -10,6 +10,10 @@
     >
       {{ label }}
       <span
+        v-if="required"
+        class="input-container__label--required"
+      >*</span>
+      <span
         v-if="addDesc"
         class="input-container__label--text description"
       >
@@ -31,11 +35,18 @@
       v-bind="$attrs"
       :maxlength="maxLength"
       :name="name"
+      :required="required"
       type="text"
       class="input-container__input input"
       :class="[additionalClass]"
       v-on="listeners"
     >
+
+    <span
+      v-if="measure"
+      class="input-container__measure measure"
+      v-html="measure"
+    />
 
     <OcIcon
       v-if="visibleIcon && leftIcon"

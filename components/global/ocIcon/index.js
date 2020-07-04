@@ -11,6 +11,10 @@ export default {
     color: {
       type: String,
       default: ''
+    },
+    width: {
+      type: Number,
+      default: null
     }
   },
   created () {
@@ -29,5 +33,4 @@ export default {
       this.$options.components[componentName] = componentConfig.default
     })
   }
-
 }

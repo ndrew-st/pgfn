@@ -11,7 +11,7 @@
       <h2 class="full-block__title">
         {{ title }}
       </h2>
-      <p
+      <div
         class="full-block__description"
         v-html="description"
       />

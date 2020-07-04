@@ -6,9 +6,17 @@ export default {
       type: String,
       default: ''
     },
+    kind: {
+      type: String,
+      default: 'most'
+    },
     value: {
       type: Array,
       default: ''
+    },
+    active: {
+      type: Boolean,
+      default: false
     },
     checkValue: {
       type: [String, Array],
@@ -33,6 +41,9 @@ export default {
             } else {
               vm.check()
             }
+          },
+          change ({ target: { value } }) {
+            vm.$emit('change', value)
           }
         }
       )
@@ -53,8 +64,33 @@ export default {
     }
   },
   methods: {
+    _isBool (val) {
+      return typeof val === 'boolean'
+    },
+    _isString (val) {
+      return typeof val === 'string'
+    },
     check () {
-      if (this.value && isArray(this.value)) {
+      // if (this.value === null) {
+      //   return
+      // }
+
+      if (this._isBool(this.value)) {
+        this.$emit('input', true)
+
+        return
+      }
+
+      if (this._isString(this.value) && this.value.length) {
+        const res = []
+        res.push(this.value, this.checkValue)
+
+        this.$emit('input', res)
+
+        return
+      }
+
+      if (isArray(this.value)) {
         const value = this.value.slice(0) // Copy Array.
 
         value.push(this.checkValue)
@@ -66,7 +102,13 @@ export default {
       this.$emit('input', this.checkValue)
     },
     uncheck () {
-      if (this.value && isArray(this.value)) {
+      if (this._isBool(this.value)) {
+        this.$emit('input', false)
+
+        return
+      }
+
+      if (isArray(this.value)) {
         const value = this.value.slice(0)
 
         value.splice(value.indexOf(this.checkValue), 1)

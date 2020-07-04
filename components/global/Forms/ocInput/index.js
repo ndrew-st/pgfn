@@ -44,9 +44,17 @@ export default {
       type: String,
       default: null
     },
+    measure: {
+      type: String,
+      default: null
+    },
     iconPosition: {
       type: String,
       default: 'left'
+    },
+    required: {
+      type: Boolean,
+      default: false
     },
     maxLength: {
       type: Number,
@@ -99,7 +107,11 @@ export default {
       return this.iconPosition === 'left'
     },
     rightIconName () {
-      return this.value.length > 0 ? 'clear' : this.icon
+      if (this.kind === 'search') {
+        return this.value.length > 0 ? 'clear' : this.icon
+      } else {
+        return this.icon
+      }
     },
     rightIcon () {
       return this.iconPosition === 'right'

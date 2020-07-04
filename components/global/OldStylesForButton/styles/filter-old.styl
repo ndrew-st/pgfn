@@ -1,0 +1,40 @@
+.oc-button-filter-old
+  & > .text-content
+    padding 4px 16px
+
+    font-style normal
+    font-weight normal
+    font-size 13px
+    line-height 28px
+    color $secondary
+
+    background #FFFFFF
+    border 1.4px solid #DADADA
+    box-sizing border-box
+    border-radius 20px
+
+    cursor pointer
+
+    anim all
+
+  &.active > .text-content
+    color $dark
+    border-color $dark
+
+    anim all
+
+  &.selected > .text-content
+    font-weight bold
+    color $dark
+
+    border-color $dark
+
+    anim all
+
+@media (min-width 1280px)
+  .oc-button-filter
+    & > .text-content
+      padding 6px 18px
+
+      font-size 18px
+      line-height 28px

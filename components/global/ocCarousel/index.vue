@@ -25,7 +25,7 @@
       </div>
 
       <div
-        v-if="nav"
+        v-show="nav"
         class="carousel__button-container btn-carousel"
       >
         <OcButton

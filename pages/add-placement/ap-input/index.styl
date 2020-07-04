@@ -1,0 +1,27 @@
+.ap-input
+    font-family Calibri
+    font-style normal
+    font-weight normal
+    font-size 18px
+    line-height 28px
+    letter-spacing 0.1px
+    color $dark
+    background $light
+    box-shadow inset 0px -1px 0px #D5D1DB
+    border-radius 4px 4px 0px 0px
+    padding 14px 16px
+    border none
+    outline none
+    height 28px
+    transition box-shadow 0.3s
+
+    &:focus,
+    &:hover
+        box-shadow inset 0px -2px 0px #0082B4
+
+.ap-input[type='number']
+    -moz-appearance textfield
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button
+        -webkit-appearance none
