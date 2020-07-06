@@ -71,6 +71,7 @@ export default {
       }
     },
     clear () {
+      this.$emit('input', '')
       this.curSelStart = null
       this.curSelFinish = null
     },

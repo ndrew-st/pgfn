@@ -12,7 +12,7 @@ export default {
       type: Date
     },
     curOppDay: {
-      type: String
+      type: [String, Date]
     }
   },
   data () {

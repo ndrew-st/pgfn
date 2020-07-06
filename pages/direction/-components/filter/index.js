@@ -14,7 +14,8 @@ export default {
         { title: 'Жильё посуточно', name: 'day' },
         { title: 'Жильё на длительный срок', name: 'long' }
       ],
-      currentActive: 'day'
+      currentActive: 'day',
+      result: { }
     }
   },
   methods: {
@@ -23,6 +24,13 @@ export default {
     },
     submit () {
       // what do with search
+      console.log('submit ', this.result)
+    },
+    updateValue ({ field, value }) {
+      this.result = {
+        ...this.result,
+        [field]: value
+      }
     }
   }
 }

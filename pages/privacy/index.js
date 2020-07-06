@@ -1,8 +1,8 @@
 import num2str from '~/utils/num2str'
 
 export default {
-  props: {},
   layout: 'main',
+  scrollToTop: true,
   data () {
     return {
       monthChange: 2,

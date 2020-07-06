@@ -80,7 +80,7 @@
         <ul class="footer-author__list">
           <li class="footer-author__item">
             <OcLink
-              to="/"
+              to="/privacy"
               name="footer"
             >
               Конфиденциальность

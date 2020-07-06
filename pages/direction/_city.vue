@@ -52,25 +52,25 @@
     <SubscribeEmail class="direction-page__subscribe" />
 
     <!-- Услуги -->
-    <GroupCard
-      v-if="!isEmptyObj(services)"
-      :count="services.count"
-      :auto-width="true"
-      :items="services.items"
-      :tabs="services.tabs"
-      title="Услуги"
-      name="services"
-    >
-      <OcCard
-        v-for="(item, index) in services.items"
-        :key="item.name + item.address"
-        kind="most"
-        :item="item"
-        type="services"
-        :is-liked="isLiked(index, 'services')"
-        @setLike="handlerLike(index, 'services')"
-      />
-    </GroupCard>
+    <!--    <GroupCard-->
+    <!--      v-if="!isEmptyObj(services)"-->
+    <!--      :count="services.count"-->
+    <!--      :auto-width="true"-->
+    <!--      :items="services.items"-->
+    <!--      :tabs="services.tabs"-->
+    <!--      title="Услуги"-->
+    <!--      name="services"-->
+    <!--    >-->
+    <!--      <OcCard-->
+    <!--        v-for="(item, index) in services.items"-->
+    <!--        :key="item.name + item.address"-->
+    <!--        kind="most"-->
+    <!--        :item="item"-->
+    <!--        type="services"-->
+    <!--        :is-liked="isLiked(index, 'services')"-->
+    <!--        @setLike="handlerLike(index, 'services')"-->
+    <!--      />-->
+    <!--    </GroupCard>-->
 
     <Description
       v-if="description"

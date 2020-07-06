@@ -84,12 +84,19 @@
                 >
                   <OcButton
                     name="list"
-                    @click="handlerSubmit(item.id)"
+                    @click="handlerClickResult(item.title)"
                   >
-                    {{ item.content }}
+                    {{ item.title }}
                   </OcButton>
                 </li>
               </ul>
+              <p
+                v-else-if="error"
+                class="header-result__text"
+              >
+                <span class="header-result__text--bold">Ошибка поиска.</span>
+                Повторите запрос или обратитесь к администратору.
+              </p>
               <p
                 v-else
                 class="header-result__text"
@@ -125,7 +132,7 @@
                   >
                     <OcButton
                       name="list"
-                      @click="addObject(item.id)"
+                      @click="goTo(item.url)"
                     >
                       {{ item.content }}
                     </OcButton>

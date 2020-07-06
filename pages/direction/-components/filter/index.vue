@@ -10,6 +10,7 @@
       <component
         :is="currentActive"
         class="filter__content"
+        @input="updateValue"
       />
       <OcButton
         class="filter__submit"

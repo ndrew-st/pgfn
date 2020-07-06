@@ -29,7 +29,9 @@ export default {
       return Promise.reject(err)
     }
 
-    const { accessToken, refreshToken } = this.$axios.users.refreshToken(refToken)
+    const { accessToken, refreshToken } = this.$api.users.refreshToken(refToken)
+
+    debugger
 
     if (!accessToken || !refreshToken) {
       err = {
@@ -40,7 +42,10 @@ export default {
     }
 
     try {
-      this._setTokens(accessToken, refreshToken)
+      this.$storage.setItem(process.env.token_key.access, accessToken)
+      this.$storage.setItem(process.env.token_key.refresh, refreshToken)
+
+      this.$axios.defaults.headers[process.env.header_auth] = authHeader()
 
       commit(setTokens, { access: accessToken, refresh: refreshToken })
 
@@ -50,14 +55,19 @@ export default {
     }
   },
   async [login] ({ commit }, { phone, password }) {
-    const res = await this.$axios.users.login(phone, password)
+    const res = await this.$api.users.login(phone, password)
 
     if (res.error) {
       throw new Error(res.error)
     }
 
+    console.log('res tokens ', res)
+
     try {
-      this._setTokens(res.accessToken, res.refreshToken)
+      this.$storage.setItem(process.env.token_key.access, res.accessToken)
+      this.$storage.setItem(process.env.token_key.refresh, res.refreshToken)
+
+      this.$axios.defaults.headers[process.env.header_auth] = authHeader()
 
       commit(setTokens, { access: res.accessToken, refresh: res.refreshToken })
 
@@ -71,11 +81,5 @@ export default {
   },
   [logout] ({ commit }) {
 
-  },
-  _setTokens (access, refresh) {
-    this.$storage.setItem(process.env.token_key.access, access)
-    this.$storage.setItem(process.env.token_key.refresh, refresh)
-
-    this.$axios.defaults.headers[process.env.header_auth] = authHeader()
   }
 }

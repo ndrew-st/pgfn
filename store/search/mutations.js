@@ -5,6 +5,9 @@ export default {
   delResult (state) {
     state.result = []
   },
+  setData (state, res) {
+    state.result = res
+  },
   delSearch (state) {
     state.search = ''
   },
