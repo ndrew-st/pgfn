@@ -5,6 +5,9 @@ export default axios => resource => ({
   searching (search) {
     return axios.get(`${resource}?search=${search}`)
   },
+  getDataSearch ({ search, date, guests, limit, offset }) {
+    return axios.get(`${resource}?search=${search}&date=${date}&params=[{ "params.guests": ${guests} }]&limit=${limit}&offset=${offset}`)
+  },
   updateTabs (url) {
     return axios.get(`${resource}${url}`)
   },

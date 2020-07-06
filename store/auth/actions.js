@@ -31,8 +31,6 @@ export default {
 
     const { accessToken, refreshToken } = this.$api.users.refreshToken(refToken)
 
-    debugger
-
     if (!accessToken || !refreshToken) {
       err = {
         error: absentTokensFromServer

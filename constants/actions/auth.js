@@ -1,4 +1,4 @@
-const moduleName = 'auth'
+// const moduleName = 'auth'
 
 const authRequest = 'AUTH_REQUEST'
 const authSuccess = 'AUTH_SUCCESS'

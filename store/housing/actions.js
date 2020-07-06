@@ -1,6 +1,6 @@
 export default {
   getAllData ({ commit, state }) {
-    const offset = state.result.count - (state.page * state.limit)
+    // const offset = state.result.count - (state.page * state.limit)
 
     // const data = await this.$api.apartments.getCatalog(state.limit, offset)
 

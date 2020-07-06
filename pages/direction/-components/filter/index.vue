@@ -7,11 +7,13 @@
     />
 
     <div class="filter__container">
-      <component
-        :is="currentActive"
-        class="filter__content"
-        @input="updateValue"
-      />
+      <keep-alive>
+        <component
+          :is="currentActive"
+          class="filter__content"
+          @input="updateValue"
+        />
+      </keep-alive>
       <OcButton
         class="filter__submit"
         kind="most"

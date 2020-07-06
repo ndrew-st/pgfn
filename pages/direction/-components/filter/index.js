@@ -24,7 +24,11 @@ export default {
     },
     submit () {
       // what do with search
-      console.log('submit ', this.result)
+      if (this.result.guests) {
+        this.$storage.setItem('guests', this.result.guests)
+      }
+
+      this.$router.push({ path: 'search', query: { ...this.result, guestsKey: 'guests' } })
     },
     updateValue ({ field, value }) {
       this.result = {

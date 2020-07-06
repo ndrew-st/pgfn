@@ -11,6 +11,7 @@ export default {
       this.$emit('input', { field: 'date', value })
     },
     guests (value) {
+      console.log('guests ', value)
       this.$emit('input', { field: 'guests', value })
     }
   },

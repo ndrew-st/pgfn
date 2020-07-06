@@ -75,6 +75,9 @@ export default {
         this.showForm = true
       }
     },
+    handlerSubmit () {
+
+    },
     toggleFocus (flag) {
       this.focused = flag
     },

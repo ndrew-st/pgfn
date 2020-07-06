@@ -52,7 +52,6 @@
               class="find-header__input"
               icon-position="left"
               placeholder="Например отели с бассейном"
-              @input="handlerSearch"
               @focusin="focused = true"
               @focusout="focused = false"
             />

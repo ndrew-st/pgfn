@@ -14,5 +14,8 @@ export default {
   clearData (state) {
     state.search = ''
     state.result = []
+  },
+  setPage (state, page) {
+    state.page = page
   }
 }
