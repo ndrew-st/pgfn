@@ -6,8 +6,8 @@ export default {
   },
   props: {
     prices: {
-      type: Array,
-      default: []
+      type: Object,
+      default: () => ({})
     }
   }
 }

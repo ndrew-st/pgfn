@@ -25,7 +25,7 @@ export default {
     submit () {
       // what do with search
       if (this.result.guests) {
-        this.$storage.setItem('guests', this.result.guests)
+        sessionStorage.setItem('guests', JSON.stringify(this.result.guests))
       }
 
       this.$router.push({ path: 'search', query: { ...this.result, guestsKey: 'guests' } })

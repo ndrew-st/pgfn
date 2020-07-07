@@ -2,16 +2,29 @@
   <InfoBlock
     block-name="Стоимость"
   >
-    <div
-      v-for="(price, index) in prices"
-      :key="index"
-    >
+    <div>
       <p class="name">
-        {{ price.name }}
+        Посуточно
       </p>
+      <p
+        v-for="(item, index) in prices.byTheDay"
+        :key="index"
+        class="desc"
+      >
+        от {{ item.days }}  <span class="desc__bold">  {{ item.price }}</span><span class="desc__grey"> за сутки</span>
+      </p>
+    </div>
 
-      <p class="desc">
-        {{ price.minPeriod }}  <span class="desc__bold">  {{ price.price }}</span><span class="desc__grey">  {{ price.pricePeriod }}</span>
+    <div>
+      <p class="name">
+        На длительный срок
+      </p>
+      <p
+        v-for="(item, index) in prices.longTerm"
+        :key="index"
+        class="desc"
+      >
+        от {{ item.days }}  <span class="desc__bold">  {{ item.price }}</span><span class="desc__grey"> за месяц</span>
       </p>
     </div>
 

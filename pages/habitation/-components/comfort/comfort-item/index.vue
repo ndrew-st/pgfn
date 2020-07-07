@@ -1,13 +1,13 @@
 <template>
   <div class="comfort-item">
-    <div class="comfort-item__img">
-      <OcImg
-        :src="item.image"
-      />
-    </div>
+    <img
+      :src="item.image"
+      :alt="item.label"
+      class="comfort-item__img"
+    >
 
     <p class="comfort-item__name">
-      {{ item.name }}
+      {{ item.label }}
     </p>
   </div>
 </template>

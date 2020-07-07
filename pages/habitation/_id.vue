@@ -1,20 +1,34 @@
 <template>
-  <div
-    class="habitation-page"
-  >
+  <div class="habitation-page">
     <div class="habitation-page__padding">
-      <TopLine :top-path="topPath" />
+      <TopLine :title="header.title" />
 
       <div class="habitation-page__order-flex">
         <H1Block
-          :h1-info="h1Info"
+          :title="header.title"
+          :intro="header.intro"
+          :reviews="header.reviews"
+          :estimate="header.estimate"
+          :date="header.date"
+          :owner-id="header.ownerId"
+          :price="header.price"
           class="habitation-page__h1-block"
         />
 
-        <Pics :images="images" />
+        <Pics
+          v-if="images.length"
+          :images="images"
+        />
+        <MapBlock
+          v-else
+          :content="address"
+        />
       </div>
 
-      <DescBlockTop :info="descInfo" />
+      <DescBlockTop
+        :description="description"
+        :info="descInfo"
+      />
 
       <ThreeBlocks
         :tariffs="tariffs"
@@ -22,7 +36,7 @@
         :online-booking="onlineBooking"
       />
 
-      <Comfort :comfort="comfort" />
+      <Comfort :comfort="facilities" />
 
       <Rules
         :rules1="rules1"
@@ -35,24 +49,24 @@
         :loc-desc="locDesc"
       />
 
-      <GroupCard
-        :count="apartments.count"
-        name="most"
-        :auto-width="true"
-        :items="apartments.items"
-        :tabs="apartments.tabs"
-        title="Жильё"
-        @changeTab="handlerTab('apartments', $event)"
-      >
-        <ocCard
-          v-for="item in apartments.items"
-          :key="item.id"
-          kind="most"
-          :item="item"
-          type="housing"
-          :is-liked="false"
-        />
-      </GroupCard>
+      <!--      <GroupCard-->
+      <!--        :count="apartments.count"-->
+      <!--        name="most"-->
+      <!--        :auto-width="true"-->
+      <!--        :items="apartments.items"-->
+      <!--        :tabs="apartments.tabs"-->
+      <!--        title="Жильё"-->
+      <!--        @changeTab="handlerTab('apartments', $event)"-->
+      <!--      >-->
+      <!--        <ocCard-->
+      <!--          v-for="item in apartments.items"-->
+      <!--          :key="item.id"-->
+      <!--          kind="most"-->
+      <!--          :item="item"-->
+      <!--          type="housing"-->
+      <!--          :is-liked="false"-->
+      <!--        />-->
+      <!--      </GroupCard>-->
     </div>
 
     <Subscribe />

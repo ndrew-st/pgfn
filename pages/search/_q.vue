@@ -74,7 +74,7 @@ export default {
   },
   mounted () {
     if (this.query.guestsKey) {
-      this.guests = this.$storage.getItem(this.query.guestsKey)
+      this.guests = JSON.parse(sessionStorage.getItem(this.query.guestsKey))
     }
   },
   methods: {

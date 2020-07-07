@@ -1,0 +1,41 @@
+.habitation-map
+  margin 0 -18px
+  margin-top 30px
+
+  &__address
+    margin-bottom 15px
+    padding 0 18px
+
+  &__link
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #272528;
+
+    &:hover
+      & .text-link
+        text-decoration underline
+
+  &__content
+    width 100%
+    height 200px
+
+@media (min-width 768px)
+  .habitation-map
+    &__content
+      height 400px
+      max-width 880px
+
+@media (min-width 1280px)
+  .habitation-map
+    &__address
+      margin-bottom 28px
+
+    &__link
+      font-size: 18px;
+      line-height: 22px;
+
+    &__content
+      max-width 1280px
+      height 440px

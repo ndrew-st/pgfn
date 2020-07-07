@@ -2,8 +2,8 @@
   <div class="desc-block">
     <Description
       class="left-col"
-      :title="info.title"
-      :description="info.desc"
+      :title="title"
+      :description="description.content"
     />
 
     <div class="right-col">

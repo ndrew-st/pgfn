@@ -1,6 +1,13 @@
 <template>
   <div class="habitation-top">
     <div class="habitation-top__container">
+      <a
+        href="#"
+        class="habitation-top__prev-button"
+        @click.prevent="$router.go(-1)"
+      >
+        prev
+      </a>
       <span
         v-for="(item, index) in topPath"
         :key="index"

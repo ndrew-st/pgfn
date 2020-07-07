@@ -6,11 +6,11 @@
 
     <div
       class="flex-comfort"
-      :class="{active: showAll}"
+      :class="{ active: showAll }"
     >
       <ComfortItem
-        v-for="item in orderedComfort"
-        :key="item.order"
+        v-for="(item, index) in orderedComfort"
+        :key="index"
         :item="item"
       />
     </div>

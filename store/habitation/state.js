@@ -1,5 +1,5 @@
 export default () => ({
-  result: {
+  resultBlock: {
     images: [
       { id: 1, url: '/habitation/img-1.jpg', description: 'Description 1' },
       { id: 2, url: '/habitation/img-2.png', description: 'Description 2' },
@@ -29,5 +29,117 @@ export default () => ({
       { id: 3562, url: '/habitation/img-2.png', description: 'Description 2412' },
       { id: 5633, url: '/habitation/img-3.png', description: 'Description 314' }
     ]
+  },
+  result: {
+    title: '3-к квартира, 146 м², 11/12 эт., г. Судак',
+    intro: 'Intro',
+    description: 'Лучшее место в Ялте с видом на море',
+    city: 'Судак',
+    address: {
+      country: 'Россия',
+      region: 'Республика Крым',
+      city: 'Судак',
+      street: 'улица Ленина',
+      house: 9,
+      apartment: 0,
+      coords: { lat: 45.389194, lon: 33.993751 }
+    },
+    reviews: 288,
+    date: '15 февраля 2020 г.',
+    estimate: 4.3,
+    typeOfTenant: 0,
+    typeOfHousing: 'Квартира',
+    numberOfRooms: 0,
+    areaOfHousing: 0,
+    price: {
+      byTheDay: [
+        {
+          days: 1,
+          price: 4500,
+          pledge: 0,
+          commission: 0,
+          defaultValue: false
+        }
+      ],
+      longTerm: [
+        {
+          days: 30,
+          price: 4500,
+          pledge: 0,
+          commission: 0,
+          defaultValue: false
+        }
+      ]
+    },
+    firstPaymentAmount: {
+      byTheDay: '',
+      longTerm: ''
+    },
+    reservation: {
+      typeOfReservation: '',
+      cancellationPolicy: '',
+      departureTime: [
+        // {
+        //   day: '',
+        //   intervalTime: {
+        //     start: '2020-06-26T11:36:49.157Z',
+        //     end: '2020-06-26T11:36:49.157Z'
+        //   }
+        // }
+      ],
+      timeForCalls: [
+        // {
+        //   day: '',
+        //   intervalTime: {
+        //     start: '2020-06-26T11:36:49.157Z',
+        //     end: '2020-06-26T11:36:49.157Z'
+        //   }
+        // }
+      ]
+    },
+    // спальные места
+    sleepingPlace: [
+      // {
+      //   typeOfPlace: '',
+      //   amount: 0
+      // }
+    ],
+    params: [
+      {
+        typeOfParam: 'params.reviews',
+        paramValue: '288'
+      },
+      {
+        typeOfParam: 'params.facilities',
+        paramValue: [
+          { label: 'Фен', value: 'hairdryer' },
+          { label: 'Кофемашина', value: 'coffee' },
+          { label: 'Чайник', value: 'teapot' },
+          { label: 'Утюг', value: 'iron' },
+          { label: 'Холодильник', value: 'frige' },
+          { label: 'Телевизор', value: 'tv' },
+          { label: 'Аудиосистема', value: 'audio' },
+          { label: 'Игровая приставка', value: 'playstation' },
+          { label: 'Гладильная доска', value: 'ironingBoard' },
+          { label: 'Стиральная машина', value: 'washer' },
+          { label: 'Сушильная машина', value: 'drying' },
+          { label: 'Посудомоечная машина', value: 'dishwasher' },
+          { label: 'Газовая плита', value: 'gasStove' },
+          { label: 'Электроплита', value: 'electricStove' },
+          { label: 'Духовка / духовой шкаф', value: 'oven' },
+          { label: 'Микроволновка', value: 'microwave' }
+        ]
+      }
+    ],
+    // удобства
+    // facilities: [
+    //   {
+    //     facilitiesId: '',
+    //     facilitiesValue: ''
+    //   }
+    // ],
+    images: [],
+    ownerId: '0921358907125',
+    status: 0
   }
 })

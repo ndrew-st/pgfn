@@ -14,8 +14,8 @@ export default {
       default: []
     },
     prices: {
-      type: Array,
-      default: []
+      type: Object,
+      default: {}
     },
     onlineBooking: {
       type: Object,

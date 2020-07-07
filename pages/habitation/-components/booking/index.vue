@@ -41,11 +41,11 @@
         </div>
 
         <div class="money__flex">
-          <OcImg
+          <img
             src="img/wheretostay/1.png"
-            alt="house"
             class="money__img"
-          />
+            alt="house"
+          >
 
           <div class="money__right">
             <h2 class="money__app-name">

@@ -3,24 +3,25 @@
     <div class="flex jc aic">
       <div>
         <p class="h1">
-          {{ h1Info.desc1 }}
+          {{ title }}
         </p>
 
         <p class="h2">
-          {{ h1Info.desc2 }}
+          {{ intro }}
         </p>
       </div>
 
       <div class="fe">
         <p class="h1">
           <nobr>
-            {{ h1Info.price }}
+            {{ price.byTheDay[0].price }}
+            <span class="h1__rouble">9</span>
           </nobr>
         </p>
 
         <p class="period">
           <nobr>
-            {{ h1Info.period }}
+            за сутки
           </nobr>
         </p>
       </div>
@@ -28,20 +29,19 @@
 
     <div class="flex aic mt12">
       <div class="estimate">
-        {{ h1Info.estimate }}
+        {{ estimate }}
       </div>
 
       <div class="comms">
-        {{ h1Info.comms }}
+        {{ review }}
       </div>
 
       <div class="dateNumber">
-        {{ h1Info.dateNumber }}
+        {{ date }}&nbsp;№&nbsp;{{ ownerId }}
       </div>
     </div>
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus" scoped/>
-
 <script src="./index.js"/>
+<style src="./index.styl" lang="stylus" scoped/>
