@@ -5,11 +5,10 @@
         Мгновенное бронирование
       </h3>
       <OcCheckbox
-        v-model="value"
+        v-model="val"
         label="toggle"
         kind="toggle"
-        check-value="instant-booking"
-        @change="$emit('input', $event.target.value)"
+        @change="$emit('input', $event)"
       />
     </div>
     <p class="instant-booking__desc">
@@ -25,6 +24,11 @@ export default {
     value: {
       type: Boolean,
       default: false
+    }
+  },
+  data () {
+    return {
+      val: false
     }
   }
 }

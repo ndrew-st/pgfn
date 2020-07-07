@@ -77,6 +77,7 @@ export default {
     },
     save () {
       this.active = false
+      this.$root.$emit('dropdown:hide')
     }
   }
 }

@@ -30,8 +30,8 @@ export default {
         { name: 'guests', title: 'Количество гостей', desktop: true },
         { name: 'type', title: 'Тип жилья', desktop: true },
         { name: 'price', title: 'Цена' },
-        { name: 'instantBooking', title: 'Мгновенное бронирование', desktop: true },
-        { name: 'another', title: 'Другие фильтры' }
+        { name: 'instantBooking', title: 'Мгновенное бронирование', desktop: true }
+        // { name: 'another', title: 'Другие фильтры' }
       ],
       result: {}
     }

@@ -11,7 +11,7 @@ export default {
       default: 'most'
     },
     value: {
-      type: Array,
+      type: [String, Number, Array, Boolean],
       default: ''
     },
     active: {
@@ -19,7 +19,7 @@ export default {
       default: false
     },
     checkValue: {
-      type: [String, Array],
+      type: [String, Number, Array, Boolean],
       default: null
     },
     icon: {
@@ -35,7 +35,7 @@ export default {
       return Object.assign({},
         this.$listeners,
         {
-          input () {
+          input (evt) {
             if (vm.checkedInput) {
               vm.uncheck()
             } else {
@@ -71,10 +71,6 @@ export default {
       return typeof val === 'string'
     },
     check () {
-      // if (this.value === null) {
-      //   return
-      // }
-
       if (this._isBool(this.value)) {
         this.$emit('input', true)
 
