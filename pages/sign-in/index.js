@@ -23,6 +23,8 @@ export default {
       try {
         await this[login]({ phone: phoneNum, password: pass })
 
+        console.log('Here')
+
         this.$router.push('/profile')
       } catch (e) {
         console.log('Error ', e)

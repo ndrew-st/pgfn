@@ -7,6 +7,7 @@ import Step5 from './step5/index.vue'
 import Step6 from './step6/index.vue'
 
 export default {
+  middleware: 'auth',
   components: {
     Step1,
     Step2,

@@ -10,7 +10,7 @@
       </p>
 
       <p class="p3">
-        {{ userName }}
+        {{ user.name }}
       </p>
 
       <div
@@ -44,7 +44,7 @@
       </p>
 
       <p class="p3">
-        {{ userPhone }}
+        {{ user.phone }}
       </p>
     </div>
 

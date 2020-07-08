@@ -9,10 +9,12 @@ export default {
     try {
       const access = this.$storage.getItem(process.env.token_key.access)
       const refresh = this.$storage.getItem(process.env.token_key.refresh)
+      const user = this.$storage.getItem('user')
 
       this.$axios.defaults.headers[process.env.header_auth] = authHeader()
 
       commit(setTokens, { access, refresh })
+      commit('setUser', user)
     } catch (e) {
       console.log('InitAuth ', e)
     }
@@ -58,6 +60,17 @@ export default {
     if (res.error) {
       throw new Error(res.error)
     }
+
+    const user = {
+      avatar: res.avatar,
+      name: res.name,
+      phone: res.phone,
+      roles: res.roles,
+      status: res.status
+    }
+
+    commit('setUser', user)
+    this.$storage.setItem('user', user)
 
     console.log('res tokens ', res)
 

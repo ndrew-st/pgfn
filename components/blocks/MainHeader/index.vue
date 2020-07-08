@@ -142,11 +142,18 @@
           </li>
           <li class="header-controls__item">
             <OcLink
+              v-if="!isAuth"
               to="/sign-in"
               name="header-user"
               icon="user"
             >
               Войти
+            </OcLink>
+            <OcLink
+              v-else
+              to="/profile"
+            >
+              {{ name }}
             </OcLink>
             <!--            <nuxt-link-->
             <!--              v-else-->
