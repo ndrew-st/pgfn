@@ -5,17 +5,17 @@ export default {
     title: {
       type: String,
       required: true,
-      default: 'Title'
+      default: 'Путеводитель по Вашим правилам'
     },
     description: {
       type: String,
       required: true,
-      default: 'description'
+      default: 'Интернет-сервис, где пользователи сами назначают стоимость, за которую хотят снять жильё, а арендодатели могут предложить свои цены и варианты размещения.'
     },
     background: {
       type: String,
       required: true,
-      default: 'background'
+      default: '/main-page-bg.jpg'
     }
   },
   components: { FeaturePlace }
