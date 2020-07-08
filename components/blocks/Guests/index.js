@@ -1,6 +1,12 @@
 import Counter from '~/components/blocks/Counter'
 
 export default {
+  props: {
+    guests: { // {  parent: 0, children: 0, babies: 0 }
+      type: Object,
+      default: null
+    }
+  },
   components: { Counter },
   data () {
     return {
@@ -15,6 +21,11 @@ export default {
         children: 0,
         babies: 0
       }
+    }
+  },
+  created () {
+    if (this.guests) {
+      this.peoples = this.guests
     }
   },
   methods: {

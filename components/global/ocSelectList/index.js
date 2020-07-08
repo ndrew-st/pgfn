@@ -18,9 +18,9 @@ export default {
     return {}
   },
   methods: {
-    select (title, value) {
+    select (title) {
       this.$root.$emit('dropdown:hide')
-      this.$emit('input', { title, value })
+      this.$emit('input', title)
     }
   }
 }

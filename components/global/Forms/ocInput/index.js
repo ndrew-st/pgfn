@@ -16,6 +16,14 @@ export default {
       type: String,
       default: null
     },
+    measure: {
+      type: String,
+      default: null
+    },
+    required: {
+      type: Boolean,
+      default: false
+    },
     active: {
       type: Boolean,
       default: false
@@ -36,17 +44,9 @@ export default {
       type: String,
       default: null
     },
-    measure: {
-      type: String,
-      default: null
-    },
     iconPosition: {
       type: String,
       default: 'left'
-    },
-    required: {
-      type: Boolean,
-      default: false
     },
     maxLength: {
       type: Number,

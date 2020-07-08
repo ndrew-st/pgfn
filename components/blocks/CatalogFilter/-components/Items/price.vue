@@ -284,7 +284,8 @@ export default {
       min-height 72px
       padding 0 20px
 
-      border-top 1px solid #DADADA
+      border-top 1px solid #D5D1DB
+
   & .footer-mobile
     &__button
       cursor pointer
@@ -355,7 +356,7 @@ export default {
 
       border: 0
       background: #F3F3F3;
-      box-shadow: inset 0px -1px 0px #D5D1DB;
+      box-shadow: inset 0px -1px 0px #D5D1DB
       border-radius: 4px 4px 0px 0px;
       box-sizing: border-box;
       transition all 0.3s ease-in-out 0s
@@ -366,7 +367,7 @@ export default {
 
       &:focus
         transition all 0.3s ease-in-out 0s
-        box-shadow: inset 0px -2px 0px #7140B8;
+        box-shadow: inset 0px -2px 0px $primary
 
 @media (min-width 1280px)
   .apartments-filter .unit-filter__content.price

@@ -11,6 +11,7 @@ import isEmptyObject from '~/utils/isEmptyObject'
 
 export default {
   layout: 'main',
+  scrollToTop: true,
   components: {
     Full,
     Description,
@@ -56,8 +57,6 @@ export default {
     })
   },
   mounted () {
-    console.log('apartments ', this.apartments)
-
     this.$nextTick(() => {
       this.showComp = true
     })

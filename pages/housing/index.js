@@ -2,7 +2,7 @@ import { mapState } from 'vuex'
 
 export default {
   async asyncData ({ app: { store } }) {
-    store.dispatch(`housing/filters/changeType`, 'main')
+    store.dispatch(`housing/filters/changeTypePage`, 'main')
     await store.dispatch(`housing/getAllData`)
   },
   computed: {

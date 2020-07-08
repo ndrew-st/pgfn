@@ -10,6 +10,7 @@
 
       <CatalogFilter
         class="housing__filters"
+        @input="selectFilter"
       />
 
       <client-only>
@@ -53,7 +54,10 @@ export default {
       this.$router.push({ query: { page: nextStep } })
       this.changePage(nextStep)
     },
-    ...mapActions(`housing`, [`changePage`])
+    ...mapActions(`housing`, [`changePage`]),
+    selectFilter (res) {
+      console.log('selectFilter ', res)
+    }
   }
 }
 </script>

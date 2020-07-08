@@ -12,7 +12,7 @@
           name="desktop-filter"
           :label="filter.title"
           :check-value="filter.name"
-          @change="$emit('input', $event.target.value)"
+          @change="$emit('change-tab', $event.target.value)"
         />
       </li>
     </ul>

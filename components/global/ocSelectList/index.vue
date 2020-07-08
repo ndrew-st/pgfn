@@ -11,7 +11,8 @@
       >
         <OcButton
           name="select"
-          @click="select(item.title, item.value)"
+          class="result__button"
+          @click="select(item.title)"
         >
           {{ item.title }}
         </OcButton>

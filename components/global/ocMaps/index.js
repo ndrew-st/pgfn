@@ -27,6 +27,7 @@ export default {
   data () {
     return {
       map: {},
+      showMap: false,
       address: '',
       markerCoords: [] // latitude, longitude
     }
@@ -61,6 +62,8 @@ export default {
     }
   },
   async mounted () {
+    this.showMap = true
+
     await loadYmap({ ...settings, debug: true })
 
     // eslint-disable-next-line no-undef

@@ -32,10 +32,10 @@ export default {
       // debugger
       if (flag) {
         this.cur += 1
-        this.$emit('change', this.cur, flag, this.value)
+        this.$emit('input', this.cur, flag, this.value)
       } else if (this.cur >= 1) {
         this.cur -= 1
-        this.$emit('change', this.cur, flag, this.value)
+        this.$emit('input', this.cur, flag, this.value)
       }
     }
   }
