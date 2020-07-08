@@ -23,6 +23,10 @@ export default axios => resource => ({
   getUser () {
     return axios.get(`${resource}/profile`)
   },
+  login (phone, password) {
+    // return axios.post(`${resource}/login`, { phone, password })
+    return axios.post('/auth/signIn', { phone, password })
+  },
   uploadFiles (files) {
     const formData = new FormData()
 
