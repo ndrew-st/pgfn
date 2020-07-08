@@ -1,8 +1,8 @@
 <template>
   <input
-    v-model="locValue"
+    :value="locValue"
     class="ap-input"
-    @input="$emit('input', locValue)"
+    @input="input"
   >
 </template>
 

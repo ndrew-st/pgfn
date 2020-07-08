@@ -20,8 +20,20 @@ export default axios => resource => ({
   refreshToken (token) {
     return axios.get(`auth/refresh?token=${token}`)
   },
-  login (phone, password) {
-    return axios.post(`auth/signIn`, { phone, password })
-    // return axios.post(`${resource}/auth/signIn`, { phone, password })
+  getUser () {
+    return axios.get(`${resource}/profile`)
+  },
+  uploadFiles (files) {
+    const formData = new FormData()
+
+    formData.append(`files`, files[0])
+
+    return axios.post('/attachment/',
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
   }
 })

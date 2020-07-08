@@ -229,7 +229,7 @@
             :value="2"
             label="Выбранные дни"
             class="ap-step4__radio"
-            @change="pickUpTime = $event"
+            @change="changePickUp"
           />
         </template>
 
@@ -239,6 +239,8 @@
           />
         </template>
       </OcDropDown>
+
+      <!-- <p>{{ pickUpTime }} </p> -->
 
       <p class="add-placement__h2 ap-step4__type-booking">
         Время выезда гостей
@@ -251,7 +253,7 @@
         :value="0"
         label="Любое время и дни недели"
         class="ap-step4__radio-item ap-step4__radio"
-        @change="departureTime = $event"
+        @change="changeDeparture"
       />
 
       <div class="ap-step4__flex-time">
@@ -275,7 +277,7 @@
         <ApTimeSelect
           :sel-time="departureTimeFinish"
           class="ap-step4__time-block"
-          @change="departureTimeFinish = $event"
+          @change="changeDeparture"
         />
       </div>
 
@@ -287,7 +289,7 @@
             :value="2"
             label="Выбранные дни"
             class="ap-step4__radio"
-            @change="departureTime = $event"
+            @change="changeDeparture"
           />
         </template>
 
@@ -298,6 +300,7 @@
           />
         </template>
       </OcDropDown>
+      <!-- <p>{{ departureTime }} </p> -->
     </div>
 
     <ApButton

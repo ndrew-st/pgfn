@@ -2,14 +2,16 @@ export default () => ({
   result: {
     title: '',
     description: '',
-    city: '',
+    // city: '',
     address: {
       country: '',
       region: '',
+      area: '',
+      cityArea: '',
       city: '',
       street: '',
-      house: 0,
-      apartment: 0
+      house: ''
+      // apartment: 0
     },
     typeOfTenant: 0,
     typeOfHousing: 0,
