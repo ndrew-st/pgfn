@@ -1,8 +1,10 @@
 <template>
-  <div class="demand">
-    demand
-  </div>
+  <Catalog
+    :list="list"
+    type="maps"
+    :city="city"
+    :coords="coords"
+  />
 </template>
 
 <script src="./index.js"/>
-<style lang="stylus" src="./index.styl" scoped/>

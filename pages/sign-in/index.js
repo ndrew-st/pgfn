@@ -1,3 +1,7 @@
+import { mapActions } from 'vuex'
+
+import { login } from '~/constants/actions/auth'
+
 export default {
   layout: 'clean',
   data: () => ({
@@ -10,22 +14,28 @@ export default {
     timeCounter: 119
   }),
   methods: {
-    async login (pass) {
-      const result = await this.$api.users.login(this.phone, pass)
-      if (!result.error) {
-        localStorage.setItem('token', result.tokens.accessToken)
-        this.$axios.defaults.headers[process.env.header_auth] = result.tokens.accessToken
+    _getNumPhone (str) {
+      return str.replace(/\D/g, '')
+    },
+    async logIn (pass) {
+      const phoneNum = this._getNumPhone(this.phone)
+
+      try {
+        await this[login]({ phone: phoneNum, password: pass })
+
         this.$router.push('/profile')
+      } catch (e) {
+        console.log('Error ', e)
       }
     },
-    next (par) {
-      console.log('next sign-in ')
+    ...mapActions('auth', [ login ]),
+    async next (par) {
       switch (this.stage) {
         case 'phone':
           this.stage = 'pass'
           break
         case 'pass':
-          this.login(par)
+          await this.logIn(par)
           break
       }
     }

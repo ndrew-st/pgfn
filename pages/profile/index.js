@@ -6,8 +6,9 @@ export default {
   layout: 'main',
   components: { List },
   // async asyncData ({ store }) {
-  // await store.dispatch(`profile/getData`)
+  //   await store.dispatch(`profile/getData`)
   // },
+  middleware: 'auth',
   data () {
     return {
       userName: 'Иван Иванов',
@@ -27,9 +28,9 @@ export default {
   },
   computed: {
     ...mapState(`profile`, {
-      history: state => state.result.history,
-      ads: state => state.result.ads,
-      request: state => state.result.request
+      history: state => state.history,
+      ads: state => state.ads,
+      request: state => state.request
     })
   },
   async mounted () {

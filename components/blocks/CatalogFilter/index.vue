@@ -7,17 +7,15 @@
         :class="{ 'apartments-filter__item--desktop': item.desktop }"
         class="apartments-filter__item unit-filter"
       >
-        <OcDropDown>
+        <OcDropDown v-show="isShow(item.name)">
           <template #button="{ show }">
-            <OcButton
-              slot="button"
-              name="filter"
-              class="unit-filter__button"
+            <Toggle
               :active="show"
               :selected="isSelected(item.name)"
+              @clear="clear(item.name)"
             >
               {{ item.title }}
-            </OcButton>
+            </Toggle>
           </template>
           <component
             :is="item.name"

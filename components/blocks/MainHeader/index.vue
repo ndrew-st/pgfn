@@ -52,7 +52,6 @@
               class="find-header__input"
               icon-position="left"
               placeholder="Например отели с бассейном"
-              @input="handlerSearch"
               @focusin="focused = true"
               @focusout="focused = false"
             />
@@ -84,12 +83,19 @@
                 >
                   <OcButton
                     name="list"
-                    @click="handlerSubmit(item.id)"
+                    @click="handlerClickResult(item.title)"
                   >
-                    {{ item.content }}
+                    {{ item.title }}
                   </OcButton>
                 </li>
               </ul>
+              <p
+                v-else-if="error"
+                class="header-result__text"
+              >
+                <span class="header-result__text--bold">Ошибка поиска.</span>
+                Повторите запрос или обратитесь к администратору.
+              </p>
               <p
                 v-else
                 class="header-result__text"
@@ -125,7 +131,7 @@
                   >
                     <OcButton
                       name="list"
-                      @click="addObject(item.id)"
+                      @click="goTo(item.url)"
                     >
                       {{ item.content }}
                     </OcButton>
@@ -180,4 +186,4 @@
 </template>
 
 <script src="./index.js"/>
-<style lang="stylus" src="./index.styl" scoped/>
+<style lang="stylus" src="./index.styl"/>

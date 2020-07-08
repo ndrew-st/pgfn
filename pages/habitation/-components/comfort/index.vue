@@ -1,0 +1,30 @@
+<template>
+  <div class="all-comfort">
+    <p class="h-comfort">
+      Удобства
+    </p>
+
+    <div
+      class="flex-comfort"
+      :class="{ active: showAll }"
+    >
+      <ComfortItem
+        v-for="(item, index) in orderedComfort"
+        :key="index"
+        :item="item"
+      />
+    </div>
+
+    <OcButton
+      v-if="comfort.length > 10"
+      name="border"
+      class="show-all"
+      @click="showAll = !showAll"
+    >
+      {{ textButton }}
+    </OcButton>
+  </div>
+</template>
+
+<script src="./index.js" />
+<style src="./index.styl" lang="stylus" />

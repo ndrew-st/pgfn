@@ -91,7 +91,6 @@ export default {
           element.checked = !element.checked
         }
         if (element.checked) {
-          debugger
           if (!fl) {
             // element.defaultValue = true
             this.$set(curArray, index, {

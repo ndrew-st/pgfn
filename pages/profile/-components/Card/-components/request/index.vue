@@ -20,7 +20,7 @@
 
       <p class="card__price card__price--desktop">
         <span class="card__price--desc">Желаемая цена:</span>
-        <span class="card__price--text">{{ item.price.toLocaleString() }}</span>
+        <span class="card__price--text">{{ item.price && item.price.toLocaleString() }}</span>
         <span class="card__price--rouble">9</span>
         <span class="card__price--measure">за месяц</span>
       </p>
@@ -47,7 +47,7 @@
 
       <p class="card__price card__price--mobile">
         <span class="card__price--desc">Желаемая цена:</span>
-        <span class="card__price--text">{{ item.price.toLocaleString() }}</span>
+        <span class="card__price--text">{{ item.price && item.price.toLocaleString() }}</span>
         <span class="card__price--rouble">9</span>
         <span class="card__price--measure">за месяц</span>
       </p>

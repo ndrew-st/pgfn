@@ -1,0 +1,83 @@
+<template>
+  <div class="direction-page">
+    <Full
+      :title="header.title"
+      :description="header.description"
+      :background="header.background"
+      :features="header.features"
+    />
+
+    <FilterBlock />
+
+    <!-- Направление -->
+    <GroupCard
+      v-if="direction && direction.items.length"
+      :tabs="direction.tabs"
+      :items="direction.items"
+      :count="direction.count"
+      name="direction"
+      title="Популярные направления"
+    >
+      <OcCard
+        v-for="(item, index) in direction.items"
+        :key="item.name + item.address"
+        kind="direction"
+        :item="item"
+        :is-liked="isLiked(index, 'direction')"
+        @setLike="handlerLike(index, 'direction')"
+      />
+    </GroupCard>
+
+    <!-- Жильё -->
+    <GroupCard
+      v-if="apartments && apartments.items.length"
+      :count="apartments.count"
+      :auto-width="true"
+      :items="apartments.items"
+      :tabs="apartments.tabs"
+      title="Жильё"
+      name="apartments"
+    >
+      <OcCard
+        v-for="(item, index) in apartments.items"
+        :key="item.name + item.address"
+        kind="most"
+        :item="item"
+        type="housing"
+        :is-liked="isLiked(index, 'apartments')"
+        @setLike="handlerLike(index, 'apartments')"
+      />
+    </GroupCard>
+
+    <SubscribeEmail class="direction-page__subscribe" />
+
+    <!-- Услуги -->
+    <!--    <GroupCard-->
+    <!--      v-if="!isEmptyObj(services)"-->
+    <!--      :count="services.count"-->
+    <!--      :auto-width="true"-->
+    <!--      :items="services.items"-->
+    <!--      :tabs="services.tabs"-->
+    <!--      title="Услуги"-->
+    <!--      name="services"-->
+    <!--    >-->
+    <!--      <OcCard-->
+    <!--        v-for="(item, index) in services.items"-->
+    <!--        :key="item.name + item.address"-->
+    <!--        kind="most"-->
+    <!--        :item="item"-->
+    <!--        type="services"-->
+    <!--        :is-liked="isLiked(index, 'services')"-->
+    <!--        @setLike="handlerLike(index, 'services')"-->
+    <!--      />-->
+    <!--    </GroupCard>-->
+
+    <Description
+      v-if="description"
+      class="direction-page__description"
+    />
+  </div>
+</template>
+
+<script src="./index.js"/>
+<style lang="stylus" src="./index.styl"/>
