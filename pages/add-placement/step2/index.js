@@ -56,7 +56,7 @@ export default {
           ] }
       ],
       selItem: null,
-      numberOfRooms: 1,
+      numberOfRooms: '1',
       area: 0,
       selId: 0
     }
@@ -73,7 +73,7 @@ export default {
       // this.setItem({ key: 'numberOfRooms', value: this.numberOfRooms })
       // this.setItem({ key: 'areaOfHousin', value: this.area })
       this.$store.dispatch('placement/setItem', { key: 'numberOfRooms', value: this.numberOfRooms })
-      this.$store.dispatch('placement/setItem', { key: 'areaOfHousin', value: this.area })
+      this.$store.dispatch('placement/setItem', { key: 'areaOfHousin', value: parseInt(this.area) })
       this.$store.dispatch('placement/setItem', { key: 'typeOfHousing', value: this.list[this.selItem].list[this.selId].code })
       this.$emit('next')
     }

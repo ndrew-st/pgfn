@@ -47,11 +47,13 @@
     </p>
 
     <OcInput
+      v-model="title"
       placeholder="Заголовок (не более 80 символов)"
       class="ap-step6__photo-header"
     />
 
     <textarea
+      v-model="description"
       placeholder="Описание вашего предложения (не более 1000 символов)"
       class="ap-step6__big-desc"
     />

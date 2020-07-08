@@ -87,7 +87,7 @@ export default {
       this.inputAdress = val.value
       this.coords = [val.data.geo_lat, val.data.geo_lon]
       // console.log('this.coords:', this.coords)
-      if (val.data.fias_level === 8) {
+      if (val.data.fias_level === '8') {
         this.unknownHouse = null
       } else {
         // дом не существует в базе

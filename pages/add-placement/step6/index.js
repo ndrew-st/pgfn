@@ -8,13 +8,18 @@ export default {
   },
   data () {
     return {
-      photoArray: []
+      photoArray: [],
+      title: '',
+      description: ''
     }
   },
   methods: {
     addPlacement () {
       // debugger
+      this.$store.dispatch('placement/setItem', { key: 'title', value: this.title })
+      this.$store.dispatch('placement/setItem', { key: 'description', value: this.description })
       this.$store.dispatch('placement/addPlacement')
+      this.$router.push('/')
     },
     async handleFileUpload (file) {
       await this.$api.users.uploadFiles(file)
