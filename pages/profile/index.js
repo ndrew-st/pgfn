@@ -31,7 +31,10 @@ export default {
       history: state => state.history,
       ads: state => state.ads,
       request: state => state.request
-    })
+    }),
+    user () {
+      return this.$store.state.auth && this.$store.state.auth.user
+    }
   },
   async mounted () {
     // const result = await this.$api.users.getUser()
