@@ -21,62 +21,17 @@
         />
       </OcDropDown>
 
-      <div class="ap-step2__radio-block">
-        <div class="ap-step2__radio-item">
-          <input
-            id="fid-1"
-            v-model="picked"
-            type="radio"
-            name="radio"
-            class="ap-step2__radio"
-            value="Целиком"
-          >
-
-          <label
-            class="ap-step2__label"
-            for="fid-1"
-          >Квартира целиком</label>
-        </div>
-
-        <div class="ap-step2__radio-item">
-          <input
-            id="fid-2"
-            v-model="picked"
-            type="radio"
-            name="radio"
-            class="ap-step2__radio"
-            value="Номер"
-          >
-
-          <label
-            class="ap-step2__label"
-            for="fid-2"
-          >Номер в отеле</label>
-        </div>
-      </div>
+      <ListApRadio
+        v-if="selItem !== null"
+        :list="list[selItem].list"
+        class="ap-step2__list-ap-radio"
+        :sel-id="selId"
+        @change="selId = $event"
+      />
     </div>
 
-    <!-- <OcInput
-        v-model="current"
-        type="radio"
-        icon="circle-radio"
-        icon-position="left"
-        name="tariff"
-        kind="circle-radio"
-        check-value="Целиком"
-        label="Квартира целиком"
-      />
-
-      <OcInput
-        v-model="current"
-        type="radio"
-        icon="circle-radio"
-        icon-position="left"
-        name="tariff"
-        kind="circle-radio"
-        check-value="Номер"
-        label="Номер в отеле"
-      /> -->
+    <!-- <p>selItem: {{ selItem }}</p>
+    <p>selId: {{ selId }}</p> -->
 
     <div
       v-if="selItem !== ''"
@@ -96,6 +51,7 @@
         <option
           v-for="n in 5"
           :key="n"
+          :value="n"
         >
           {{ n }}
         </option>
@@ -114,8 +70,6 @@
 
       <span class="ap-step2__span2">м²</span>
     </div>
-
-    <p>{{ area }}</p>
 
     <ApButton
       v-if="selItem !== null && area > 0"

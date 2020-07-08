@@ -9,11 +9,16 @@ export default {
     return {
       locValue: this.value
     }
+  },
+  watch: {
+    value (val) {
+      this.locValue = val
+    }
+  },
+  methods: {
+    input (ev) {
+      this.locValue = ev.target.value
+      this.$emit('input', ev.target.value)
+    }
   }
-  // ,
-  // watch: {
-  //   locValue (val) {
-  //     this.$emit('input', val)
-  //   }
-  // }
 }

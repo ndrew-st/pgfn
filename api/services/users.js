@@ -23,5 +23,20 @@ export default axios => resource => ({
   login (phone, password) {
     // return axios.post(`auth/signIn`, { phone, password })
     return axios.post(`${resource}/auth/signIn`, { phone, password })
+    // return axios.post(`${resource}/login`, { phone, password })
+    // return axios.post('/auth/signIn', { phone, password })
+  },
+  uploadFiles (files) {
+    const formData = new FormData()
+
+    formData.append(`files`, files[0])
+
+    return axios.post('/attachment/',
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
   }
 })
