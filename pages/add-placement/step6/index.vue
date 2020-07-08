@@ -16,10 +16,21 @@
       Основное фото
     </p>
 
-    <div class="flex">
-      <ApAddPhoto class="mr24" />
+    <div class="ap-step6__flex">
+      <ApAddPhoto
+        v-for="(item, index) in photoArray"
+        :key="index"
+        :src="item.src"
+        :alt="item.alt"
+        class="mr24"
+        @uploadFiles="uploadFiles"
+      />
 
-      <ApAddPhoto />
+      <ApAddPhoto
+        class="mr24"
+        :src="''"
+        @uploadFiles="uploadFiles"
+      />
     </div>
 
     <OcInput

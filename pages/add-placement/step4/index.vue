@@ -240,7 +240,7 @@
         </template>
       </OcDropDown>
 
-      <p>{{ pickUpTime }} </p>
+      <!-- <p>{{ pickUpTime }} </p> -->
 
       <p class="add-placement__h2 ap-step4__type-booking">
         Время выезда гостей
@@ -300,7 +300,7 @@
           />
         </template>
       </OcDropDown>
-      <p>{{ departureTime }} </p>
+      <!-- <p>{{ departureTime }} </p> -->
     </div>
 
     <ApButton

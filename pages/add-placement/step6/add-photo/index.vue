@@ -1,9 +1,23 @@
 <template>
   <div class="add-photo__block">
-    <button
+    <img
+      v-if="src !== ''"
+      :src="src"
+      :alt="alt"
+      class="add-photo__img"
+    >
+    <label
+      v-if="src === ''"
       class="add-photo__round-btn"
-      @click="loadPhoto()"
-    />
+    >
+      <input
+        ref="files"
+        type="file"
+        class="add-photo__input"
+        multiple
+        @change="handleFilesUpload()"
+      >
+    </label>
   </div>
 </template>
 
