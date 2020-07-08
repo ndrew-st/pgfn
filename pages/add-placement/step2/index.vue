@@ -51,6 +51,7 @@
         <option
           v-for="n in 5"
           :key="n"
+          :value="n"
         >
           {{ n }}
         </option>
