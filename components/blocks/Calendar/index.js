@@ -71,11 +71,13 @@ export default {
       }
     },
     clear () {
+      this.$emit('input', '')
       this.curSelStart = null
       this.curSelFinish = null
     },
     save () {
       this.active = false
+      this.$root.$emit('dropdown:hide')
     }
   }
 }

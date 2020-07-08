@@ -1,9 +1,7 @@
 export default () => ({
   result: {},
   dir: {
-    tabs: [
-      { name: 'Name', url: '/url' }
-    ],
+    tabs: [],
     items: [],
     count: 0
   }

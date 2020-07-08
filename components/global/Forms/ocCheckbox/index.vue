@@ -20,7 +20,7 @@
       :checked="checkedInput"
       type="checkbox"
       class="visually-hidden"
-      v-on="$listeners"
+      v-on="listeners"
     >
   </label>
 </template>

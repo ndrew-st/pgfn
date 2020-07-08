@@ -18,10 +18,11 @@
         class="step-container__item"
       >
         <OcImg
+          class="step-container__image"
           :alt="item.name"
           :src="item.img"
-          width="80"
-          height="65"
+          :width="80"
+          :height="65"
         />
         <OcRadio
           class="step-container__input"

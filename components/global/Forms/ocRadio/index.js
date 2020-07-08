@@ -42,7 +42,7 @@ export default {
       )
     },
     checkedInput () {
-      return this.value === this.checkValue
+      return !this.value ? false : this.value === this.checkValue
     },
     addClass () {
       return `oc-radio-${this.kind}`

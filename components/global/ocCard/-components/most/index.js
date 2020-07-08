@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     attrs () {
-      return this.item.attrs.slice(0, 6)
+      return this.item.attrs && this.item.attrs.slice(0, 6)
     }
   },
   mounted () {

@@ -34,6 +34,12 @@ export default {
       this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'typeOfReservation', value: this.typeOfReservation })
       this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'cancellationPolicy', value: this.cancellationPolicy })
       this.$emit('next')
+    },
+    changeDeparture (ev) {
+      this.departureTime = ev
+    },
+    changePickUp (ev) {
+      this.pickUpTime = ev
     }
   }
 }

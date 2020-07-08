@@ -2,31 +2,44 @@
   <div class="apartments">
     <ul class="apartments__list">
       <li class="apartments__item apartment">
-        <OcInput
-          v-model="search"
-          label="Где"
-          kind="most"
-          placeholder="Где угодно"
-          @input="handlerSearch"
-        />
+        <OcDropDown>
+          <OcInput
+            slot="button"
+            v-model="search"
+            label="Где"
+            kind="most"
+            placeholder="Где угодно"
+            @input="handlerSearch"
+          />
 
-        <!--        <OcSearchList-->
-        <!--          v-if="searchedList.length"-->
-        <!--          type="link"-->
-        <!--          :content="content"-->
-        <!--        />-->
+          <OcSelectList
+            v-if="searchedList.length"
+            slot="body"
+            class="apartment__select-content"
+            type="link"
+            :content="searchedList"
+            @input="select"
+          />
+        </OcDropDown>
       </li>
       <li class="apartments__item apartment">
-        <OcInput
-          label="Прибытие, выезд"
-          placeholder="дд.мм.гггг – дд.мм.гггг"
-          kind="most"
-          readonly
-        />
-
-        <!--        <Calendar-->
-        <!--          @input="handlerDate"-->
-        <!--        />-->
+        <OcDropDown>
+          <OcInput
+            slot="button"
+            v-model="date"
+            label="Прибытие, выезд"
+            placeholder="дд.мм.гггг – дд.мм.гггг"
+            kind="most"
+            readonly
+          />
+          <Calendar
+            slot="body"
+            :key="curDate"
+            :cur-sel-date="curSelStart"
+            class="apartment__date-content"
+            @input="changeSelDate"
+          />
+        </OcDropDown>
       </li>
       <li class="apartments__item apartment">
         <OcDropDown>
@@ -40,8 +53,9 @@
 
           <Guests
             slot="body"
+            :guests="guests"
             class="apartment__content"
-            @input="handlerGuests"
+            @input="guests = $event"
           />
         </OcDropDown>
       </li>
@@ -50,4 +64,4 @@
 </template>
 
 <script src="./index.js"/>
-<style lang="stylus" src="./index.styl" scoped/>
+<style lang="stylus" src="./index.styl"/>

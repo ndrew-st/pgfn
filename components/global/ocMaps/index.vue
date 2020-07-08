@@ -1,5 +1,8 @@
 <template>
-  <div class="map">
+  <div
+    v-if="showMap"
+    class="map"
+  >
     <yandex-map
       :coords="centerMap"
       :zoom="zoom"
