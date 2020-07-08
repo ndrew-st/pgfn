@@ -56,7 +56,7 @@ export default {
           ] }
       ],
       selItem: null,
-      numberOfRooms: '1',
+      numberOfRooms: 1,
       area: 0,
       selId: 0
     }
