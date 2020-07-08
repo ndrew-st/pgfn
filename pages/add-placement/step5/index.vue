@@ -15,13 +15,11 @@
         :key="item.value"
         class="ap-step5__item"
       >
-        <OcRadio
-          v-model="furniture"
-          icon="circle-radio"
-          name="furniture"
-          kind="circle"
-          :check-value="item.value"
+        <ApRadio
+          :value="item.value"
+          :checked="item.value === furniture"
           :label="item.label"
+          @change="furniture = $event"
         />
       </li>
     </ul>
@@ -55,13 +53,11 @@
         :key="item.value"
         class="ap-step5__item"
       >
-        <OcRadio
-          v-model="internet"
-          icon="circle-radio"
-          name="internet"
-          kind="circle"
-          :check-value="item.value"
+        <ApRadio
+          :value="item.value"
+          :checked="item.value === internet"
           :label="item.label"
+          @change="internet = $event"
         />
       </li>
     </ul>
