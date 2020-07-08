@@ -32,6 +32,9 @@ export default {
       })
 
       return arr
+    },
+    textButton () {
+      return !this.showAll ? `Показать все (${this.comfort.length})` : 'Свернуть'
     }
   }
 }

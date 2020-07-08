@@ -45,6 +45,7 @@ export default () => ({
       coords: { lat: 45.389194, lon: 33.993751 }
     },
     reviews: 288,
+    views: 12314,
     date: '15 февраля 2020 г.',
     estimate: 4.3,
     typeOfTenant: 0,
@@ -76,8 +77,8 @@ export default () => ({
       longTerm: ''
     },
     reservation: {
-      typeOfReservation: '',
-      cancellationPolicy: '',
+      typeOfReservation: 'typeOfReservation',
+      cancellationPolicy: 'cancellationPolicy',
       departureTime: [
         // {
         //   day: '',
@@ -106,8 +107,8 @@ export default () => ({
     ],
     params: [
       {
-        typeOfParam: 'params.reviews',
-        paramValue: '288'
+        typeOfParam: 'params.guests',
+        paramValue: []
       },
       {
         typeOfParam: 'params.facilities',
@@ -129,6 +130,15 @@ export default () => ({
           { label: 'Духовка / духовой шкаф', value: 'oven' },
           { label: 'Микроволновка', value: 'microwave' }
         ]
+      },
+      {
+        typeOfParam: 'params.listLimits',
+        paramValue: [
+          { label: 'Можно с детьми', value: 'kids' },
+          { label: 'Можно с животными', value: 'pets' },
+          { label: 'Можно для мероприятий', value: 'party' },
+          { label: 'Можно курить', value: 'weed' }
+        ]
       }
     ],
     // удобства
@@ -141,5 +151,13 @@ export default () => ({
     images: [],
     ownerId: '0921358907125',
     status: 0
-  }
+  },
+  rates: [
+    { name: 'Стандартный', desc: 'Без уборки, без дополнительных опций', value: 'standard' },
+    {
+      name: 'С уборкой',
+      desc: 'Уборка осуществляется в то время, которое укажете вы',
+      value: 'clean'
+    }
+  ]
 })

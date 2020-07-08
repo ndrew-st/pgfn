@@ -29,5 +29,8 @@ export default axios => resource => ({
   },
   addPlacement (apData) {
     return axios.post(`${resource}`, apData)
+  },
+  getItem (id) {
+    return axios.get(`${resource}/${id}`)
   }
 })

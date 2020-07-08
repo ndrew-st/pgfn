@@ -17,7 +17,8 @@ export default {
   data () {
     return {
       active: false,
-      textBed: [ 'спальня', 'спальни', 'спален' ]
+      textBed: [ 'спальня', 'спальни', 'спален' ],
+      textGuests: [ 'гость', 'гостей', 'гости' ]
     }
   },
   methods: {
@@ -27,7 +28,7 @@ export default {
   },
   computed: {
     title () {
-      return `${this.description.typeOfHousing} ${this.description.countBed} ${num2str(this.description.countBed, this.textBed)}`
+      return `${this.description.typeOfHousing} · ${this.description.countBed} ${num2str(this.description.countBed, this.textBed)} · ${this.description.countGuests} ${num2str(this.description.countGuests, this.textGuests)}`
     }
   }
 }

@@ -9,8 +9,10 @@
           :intro="header.intro"
           :reviews="header.reviews"
           :estimate="header.estimate"
+          :type-of-housing="header.typeOfHousing"
+          :views="header.views"
           :date="header.date"
-          :owner-id="header.ownerId"
+          :owner-id="header.id"
           :price="header.price"
           class="habitation-page__h1-block"
         />
@@ -27,11 +29,11 @@
 
       <DescBlockTop
         :description="description"
-        :info="descInfo"
+        :info="user"
       />
 
       <ThreeBlocks
-        :tariffs="tariffs"
+        :tariffs="rates"
         :prices="prices"
         :online-booking="onlineBooking"
       />
@@ -39,12 +41,13 @@
       <Comfort :comfort="facilities" />
 
       <Rules
-        :rules1="rules1"
-        :rules2="rules2"
+        :rules1="reservation"
+        :rules2="limits"
       />
 
       <Location
         :coords="coords"
+        :address="address"
         :location="location"
         :loc-desc="locDesc"
       />
@@ -73,16 +76,16 @@
 
     <Footer />
 
-    <BookingFooter
-      :booking-footer-info="bookingFooterInfo"
-      @changeBookingActive="bookingActive = !bookingActive"
-    />
+    <!--    <BookingFooter-->
+    <!--      :booking-footer-info="bookingFooterInfo"-->
+    <!--      @changeBookingActive="bookingActive = !bookingActive"-->
+    <!--    />-->
 
-    <Booking
-      v-if="bookingActive"
-      :booking-active="bookingActive"
-      @changeBookingActive="changeBookingActive"
-    />
+    <!--    <Booking-->
+    <!--      v-if="bookingActive"-->
+    <!--      :booking-active="bookingActive"-->
+    <!--      @changeBookingActive="changeBookingActive"-->
+    <!--    />-->
   </div>
 </template>
 

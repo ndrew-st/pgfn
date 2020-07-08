@@ -1,12 +1,18 @@
+import Address from '../Address'
 import Description from '~/components/blocks/Description'
 
 export default {
-  components: { Description },
+  components: { Description, Address },
   props: {
     coords: {
-      type: Array,
+      type: Object,
       required: true,
-      default: []
+      default: null
+    },
+    address: {
+      type: Object,
+      required: true,
+      default: null
     },
     location: {
       type: Array,
@@ -16,7 +22,7 @@ export default {
     locDesc: {
       type: String,
       required: true,
-      default: ''
+      default: null
     }
   },
   data () {

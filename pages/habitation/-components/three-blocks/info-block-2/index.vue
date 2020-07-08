@@ -11,7 +11,7 @@
         :key="index"
         class="desc"
       >
-        от {{ item.days }}  <span class="desc__bold">  {{ item.price }}</span><span class="desc__grey"> за сутки</span>
+        от {{ days(item.days) }}  <span class="desc__bold"> - {{ item.price }} <span class="desc__bold--rouble">9</span></span><span class="desc__grey"> за сутки</span>
       </p>
     </div>
 
@@ -24,7 +24,7 @@
         :key="index"
         class="desc"
       >
-        от {{ item.days }}  <span class="desc__bold">  {{ item.price }}</span><span class="desc__grey"> за месяц</span>
+        от {{ days(item.days) }}  <span class="desc__bold"> - {{ item.price }} <span class="desc__bold--rouble">9</span></span><span class="desc__grey"> за месяц</span>
       </p>
     </div>
 

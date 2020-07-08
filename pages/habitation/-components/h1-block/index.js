@@ -30,16 +30,28 @@ export default {
     price: {
       type: Object,
       default: null
+    },
+    typeOfHousing: {
+      type: String,
+      default: null
+    },
+    views: {
+      type: Number,
+      default: null
     }
   },
   data () {
     return {
-      text: [ 'просмотр', 'просмотры', 'просмотров' ]
+      textViews: [ 'просмотр', 'просмотры', 'просмотров' ],
+      textReviews: [ 'отзыв', 'отзывы', 'отзывов' ]
     }
   },
   computed: {
     review () {
-      return `${this.reviews} ${num2str(this.reviews, this.text)}`
+      return `${this.reviews} ${num2str(this.reviews, this.textReviews)}`
+    },
+    view () {
+      return `${this.views} ${num2str(this.views, this.textViews)}`
     }
   }
 }

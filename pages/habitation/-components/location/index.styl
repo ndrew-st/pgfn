@@ -1,81 +1,86 @@
 .loc
-    &__box
-        max-width 1280px
-        margin auto
-        padding-bottom 71px
+  box-sizing border-box
 
-        @media (max-width 768px)
-            padding-bottom 24px
+  &__box
+    max-width 1280px
+    margin auto
+    padding-bottom 71px
 
-    &__h
-        font-style normal
-        font-weight bold
-        font-size 32px
-        line-height 39px
-        color #272528
-        margin-top 72px
+    @media (max-width 768px)
+      padding-bottom 24px
 
-        @media (max-width 768px)
-            font-size 20px
-            line-height 24px
-            margin-top 42px
+  &__h
+    font-style normal
+    font-weight bold
+    font-size 32px
+    line-height 39px
+    color #272528
+    margin-top 72px
+    margin-bottom 20px
 
-    &__a
-        font-style normal
-        font-weight normal
-        font-size 18px
-        line-height 22px
-        color #000000
+    @media (max-width 768px)
+      font-size 20px
+      line-height 24px
+      margin-top 42px
 
-        @media (max-width 768px)
-            font-size 16px
-            line-height 20px
+  &__a
+    font-style normal
+    font-weight normal
+    font-size 18px
+    line-height 22px
+    color #000000
 
-    &__a:hover
-        text-decoration-line underline
+    @media (max-width 768px)
+      font-size 16px
+      line-height 20px
 
-    &__span
-        font-style normal
-        font-weight normal
-        font-size 18px
-        line-height 22px
-        color #000000
-        white-space pre
+  &__a:hover
+    text-decoration-line underline
 
-        @media (max-width 768px)
-            font-size 16px
-            line-height 20px
+  &__span
+    font-style normal
+    font-weight normal
+    font-size 18px
+    line-height 22px
+    color #000000
+    white-space pre
 
-    &__flex
-        display flex
-        margin-top 28px
+    @media (max-width 768px)
+      font-size 16px
+      line-height 20px
 
-    &__inline
-        display inline
+  &__flex
+    display flex
+    margin-top 28px
 
-    &__yandex-map-content
-        max-width 1280px
-        max-height 440px
-        margin-top 28px
+  &__inline
+    display inline
 
-    &__desc
-        font-style normal
-        font-weight normal
-        font-size 18px
-        line-height 20px
-        letter-spacing 0.2px
-        color #272528
-        margin-top 33px
+  &__yandex-map-content
+    max-width 1280px
+    height 440px
 
-    &__read-more
-        font-style normal
-        font-weight bold
-        font-size 18px
-        line-height 24px
-        letter-spacing 0.1px
-        color #272528
-        margin-top 12px
-        cursor pointer
+    box-sizing border-box
 
-        &__active
-            display none
+    @media (max-width 768px)
+      height 266px
+      margin-top 28px
+
+  &__desc
+    font-style normal
+    font-weight normal
+    font-size 18px
+    line-height 20px
+    letter-spacing 0.2px
+    color #272528
+    margin-top 33px
+
+  &__read-more
+    font-style normal
+    font-weight bold
+    font-size 18px
+    line-height 24px
+    letter-spacing 0.1px
+    color #272528
+    margin-top 12px
+    cursor pointer

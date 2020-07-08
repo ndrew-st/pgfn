@@ -4,46 +4,28 @@
       Расположение
     </p>
 
-    <div class="loc__flex">
-      <span
-        v-for="(place, index) in location"
-        :key="index"
-      >
-        <a
-          href="#"
-          class="loc__a"
-        >
-          {{ place }}
-        </a>
+    <Address
+      :content="address"
+    />
 
-        <span
-          v-if="location.length - 1 > index"
-          class="loc__span"
-        >, </span>
-      </span>
-    </div>
-
-    <yandex-map
-      :coords="coords"
+    <OcMaps
       class="loc__yandex-map-content"
-      @map-was-initialized="initMap"
-    >
-      <ymap-marker
-        marker-id="1"
-        :coords="coords"
-        :icon="markerIcon"
-      />
-    </yandex-map>
+      :coords="coords"
+    />
 
-    <p class="loc__desc">
+    <p
+      v-if="locDesc"
+      class="loc__desc"
+    >
       {{ readMoreActive ? locDescLong : locDesc }}
     </p>
 
     <p
-      :class="['loc__read-more', {'loc__read-more__active': readMoreActive}]"
+      v-if="locDesc"
+      class="loc__read-more"
       @click="readMoreActive = !readMoreActive"
     >
-      Читать далее
+      {{ !readMoreActive ? 'Читать далее' : 'Свернуть' }}
     </p>
   </div>
 </template>

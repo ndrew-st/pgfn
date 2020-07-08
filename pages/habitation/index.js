@@ -34,16 +34,14 @@ export default {
     Booking,
     Subscribe
   },
-  async asyncData ({ store }) {
-    // await store.dispatch(`search/getData`, `Крым`)
+  validate ({ params: { id } }) {
+    return !!id
+  },
+  async asyncData ({ store, params: { id } }) {
+    await store.dispatch(`habitation/getItem`, id)
   },
   data: () => ({
-    descInfo: {
-      title: 'Квартира 2 спальни 7 гостей',
-      desc: [
-        'Апартаменты представляют собой 3х комнатную квартиру, площадью 146 м2, находятся на 11',
-        'Апартаменты представляют собой 3х комнатную квартиру, площадью 146 м2, находятся на 11 этаже 12-ти этажного кирпичного дома. В апартаментах могут расположиться до 7 гостей, в их распоряжении 3 комнаты, 4 кровати, кухня, ванная комната с джакузи и балкон. Оформлена в стиле модерн... '
-      ],
+    user: {
       owner: 'Артем А.',
       initials: 'АА',
       online: true,
@@ -52,45 +50,17 @@ export default {
       languages: 'Русский, English',
       regDate: 'Зарегистрирован на сайте 10 месяцев назад'
     },
-    tariffs: [
-      { name: 'Стандартный', desc: 'Без уборки, без дополнительных опций', value: 'standard' },
-      {
-        name: 'С уборкой',
-        desc: 'Уборка осуществляется в то время, которое укажете вы',
-        value: 'clean'
-      }
-    ],
     onlineBooking: {
       onlinePay: true,
       minPeriodCancel: 'сутки'
     },
-    rules1: [
-      'Въезд в 12:00',
-      'Выезд не позже 14:00',
-      'Звонок за час до въезда.'
-    ],
-    rules2: [
-      'Нельзя с животными',
-      'Нельзя с детьми',
-      'Нельзя курить'
-    ],
     location: [
       'Россия',
       'Республика Крым',
       'город Судак',
       'улица Ленина д 9'
     ],
-    coords: [
-      44.858161, 34.974244
-    ],
-    locDesc: 'Жилье расположено в Судаке на улице Ленина, д9 - это в 300 метрах от центра города, 50 м от Черного моря, 5 км от горы Ильяс-Кая и в 4х километрах от Храма Солнца. Расстояние до ближайшего аэропорта (Международный аэропорт Симферополь имени К. Айвазовского) - 110 км...',
-    bookingFooterInfo: {
-      manCount: '2 гостя',
-      period: '23 мая 2020 - 26 мая 2020',
-      habitation: '3-к квартира, 146 м²... ',
-      price: '4500₽/сутки'
-    },
-    bookingActive: false
+    locDesc: 'Жилье расположено в Судаке на улице Ленина, д9 - это в 300 метрах от центра города, 50 м от Черного моря, 5 км от горы Ильяс-Кая и в 4х километрах от Храма Солнца. Расстояние до ближайшего аэропорта (Международный аэропорт Симферополь имени К. Айвазовского) - 110 км...'
   }),
   computed: {
     ...mapState('habitation', {
@@ -100,17 +70,22 @@ export default {
           intro: state.result.intro,
           description: state.result.description,
           reviews: state.result.reviews,
+          views: state.result.views,
           estimate: state.result.estimate,
           id: state.result.ownerId,
           date: state.result.date,
-          price: state.result.price
+          price: state.result.price,
+          typeOfHousing: state.result.typeOfHousing
         }
       },
       description: (state) => {
+        const idx = state.result.params.findIndex(item => item.typeOfParam === 'params.guests')
+
         return {
           typeOfHousing: state.result.typeOfHousing,
-          countBed: state.result.sleepingPlace.length,
-          content: state.result.description
+          countBed: state.result.sleepingPlace && state.result.sleepingPlace.length,
+          content: state.result.description,
+          countGuests: state.result.params[idx] && state.result.params[idx].paramValue.length
         }
       },
       prices: state => state.result.price,
@@ -120,7 +95,15 @@ export default {
         const idx = state.result.params.findIndex(item => item.typeOfParam === 'params.facilities')
 
         return state.result.params[idx] && state.result.params[idx].paramValue
-      }
+      },
+      reservation: state => state.result.reservation,
+      limits: (state) => {
+        const idx = state.result.params.findIndex(item => item.typeOfParam === 'params.listLimits')
+
+        return state.result.params[idx].paramValue
+      },
+      rates: state => state.rates,
+      coords: state => state.result && state.result.address.coords
     })
   },
   methods: {

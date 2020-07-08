@@ -1,4 +1,7 @@
+import Address from '../Address'
+
 export default {
+  components: { Address },
   props: {
     content: {
       type: Object,

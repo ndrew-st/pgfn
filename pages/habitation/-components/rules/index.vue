@@ -5,11 +5,8 @@
         Правила размещения
       </p>
 
-      <span
-        v-for="(rule, index) in rules1"
-        :key="index"
-        class="rules-flex__span"
-      > • {{ rule }}</span>
+      <span class="rules-flex__span"> &middot; {{ rules1.typeOfReservation }}</span>
+      <span class="rules-flex__span"> &middot; {{ rules1.cancellationPolicy }}</span>
     </div>
 
     <div class="rules-flex__box2">
@@ -18,10 +15,10 @@
       </p>
 
       <span
-        v-for="(rule, index) in rules2"
+        v-for="(rule, index) in limits"
         :key="index"
         class="rules-flex__span"
-      > • {{ rule }}</span>
+      > &middot; {{ rule.label }}</span>
     </div>
   </div>
 </template>

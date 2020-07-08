@@ -27,13 +27,29 @@
       </div>
     </div>
 
-    <div class="flex aic mt12">
-      <div class="estimate">
-        {{ estimate }}
-      </div>
+    <div class="flex aic mt12 container-desc">
+      <div class="container-desc__left">
+        <div class="estimate">
+          {{ estimate }}
+        </div>
 
-      <div class="comms">
-        {{ review }}
+        <div class="comms">
+          {{ review }}
+        </div>
+
+        <div
+          v-if="views"
+          class="comms"
+        >
+          {{ view }}
+        </div>
+
+        <div
+          v-if="typeOfHousing"
+          class="comms"
+        >
+          {{ typeOfHousing }}
+        </div>
       </div>
 
       <div class="dateNumber">
