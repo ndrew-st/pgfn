@@ -1,11 +1,14 @@
 <template>
   <div class="group-cart">
-    <div class="group-cart__title-container">
+    <nuxt-link
+      :to="to"
+      class="group-cart__title-container"
+    >
       <h2 class="group-cart__title">
         {{ title }}
       </h2>
       <span class="group-cart__count-articles">{{ count }}</span>
-    </div>
+    </nuxt-link>
 
     <div
       v-if="tabs.length"

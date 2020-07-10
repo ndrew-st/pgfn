@@ -22,7 +22,7 @@
         class="card-map__title--cont title-cont"
       >
         <OcLink
-          to="/"
+          :to="`/request/${item.id}`"
           name="main-card-title"
           class="card-map__title--link"
         >

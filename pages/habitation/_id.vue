@@ -18,7 +18,7 @@
         />
 
         <Pics
-          v-if="images.length"
+          v-if="images"
           :images="images"
         />
         <MapBlock

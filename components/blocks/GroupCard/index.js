@@ -21,6 +21,10 @@ export default {
       required: true,
       default: 0
     },
+    to: {
+      type: String,
+      default: '/housing'
+    },
     show: {
       type: Boolean,
       default: false

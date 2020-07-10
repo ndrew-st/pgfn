@@ -5,7 +5,8 @@ export default {
   components: { Checkboxes },
   data () {
     return {
-      nameStep: 'main'
+      nameStep: 'main',
+      result: {}
     }
   },
   created () {

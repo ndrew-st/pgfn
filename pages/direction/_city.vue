@@ -31,6 +31,7 @@
     <!-- Жильё -->
     <GroupCard
       v-if="apartments && apartments.length"
+      to="/housing/supply"
       :count="apartments.length"
       :auto-width="true"
       :items="apartments"

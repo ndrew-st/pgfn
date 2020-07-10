@@ -92,13 +92,13 @@ export default {
       address: state => state.result.address,
       images: state => state.result.images,
       facilities: (state) => {
-        const idx = state.result.params.findIndex(item => item.typeOfParam === 'params.facilities')
+        const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'params.facilities')
 
         return state.result.params[idx] && state.result.params[idx].paramValue
       },
       reservation: state => state.result.reservation,
       limits: (state) => {
-        const idx = state.result.params.findIndex(item => item.typeOfParam === 'params.listLimits')
+        const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'params.listLimits')
 
         return state.result.params[idx].paramValue
       },

@@ -3,6 +3,6 @@ export default {
     state.result = data
   },
   setType (state, type) {
-    state.page = type
+    state.typeFilter = type
   }
 }

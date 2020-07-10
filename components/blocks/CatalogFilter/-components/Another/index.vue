@@ -62,7 +62,7 @@
           class="another-footer__save"
           @click="showResult"
         >
-          Показать {{ variant }}
+          Показать варианты
         </OcButton>
       </div>
     </div>
