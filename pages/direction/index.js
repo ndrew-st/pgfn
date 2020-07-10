@@ -1,9 +1,10 @@
 import { mapActions, mapState } from 'vuex'
 
 import FilterBlock from './-components/filter'
-import Full from './-components/full'
 
+import Full from './-components/full'
 import SubscribeEmail from '~/components/blocks/Subscribe'
+
 import Description from '~/components/blocks/Description'
 import GroupCard from '~/components/blocks/GroupCard'
 
