@@ -7,7 +7,10 @@
       <span class="group-cart__count-articles">{{ count }}</span>
     </div>
 
-    <div class="group-cart__checkboxes group-checkbox">
+    <div
+      v-if="tabs.length"
+      class="group-cart__checkboxes group-checkbox"
+    >
       <div class="group-checkbox__container">
         <ul class="group-checkbox__list">
           <li

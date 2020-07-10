@@ -3,11 +3,9 @@ import { mapActions } from 'vuex'
 export default {
   props: {
     tabs: {
-      type: Array,
+      type: Array, // { name: '', url: '', id: 0 }
       required: true,
-      default: () => [
-        { name: '', url: '', id: 0 }
-      ]
+      default: () => []
     },
     items: {
       type: Array,

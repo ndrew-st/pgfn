@@ -104,8 +104,6 @@ export default {
     ...mapActions('search', ['addSearchRequest', 'searchByQuery', 'searchObject'])
   },
   mounted () {
-    console.log('this.$store.state.auth ', this.$store.state.auth)
-
     this.widthWindow = window.innerWidth
 
     window.addEventListener('resize', this.handlerResizeWindow)

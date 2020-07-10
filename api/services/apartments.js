@@ -1,6 +1,6 @@
 export default axios => resource => ({
   getDirection (city) {
-    return axios.get(`${resource}?city=${city}`)
+    return axios.get(`${resource}`)
   },
   searching (search) {
     return axios.get(`${resource}?search=${search}`)
