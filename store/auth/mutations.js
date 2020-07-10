@@ -7,5 +7,11 @@ export default {
   },
   setUser (state, data) {
     state.user = data
+  },
+  clear (state) {
+    state.token = null
+    state.refreshToken = null
+    state.error = null
+    state.user = null
   }
 }

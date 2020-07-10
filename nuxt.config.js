@@ -36,7 +36,8 @@ export default {
     '@/plugins/yandexMaps.js',
     '@/plugins/directives.js',
     '@/plugins/storage.js',
-    '@/plugins/api.js'
+    '@/plugins/api.js',
+    { src: '@/plugins/metrika.js', mode: 'client' }
   ],
   router: {
     base: '/',
