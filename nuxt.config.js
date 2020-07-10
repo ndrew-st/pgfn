@@ -47,6 +47,16 @@ export default {
           name: 'main',
           path: '/',
           component: resolve(__dirname, 'pages/direction/_city')
+        },
+        {
+          name: 'request',
+          path: '/request/:id',
+          component: resolve(__dirname, 'pages/unit/_id')
+        },
+        {
+          name: 'habitation',
+          path: '/habitation/:id',
+          component: resolve(__dirname, 'pages/unit/_id')
         }
       )
     }
