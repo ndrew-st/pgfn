@@ -149,18 +149,9 @@
             >
               Войти
             </OcLink>
-            <OcLink
+            <User
               v-else
-              to="/profile"
-            >
-              {{ name }}
-            </OcLink>
-            <!--            <nuxt-link-->
-            <!--              v-else-->
-            <!--              to="/profile"-->
-            <!--              class="header-controls__link"-->
-            <!--            >-->
-            <!--            </nuxt-link>-->
+            />
           </li>
         </ul>
       </div>

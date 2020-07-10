@@ -1,12 +1,13 @@
 import { mapActions } from 'vuex'
 
 import Form from './-components/Form'
+import User from './-components/User'
 import SearchPanel from '~/components/blocks/SearchPanel'
 
 import { isAuth } from '~/constants/getters/auth'
 
 export default {
-  components: { Form, SearchPanel },
+  components: { Form, SearchPanel, User },
   data () {
     return {
       mobileLinks: [
