@@ -24,7 +24,6 @@
 
       <ApInput
         :value="inputAdress"
-        :class="ap-step1__input2"
         @input="askDadata($event)"
       />
 

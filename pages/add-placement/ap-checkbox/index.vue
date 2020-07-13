@@ -4,7 +4,7 @@
       v-model="locChecked"
       class="ap-checkbox__input"
       type="checkbox"
-      @change="change()"
+      @change="change"
     >
 
     <span class="ap-checkbox__label-text">

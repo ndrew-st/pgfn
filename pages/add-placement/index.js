@@ -26,6 +26,9 @@ export default {
     next () {
       this.state++
     },
+    back () {
+      this.state = this.state - 1
+    },
     async addPlacement () {
       const result = await this.$api.placement.addPlacement(this.$store.result)
       console.log(result)

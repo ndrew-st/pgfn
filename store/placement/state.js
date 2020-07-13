@@ -61,7 +61,8 @@ export default () => ({
         //     end: '2020-06-26T11:36:49.157Z'
         //   }
         // }
-      ]
+      ],
+      pickUpTime: []
     },
     // спальные места
     sleepingPlace: [
