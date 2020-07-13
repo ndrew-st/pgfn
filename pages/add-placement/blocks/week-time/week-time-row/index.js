@@ -8,47 +8,50 @@ export default {
   },
   props: {
     day: {
-      type: Object,
+      type: String,
       required: true
     },
-    type: {
+    checked: {
+      type: Boolean,
+      default: false
+    },
+    start: {
       type: String,
-      default: ''
-    }
-  },
-  data () {
-    return {
-      timeStart: '',
-      timeFinish: '',
-      checked: false
+      default: '00:00'
+    },
+    end: {
+      type: String,
+      default: '00:00'
     }
   },
   methods: {
-    changeStart (ev) {
-      this.timeStart = ev
-      this.checkState()
-    },
-    changeFinish (ev) {
-      this.timeFinish = ev
-      this.checkState()
-    },
-    checkState (ev) {
-      if (ev !== undefined) {
-        this.checked = ev
-      }
-      if (this.checked) {
-        this.$store.dispatch('placement/weekDayIn', {
-          sector: this.type,
-          weekDay: this.day.id,
-          timeStart: this.timeStart,
-          timeFinish: this.timeFinish
-        })
-      } else {
-        this.$store.dispatch('placement/weekDayOut', {
-          sector: this.type,
-          weekDay: this.day.id
-        })
-      }
-    }
+    // changeTime (val, type) {
+    //   if (type === 'start') {
+    //     this.timeStart = val
+    //   } else {
+    //     this.timeEnd = val
+    //   }
+    //   // this.checkState()
+    //   // emit !!!
+    // }
+    // ,
+    // checkState (ev) {
+    //   if (ev !== undefined) {
+    //     this.checked = ev
+    //   }
+    //   if (this.checked) {
+    //     // this.$store.dispatch('placement/weekDayIn', {
+    //     //   sector: this.type,
+    //     //   weekDay: this.day.id,
+    //     //   timeStart: this.timeStart,
+    //     //   timeFinish: this.timeFinish
+    //     // })
+    //   } else {
+    //     // this.$store.dispatch('placement/weekDayOut', {
+    //     //   sector: this.type,
+    //     //   weekDay: this.day.id
+    //     // })
+    //   }
+    // }
   }
 }

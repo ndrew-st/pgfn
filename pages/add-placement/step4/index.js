@@ -2,13 +2,15 @@ import ApButton from '../ap-button/index.vue'
 import ApRadio from '../ap-radio/index.vue'
 import ApTimeSelect from '../ap-time-select'
 import WeekTime from '../blocks/week-time'
+import TimeSelectBlock from './time-select-block'
 
 export default {
   components: {
     ApButton,
     ApRadio,
     ApTimeSelect,
-    WeekTime
+    WeekTime,
+    TimeSelectBlock
   },
   data () {
     return {
@@ -35,11 +37,14 @@ export default {
       this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'cancellationPolicy', value: this.cancellationPolicy })
       this.$emit('next')
     },
-    changeDeparture (ev) {
-      this.departureTime = ev
+    changeTimeForCalls (val) {
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'timeForCalls', value: val })
     },
-    changePickUp (ev) {
-      this.pickUpTime = ev
+    changePickUpTime (val) {
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'pickUpTime', value: val })
+    },
+    changeDepartureTime (val) {
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'departureTime', value: val })
     }
   }
 }

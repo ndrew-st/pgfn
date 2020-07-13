@@ -3,11 +3,11 @@
     <ApCheckbox
       class="day-week"
       :checked="checked"
-      @change="checkState"
+      @change="$emit('change', $event)"
     >
       <div class="day-week__flex">
         <span>
-          {{ day.name }}
+          {{ day }}
         </span>
 
         <span>с</span>
@@ -15,16 +15,17 @@
     </ApCheckbox>
 
     <ApTimeSelect
-      :sel-time="timeStart"
-      @change="changeStart"
+      :sel-time="start"
+      @change="$emit('change-time', {val: $event, type: 'start'})"
     />
 
     <span class="day-week__to">по</span>
 
     <ApTimeSelect
-      :sel-time="timeFinish"
-      @change="changeFinish"
+      :sel-time="end"
+      @change="$emit('change-time', {val: $event, type: 'end'})"
     />
+    <!-- <p>day: {{ day }} checked: {{ checked }} start: {{ start }} end: {{ end }}</p> -->
   </div>
 </template>
 

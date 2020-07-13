@@ -54,28 +54,28 @@ export default {
     } else {
       state.result.sleepingPlace[elInd].amount = data.amount
     }
-  },
-  weekDayIn (state, data) {
-    const el = state.result.reservation[data.sector].find(item => item.day === data.weekDay)
-    if (el === undefined) {
-      state.result.reservation[data.sector].push({
-        day: data.weekDay,
-        intervalTime: {
-          start: new Date(1970, 0, 1, data.timeStart.substr(0, 2), data.timeStart.substr(3, 2)),
-          end: new Date(1970, 0, 1, data.timeFinish.substr(0, 2), data.timeFinish.substr(3, 2))
-        }
-      })
-    } else {
-      el.intervalTime = {
-        start: new Date(1970, 0, 1, data.timeStart.substr(0, 2), data.timeStart.substr(3, 2)),
-        end: new Date(1970, 0, 1, data.timeFinish.substr(0, 2), data.timeFinish.substr(3, 2))
-      }
-    }
-  },
-  weekDayOut (state, data) {
-    const elInd = state.result.reservation[data.sector].findIndex(item => item.day === data.weekDay)
-    if (elInd !== -1) {
-      state.result.reservation[data.sector].splice(elInd, 1)
-    }
   }
+  // weekDayIn (state, data) {
+  //   const el = state.result.reservation[data.sector].find(item => item.day === data.weekDay)
+  //   if (el === undefined) {
+  //     state.result.reservation[data.sector].push({
+  //       day: data.weekDay,
+  //       intervalTime: {
+  //         start: new Date(1970, 0, 1, data.timeStart.substr(0, 2), data.timeStart.substr(3, 2)),
+  //         end: new Date(1970, 0, 1, data.timeFinish.substr(0, 2), data.timeFinish.substr(3, 2))
+  //       }
+  //     })
+  //   } else {
+  //     el.intervalTime = {
+  //       start: new Date(1970, 0, 1, data.timeStart.substr(0, 2), data.timeStart.substr(3, 2)),
+  //       end: new Date(1970, 0, 1, data.timeFinish.substr(0, 2), data.timeFinish.substr(3, 2))
+  //     }
+  //   }
+  // },
+  // weekDayOut (state, data) {
+  //   const elInd = state.result.reservation[data.sector].findIndex(item => item.day === data.weekDay)
+  //   if (elInd !== -1) {
+  //     state.result.reservation[data.sector].splice(elInd, 1)
+  //   }
+  // }
 }
