@@ -11,7 +11,7 @@ export default {
     },
     info: {
       Type: Object,
-      default: {}
+      default: () => ({})
     }
   },
   data () {
@@ -19,11 +19,6 @@ export default {
       active: false,
       textBed: [ 'спальня', 'спальни', 'спален' ],
       textGuests: [ 'гость', 'гостей', 'гости' ]
-    }
-  },
-  methods: {
-    connect () {
-      console.log('connect')
     }
   },
   computed: {

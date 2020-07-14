@@ -16,7 +16,10 @@
           />
         </div>
 
-        <div class="right-col">
+        <div
+          v-if="user"
+          class="right-col"
+        >
           <div class="flex">
             <p class="name">
               {{ user.name }}

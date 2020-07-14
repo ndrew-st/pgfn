@@ -9,6 +9,7 @@
     />
 
     <OcMaps
+      v-if="coords"
       class="loc__yandex-map-content"
       :coords="coords"
     />

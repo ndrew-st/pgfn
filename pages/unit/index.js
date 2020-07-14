@@ -1,5 +1,9 @@
 import { mapActions, mapState } from 'vuex'
 
+import GroupCard from '~/components/blocks/GroupCard'
+import Footer from '~/components/blocks/Footer'
+import Subscribe from '~/components/blocks/Subscribe'
+
 import H1Block from './-components/h1-block/index.vue'
 import MapBlock from './-components/MapBlock'
 import Pics from './-components/pics/index.vue'
@@ -10,10 +14,6 @@ import Rules from './-components/rules/index.vue'
 import Location from './-components/location/index.vue'
 import BookingFooter from './-components/booking-footer/index.vue'
 import Booking from './-components/booking/index.vue'
-
-import GroupCard from '~/components/blocks/GroupCard'
-import Footer from '~/components/blocks/Footer'
-import Subscribe from '~/components/blocks/Subscribe'
 
 export default {
   layout: 'unit',
@@ -36,7 +36,7 @@ export default {
     return !!id
   },
   async asyncData ({ store, params }) {
-    console.log('params ', params)
+    // console.log('params ', params)
 
     await store.dispatch(`habitation/getItem`, params.id)
   },
@@ -79,13 +79,13 @@ export default {
         }
       },
       description: (state) => {
-        const idx = state.result.params.findIndex(item => item.typeOfParam === 'params.guests')
+        const idx = state.result && state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'params.guests')
 
         return {
           typeOfHousing: state.result.typeOfHousing,
           countBed: state.result.sleepingPlace && state.result.sleepingPlace.length,
           content: state.result.description,
-          countGuests: state.result.params[idx] && state.result.params[idx].paramValue.length
+          countGuests: state.result && state.result.params && state.result.params[idx] && state.result.params[idx].paramValue.length
         }
       },
       prices: state => state.result.price,
@@ -94,16 +94,16 @@ export default {
       facilities: (state) => {
         const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'params.facilities')
 
-        return state.result.params[idx] && state.result.params[idx].paramValue
+        return state.result && state.result.params && state.result.params[idx] && state.result.params[idx].paramValue
       },
       reservation: state => state.result.reservation,
       limits: (state) => {
         const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'params.listLimits')
 
-        return state.result.params[idx].paramValue
+        return state.result && state.result.params && state.result.params[idx] && state.result.params[idx].paramValue
       },
       rates: state => state.rates,
-      coords: state => state.result && state.result.address.coords
+      coords: state => state.result && state.result.address && state.result.address.coords
     })
   },
   methods: {

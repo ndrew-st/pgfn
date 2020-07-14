@@ -1,10 +1,11 @@
 import { mapActions } from 'vuex'
 
-import Form from './-components/Form'
-import User from './-components/User'
 import SearchPanel from '~/components/blocks/SearchPanel'
 
 import { isAuth } from '~/constants/getters/auth'
+
+import Form from './-components/Form'
+import User from './-components/User'
 
 export default {
   components: { Form, SearchPanel, User },
@@ -33,7 +34,7 @@ export default {
       // header-controls
       list: [
         { id: 1, content: 'Жильё', url: '/add-placement' },
-        { id: 2, content: 'Запрос на аренду жилья', url: '/request' }
+        { id: 2, content: 'Запрос на аренду жилья', url: '/add-request' }
       ] // add objects
     }
   },

@@ -7,6 +7,8 @@ export default {
   async getItem ({ commit }, id) {
     const data = await this.$api.apartments.getItem(id)
 
+    console.log('getItem ', data)
+
     commit('addData', data)
   }
 }

@@ -1,5 +1,6 @@
-import Address from '../Address'
 import Description from '~/components/blocks/Description'
+
+import Address from '../Address'
 
 export default {
   components: { Description, Address },
