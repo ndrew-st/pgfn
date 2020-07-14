@@ -7,6 +7,7 @@ import Step6 from './step6/index.vue'
 import StageBar from './stage-bar/index.vue'
 
 export default {
+  middleware: 'auth',
   components: {
     Step1,
     Step2,
@@ -24,6 +25,13 @@ export default {
   methods: {
     next () {
       this.state++
+    },
+    back () {
+      this.state = this.state - 1
+    },
+    async addPlacement () {
+      const result = await this.$api.placement.addPlacement(this.$store.result)
+      console.log(result)
     }
   }
 }

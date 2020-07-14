@@ -6,16 +6,20 @@ export default {
       type: String,
       default: ''
     },
-    kind: { // For styles
+    kind: {
       type: String,
       default: 'most'
     },
     value: {
-      type: [String, Number, Boolean, Array],
-      default: null
+      type: [String, Number, Array, Boolean],
+      default: ''
+    },
+    active: {
+      type: Boolean,
+      default: false
     },
     checkValue: {
-      type: [String, Number],
+      type: [String, Number, Array, Boolean],
       default: null
     },
     icon: {
@@ -31,7 +35,7 @@ export default {
       return Object.assign({},
         this.$listeners,
         {
-          input () {
+          input (evt) {
             if (vm.checkedInput) {
               vm.uncheck()
             } else {
@@ -47,7 +51,7 @@ export default {
     checkedInput () {
       if (!this.value) {
         return false
-      } else if (this._isBool(this.value)) {
+      } else if (typeof this.value === 'boolean') {
         return this.value
       } else if (isArray(this.value)) {
         return this.value.includes(this.checkValue)
@@ -67,10 +71,6 @@ export default {
       return typeof val === 'string'
     },
     check () {
-      if (this.value === null) {
-        return
-      }
-
       if (this._isBool(this.value)) {
         this.$emit('input', true)
 

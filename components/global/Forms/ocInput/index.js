@@ -8,9 +8,13 @@ export default {
       required: true,
       default: 'most'
     },
-    addClass: {
+    label: {
       type: String,
-      default: ''
+      default: null
+    },
+    addDesc: {
+      type: String,
+      default: null
     },
     measure: {
       type: String,
@@ -19,26 +23,6 @@ export default {
     required: {
       type: Boolean,
       default: false
-    },
-    mask: {
-      type: String,
-      default: null
-    },
-    checkValue: {
-      type: String,
-      default: null
-    },
-    type: {
-      type: String,
-      default: 'text'
-    },
-    label: {
-      type: String,
-      default: null
-    },
-    addDesc: {
-      type: String,
-      default: null
     },
     active: {
       type: Boolean,

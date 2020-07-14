@@ -5,22 +5,42 @@
         Расположение и собственность
       </p>
 
-      <p class="add-placement__p ap-step1__p1">
+      <!-- <p class="add-placement__p ap-step1__p1">
         Район, населенный пункт
         <span class="add-placement__red-star">*</span>
       </p>
 
+      <input @input="askDadata()">
+
       <ApInput
         placeholder="Москва"
         :class="ap-step1__input1"
-      />
+      /> -->
 
       <p class="add-placement__p ap-step1__p2">
         Точный адрес
         <span class="add-placement__red-star">*</span>
       </p>
 
-      <ApInput :class="ap-step1__input2" />
+      <ApInput
+        :value="inputAdress"
+        @input="askDadata($event)"
+      />
+
+      <ApDadataDropdown
+        v-if="adressList"
+        :list="adressList"
+        @selectAdress="selectAdress"
+      />
+
+      <div class="flex">
+        <p
+          v-if="unknownHouse !== null"
+          class="ap-red-p"
+        >
+          Мы не уверены, что такой дом существует. Проверьте, нет ли ошибки
+        </p>
+      </div>
 
       <p class="add-placement__p ap-step1__p3">
         Указать на карте
@@ -30,10 +50,11 @@
         :coords="coords"
         class="ap-step1__yandex-map-content"
         @map-was-initialized="initMap"
+        @click="clickMap"
       >
         <ymap-marker
-          marker-id="1"
           :coords="coords"
+          marker-id="123"
         />
       </yandex-map>
     </div>
@@ -45,19 +66,19 @@
           name="border"
           class="ap-step1__oc-btn"
         >
-          {{ selItem === '' ? 'Вы собственник или посредник?' : selItem }}
+          {{ typeOfTenant === null ? 'Вы собственник или посредник?' : listTypeOfTenant[typeOfTenant.id].name }}
           <span class="add-placement__red-star">*</span>
         </OcButton>
 
         <ApListDropdown
           slot="body"
-          :list="list"
-          @selectItem="selectItem"
+          :list="listTypeOfTenant"
+          @selectItem="selectTypeOfTenant"
         />
       </OcDropDown>
 
       <OcDropDown
-        v-if="selItem !== ''"
+        v-if="typeOfTenant !== null"
         class="ap-step1__button-filter"
       >
         <OcButton
@@ -65,19 +86,19 @@
           name="border"
           class="ap-step1__oc-btn"
         >
-          {{ selItem2 ==='' ? 'Источник аренды/тип арендодателя' : selItem2 }}
+          {{ typeOfHousing === null ? 'Источник аренды/тип арендодателя' : typeOfTenant.id === 0 ? listTypeOfHousing1[typeOfHousing.id].name : listTypeOfHousing2[typeOfHousing.id].name }}
           <span class="add-placement__red-star">*</span>
         </OcButton>
 
         <ApListDropdown
           slot="body"
-          :list="list2"
-          @selectItem="selectItem2"
+          :list="typeOfTenant !== null && typeOfTenant.id === 0 ? listTypeOfHousing1 : listTypeOfHousing2"
+          @selectItem="selectTypeOfHousing"
         />
       </OcDropDown>
 
       <OcButton
-        v-if="selItem2 !== ''"
+        v-if="typeOfTenant !== null && typeOfHousing !== null"
         name="most"
         color="red"
         class="ap-step1__button-next"

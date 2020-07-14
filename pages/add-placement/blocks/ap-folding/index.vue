@@ -7,6 +7,7 @@
       {{ caption }}
       <span class="add-placement__red-star">*</span>
     </button>
+
     <slot v-if="!fold" />
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div
     class="input-container"
-    :class="[mainClass, addClass, { 'active': active }, { 'checked': checkedInput }, { 'error': error }]"
+    :class="[mainClass, { 'active': active }, { 'error': error }]"
   >
     <label
       v-if="label"
@@ -35,8 +35,8 @@
       v-bind="$attrs"
       :maxlength="maxLength"
       :name="name"
-      :type="type"
       :required="required"
+      type="text"
       class="input-container__input input"
       :class="[additionalClass]"
       v-on="listeners"

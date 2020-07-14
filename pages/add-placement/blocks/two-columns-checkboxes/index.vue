@@ -22,7 +22,9 @@
           :check-value="item.value"
         /> -->
 
-        <ApCheckbox>
+        <ApCheckbox
+          :par-name="item.value"
+        >
           {{ item.label }}
         </ApCheckbox>
       </li>

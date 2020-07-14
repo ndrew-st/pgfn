@@ -10,7 +10,7 @@
           slot="button"
           name="filter"
         >
-          {{ selItem ==='' ? 'Выберите тип жилья' : selItem }}
+          {{ selItem === null ? 'Выберите тип жилья' : list[selItem].name }}
           <span class="add-placement__red-star">*</span>
         </ApButton>
 
@@ -21,62 +21,17 @@
         />
       </OcDropDown>
 
-      <div class="ap-step2__radio-block">
-        <div class="ap-step2__radio-item">
-          <input
-            id="fid-1"
-            v-model="picked"
-            type="radio"
-            name="radio"
-            class="ap-step2__radio"
-            value="Целиком"
-          >
-
-          <label
-            class="ap-step2__label"
-            for="fid-1"
-          >Квартира целиком</label>
-        </div>
-
-        <div class="ap-step2__radio-item">
-          <input
-            id="fid-2"
-            v-model="picked"
-            type="radio"
-            name="radio"
-            class="ap-step2__radio"
-            value="Номер"
-          >
-
-          <label
-            class="ap-step2__label"
-            for="fid-2"
-          >Номер в отеле</label>
-        </div>
-      </div>
+      <ListApRadio
+        v-if="selItem !== null"
+        :list="list[selItem].list"
+        class="ap-step2__list-ap-radio"
+        :sel-id="selId"
+        @change="selId = $event"
+      />
     </div>
 
-    <!-- <OcInput
-        v-model="current"
-        type="radio"
-        icon="circle-radio"
-        icon-position="left"
-        name="tariff"
-        kind="circle-radio"
-        check-value="Целиком"
-        label="Квартира целиком"
-      />
-
-      <OcInput
-        v-model="current"
-        type="radio"
-        icon="circle-radio"
-        icon-position="left"
-        name="tariff"
-        kind="circle-radio"
-        check-value="Номер"
-        label="Номер в отеле"
-      /> -->
+    <!-- <p>selItem: {{ selItem }}</p>
+    <p>selId: {{ selId }}</p> -->
 
     <div
       v-if="selItem !== ''"
@@ -90,22 +45,15 @@
       <span class="ap-step2__span">Количество комнат</span>
 
       <select
+        v-model="numberOfRooms"
         class="ap-step2__sel"
       >
-        <option>
-          1
-        </option>
-        <option>
-          2
-        </option>
-        <option>
-          3
-        </option>
-        <option>
-          4
-        </option>
-        <option>
-          5
+        <option
+          v-for="n in 5"
+          :key="n"
+          :value="n"
+        >
+          {{ n }}
         </option>
       </select>
 
@@ -115,6 +63,7 @@
       </p>
 
       <ApInput
+        v-model="area"
         class="ap-step2__input1"
         type="number"
       />
@@ -123,9 +72,9 @@
     </div>
 
     <ApButton
-      v-if="selItem !== ''"
+      v-if="selItem !== null && area > 0"
       name="red"
-      @click.native="$emit('next')"
+      @click.native="next"
     >
       Продолжить
     </ApButton>

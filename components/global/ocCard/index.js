@@ -1,8 +1,9 @@
 import direction from './-components/direction'
 import most from './-components/most'
+import maps from './-components/map'
 
 export default {
-  components: { direction, most },
+  components: { direction, most, maps },
   props: {
     kind: {
       type: String,

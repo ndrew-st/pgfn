@@ -1,0 +1,94 @@
+.req-step2
+    &__flex
+        display flex
+        position relative
+        padding-bottom 100px
+
+    &__left-col
+        width 512px
+
+    &__dd
+        margin-top 62px !important
+
+    &__radio-block
+        margin-top 104px
+
+    &__radio-item
+        margin-bottom 24px
+
+    &__radio
+        display none
+        margin-bottom 24px
+
+        &:checked + .ap-step2__label:before
+            background-image url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='9.5' fill='white' stroke='%23272528'/%3E%3Ccircle cx='10' cy='10' r='5' fill='%23272528'/%3E%3C/svg%3E%0A")
+
+    &__label
+        cursor pointer
+        font-size 16px
+        position relative
+        padding-left 25px
+
+        &:before
+            content ''
+            display inline-block
+            width 20px
+            height 20px
+            position absolute
+            left 0
+            bottom 1px
+            background-image url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='9.5' fill='white' stroke='%23272528'/%3E%3C/svg%3E%0A")
+
+    &__p1
+        margin-top 92px
+
+    &__p2
+        margin-top 64px
+
+    &__span
+        font-family Calibri
+        font-style normal
+        font-weight normal
+        font-size 16px
+        line-height 28px
+        color #272528
+        margin-right 20px
+
+    &__span2
+        font-family Calibri
+        font-style normal
+        font-weight normal
+        font-size 16px
+        line-height 20px
+        letter-spacing 0.1px
+        color #272528
+        margin-left -31px
+
+    &__sel
+        width 40px
+        height 24px
+        font-style normal
+        font-weight normal
+        font-size 14px
+        padding-left 7px
+        -webkit-appearance none
+        -moz-appearance none
+        -ms-appearance none
+        appearance none !important
+        background transparent
+        background-image url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1L5 5L0.999998 1' stroke='%23989BA8'/%3E%3C/svg%3E%0A")
+        background-position right 7px center
+        background-repeat no-repeat
+        outline none
+        border none
+        border 1px solid #DADADA
+        border-radius 4px
+
+    &__input1
+        // display inline
+        width 79px
+        margin-top 24px
+        padding-right 32px
+
+    &__list-ap-radio
+        margin-top 100px

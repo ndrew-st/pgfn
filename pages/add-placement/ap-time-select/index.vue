@@ -1,12 +1,23 @@
 <template>
-  <select class="ap-time-select__sel">
-    <option
-      v-for="(item, index) in timeArray"
-      :key="index"
+  <div>
+    <select
+      v-model="locSelTime"
+      class="ap-time-select__sel"
+      @change="$emit('change', $event.target.value)"
     >
-      {{ item }}
-    </option>
-  </select>
+      <option
+        v-for="(item, index) in timeArray"
+        :key="index"
+        selected="item === selTime"
+      >
+        {{ item }}
+      </option>
+    </select>
+
+    <!-- <hr>
+    <p>locSelTime: {{ locSelTime }}</p>
+    <p>selTime: {{ selTime }}</p> -->
+  </div>
 </template>
 
 <style src="./index.styl" lang="stylus"/>

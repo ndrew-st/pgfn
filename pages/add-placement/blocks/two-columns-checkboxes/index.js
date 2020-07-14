@@ -16,6 +16,11 @@ export default {
     redStar: {
       type: Boolean,
       default: false
+    },
+    columnCount: {
+      type: Number,
+      default: 2,
+      required: false
     }
   },
   data () {

@@ -4,9 +4,9 @@ export default {
       menu: [
         { title: 'Направления',
           children: [
+            { title: 'Районы и округа', url: '' },
             { title: 'Города', url: '' },
-            { title: 'Районы', url: '' },
-            { title: 'Сёла', url: '' }
+            { title: 'Деревни и сёла', url: '' }
           ]
         },
         {
@@ -14,20 +14,16 @@ export default {
           children: [
             { title: 'Апартаменты', url: '' },
             { title: 'Коттеджи и дома', url: '' },
-            { title: 'Отели', url: '' },
-            { title: 'Кемпенги', url: '' },
-            { title: 'Хостелы', url: '' }
+            { title: 'Комнаты', url: '' },
+            { title: 'Койко-места', url: '' },
+            { title: 'На природе', url: '' }
           ]
         },
         {
-          title: 'Услуги',
+          title: 'О нас',
           children: [
-            { title: 'Туры', url: '' },
-            { title: 'Экскурсии', url: '' },
-            { title: 'Прокат', url: '' },
-            { title: 'Джиппинг', url: '' },
-            { title: 'Морские прогулки', url: '' },
-            { title: 'Верховая езда', url: '' }
+            { title: 'О проекте', url: '' },
+            { title: 'Помощь', url: '' }
           ]
         }
       ],

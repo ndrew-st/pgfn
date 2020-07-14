@@ -1,7 +1,7 @@
 <template>
   <label
     class="oc-checkbox"
-    :class="[addClass, { 'checked': checkedInput }]"
+    :class="[addClass, { 'checked': checkedInput }, { 'active': active }]"
   >
     <span
       v-if="label"
@@ -9,7 +9,6 @@
     >{{ label }}</span>
 
     <OcIcon
-      v-if="icon"
       class="oc-checkbox__icon icon"
       :class="[icon]"
       :name="icon"
@@ -27,7 +26,7 @@
 </template>
 
 <script src="./index.js"/>
-<style lang="stylus" src="./index.styl"/>
+<style lang="stylus" src="./index.styl" scoped/>
 
 <style lang="stylus" src="./styles/most.styl"/>
 <style lang="stylus" src="./styles/toggle.styl"/>

@@ -1,2 +1,4 @@
 pages/add-placement-old/*
 *.json
+pages/privacy/index.js
+plugins/metrika.js

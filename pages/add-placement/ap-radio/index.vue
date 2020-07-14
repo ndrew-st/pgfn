@@ -1,20 +1,17 @@
 <template>
   <div>
-    <input
-      :id="$attrs.id"
-      class="ap-radio__input"
-      type="radio"
-      :value="$attrs.value"
-      :name="$attrs.name"
-    >
-
-    <label
-      :for="$attrs.id"
-      class="ap-radio__label"
-    >
-      {{ label }}
-
+    <label>
+      <input
+        class="ap-radio__input"
+        type="radio"
+        :checked="checked"
+        @change="$emit('change', value)"
+      >
+      <span class="ap-radio__label">
+        {{ label }}
+      </span>
     </label>
+    </labelclass="ap-radio__label">
   </div>
 </template>
 

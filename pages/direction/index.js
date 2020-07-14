@@ -1,9 +1,10 @@
 import { mapActions, mapState } from 'vuex'
 
 import FilterBlock from './-components/filter'
-import Full from './-components/full'
 
+import Full from './-components/full'
 import SubscribeEmail from '~/components/blocks/Subscribe'
+
 import Description from '~/components/blocks/Description'
 import GroupCard from '~/components/blocks/GroupCard'
 
@@ -11,6 +12,7 @@ import isEmptyObject from '~/utils/isEmptyObject'
 
 export default {
   layout: 'main',
+  scrollToTop: true,
   components: {
     Full,
     Description,
@@ -19,7 +21,7 @@ export default {
     FilterBlock
   },
   async asyncData ({ params, store }) {
-    await store.dispatch(`direction/getData`, params.name || `Крым`)
+    await store.dispatch(`direction/getData`, params.city || `Крым`)
   },
   data () {
     return {
@@ -34,9 +36,9 @@ export default {
   },
   computed: {
     ...mapState('direction', {
-      direction: state => state.result.direction,
-      apartments: state => state.result.apartments,
-      services: state => state.result.services || {},
+      direction: state => state.result.direction || state.dir,
+      apartments: state => state.result,
+      services: state => state.result.services || state.dir,
       description: state => state.result.description,
       head: (state) => {
         return {

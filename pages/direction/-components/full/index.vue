@@ -1,17 +1,17 @@
 <template>
   <div class="full-block">
-    <OcImg
-      :alt="title"
+    <img
       :src="background"
       :width="2400"
       :height="1600"
       class="full-block__bg-image"
-    />
+      :alt="title"
+    >
     <div class="full-block__container">
       <h2 class="full-block__title">
         {{ title }}
       </h2>
-      <p
+      <div
         class="full-block__description"
         v-html="description"
       />

@@ -1,13 +1,19 @@
 <template>
   <div class="group-cart">
-    <div class="group-cart__title-container">
+    <nuxt-link
+      :to="to"
+      class="group-cart__title-container"
+    >
       <h2 class="group-cart__title">
         {{ title }}
       </h2>
       <span class="group-cart__count-articles">{{ count }}</span>
-    </div>
+    </nuxt-link>
 
-    <div class="group-cart__checkboxes group-checkbox">
+    <div
+      v-if="tabs.length"
+      class="group-cart__checkboxes group-checkbox"
+    >
       <div class="group-checkbox__container">
         <ul class="group-checkbox__list">
           <li

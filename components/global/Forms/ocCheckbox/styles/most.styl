@@ -2,8 +2,8 @@
   position relative
 
   display flex
-  flex-wrap wrap
-  align-items center
+
+  box-sizing border-box
 
   & .icon.check
     position absolute
@@ -27,15 +27,11 @@
         stroke transparent
 
   &:hover .icon.check
-    opacity 1
-
     & > svg
       & > rect
         stroke $dark
 
   &.checked .icon.check
-    opacity 1
-
     & > svg
       & > path
         stroke #ffffff
@@ -56,15 +52,16 @@
     line-height 20px
     color $dark
 
-    anim all
-
     cursor pointer
+    box-sizing border-box
+
+    anim all
 
     &:before
       content ''
 
       position absolute
-      right 0
+      left 0
       top 0
       bottom 0
 
@@ -85,12 +82,12 @@
       border 2px solid $dark
 
 @media (min-width 640px)
-  .oc-input-checkbox
+  .oc-checkbox-most
     & .label
       font-size 16px
 
 @media (min-width 768px)
-  .oc-input-checkbox
+  .oc-checkbox-most
     & .label
       align-items center
       height 24px
@@ -99,6 +96,6 @@
       &:before
         left 0
 
-    & .icon.icon-left.check
+    & .icon.check
       right auto
-      left 0
+      //left 0

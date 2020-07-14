@@ -1,0 +1,141 @@
+.unit-filter__content.another
+    position fixed
+    top 0
+    left 0
+    right 0
+
+    width 100%
+    height 100%
+
+    background rgba(0, 0, 0, 0.31)
+    z-index 999
+
+.another
+  &__scrollbar
+    width 100%
+    max-height 350px
+
+  &__container
+    width 100%
+    max-width 720px
+    margin 0 auto
+    margin-top 28px
+
+    background-color #FFFFFF
+    box-shadow 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.08)
+    border-radius 12px
+
+  & .another-header
+    position relative
+
+    display flex
+    min-height 51px
+
+    border-bottom 1px solid #F3F3F3
+
+    &__title
+      display flex
+      justify-content center
+      align-items center
+      width 100%
+
+      font-style normal
+      font-weight bold
+      font-size 15px
+      line-height 24px
+      text-align center
+      color $dark
+
+    &__close
+      position absolute
+      left 18px
+      top 22px
+
+      height 16px
+
+  & .another-controls
+    border-bottom 1px solid #F3F3F3
+
+    &__list
+      display flex
+      margin 0
+      padding 0 8px
+
+      list-style none
+
+    &__item
+      padding 0 10px
+
+    &__label
+      display flex
+      align-items center
+      padding 0
+      height 39px
+
+      font-style normal
+      font-weight normal
+      font-size 13px
+      line-height 24px
+      letter-spacing 0.2px
+
+      color $secondary
+      cursor pointer
+
+      border-bottom 2px solid transparent
+
+      &.checkbox-checked
+        color $dark
+        border-color $primary
+
+  & .another-footer
+    display flex
+    align-items center
+    justify-content space-between
+    min-height 72px
+    padding 0 20px
+
+    border-top 1px solid #DADADA
+
+    &__save
+      width 184px
+
+@media (min-width 720px)
+  .another
+    &__container
+      //margin-top 140px
+      margin 0 auto
+      margin-top 20px
+      max-width 720px
+
+      background-color #FFFFFF
+      border-radius 12px
+
+    & .another-header
+      min-height 75px
+
+      &__title
+        font-size 20px
+
+      &__close
+        left 40px
+        top 34px
+
+    & .another-controls
+      &__list
+        padding 0 30px
+      &__label
+        min-height 54px
+
+        font-size 18px
+
+    & .another-footer
+      padding 0 40px
+      min-height 108px
+
+      &__clear
+        font-size 16px
+
+      &__save
+        width 210px
+
+        font-size 16px

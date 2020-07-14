@@ -1,3 +1,8 @@
 export default () => ({
-  result: {}
+  result: {},
+  dir: {
+    tabs: [],
+    items: [],
+    count: 0
+  }
 })
