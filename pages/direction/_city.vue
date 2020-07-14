@@ -10,37 +10,38 @@
     <FilterBlock />
 
     <!-- Направление -->
-    <GroupCard
-      v-if="direction && direction.items.length"
-      :tabs="direction.tabs"
-      :items="direction.items"
-      :count="direction.count"
-      name="direction"
-      title="Популярные направления"
-    >
-      <OcCard
-        v-for="(item, index) in direction.items"
-        :key="item.name + item.address"
-        kind="direction"
-        :item="item"
-        :is-liked="isLiked(index, 'direction')"
-        @setLike="handlerLike(index, 'direction')"
-      />
-    </GroupCard>
+    <!--    <GroupCard-->
+    <!--      v-if="direction"-->
+    <!--      :tabs="direction.tabs"-->
+    <!--      :items="direction.items"-->
+    <!--      :count="direction.count"-->
+    <!--      name="direction"-->
+    <!--      title="Популярные направления"-->
+    <!--    >-->
+    <!--      <OcCard-->
+    <!--        v-for="(item, index) in direction.items"-->
+    <!--        :key="item.name + item.address"-->
+    <!--        kind="direction"-->
+    <!--        :item="item"-->
+    <!--        :is-liked="isLiked(index, 'direction')"-->
+    <!--        @setLike="handlerLike(index, 'direction')"-->
+    <!--      />-->
+    <!--    </GroupCard>-->
 
     <!-- Жильё -->
     <GroupCard
-      v-if="apartments && apartments.items.length"
-      :count="apartments.count"
+      v-if="apartments && apartments.length"
+      to="/housing/supply"
+      :count="apartments.length"
       :auto-width="true"
-      :items="apartments.items"
+      :items="apartments"
       :tabs="apartments.tabs"
       title="Жильё"
       name="apartments"
     >
       <OcCard
-        v-for="(item, index) in apartments.items"
-        :key="item.name + item.address"
+        v-for="(item, index) in apartments"
+        :key="item._id"
         kind="most"
         :item="item"
         type="housing"

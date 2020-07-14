@@ -19,7 +19,7 @@
         <div class="right-col">
           <div class="flex">
             <p class="name">
-              {{ info.owner }}
+              {{ user.name }}
             </p>
 
             <p class="last-seen">

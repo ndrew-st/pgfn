@@ -6,20 +6,35 @@ export default {
       type: Object,
       required: true,
       default: () => ({
-        id: 23,
-        name: 'Tree house',
-        address: 'Полный адрес',
-        attrs: [ '4 гостя', '1 спальня' ], // опционально
-        rating: 4.3,
-        reviews: 128,
-        intro: 'intro',
-        type: 'Отель',
-        previewGallery: [ ],
-        favorits: false,
-        price: 5980,
-        oldprice: 8010, // опционально
-        typePrice: '',
-        views: 0
+        address: {
+          country: '',
+          region: '',
+          city: '',
+          street: '',
+          house: 142
+        },
+        price: { byTheDay: [], longTerm: [] },
+        firstPaymentAmount: { byTheDay: '', longTerm: '' },
+        reservation: {
+          typeOfReservation: '',
+          cancellationPolicy: '',
+          departureTime: [],
+          timeForCalls: [],
+          pickUpTime: []
+        },
+        images: [ ],
+        _id: '',
+        title: '',
+        description: '',
+        city: '',
+        typeOfTenant: 0,
+        typeOfHousing: 0,
+        numberOfRooms: 0,
+        areaOfHousin: 0,
+        sleepingPlace: [ ],
+        params: [ ],
+        facilities: [ ],
+        status: 0
       })
     },
     isLiked: {
@@ -46,6 +61,10 @@ export default {
   computed: {
     attrs () {
       return this.item.attrs && this.item.attrs.slice(0, 6)
+    },
+    adrs () {
+      const { address } = this.item
+      return address && `${this.item.address.country}, ${address.region}, ${address.city}, ${address.street}, ${address.house}`
     }
   },
   mounted () {

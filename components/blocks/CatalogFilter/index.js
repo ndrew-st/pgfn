@@ -40,7 +40,9 @@ export default {
     this.items.map(item => Vue.set(this.result, item.name, null))
   },
   computed: {
-    ...mapState(`housing`, [`typeFilter`])
+    ...mapState(`housing`, {
+      typeFilter: state => state.filters.typeFilter
+    })
   },
   methods: {
     isShow (name) {

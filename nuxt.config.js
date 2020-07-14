@@ -36,7 +36,8 @@ export default {
     '@/plugins/yandexMaps.js',
     '@/plugins/directives.js',
     '@/plugins/storage.js',
-    '@/plugins/api.js'
+    '@/plugins/api.js',
+    { src: '@/plugins/metrika.js', mode: 'client' }
   ],
   router: {
     base: '/',
@@ -47,6 +48,16 @@ export default {
           name: 'main',
           path: '/',
           component: resolve(__dirname, 'pages/direction/_city')
+        },
+        {
+          name: 'request',
+          path: '/request/:id',
+          component: resolve(__dirname, 'pages/unit/_id')
+        },
+        {
+          name: 'habitation',
+          path: '/habitation/:id',
+          component: resolve(__dirname, 'pages/unit/_id')
         }
       )
     }

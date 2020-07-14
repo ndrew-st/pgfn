@@ -1,9 +1,10 @@
 import { mapActions, mapState } from 'vuex'
 
 import FilterBlock from './-components/filter'
-import Full from './-components/full'
 
+import Full from './-components/full'
 import SubscribeEmail from '~/components/blocks/Subscribe'
+
 import Description from '~/components/blocks/Description'
 import GroupCard from '~/components/blocks/GroupCard'
 
@@ -36,7 +37,7 @@ export default {
   computed: {
     ...mapState('direction', {
       direction: state => state.result.direction || state.dir,
-      apartments: state => state.result.apartments || state.dir,
+      apartments: state => state.result,
       services: state => state.result.services || state.dir,
       description: state => state.result.description,
       head: (state) => {

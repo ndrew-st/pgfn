@@ -1,12 +1,13 @@
 import { mapActions } from 'vuex'
 
 import Form from './-components/Form'
+import User from './-components/User'
 import SearchPanel from '~/components/blocks/SearchPanel'
 
 import { isAuth } from '~/constants/getters/auth'
 
 export default {
-  components: { Form, SearchPanel },
+  components: { Form, SearchPanel, User },
   data () {
     return {
       mobileLinks: [
@@ -104,8 +105,6 @@ export default {
     ...mapActions('search', ['addSearchRequest', 'searchByQuery', 'searchObject'])
   },
   mounted () {
-    console.log('this.$store.state.auth ', this.$store.state.auth)
-
     this.widthWindow = window.innerWidth
 
     window.addEventListener('resize', this.handlerResizeWindow)

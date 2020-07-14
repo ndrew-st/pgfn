@@ -6,29 +6,27 @@
     @touchstart="touchStart"
   >
     <div class="card-item__list">
-      <client-only>
-        <OcCarousel
-          :nav="true"
-          :column="1"
-          :dots="true"
-          :show="true"
-          :scroll="false"
-          :items="item.previewGallery"
-          class="card-item__swiper"
+      <OcCarousel
+        :nav="true"
+        :column="1"
+        :dots="true"
+        :show="true"
+        :scroll="false"
+        :items="item.images"
+        class="card-item__swiper"
+      >
+        <div
+          v-for="(gallery, index) in item.images"
+          :key="index"
+          class="card-item__img-container"
         >
-          <div
-            v-for="(gallery, index) in item.previewGallery"
-            :key="index"
-            class="card-item__img-container"
-          >
-            <OcImg
-              :src="gallery"
-              :alt="item.name"
-              class="card-item__image"
-            />
-          </div>
-        </OcCarousel>
-      </client-only>
+          <OcImg
+            :src="gallery"
+            :alt="gallery"
+            class="card-item__image"
+          />
+        </div>
+      </OcCarousel>
     </div>
 
     <div
@@ -40,10 +38,10 @@
         class="card-item__title--link-cont"
       >
         <OcLink
-          to="/"
+          :to="`/habitation/${item._id}`"
           name="main-card-title"
         >
-          {{ item.name }}
+          {{ item.title }}
         </OcLink>
       </p>
     </div>
@@ -66,7 +64,7 @@
           {{ `${item.reviews} ${reviewText(item.reviews)}` }}
         </p>
         <p class="card-settings__type">
-          {{ item.type }}
+          {{ item.typeOfHousing }}
         </p>
         <div
           v-show="item.views"
@@ -102,7 +100,7 @@
         ref="addressCt"
         class="card-item__address--content"
       >
-        {{ item.address }}
+        {{ adrs }}
       </p>
     </div>
 
@@ -126,21 +124,22 @@
     </div>
 
     <p class="card-item__price-container">
-      <span
-        v-if="item.oldprice"
-        class="card-item__old-price"
-      >
-        {{ item.oldprice && item.oldprice.toLocaleString() }}
-        <span class="card-item__old-price--rouble">
-          9
-        </span>
-      </span>
-      <span class="card-item__price">от {{ item.price && item.price.toLocaleString() }}
+      <!--      <span-->
+      <!--        v-if="item.oldprice"-->
+      <!--        class="card-item__old-price"-->
+      <!--      >-->
+      <!--        {{ item.oldprice && item.oldprice.toLocaleString() }}-->
+      <!--        <span class="card-item__old-price&#45;&#45;rouble">-->
+      <!--          9-->
+      <!--        </span>-->
+      <!--      </span>-->
+      <span class="card-item__price">от {{ item.price.byTheDay[0] && item.price.byTheDay[0].price }}
         <span class="card-item__price--rouble">
           9
         </span>
       </span>
-      <span class="card-item__type-price">{{ item.typePrice }}</span>
+      <!--      <span class="card-item__type-price">{{ item.typePrice }}</span>-->
+      <span class="card-item__type-price">за сутки</span>
     </p>
   </div>
 </template>

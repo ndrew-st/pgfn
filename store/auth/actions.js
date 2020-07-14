@@ -90,7 +90,11 @@ export default {
   [register] ({ commit }) {
 
   },
-  [logout] ({ commit }) {
+  logout ({ commit }) {
+    this.$storage.rmItem(process.env.token_key.access)
+    this.$storage.rmItem(process.env.token_key.refresh)
+    this.$storage.rmItem('user')
 
+    commit(`clear`)
   }
 }

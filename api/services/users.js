@@ -3,6 +3,7 @@ export default axios => resource => ({
     return axios.get(`subscribe?email=${email}`)
   },
   getCode (phone) {
+    // return axios.post(`${resource}/code`, { phone })
     return axios.post(`code`, { phone })
   },
   checkCode (phone, code) {
@@ -25,7 +26,7 @@ export default axios => resource => ({
 
     formData.append(`files`, files[0])
 
-    return axios.post('/attachment/',
+    return axios.post('attachment/',
       formData,
       {
         headers: {

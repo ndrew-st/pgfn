@@ -1,8 +1,6 @@
 <template>
   <div class="habitation-page">
     <div class="habitation-page__padding">
-      <TopLine :title="header.title" />
-
       <div class="habitation-page__order-flex">
         <H1Block
           :title="header.title"
@@ -18,7 +16,7 @@
         />
 
         <Pics
-          v-if="images.length"
+          v-if="images"
           :images="images"
         />
         <MapBlock

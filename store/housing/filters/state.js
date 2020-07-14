@@ -3,5 +3,6 @@ export default () => ({
     groups: [],
     count: 123
   },
-  page: null
+  page: null,
+  typeFilter: null
 })

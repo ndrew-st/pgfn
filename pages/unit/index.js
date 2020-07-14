@@ -1,6 +1,5 @@
 import { mapActions, mapState } from 'vuex'
 
-import TopLine from './-components/top-line/index.vue'
 import H1Block from './-components/h1-block/index.vue'
 import MapBlock from './-components/MapBlock'
 import Pics from './-components/pics/index.vue'
@@ -17,9 +16,8 @@ import Footer from '~/components/blocks/Footer'
 import Subscribe from '~/components/blocks/Subscribe'
 
 export default {
-  layout: 'clean',
+  layout: 'unit',
   components: {
-    TopLine,
     H1Block,
     MapBlock,
     Pics,
@@ -37,8 +35,10 @@ export default {
   validate ({ params: { id } }) {
     return !!id
   },
-  async asyncData ({ store, params: { id } }) {
-    await store.dispatch(`habitation/getItem`, id)
+  async asyncData ({ store, params }) {
+    console.log('params ', params)
+
+    await store.dispatch(`habitation/getItem`, params.id)
   },
   data: () => ({
     user: {
@@ -92,13 +92,13 @@ export default {
       address: state => state.result.address,
       images: state => state.result.images,
       facilities: (state) => {
-        const idx = state.result.params.findIndex(item => item.typeOfParam === 'params.facilities')
+        const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'params.facilities')
 
         return state.result.params[idx] && state.result.params[idx].paramValue
       },
       reservation: state => state.result.reservation,
       limits: (state) => {
-        const idx = state.result.params.findIndex(item => item.typeOfParam === 'params.listLimits')
+        const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'params.listLimits')
 
         return state.result.params[idx].paramValue
       },
