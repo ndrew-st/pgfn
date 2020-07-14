@@ -47,10 +47,13 @@
       ШАГ {{ state }}/6
     </p>
 
-    <component
-      :is="'step'+state"
-      @next="next"
-    />
+    <keep-alive>
+      <component
+        :is="'step'+state"
+        @next="next"
+        @back="back"
+      />
+    </keep-alive>
   </div>
 </template>
 

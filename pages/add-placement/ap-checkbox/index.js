@@ -11,7 +11,7 @@ export default {
   },
   data () {
     return {
-      locChecked: false
+      locChecked: this.checked
     }
   },
   methods: {

@@ -8,6 +8,7 @@
       <option
         v-for="(item, index) in timeArray"
         :key="index"
+        selected="item === selTime"
       >
         {{ item }}
       </option>

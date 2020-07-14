@@ -1,5 +1,5 @@
 export default {
-  inheritAttrs: false,
+  // inheritAttrs: false,
   // model: {
   //   prop: 'checked',
   //   event: 'change'
