@@ -34,11 +34,6 @@
       />
 
       <div class="flex">
-        <!-- <i
-          v-if="unknownHouse !== null"
-          class="fas fa-exclamation-circle"
-        /> -->
-
         <p
           v-if="unknownHouse !== null"
           class="ap-red-p"

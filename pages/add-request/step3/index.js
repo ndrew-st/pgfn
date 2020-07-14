@@ -3,8 +3,8 @@ import ApRadio from '../../add-placement/ap-radio/index.vue'
 import ApCheckbox from '../../add-placement/ap-checkbox/index.vue'
 import CheckboxesList from '../../add-placement/blocks/two-columns-checkboxes/index.vue'
 import ApFolding from '../../add-placement/blocks/ap-folding'
-import ApRadioList from '../../add-placement/blocks/ap-radio-list'
 import CountBed from '../-components/CountBed/index.vue'
+import ListApRadio from '../../add-placement/blocks/list-ap-radio'
 
 export default {
   components: {
@@ -13,8 +13,8 @@ export default {
     ApCheckbox,
     CheckboxesList,
     ApFolding,
-    ApRadioList,
-    CountBed
+    CountBed,
+    ListApRadio
   },
   data () {
     return {
@@ -22,10 +22,10 @@ export default {
       rooms: [
         { label: 'Гардероб', value: 'wardrobe' },
         { label: 'Кухня', value: 'kitchen' },
-        { label: 'Детская', value: 'kids-room' },
+        { label: 'Детская', value: 'kidsRoom' },
         { label: 'Спальня', value: 'bedroom' },
         { label: 'Рабочее место (письменный стол)', value: 'workroom' },
-        { label: 'Гостиная', value: 'living-room' },
+        { label: 'Гостиная', value: 'livingRoom' },
         { label: 'Балкон', value: 'balcony' },
         { label: 'Лоджия', value: 'loggia' }
       ],
@@ -40,15 +40,15 @@ export default {
 
       interior: [
         { label: 'Минимализм', value: 'minimal' },
-        { label: 'Хай-тек', value: 'high-tech' },
+        { label: 'Хай-тек', value: 'highTech' },
         { label: 'Скандинавский стиль', value: 'scandinavian' },
         { label: 'Дизайнерский ремонт', value: 'design' }
       ],
 
       cellingheight: [
-        { label: 'до 3-х метров', value: 'up-to-3' },
-        { label: 'От 3-х до 4-х метров', value: 'from-3-to-4' },
-        { label: 'Более 4-х метров', value: 'more-than-4' }
+        { label: 'до 3-х метров', value: 'upTo3' },
+        { label: 'От 3-х до 4-х метров', value: 'from3To4' },
+        { label: 'Более 4-х метров', value: 'moreThan4' }
       ],
 
       viewFromTheWindow: [
@@ -56,18 +56,19 @@ export default {
         { label: 'Море', value: 'sea' },
         { label: 'Горы', value: 'mountains' },
         { label: 'Двор', value: 'yard' },
-        { label: 'Соседний двор', value: 'neighboring-yard' },
-        { label: 'Панорамный вид окрестностей', value: 'panoramic-view' },
-        { label: 'Вид в даль', value: 'view-into-the-distance' },
+        { label: 'Соседний двор', value: 'neighboringYard' },
+        { label: 'Панорамный вид окрестностей', value: 'panoramicView' },
+        { label: 'Вид в даль', value: 'viewIntoTheDistance' },
         { label: 'Водоём', value: 'lake' },
         { label: 'Виден восход солнца', value: 'sunrise' },
         { label: 'Виден закат солнца', value: 'sunset' }
       ],
 
       panWindows: [
-        { label: 'Да', value: 'yes' },
-        { label: 'Нет', value: 'no' }
+        { id: 0, label: 'Да', value: 1 },
+        { id: 1, label: 'Нет', value: 0 }
       ],
+      selIdPanWindow: 0,
       checkedWindows: 'yes',
       starCheckbox: false
     }
@@ -80,11 +81,9 @@ export default {
     checkbox (par) {
       par = !par
     },
-    input (par) {
-
-    },
-    change (evt) {
-
+    setSelIdPanWindow (evt) {
+      this.selIdPanWindow = evt
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: 'panWindows', value: this.panWindows[this.selIdPanWindow].value })
     }
   }
 }

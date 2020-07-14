@@ -6,7 +6,6 @@
       class="list-ap-radio__item"
     >
       <ApRadio
-        :id="'ap-radio-'+index"
         :checked="selId === item.id"
         :value="item.id"
         :label="item.label"

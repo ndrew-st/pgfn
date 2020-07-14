@@ -19,26 +19,26 @@ export default {
   data () {
     return {
       specials: [
-        { label: 'Подходит для праздников', value: 'good-for-party' },
-        { label: 'Удобно с детьми', value: 'good-for-kids' },
-        { label: 'Удобно пожилым', value: 'good-for-aged' },
-        { label: 'Удобно для двоих', value: 'good-for-pairs' },
-        { label: 'Удобно для больших компаний', value: 'good-for-big-company' },
-        { label: 'Удобно людям с ограниченными возможностями', value: 'good-for-invalids' }
+        { label: 'Подходит для праздников', value: 'goodForParty' },
+        { label: 'Удобно с детьми', value: 'goodForKids' },
+        { label: 'Удобно пожилым', value: 'goodForAged' },
+        { label: 'Удобно для двоих', value: 'goodForPairs' },
+        { label: 'Удобно для больших компаний', value: 'goodForBigCompany' },
+        { label: 'Удобно людям с ограниченными возможностями', value: 'goodForInvalids' }
       ],
       parking: [
-        { label: 'Открытая (свободный въезд)', value: '' },
-        { label: 'Подземная', value: '' },
-        { label: 'Платная', value: '' },
-        { label: 'Закрытая (въезд через шлагбаум или ворота)', value: '' },
-        { label: 'Бесплатная', value: '' },
-        { label: 'Отсутствует', value: '' }
+        { label: 'Открытая (свободный въезд)', value: 'openParking' },
+        { label: 'Подземная', value: 'undergroundParking' },
+        { label: 'Платная', value: 'paidParking' },
+        { label: 'Закрытая (въезд через шлагбаум или ворота)', value: 'indoorParking' },
+        { label: 'Бесплатная', value: 'freeParking' },
+        { label: 'Отсутствует', value: 'noParking' }
       ],
       floors: [
         { label: '1 этаж', value: '1floor' },
-        { label: 'Все, кроме 1-го этажа', value: 'all-except1' },
-        { label: 'С 2-го по 5-й этаж', value: 'from2to5' },
-        { label: 'Выше 5-го этажа', value: 'above5' }
+        { label: 'Все, кроме 1-го этажа', value: 'allExcept1Floor' },
+        { label: 'С 2-го по 5-й этаж', value: 'from2to5Floor' },
+        { label: 'Выше 5-го этажа', value: 'above5Floor' }
       ],
       elevators: [
         { label: 'Пассажирский', value: 'passenger' },
@@ -46,22 +46,24 @@ export default {
       ],
       yardArea: [
         { label: 'Детская площадка', value: 'playground' },
-        { label: 'Спортивная площадка', value: 'sports-ground' },
-        { label: 'Баскетбольная площадка', value: 'basketball-court' },
-        { label: 'Закрытый двор', value: 'closed-yard' },
-        { label: 'Теннисный корт', value: 'tennis-court' },
+        { label: 'Спортивная площадка', value: 'sportsGround' },
+        { label: 'Баскетбольная площадка', value: 'basketballCourt' },
+        { label: 'Закрытый двор', value: 'closedYard' },
+        { label: 'Теннисный корт', value: 'tennisCourt' },
         { label: 'Беседка', value: 'pergola' },
         { label: 'Мангал/барбекю', value: 'barbecue' }
       ],
       material: [
         { label: 'Кирпичный', value: 'brick' },
         { label: 'Монолитный/железобетонный', value: 'ferroconcrete' },
-        { label: 'Каркасный', value: 'frame-house' },
+        { label: 'Каркасный', value: 'frameHouse' },
         { label: 'Сип-панели', value: 'sip' },
         { label: 'Деревянный из бруса', value: 'wooden' },
-        { label: 'Деревянный из бревна', value: 'from-log' },
+        { label: 'Деревянный из бревна', value: 'fromLog' },
         { label: 'Экологичный', value: 'eco' }
-      ]
+      ],
+      yearOfBuildStart: 0,
+      yearOfBuildEnd: 0
     }
   },
   methods: {
@@ -72,11 +74,14 @@ export default {
     checkbox (par) {
       par = !par
     },
-    input (par) {
-
-    },
-    change (evt) {
-
+    next () {
+      if (this.yearOfBuildStart > 0) {
+        this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: 'yearOfBuildStart', value: this.yearOfBuildStart })
+      }
+      if (this.yearOfBuildEnd > 0) {
+        this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: 'yearOfBuildEnd', value: this.yearOfBuildEnd })
+      }
+      this.$emit('next')
     }
   }
 }

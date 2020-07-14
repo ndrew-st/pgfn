@@ -57,3 +57,5 @@
 <script src="./index.js"/>
 
 <style src="./index.styl" lang="stylus"/>
+
+<style src="../add-placement/index.styl" lang="stylus"/>

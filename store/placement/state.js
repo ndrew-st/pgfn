@@ -16,7 +16,8 @@ export default () => ({
     typeOfTenant: 0,
     typeOfHousing: 0,
     numberOfRooms: 0,
-    areaOfHousin: 0,
+    // areaOfHousin: 0, в реквесте это объект start - end
+    areaOfHousin: {},
     price: {
       byTheDay: [
         // {
@@ -85,9 +86,10 @@ export default () => ({
     //   }
     // ],
     images: [
-      ''
+      // ''
     ],
     ownerId: '',
-    status: 0
+    status: 0,
+    citizenship: ''
   }
 })

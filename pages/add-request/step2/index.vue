@@ -21,11 +21,19 @@
         />
       </OcDropDown>
 
-      <ApRadioList
+      <!-- <ApRadioList
         :list="housesList"
         :checked-value="checkedHouse"
         name="housetype"
         class="mt104"
+      /> -->
+
+      <ListApRadio
+        v-if="selItem !== null"
+        :list="list[selItem].list"
+        class="req-step2__list-ap-radio"
+        :sel-id="selId"
+        @change="setSelId"
       />
 
       <p>{{ checkedHouse }}</p>
@@ -43,6 +51,7 @@
       <span class="mr8">От</span>
 
       <ApInput
+        v-model="areaStart"
         class="req-step2__input1 mr34"
         type="number"
       />
@@ -50,6 +59,7 @@
       <span class="mr8">До</span>
 
       <ApInput
+        v-model="areaEnd"
         class="req-step2__input1"
         type="number"
       />
@@ -77,7 +87,7 @@
     </div>
 
     <ApButton
-      v-if="selItem !== ''"
+      v-if="selItem !== null && areaStart > 0 && areaEnd > 0"
       name="red"
       @click.native="next"
     >

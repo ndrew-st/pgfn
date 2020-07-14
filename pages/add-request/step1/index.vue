@@ -5,7 +5,7 @@
         Расположение и собственность
       </p>
 
-      <p class="add-placement__p req-step1__p1">
+      <!-- <p class="add-placement__p req-step1__p1">
         Район, населенный пункт
         <span class="add-placement__red-star">*</span>
       </p>
@@ -13,14 +13,32 @@
       <ApInput
         placeholder="Москва"
         :class="req-step1__input1"
-      />
+      /> -->
 
       <p class="add-placement__p req-step1__p2">
         Точный адрес
         <span class="add-placement__red-star">*</span>
       </p>
 
-      <ApInput :class="req-step1__input2" />
+      <ApInput
+        :value="inputAdress"
+        @input="askDadata($event)"
+      />
+
+      <ApDadataDropdown
+        v-if="adressList"
+        :list="adressList"
+        @selectAdress="selectAdress"
+      />
+
+      <div class="flex">
+        <p
+          v-if="unknownHouse !== null"
+          class="ap-red-p"
+        >
+          Мы не уверены, что такой дом существует. Проверьте, нет ли ошибки
+        </p>
+      </div>
 
       <p class="add-placement__p req-step1__p3">
         Указать на карте
@@ -28,12 +46,13 @@
 
       <yandex-map
         :coords="coords"
-        class="req-step1__yandex-map-content"
+        class="ap-step1__yandex-map-content"
         @map-was-initialized="initMap"
+        @click="clickMap"
       >
         <ymap-marker
-          marker-id="1"
           :coords="coords"
+          marker-id="123"
         />
       </yandex-map>
     </div>
@@ -67,3 +86,5 @@
 <script src="./index.js" />
 
 <style src="./index.styl" lang="stylus"/>
+
+<style src="../../add-placement/step1/index.styl" lang="stylus"/>

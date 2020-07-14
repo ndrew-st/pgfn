@@ -61,6 +61,7 @@
       <span class="mr8">От</span>
 
       <ApInput
+        v-model="yearOfBuildStart"
         class="req-step5__input-year"
         type="number"
       />
@@ -70,6 +71,7 @@
       <span class="req-step5__span-to">До</span>
 
       <ApInput
+        v-model="yearOfBuildEnd"
         class="req-step5__input-year"
         type="number"
       />
@@ -78,9 +80,8 @@
     </ApFolding>
 
     <ApButton
-      v-if="selItem !== ''"
       name="red"
-      @click.native="$emit('next')"
+      @click.native="next"
     >
       Продолжить
     </ApButton>

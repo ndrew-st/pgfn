@@ -14,6 +14,7 @@ export default {
   },
   data () {
     return {
+      datesOfStay: '',
       listLimits: [
         { label: 'Можно с детьми', value: 'kids' },
         { label: 'Можно с животными', value: 'pets' },
@@ -48,8 +49,27 @@ export default {
   },
   methods: {
     addPlacement () {
-      // debugger
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: 'datesOfStay', value: this.datesOfStay })
       this.$store.dispatch('placement/addRequest')
+    },
+    mask () {
+      const matrix = '__.__.____ - __.__.____'
+      let i = 0
+      const def = matrix.replace(/\D/g, '')
+      let val = this.datesOfStay.replace(/\D/g, '')
+      if (def.length >= val.length) { val = def }
+      this.datesOfStay = matrix.replace(/./g, function (a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a
+      })
+    },
+    changeTimeForCalls (val) {
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'timeForCalls', value: val })
+    },
+    changePickUpTime (val) {
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'pickUpTime', value: val })
+    },
+    changeDepartureTime (val) {
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'departureTime', value: val })
     }
   }
 }
