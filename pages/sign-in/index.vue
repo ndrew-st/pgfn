@@ -27,7 +27,7 @@
         v-if="stage === 'pass'"
         class="p456"
       >
-        Введите пароль для логина <nobr><b>+7 {{ phone }}</b></nobr>
+        Введите пароль для логина <nobr><b>+7 {{ phone.slice(1) }}</b></nobr>
       </p>
 
       <OcPass

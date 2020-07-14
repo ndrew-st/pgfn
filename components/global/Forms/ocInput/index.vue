@@ -35,6 +35,7 @@
       v-bind="$attrs"
       :maxlength="maxLength"
       :name="name"
+      :required="required"
       type="text"
       class="input-container__input input"
       :class="[additionalClass]"

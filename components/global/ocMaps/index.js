@@ -1,19 +1,22 @@
 import { loadYmap } from 'vue-yandex-maps'
 import settings from '~/plugins/yandexMaps'
+import isArray from '~/utils/isArray'
 
 export default {
   props: {
     coords: {
-      type: Array,
-      default: () => [45.389194, 33.993751]
-    },
-    params: {
-      type: Object,
-      default: () => {}
+      type: [Array, Object],
+      default: () => ({
+        lat: 45.389194, lon: 33.993751
+      })
     },
     zoom: {
       type: Number,
       default: 7
+    },
+    center: {
+      type: Object,
+      default: null // model: { lat: Number, lon: Number }
     },
     name: {
       type: String,
@@ -24,8 +27,24 @@ export default {
   data () {
     return {
       map: {},
+      showMap: false,
       address: '',
-      markerCoords: [45.389194, 33.993751] // latitude, longitude
+      markerCoords: [] // latitude, longitude
+    }
+  },
+  computed: {
+    centerMap () {
+      if (this.center) {
+        return this.getCoords(this.center)
+      } else if (!this.isArrayCoords) {
+        return this.getCoords(this.coords)
+      } else {
+        // throw new Error('Need to transfer the center of the map')
+        return [45.389194, 33.993751]
+      }
+    },
+    isArrayCoords () {
+      return isArray(this.coords)
     }
   },
   watch: {
@@ -43,6 +62,8 @@ export default {
     }
   },
   async mounted () {
+    this.showMap = true
+
     await loadYmap({ ...settings, debug: true })
 
     // eslint-disable-next-line no-undef
@@ -66,6 +87,9 @@ export default {
       // this.map.events.add('click', (e) => {
       //   this.markerCoords = e.get('coords')
       // })
+    },
+    getCoords (obj) {
+      return [obj.lat, obj.lon]
     }
   }
 }

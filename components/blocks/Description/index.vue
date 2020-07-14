@@ -7,14 +7,14 @@
       {{ title }}
     </h2>
     <p class="description-block__desc">
-      {{ description[0] }}
+      {{ desc(0) }}
     </p>
     <transition name="fade">
       <p
         v-if="show"
         class="description-block__desc description-block__desc--all"
       >
-        {{ description[1] }}
+        {{ desc(1) }}
       </p>
     </transition>
     <OcButton

@@ -1,7 +1,7 @@
 <template>
   <label
     class="oc-checkbox"
-    :class="[addClass, { 'checked': checkedInput }]"
+    :class="[addClass, { 'checked': checkedInput }, { 'active': active }]"
   >
     <span
       v-if="label"
@@ -19,8 +19,8 @@
       :value="checkValue"
       :checked="checkedInput"
       type="checkbox"
-      class="visually-hidden oc-checkbox__input"
-      v-on="$listeners"
+      class="visually-hidden"
+      v-on="listeners"
     >
   </label>
 </template>

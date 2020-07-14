@@ -1,21 +1,36 @@
 export default axios => resource => ({
-  getDirection (name) {
-    return axios.get(`${resource}/direction?name=${name}`)
+  getDirection (city) {
+    return axios.get(`${resource}`)
   },
-  getSearch (search) {
-    return axios.get(`${resource}/search?q=${search}`)
+  searching (search) {
+    return axios.get(`${resource}?search=${search}`)
+  },
+  searchingDirectionOrCity (search) {
+    return axios.get(`${resource}?search=${search}`)
+  },
+  getDataSearch ({ search, date, guests, limit, offset }) {
+    return axios.get(`${resource}?search=${search}&date=${date}&params=[{ "params.guests": ${guests} }]&limit=${limit}&offset=${offset}`)
   },
   updateTabs (url) {
     return axios.get(`${resource}${url}`)
   },
+  getUserPlacement () {
+    return axios.get(`${resource}?user=true`)
+  },
   getFilteredData () {
     return axios.get(`${resource}`)
+  },
+  getCatalog (limit, offset) {
+    return axios.get(`${resource}?limit=${limit}&offset=${offset}`)
+  },
+  getCatalogFilter (type, page) {
+    // type - step, page - request or placement
+    return axios.get(`${resource}/filter?type=${type}&page=${page}`)
   },
   addPlacement (apData) {
     return axios.post(`${resource}`, apData)
   },
-  addRequest (apData) {
-    debugger
-    return axios.post('request', apData)
+  getItem (id) {
+    return axios.get(`${resource}/${id}`)
   }
 })

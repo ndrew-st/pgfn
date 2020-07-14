@@ -1,11 +1,14 @@
 import { mapActions } from 'vuex'
 
-import Form from './-components/Form'
-
 import SearchPanel from '~/components/blocks/SearchPanel'
 
+import { isAuth } from '~/constants/getters/auth'
+
+import Form from './-components/Form'
+import User from './-components/User'
+
 export default {
-  components: { Form, SearchPanel },
+  components: { Form, SearchPanel, User },
   data () {
     return {
       mobileLinks: [
@@ -24,55 +27,68 @@ export default {
       // find-header block
       touched: false,
       search: '',
-      result: [
-        // { id: 1, content: 'Search 1' },
-        // { id: 2, content: 'Search 2' },
-        // { id: 3, content: 'Search 3' },
-        // { id: 4, content: 'Search 4' }
-      ],
+      result: [],
       focused: false,
       // Geo block
       geoSearch: 'Россия',
       // header-controls
       list: [
-        { id: 1, content: 'Жильё' },
-        { id: 2, content: 'Услуги' }
+        { id: 1, content: 'Жильё', url: '/add-placement' },
+        { id: 2, content: 'Запрос на аренду жилья', url: '/add-request' }
       ] // add objects
     }
   },
-  methods: {
-    handlerSearch () {
-      console.log('search val ', this.search)
-      // try {
-      //   const { data } = await this.searchByQuery(this.search)
-      //   this.result = data
-      //   this.touched = true
-      // } catch (e) {
-      //   this.error = e
-      //   this.search = ''
-      //   this.touched = false
-      // }
+  computed: {
+    isAuth () {
+      return this.$store.getters[`auth/${isAuth}`]
     },
-    handlerSubmit (id) {
+    name () {
+      return this.$store.state.auth.user && this.$store.state.auth.user.name
+    }
+  },
+  methods: {
+    goTo (url) {
+      this.search = ''
       this.touched = false
+      this.result = []
 
-      if (!id && !this.search.length) {
+      this.$router.push(url)
+    },
+    async handlerSearch () {
+      if (!this.search.length) {
+        this.touched = false
         return
       }
 
-      this.selectResult = id ? this.result.filter(item => item.id === id) : this.search
-      this.addSearchRequest(this.selectResult)
+      const data = await this.$api.apartments.searching(this.search)
+
+      if (data.error) {
+        this.error = data
+        this.touched = true
+
+        return
+      }
+
+      this.result = data
+      this.touched = true
+    },
+    handlerClickResult (search) {
+      this.touched = false
+
+      if (!search && !this.search.length) {
+        return
+      }
+
+      this.addSearchRequest(search)
 
       if (this.widthWindow >= this.desktopWidth) { // desktop
-        // try {
-        //   const { data } = this.searchObject({ search: this.search, request: this.result })
-        //   this.success = true
-        // } catch (e) {
-        //   this.success = false
-        // }
+        this.goTo(`/search?q=${search}`)
       } else { // mobile
         this.showForm = true
       }
+    },
+    handlerSubmit () {
+
     },
     toggleFocus (flag) {
       this.focused = flag

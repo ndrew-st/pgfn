@@ -7,6 +7,7 @@ import Step6 from './step6/index.vue'
 import StageBar from './stage-bar/index.vue'
 
 export default {
+  middleware: 'auth',
   components: {
     Step1,
     Step2,

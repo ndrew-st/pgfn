@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import Footer from '../Footer'
+import Footer from '../Footer/index'
 
 import Counter from '~/components/blocks/Counter'
 

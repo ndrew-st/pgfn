@@ -4,11 +4,13 @@
     class="card-map"
   >
     <div class="card-map__map-container">
-      <OcMaps
-        class="card-map__map"
-        :zoom="11"
-        :coords="item.coords"
-      />
+      <client-only>
+        <OcMaps
+          class="card-map__map"
+          :zoom="11"
+          :coords="item.address.coords"
+        />
+      </client-only>
     </div>
 
     <div
@@ -20,7 +22,7 @@
         class="card-map__title--cont title-cont"
       >
         <OcLink
-          to="/"
+          :to="`/request/${item.id}`"
           name="main-card-title"
           class="card-map__title--link"
         >

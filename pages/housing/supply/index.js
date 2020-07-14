@@ -1,18 +1,18 @@
 import { mapState } from 'vuex'
 
-import CatalogMap from '~/components/blocks/CatalogMap'
+import Catalog from '~/pages/housing/-components/Catalog'
 
 export default {
-  components: { CatalogMap },
-  data () {
-    return {
-
-    }
+  components: { Catalog },
+  asyncData ({ store }) {
+    store.dispatch(`housing/filters/changeTypePage`, `supply`)
+    // await store.dispatch(`housing/getData`)
   },
   computed: {
     ...mapState(`housing`, {
-      items: state => state.result.itm,
-      coords: state => state.result.coords
+      list: state => state.result.items,
+      coords: state => state.result.coords,
+      city: state => state.result.city
     })
   }
 }

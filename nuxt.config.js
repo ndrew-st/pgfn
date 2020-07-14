@@ -1,3 +1,5 @@
+process.env.DEBUG = 'nuxt:*'
+
 export default {
   mode: 'universal',
   /*
@@ -31,10 +33,11 @@ export default {
    */
   plugins: [
     '@/plugins/global-components.js',
-    { src: '@/plugins/yandexMaps.js', ssr: false },
-    { src: '@/plugins/directives.js', ssr: false },
-    { src: '@/plugins/storage.js', mode: 'client' },
-    '@/plugins/api.js'
+    '@/plugins/yandexMaps.js',
+    '@/plugins/directives.js',
+    '@/plugins/storage.js',
+    '@/plugins/api.js',
+    { src: '@/plugins/metrika.js', mode: 'client' }
   ],
   router: {
     base: '/',
@@ -44,7 +47,17 @@ export default {
         {
           name: 'main',
           path: '/',
-          component: resolve(__dirname, 'pages/direction/_name')
+          component: resolve(__dirname, 'pages/direction/_city')
+        },
+        {
+          name: 'request',
+          path: '/request/:id',
+          component: resolve(__dirname, 'pages/unit/_id')
+        },
+        {
+          name: 'habitation',
+          path: '/habitation/:id',
+          component: resolve(__dirname, 'pages/unit/_id')
         }
       )
     }
@@ -72,8 +85,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    // baseURL: 'https://dev.personal.guide/api/'
-    baseURL: 'http://localhost:8000/api/'
+    baseURL: 'https://dev.personal.guide/api/'
   },
   /*
    ** Build configuration
@@ -90,6 +102,11 @@ export default {
   env: {
     throttle_time: 1000,
     header_auth: 'authorization',
-    ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65'
-  }
+    ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65',
+    token_key: {
+      access: 'access_token',
+      refresh: 'refresh_token'
+    }
+  },
+  debug: true
 }
