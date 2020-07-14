@@ -10,8 +10,10 @@
     </p>
 
     <ApInput
-      placeholder="17.04.2020– 23.04.2020"
+      v-model="datesOfStay"
+      placeholder="17.04.2020 – 23.04.2020"
       class="req-step6__input-date"
+      @input="mask"
     />
 
     <p class="req-step6__h2 req-step6__mt62">
@@ -27,6 +29,10 @@
     <p class="req-step6__h2 req-step6__mt62">
       Укажите справедливую цену
       <span class="add-placement__red-star">*</span>
+    </p>
+
+    <p class="req-step6__p-price">
+      Укажите цену, которую считаете хорошей за указанные удобства и период проживания в описанном вами жилье
     </p>
 
     <ApInput
@@ -89,25 +95,25 @@
         Время для звонков
       </p>
 
-      <TimeOptions name="call" />
+      <TimeOptions @changeTime="changeTimeForCalls" />
 
       <p class="add-placement__h2">
         Время для въезда/показа жилья
       </p>
 
-      <TimeOptions name="arrive" />
+      <TimeOptions @changeTime="changePickUpTime" />
 
       <p class="add-placement__h2">
         Время для выезда
       </p>
 
-      <TimeOptions name="depart" />
+      <TimeOptions @changeTime="changeDepartureTime" />
     </ApFolding>
 
     <ApButton
       v-if="selItem !== ''"
       name="red"
-      @click.native="addPlacement()"
+      @click.native="addPlacement"
     >
       Опубликовать заявку
     </ApButton>

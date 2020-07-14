@@ -46,10 +46,16 @@
         Панорамные окна
       </p>
 
-      <ApRadioList
+      <!-- <ApRadioList
         :list="panWindows"
         :checked-value="checkedWindows"
         name="panWindows"
+      /> -->
+
+      <ListApRadio
+        :list="panWindows"
+        :sel-id="selIdPanWindow"
+        @change="setSelIdPanWindow"
       />
 
       <CheckboxesList

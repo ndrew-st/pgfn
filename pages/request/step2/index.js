@@ -1,50 +1,79 @@
 import ApButton from '../../add-placement/ap-button/index.vue'
 import ApListDropdown from '../../add-placement/ap-list-dropdown/index.vue'
 import ApInput from '../../add-placement/ap-input/index.vue'
-import ApRadioList from '../../add-placement/blocks/ap-radio-list/index.vue'
+import ListApRadio from '../../add-placement/blocks/list-ap-radio'
 
 export default {
   components: {
     ApButton,
     ApListDropdown,
     ApInput,
-    ApRadioList
+    ListApRadio
   },
   data () {
     return {
-      list: [
-        { id: 0, name: 'Квартира/апартаменты' },
-        { id: 1, name: 'Дом/коттедж' },
-        { id: 2, name: 'Комната' },
-        { id: 3, name: 'Койко-место' },
-        { id: 4, name: 'На природе' }
-      ],
       selItem: null,
+      selId: 0,
       numberOfRooms: 1,
-      picked: 'Целиком',
-      current: 'standard',
-      housesList: [
-        { value: 'house-0', label: 'Дом целиком с отдельным двором' },
-        { value: 'house-1', label: 'Дом целиком с общим двором' },
-        { value: 'house-2', label: 'Дом целиком при отеле' },
-        { value: 'house-3', label: 'Часть дома с отдельным двором' },
-        { value: 'house-4', label: 'Часть дома с общим двором' },
-        { value: 'house-5', label: 'Часть дома при отеле' },
-        { value: 'house-6', label: 'Таунхаус' },
-        { value: 'house-7', label: 'Таунхаус при отеле' }
-      ],
-      checkedHouse: 'house-0'
+      areaStart: 0,
+      areaEnd: 0,
+      list: [
+        { id: 0,
+          name: 'Квартира/апартаменты',
+          list: [
+            { id: 0, label: 'Квартира целиком', code: 0 },
+            { id: 1, label: 'Номер в отеле', code: 1 }
+          ] },
+        { id: 1,
+          name: 'Дом/коттедж',
+          list: [
+            { id: 0, label: 'Дом целиком с отдельным двором', code: 2 },
+            { id: 1, label: 'Дом целиком с общим двором', code: 3 },
+            { id: 2, label: 'Дом целиком при отеле', code: 4 },
+            { id: 3, label: 'Часть дома с отдельным двором', code: 5 },
+            { id: 4, label: 'Часть дома с общим двором', code: 6 },
+            { id: 5, label: 'Часть дома при отеле', code: 7 },
+            { id: 6, label: 'Таунхаус', code: 8 },
+            { id: 7, label: 'Таунхаус при отеле', code: 9 }
+          ] },
+        { id: 2,
+          name: 'Комната',
+          list: [
+            { id: 0, label: 'В квартире', code: 10 },
+            { id: 1, label: 'В доме', code: 11 },
+            { id: 2, label: 'В хостеле', code: 12 }
+          ] },
+        { id: 3,
+          name: 'Койко-место',
+          list: [
+            { id: 0, label: 'В квартире', code: 13 },
+            { id: 1, label: 'В доме', code: 14 },
+            { id: 2, label: 'В хостеле', code: 15 }
+          ] },
+        { id: 4,
+          name: 'На природе',
+          list: [
+            { id: 0, label: 'Место на кемпинге', code: 16 },
+            { id: 1, label: 'Земельный участок', code: 17 }
+          ] }
+      ]
     }
   },
   methods: {
     selectItem (par) {
       this.selItem = par.id
       this.$root.$emit('dropdown:hide')
-      // this.setItem({ key: 'typeOfHousing', value: par.id }) непонятно какое это значение на бэке
+      // this.setItem({ key: 'typeOfHousing', value: par.id })
     },
     next () {
-      // this.setItem({ key: 'numberOfRooms', value: this.numberOfRooms })
+      this.$store.dispatch('placement/setItem', { key: 'numberOfRooms', value: this.numberOfRooms })
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'areaOfHousin', key: 'start', value: parseInt(this.areaStart) })
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'areaOfHousin', key: 'end', value: parseInt(this.areaEnd) })
       this.$emit('next')
+    },
+    setSelId (val) {
+      this.selId = val
+      this.$store.dispatch('placement/setItem', { key: 'typeOfHousing', value: this.list[this.selItem].list[this.selId].code })
     }
   }
 }

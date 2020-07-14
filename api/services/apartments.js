@@ -13,5 +13,9 @@ export default axios => resource => ({
   },
   addPlacement (apData) {
     return axios.post(`${resource}`, apData)
+  },
+  addRequest (apData) {
+    debugger
+    return axios.post('request', apData)
   }
 })

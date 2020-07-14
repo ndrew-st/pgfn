@@ -5,14 +5,14 @@
       :key="item.value"
       class="ap-radio-list__item"
     >
-      <OcRadio
+      <!-- <OcRadio
         v-model="checkedValue"
         icon="circle-radio"
         name="name"
         kind="circle"
         :check-value="item.value"
         :label="item.label"
-      />
+      /> -->
     </li>
   </ul>
 </template>

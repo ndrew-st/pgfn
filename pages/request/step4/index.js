@@ -18,7 +18,7 @@ export default {
     return {
       furniture: '',
       listFur: [
-        { label: 'Есть вся необходимая', value: 'all-inclusive' },
+        { label: 'Есть вся необходимая', value: 'allInclusive' },
         { label: 'Частично есть', value: 'part' },
         { label: 'Отсутствует', value: 'missing' }
       ],
@@ -40,22 +40,22 @@ export default {
       ],
       climate: [
         { label: 'Камин', value: 'fire' },
-        { label: 'Автономное отопление', value: 'privat-heat' },
-        { label: 'Магистральное отопление', value: 'common-heat' }
+        { label: 'Автономное отопление', value: 'privatHeat' },
+        { label: 'Магистральное отопление', value: 'commonHeat' }
       ],
       interior: [
         { label: 'Минимализм', value: 'minimal' },
-        { label: 'Хай-тек', value: 'high-tech' },
+        { label: 'Хай-тек', value: 'highTech' },
         { label: 'Скандинавский стиль', value: 'scandinavian' },
         { label: 'Дизайнерский ремонт', value: 'design' }
       ],
       rooms: [
         { label: 'Гардероб', value: 'wardrobe' },
         { label: 'Кухня', value: 'kitchen' },
-        { label: 'Детская', value: 'kids-room' },
+        { label: 'Детская', value: 'kidsRoom' },
         { label: 'Спальня', value: 'bedroom' },
         { label: 'Рабочее место (письменный стол)', value: 'workroom' },
-        { label: 'Гостиная', value: 'living-room' },
+        { label: 'Гостиная', value: 'livingRoom' },
         { label: 'Балкон', value: 'balcony' },
         { label: 'Лоджия', value: 'loggia' }
       ],
@@ -68,35 +68,35 @@ export default {
         { label: 'Телевизор', value: 'tv' },
         { label: 'Аудиосистема', value: 'audio' },
         { label: 'Игровая приставка', value: 'playstation' },
-        { label: 'Гладильная доска', value: 'ironing-board' },
+        { label: 'Гладильная доска', value: 'ironingBoard' },
         { label: 'Стиральная машина', value: 'washer' },
         { label: 'Сушильная машина', value: 'drying' },
         { label: 'Посудомоечная машина', value: 'dishwasher' },
-        { label: 'Газовая плита', value: 'gas-stove' },
-        { label: 'Электроплита', value: 'electric-stove' },
+        { label: 'Газовая плита', value: 'gasStove' },
+        { label: 'Электроплита', value: 'electricStove' },
         { label: 'Духовка / духовой шкаф', value: 'oven' },
         { label: 'Микроволновка', value: 'microwave' }
       ],
       dishes: [
         { label: 'Посуда', value: 'dishes' },
         { label: 'Столовые приборы', value: 'tableware' },
-        { label: 'Всё для готовки еды', value: 'all-for-cooking' },
-        { label: 'Чашки для чая', value: 'tea-cups' },
-        { label: 'Кухонный нож', value: 'kitchen-knife' }
+        { label: 'Всё для готовки еды', value: 'allForCooking' },
+        { label: 'Чашки для чая', value: 'teaCups' },
+        { label: 'Кухонный нож', value: 'kitchenKnife' }
       ],
       hygiene: [
         { label: 'Зубная щётка', value: 'toothbrush' },
         { label: 'Зубная паста', value: 'toothpaste' },
         { label: 'Шампунь', value: 'shampoo' },
         { label: 'Мыло для рук', value: 'soap' },
-        { label: 'Гель для душа', value: 'shower-gel' }
+        { label: 'Гель для душа', value: 'showerGel' }
       ],
       specials: [
         { label: 'Баня/сауна', value: 'sauna' },
         { label: 'Бассейн', value: 'pool' },
         { label: 'Спортзал', value: 'gym' },
         { label: 'Бильярд', value: 'billiards' },
-        { label: 'Домашний кинотеатр', value: 'home-theater' }
+        { label: 'Домашний кинотеатр', value: 'homeTheater' }
       ],
       starCheckbox: false
     }
