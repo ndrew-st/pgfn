@@ -4,5 +4,6 @@ export default () => ({
     tabs: [],
     items: [],
     count: 0
-  }
+  },
+  requestRes: []
 })

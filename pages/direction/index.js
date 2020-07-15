@@ -21,7 +21,8 @@ export default {
     FilterBlock
   },
   async asyncData ({ params, store }) {
-    await store.dispatch(`direction/getData`, params.city || `Крым`)
+    await store.dispatch(`direction/getPlacementData`, params.city || `Крым`)
+    await store.dispatch(`direction/getRequestData`)
   },
   data () {
     return {
@@ -30,8 +31,7 @@ export default {
         apartments: [],
         services: []
       },
-      date: 0,
-      showComp: false
+      date: 0
     }
   },
   computed: {
@@ -54,12 +54,8 @@ export default {
           background: state.result.background
         }
       },
-      count: state => state.result.count
-    })
-  },
-  mounted () {
-    this.$nextTick(() => {
-      this.showComp = true
+      count: state => state.result.count,
+      request: state => state.requestRes
     })
   },
   methods: {

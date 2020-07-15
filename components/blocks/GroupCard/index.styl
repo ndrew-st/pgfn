@@ -2,6 +2,7 @@
   position relative
 
   display flex
+  max-width 1280px
   flex-wrap wrap
   margin-bottom 25px
   padding 0 16px
@@ -16,6 +17,8 @@
   &__title-container
     display flex
     flex-basis 100%
+    max-width 1280px
+    margin 0 auto
     margin-bottom 20px
 
     order 1
@@ -101,12 +104,12 @@
     &:last-child
       padding-right 32px
 
-@media(min-width 1280px)
+@media(min-width 1360px)
   .group-cart
     max-width 1280px
+    padding 0
     margin-left auto
     margin-right auto
-    padding 0
     margin-bottom 75px
 
     &__title-container
