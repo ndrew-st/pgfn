@@ -12,11 +12,11 @@
         :dots="true"
         :show="true"
         :scroll="false"
-        :items="item.images"
+        :items="arrImages"
         class="card-item__swiper"
       >
         <div
-          v-for="(gallery, index) in item.images"
+          v-for="(gallery, index) in arrImages"
           :key="index"
           class="card-item__img-container"
         >

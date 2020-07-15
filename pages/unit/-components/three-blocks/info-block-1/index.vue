@@ -16,12 +16,12 @@
       />
     </div>
 
-    <a
-      href="#"
-      class="href-all-items"
-    >
-      Показать все варианты
-    </a>
+    <!--    <a-->
+    <!--      href="#"-->
+    <!--      class="href-all-items"-->
+    <!--    >-->
+    <!--      Показать все варианты-->
+    <!--    </a>-->
   </InfoBlock>
 </template>
 

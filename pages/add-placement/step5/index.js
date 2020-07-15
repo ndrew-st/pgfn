@@ -1,10 +1,10 @@
+import CountBed from '~/pages/add-request/-components/CountBed'
+
 import ApButton from '../ap-button/index.vue'
 import ApRadio from '../ap-radio/index.vue'
 import ApCheckbox from '../ap-checkbox/index.vue'
 import CheckBlock from '../blocks/two-columns-checkboxes/index.vue'
 import ApFolding from '../blocks/ap-folding'
-
-import CountBed from '~/pages/add-request/-components/CountBed'
 
 export default {
   components: {

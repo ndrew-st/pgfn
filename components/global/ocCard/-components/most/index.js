@@ -83,6 +83,9 @@ export default {
       })
 
       return `${res} ${num2str(res, this.bedsText)}`
+    },
+    arrImages () {
+      return this.item.images.length ? this.item.images : this.$store.state.images.content
     }
   },
   mounted () {

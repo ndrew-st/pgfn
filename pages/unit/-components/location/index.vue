@@ -14,20 +14,20 @@
       :coords="coords"
     />
 
-    <p
-      v-if="locDesc"
-      class="loc__desc"
-    >
-      {{ readMoreActive ? locDescLong : locDesc }}
-    </p>
+    <!--    <p-->
+    <!--      v-if="locDesc"-->
+    <!--      class="loc__desc"-->
+    <!--    >-->
+    <!--      {{ readMoreActive ? locDescLong : locDesc }}-->
+    <!--    </p>-->
 
-    <p
-      v-if="locDesc"
-      class="loc__read-more"
-      @click="readMoreActive = !readMoreActive"
-    >
-      {{ !readMoreActive ? 'Читать далее' : 'Свернуть' }}
-    </p>
+    <!--    <p-->
+    <!--      v-if="locDesc"-->
+    <!--      class="loc__read-more"-->
+    <!--      @click="readMoreActive = !readMoreActive"-->
+    <!--    >-->
+    <!--      {{ !readMoreActive ? 'Читать далее' : 'Свернуть' }}-->
+    <!--    </p>-->
   </div>
 </template>
 

@@ -12,7 +12,13 @@
         v-for="(item, index) in topPath"
         :key="index"
         class="habitation-top__path"
-      >{{ item }}{{ topPath.length === index + 1 ? '' : ' • ' }}</span>
+      >
+        <nuxt-link
+          class="habitation-top__path--link"
+          :to="item.url"
+        >{{ item.title }}</nuxt-link>
+        {{ topPath.length === index + 1 ? '' : ` &middot; ` }}
+      </span>
     </div>
 
     <div class="habitation-top__btns">

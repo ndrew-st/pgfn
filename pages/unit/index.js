@@ -1,5 +1,7 @@
 import { mapActions, mapState } from 'vuex'
 
+import fac from '~/constants/fac'
+
 import GroupCard from '~/components/blocks/GroupCard'
 import Footer from '~/components/blocks/Footer'
 import Subscribe from '~/components/blocks/Subscribe'
@@ -62,6 +64,9 @@ export default {
     ],
     locDesc: 'Жилье расположено в Судаке на улице Ленина, д9 - это в 300 метрах от центра города, 50 м от Черного моря, 5 км от горы Ильяс-Кая и в 4х километрах от Храма Солнца. Расстояние до ближайшего аэропорта (Международный аэропорт Симферополь имени К. Айвазовского) - 110 км...'
   }),
+  mounted () {
+    console.log('facilities ', this.facilities)
+  },
   computed: {
     ...mapState('habitation', {
       header: (state) => {
@@ -79,7 +84,7 @@ export default {
         }
       },
       description: (state) => {
-        const idx = state.result && state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'params.guests')
+        const idx = state.result && state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'guests')
 
         return {
           typeOfHousing: state.result.typeOfHousing,
@@ -91,14 +96,11 @@ export default {
       prices: state => state.result.price,
       address: state => state.result.address,
       images: state => state.result.images,
-      facilities: (state) => {
-        const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'params.facilities')
-
-        return state.result && state.result.params && state.result.params[idx] && state.result.params[idx].paramValue
-      },
+      facilities: state => fac.filter(item => state.result.params.find(itm => itm.typeOfParam === item.value)),
       reservation: state => state.result.reservation,
       limits: (state) => {
-        const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'params.listLimits')
+        const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'listLimits')
+        console.log('state.result.params ', state.result.params)
 
         return state.result && state.result.params && state.result.params[idx] && state.result.params[idx].paramValue
       },

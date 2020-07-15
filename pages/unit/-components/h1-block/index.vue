@@ -30,10 +30,13 @@
     <div class="flex aic mt12 container-desc">
       <div class="container-desc__left">
         <div class="estimate">
-          {{ estimate }}
+          {{ estimate || '4.0' }}
         </div>
 
-        <div class="comms">
+        <div
+          v-if="reviews"
+          class="comms"
+        >
           {{ review }}
         </div>
 
@@ -48,11 +51,14 @@
           v-if="typeOfHousing"
           class="comms"
         >
-          {{ typeOfHousing }}
+          {{ typeHouse[typeOfHousing] }}
         </div>
       </div>
 
-      <div class="dateNumber">
+      <div
+        v-if="ownerId"
+        class="dateNumber"
+      >
         {{ date }}&nbsp;№&nbsp;{{ ownerId }}
       </div>
     </div>

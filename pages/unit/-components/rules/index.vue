@@ -9,7 +9,10 @@
       <span class="rules-flex__span"> &middot; {{ rules1.cancellationPolicy }}</span>
     </div>
 
-    <div class="rules-flex__box2">
+    <div
+      v-if="limits.length"
+      class="rules-flex__box2"
+    >
       <p class="rules-flex__p2">
         Ограничения
       </p>
