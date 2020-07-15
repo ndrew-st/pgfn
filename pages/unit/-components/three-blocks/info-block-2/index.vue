@@ -28,12 +28,12 @@
       </p>
     </div>
 
-    <a
-      href="#"
-      class="href-all-items"
-    >
-      Подробнее о цене
-    </a>
+    <!--    <a-->
+    <!--      href="#"-->
+    <!--      class="href-all-items"-->
+    <!--    >-->
+    <!--      Подробнее о цене-->
+    <!--    </a>-->
   </InfoBlock>
 </template>
 

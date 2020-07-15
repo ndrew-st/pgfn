@@ -2,7 +2,7 @@
   <div class="comfort-item">
     <div class="comfort-item__img-container">
       <img
-        :src="item.image"
+        :src="facil[item.value]"
         :alt="item.label"
         class="comfort-item__img"
       >

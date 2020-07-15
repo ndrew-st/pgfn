@@ -15,5 +15,8 @@ export default {
     limits () {
       return this.rules2.slice(0, 3)
     }
+  },
+  mounted () {
+    console.log('rules1 ', this.rules1)
   }
 }

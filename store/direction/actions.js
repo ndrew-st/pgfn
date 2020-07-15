@@ -1,8 +1,13 @@
 export default {
-  async getData ({ commit }, query) {
+  async getPlacementData ({ commit }, query) {
     const data = await this.$api.apartments.getDirection(query)
 
-    commit('addData', data)
+    commit('addPlacementData', data)
+  },
+  async getRequestData ({ commit }) {
+    const data = await this.$api.request.getCatalog()
+
+    commit('addRequestData', data)
   },
   async updateTabs ({ commit }, data) {
     const res = await this.$api.apartments.updateTabs(data.url)

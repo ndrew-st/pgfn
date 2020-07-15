@@ -1,6 +1,6 @@
 export default {
   addData (state, data) {
-    state.result = data
+    state.placement = data
   },
   setPage (state, nextPage) {
     state.page = nextPage

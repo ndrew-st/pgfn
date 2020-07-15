@@ -1,5 +1,7 @@
 import num2str from '~/utils/num2str'
 
+import typeHousing from '~/constants/consts/typeOfHousing'
+
 export default {
   props: {
     item: {
@@ -55,7 +57,8 @@ export default {
       widthWindow: 0,
       viewWidth: 0,
       reviewsText: ['отзыв', 'отзыва', 'отзывов'],
-      viewsText: ['просмотр', 'просмотра', 'просмотров']
+      viewsText: ['просмотр', 'просмотра', 'просмотров'],
+      bedsText: ['кровать', 'кровати', 'кроватей']
     }
   },
   computed: {
@@ -65,6 +68,24 @@ export default {
     adrs () {
       const { address } = this.item
       return address && `${this.item.address.country}, ${address.region}, ${address.city}, ${address.street}, ${address.house}`
+    },
+    typeHouse () {
+      return typeHousing
+    },
+    title () {
+      return `${parseInt(this.item.typeOfHousing) === 0 ? `${this.item.numberOfRooms}-ая квартира` : typeHousing[parseInt(this.item.typeOfHousing)]} ${this.item.areaOfHousin} м² `
+    },
+    countBeds () {
+      let res = 0
+
+      this.item.sleepingPlace.forEach((item) => {
+        res += parseInt(item.amount)
+      })
+
+      return `${res} ${num2str(res, this.bedsText)}`
+    },
+    arrImages () {
+      return this.item.images.length ? this.item.images : this.$store.state.images.content
     }
   },
   mounted () {

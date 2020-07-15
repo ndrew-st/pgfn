@@ -12,11 +12,11 @@
         :dots="true"
         :show="true"
         :scroll="false"
-        :items="item.images"
+        :items="arrImages"
         class="card-item__swiper"
       >
         <div
-          v-for="(gallery, index) in item.images"
+          v-for="(gallery, index) in arrImages"
           :key="index"
           class="card-item__img-container"
         >
@@ -41,7 +41,7 @@
           :to="`/habitation/${item._id}`"
           name="main-card-title"
         >
-          {{ item.title }}
+          {{ title }}
         </OcLink>
       </p>
     </div>
@@ -57,14 +57,19 @@
 
     <div class="card-item__settings card-settings">
       <div class="card-settings__content">
-        <p class="card-settings__rate">
-          {{ item.rating }}
+        <p
+          class="card-settings__rate"
+        >
+          {{ item.rating || '4.0' }}
         </p>
-        <p class="card-settings__reviews">
+        <p
+          v-if="item.reviews"
+          class="card-settings__reviews"
+        >
           {{ `${item.reviews} ${reviewText(item.reviews)}` }}
         </p>
         <p class="card-settings__type">
-          {{ item.typeOfHousing }}
+          {{ typeHouse[parseInt(item.typeOfHousing)] }}
         </p>
         <div
           v-show="item.views"
@@ -113,12 +118,8 @@
         ref="attrs"
         class="card-item__attrs--list"
       >
-        <li
-          v-for="attr in attrs"
-          :key="attr"
-          class="card-item__attr"
-        >
-          {{ attr }}
+        <li class="card-item__attr">
+          {{ countBeds }}
         </li>
       </ul>
     </div>

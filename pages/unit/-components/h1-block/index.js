@@ -1,5 +1,7 @@
 import num2str from '~/utils/num2str'
 
+import typeHouse from '~/constants/consts/typeOfHousing'
+
 export default {
   props: {
     title: {

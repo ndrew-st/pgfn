@@ -9,6 +9,7 @@
       </div>
 
       <CatalogFilter
+        v-if="typeFilter !== 'main'"
         class="housing__filters"
         @input="selectFilter"
       />
@@ -20,6 +21,7 @@
       </client-only>
 
       <OcPagination
+        v-if="typeFilter !== 'main'"
         :current="page"
         :total="count"
         :per-page="limit"
@@ -46,7 +48,8 @@ export default {
       title: state => state.result.title,
       count: state => state.result.count,
       limit: state => state.limit,
-      page: state => state.page
+      page: state => state.page,
+      typeFilter: state => state.filters.typeFilter
     })
   },
   methods: {

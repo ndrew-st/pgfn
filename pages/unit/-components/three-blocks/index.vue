@@ -10,10 +10,10 @@
       class="info-block info-block-2"
     />
 
-    <InfoBlock3
-      :online-booking="onlineBooking"
-      class="info-block info-block-3"
-    />
+    <!--    <InfoBlock3-->
+    <!--      :online-booking="onlineBooking"-->
+    <!--      class="info-block info-block-3"-->
+    <!--    />-->
   </div>
 </template>
 

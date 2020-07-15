@@ -50,6 +50,27 @@
       />
     </GroupCard>
 
+    <!-- Спрос -->
+    <GroupCard
+      v-if="request && request.length"
+      to="/housing/demand"
+      :count="request.length"
+      :auto-width="true"
+      :items="request"
+      :tabs="request.tabs"
+      title="Спрос жилья"
+      name="request"
+    >
+      <OcCard
+        v-for="(item, index) in request"
+        :key="item._id"
+        kind="maps"
+        :item="item"
+        :is-liked="isLiked(index, 'apartments')"
+        @setLike="handlerLike(index, 'apartments')"
+      />
+    </GroupCard>
+
     <SubscribeEmail class="direction-page__subscribe" />
 
     <!-- Услуги -->

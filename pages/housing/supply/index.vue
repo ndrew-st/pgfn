@@ -3,7 +3,7 @@
     :coords="coords"
     type="most"
     :city="city"
-    :list="list"
+    :list="placement"
   />
 </template>
 

@@ -1,14 +1,14 @@
 import { mapActions, mapState } from 'vuex'
 
-import FilterBlock from './-components/filter'
-
-import Full from './-components/full'
 import SubscribeEmail from '~/components/blocks/Subscribe'
 
 import Description from '~/components/blocks/Description'
 import GroupCard from '~/components/blocks/GroupCard'
 
 import isEmptyObject from '~/utils/isEmptyObject'
+
+import Full from './-components/full'
+import FilterBlock from './-components/filter'
 
 export default {
   layout: 'main',
@@ -21,7 +21,8 @@ export default {
     FilterBlock
   },
   async asyncData ({ params, store }) {
-    await store.dispatch(`direction/getData`, params.city || `Крым`)
+    await store.dispatch(`direction/getPlacementData`, params.city || `Крым`)
+    await store.dispatch(`direction/getRequestData`)
   },
   data () {
     return {
@@ -30,8 +31,7 @@ export default {
         apartments: [],
         services: []
       },
-      date: 0,
-      showComp: false
+      date: 0
     }
   },
   computed: {
@@ -54,12 +54,8 @@ export default {
           background: state.result.background
         }
       },
-      count: state => state.result.count
-    })
-  },
-  mounted () {
-    this.$nextTick(() => {
-      this.showComp = true
+      count: state => state.result.count,
+      request: state => state.requestRes
     })
   },
   methods: {

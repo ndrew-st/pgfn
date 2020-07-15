@@ -4,15 +4,20 @@ import Catalog from '~/pages/housing/-components/Catalog'
 
 export default {
   components: { Catalog },
-  asyncData ({ store }) {
+  async asyncData ({ store }) {
     store.dispatch(`housing/filters/changeTypePage`, `supply`)
-    // await store.dispatch(`housing/getData`)
+    await store.dispatch(`housing/getPlacementData`)
   },
   computed: {
     ...mapState(`housing`, {
-      list: state => state.result.items,
+      placement: state => state.placement,
       coords: state => state.result.coords,
       city: state => state.result.city
     })
+  },
+  mounted () {
+    console.log('data title ', this.placement[0].title)
+    console.log('data ', this.placement)
+    console.log('data length ', this.placement.length)
   }
 }

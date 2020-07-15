@@ -7,12 +7,21 @@ export default {
   },
   data () {
     return {
-      topPath: [ 'Главная', 'Жильё' ]
+      topPath: [
+        {
+          title: 'Главная',
+          url: '/'
+        },
+        {
+          title: 'Жильё',
+          url: '/housing/supply'
+        }
+      ]
     }
   },
   created () {
     if (this.title) {
-      this.topPath.push(this.title)
+      this.topPath.push({ title: this.title, url: '' })
     }
   }
 }

@@ -10,12 +10,18 @@
     justify-content space-between
 
   &__path
-    font-style normal
-    font-weight normal
-    font-size 18px
-    line-height 22px
     color $secondary
-    white-space pre
+
+    &--link
+      font-style normal
+      font-weight normal
+      font-size 18px
+      color $secondary
+      line-height 22px
+      white-space pre
+
+      &:hover
+        text-decoration underline
 
   &__prev-button
     position relative
@@ -65,9 +71,11 @@
       justify-content flex-start
 
     &__path
-      font-size 13px
-      line-height 26px
       margin-top 0
+
+      &--link
+        font-size 13px
+        line-height 26px
 
     &__prev-button
       margin-right 11px

@@ -8,7 +8,7 @@
         <OcMaps
           class="card-map__map"
           :zoom="11"
-          :coords="item.address.coords"
+          :coords="(item.address && item.address.coords) || cords"
         />
       </client-only>
     </div>
@@ -21,26 +21,38 @@
         ref="title"
         class="card-map__title--cont title-cont"
       >
-        <OcLink
+        <nuxt-link
           :to="`/request/${item.id}`"
-          name="main-card-title"
           class="card-map__title--link"
         >
-          {{ item.name }}
-        </OcLink>
+          {{ item.title }}
+        </nuxt-link>
       </p>
     </div>
 
     <p class="card-map__type">
-      {{ item.type }}
+      {{ typeHouse[parseInt(item.typeOfHousing)] }}
     </p>
 
-    <p class="card-map__rooms">
-      {{ item.rooms }}
-    </p>
+    <div class="card-map__rooms map-rooms">
+      <ul class="map-rooms__list">
+        <li
+          v-for="(unit, index) in item.numberOfRooms"
+          :key="index"
+          class="map-rooms__item"
+        >
+          {{ unit }}
+          <span
+            v-if="index < item.numberOfRooms.length - 1"
+            class="map-rooms"
+          >&nbsp;/&nbsp;</span>
+        </li>
+      </ul>
+      &nbsp;комнат
+    </div>
 
     <p class="card-map__days">
-      {{ item.days }}
+      {{ date }}
     </p>
 
     <p class="card-map__price">
