@@ -6,7 +6,10 @@
       :description="description.content"
     />
 
-    <div class="right-col">
+    <div
+      v-if="user"
+      class="right-col"
+    >
       <div class="desc-block-row">
         <div class="name-icon">
           {{ info.initials }}
@@ -17,7 +20,6 @@
         </div>
 
         <div
-          v-if="user"
           class="right-col"
         >
           <div class="flex">

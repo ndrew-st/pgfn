@@ -13,6 +13,10 @@ export default {
     info: {
       Type: Object,
       default: () => ({})
+    },
+    countGuests: {
+      type: Number,
+      default: 0
     }
   },
   data () {
@@ -24,8 +28,7 @@ export default {
   },
   computed: {
     title () {
-      const countGuest = `${this.description.countGuests} ${num2str(this.description.countGuests, this.textGuests)}`
-      return `${typeHouse[this.description.typeOfHousing]} · ${this.description.countBed} ${num2str(this.description.countBed, this.textBed)}`
+      return `${typeHouse[this.description.typeOfHousing || 0]} · ${this.description.countBed} ${num2str(this.description.countBed, this.textBed)} · ${this.countGuests} ${num2str(this.countGuests, this.textGuests)}`
     },
     user () {
       return this.$store.state.auth.user

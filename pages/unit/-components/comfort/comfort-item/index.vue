@@ -5,6 +5,7 @@
         :src="facil[item.value]"
         :alt="item.label"
         class="comfort-item__img"
+        :class="[item.value]"
       >
     </div>
 

@@ -19,6 +19,7 @@
       </template>
       <template v-else>
         <ymap-marker
+          :icon="typeIcon === 'home' ? icon : {}"
           :coords="getCoords(coords)"
           :marker-id="coords.lat + coords.lon"
         />

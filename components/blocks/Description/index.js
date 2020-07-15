@@ -5,20 +5,28 @@ export default {
       default: 'Широкий ассортимент и высокое качество'
     },
     description: {
-      type: [Array, String],
-      default: null
+      type: String,
+      default: ''
     }
   },
   inheritAttrs: false,
   data () {
     return {
       show: false,
-      typeArr: 'array'
+      strLength: 300
     }
   },
   methods: {
     desc (num) {
-      return typeof this.description === 'string' ? this.description : this.description[num]
+      if (this.description.length < 300) {
+        return this.description
+      }
+
+      const res = this.chunkString(this.description, this.strLength)
+      return res && res.length ? res[num] : []
+    },
+    chunkString (str, length) {
+      return str.match(new RegExp('.{1,' + length + '}'))
     }
   }
 }

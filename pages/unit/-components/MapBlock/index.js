@@ -11,7 +11,8 @@ export default {
   },
   data () {
     return {
-      coords: [this.content.coords.lat, this.content.coords.lon]
+      // coords: this.content ? this.content.geo : { lat: 45.389194, lon: 33.993751 }
+      coords: { lat: 45.389194, lon: 33.993751 }
     }
   }
 }

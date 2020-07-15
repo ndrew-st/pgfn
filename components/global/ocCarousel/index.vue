@@ -51,7 +51,7 @@
       </div>
 
       <div
-        v-show="dots"
+        v-show="dots && length > 1"
         class="carousel__dots-container"
       >
         <ul
