@@ -102,7 +102,7 @@ export default {
         const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'listLimits')
         console.log('state.result.params ', state.result.params)
 
-        return state.result && state.result.params && state.result.params[idx] && state.result.params[idx].paramValue
+        return state.result.params.length && state.result.params[idx] && state.result.params[idx].paramValue
       },
       rates: state => state.rates,
       coords: state => state.result && state.result.address && state.result.address.coords
