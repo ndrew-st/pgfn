@@ -36,7 +36,9 @@
         :online-booking="onlineBooking"
       />
 
-      <Comfort :comfort="facilities" />
+      <Comfort
+        :comfort="facilities"
+      />
 
       <Rules
         :rules1="reservation"
@@ -71,8 +73,6 @@
     </div>
 
     <Subscribe />
-
-    <Footer />
 
     <!--    <BookingFooter-->
     <!--      :booking-footer-info="bookingFooterInfo"-->

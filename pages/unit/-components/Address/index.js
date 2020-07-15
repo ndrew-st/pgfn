@@ -2,7 +2,13 @@ export default {
   props: {
     content: {
       type: Object,
-      default: null
+      default: () => ({
+        country: '',
+        region: '',
+        city: '',
+        street: '',
+        house: ''
+      })
     }
   }
 }

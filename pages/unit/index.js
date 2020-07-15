@@ -64,9 +64,6 @@ export default {
     ],
     locDesc: 'Жилье расположено в Судаке на улице Ленина, д9 - это в 300 метрах от центра города, 50 м от Черного моря, 5 км от горы Ильяс-Кая и в 4х километрах от Храма Солнца. Расстояние до ближайшего аэропорта (Международный аэропорт Симферополь имени К. Айвазовского) - 110 км...'
   }),
-  mounted () {
-    console.log('facilities ', this.facilities)
-  },
   computed: {
     ...mapState('habitation', {
       header: (state) => {
@@ -100,12 +97,12 @@ export default {
       reservation: state => state.result.reservation,
       limits: (state) => {
         const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'listLimits')
-        console.log('state.result.params ', state.result.params)
 
         return state.result.params.length && state.result.params[idx] && state.result.params[idx].paramValue
       },
+      countGuests: state => state.result.sleepingPlace.reduce((sum, cur) => sum + cur, 0),
       rates: state => state.rates,
-      coords: state => state.result && state.result.address && state.result.address.coords
+      coords: state => state.result && state.result.address && state.result.address.geo
     })
   },
   methods: {

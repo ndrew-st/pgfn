@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     limits () {
-      return this.rules2.slice(0, 3)
+      return this.rules2.length ? this.rules2.slice(0, 3) : this.rules2
     }
   },
   mounted () {

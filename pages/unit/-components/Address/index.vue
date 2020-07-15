@@ -1,28 +1,28 @@
 <template>
   <p class="address-content">
     <nuxt-link
-      :to="`/search?search=${content.country}`"
+      :to="`/search?search=${content && content.country}`"
       class="address-content__link"
     >
-      <span class="address-content__link--text text-link">{{ content.country }}</span>,
+      <span class="address-content__link--text text-link">{{ content && content.country }}</span>,
     </nuxt-link>
     <nuxt-link
-      :to="`/search?search=${content.region}`"
+      :to="`/search?search=${content && content.region}`"
       class="address-content__link"
     >
-      <span class="address-content__link--text text-link">{{ content.region }}</span>,
+      <span class="address-content__link--text text-link">{{ content && content.region }}</span>,
     </nuxt-link>
     <nuxt-link
-      :to="`/search?search=${content.city}`"
+      :to="`/search?search=${content && content.city}`"
       class="address-content__link"
     >
-      <span class="address-content__link--text text-link">{{ content.city }}</span>,
+      <span class="address-content__link--text text-link">{{ content && content.city }}</span>,
     </nuxt-link>
     <nuxt-link
-      :to="`/search?search=${content.street}`"
+      :to="`/search?search=${content && content.street}`"
       class="address-content__link"
     >
-      <span class="address-content__link--text text-link">{{ content.street }} {{ content.house }}</span>
+      <span class="address-content__link--text text-link">{{ content && content.street }} {{ content && content.house }}</span>
     </nuxt-link>
   </p>
 </template>

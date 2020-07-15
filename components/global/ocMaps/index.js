@@ -14,6 +14,10 @@ export default {
       type: Number,
       default: 7
     },
+    typeIcon: {
+      type: String,
+      default: null
+    },
     center: {
       type: Object,
       default: null // model: { lat: Number, lon: Number }
@@ -27,6 +31,12 @@ export default {
   data () {
     return {
       map: {},
+      icon: {
+        layout: 'default#image',
+        imageHref: '/map-icon.png', // адрес изображения или data:image/svg+xml;base64
+        imageSize: [56, 56], // размер иконки в px
+        imageOffset: [0, 0]
+      },
       showMap: false,
       address: '',
       markerCoords: [] // latitude, longitude

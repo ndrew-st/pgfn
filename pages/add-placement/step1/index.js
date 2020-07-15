@@ -1,6 +1,5 @@
-// import OcDropDown from '@/components/global/ocDropDown/index.vue'
-// import OcButton from '@/components/global/Forms/ocButton/index.vue'
 import { mapActions } from 'vuex'
+
 import ApInput from '../ap-input/index.vue'
 // import ApButton from '../ap-button/index.vue'
 import ApListDropdown from '../ap-list-dropdown/index.vue'
@@ -8,8 +7,6 @@ import ApDadataDropdown from '../ap-dadata-dropdown'
 
 export default {
   components: {
-    // OcDropDown,
-    // OcButton,
     ApInput,
     ApListDropdown,
     ApDadataDropdown
@@ -20,7 +17,8 @@ export default {
       coords: [55.753933, 37.620735], // если не дать координаты, карта не работает. Тут Москва, Кремль
       listTypeOfTenant: [
         { id: 0, code: 0, name: 'Собственник / арендодатель' },
-        { id: 1, code: 1, name: 'Посредник' }],
+        { id: 1, code: 1, name: 'Посредник' }
+      ],
       typeOfTenant: null,
       listTypeOfHousing1: [
         { id: 0, code: 0, name: 'Частное лицо' },

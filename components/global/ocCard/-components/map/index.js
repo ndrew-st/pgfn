@@ -35,8 +35,6 @@ export default {
     }
   },
   mounted () {
-    console.log('request ', this.item)
-
     this.$nextTick(() => {
       if (this.$refs.title) {
         this.titleHeight = this.$refs.title.clientHeight

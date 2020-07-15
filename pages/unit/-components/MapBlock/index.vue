@@ -5,7 +5,8 @@
     />
     <OcMaps
       class="habitation-map__content"
-      :coords="content.coords"
+      type-icon="home"
+      :coords="coords"
     />
   </div>
 </template>
