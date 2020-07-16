@@ -15,7 +15,6 @@ export default axios => resource => ({
     return axios.post(`${resource}`, apData)
   },
   addRequest (apData) {
-    debugger
     return axios.post('request', apData)
   }
 })
