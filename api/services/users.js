@@ -24,7 +24,7 @@ export default axios => resource => ({
   uploadFiles (files) {
     const formData = new FormData()
 
-    formData.append(`files`, files[0])
+    formData.append(`files`, files)
 
     return axios.post('attachment/',
       formData,

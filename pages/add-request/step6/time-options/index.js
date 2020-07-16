@@ -26,7 +26,7 @@ export default {
           break
       }
     },
-    changeTime (type, val) {
+    changeTime (val, type) {
       if (type === 'start') {
         this.timeStart = val
       } else if (type === 'end') {
