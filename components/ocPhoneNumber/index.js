@@ -1,16 +1,22 @@
 export default {
   props: {
     error: {
-      type: String
+      type: String,
+      default: null
+    },
+    type: {
+      type: String,
+      default: null
     },
     value: {
       type: String,
-      required: true
+      required: null
     }
   },
   data: () => ({
     isActive: false,
-    phone1: ''
+    phone1: '',
+    er: ''
   }),
   methods: {
     mask () {
@@ -28,9 +34,33 @@ export default {
 
       this.$emit('input', `7${this.phone1}`)
     },
-    next (item) {
+    async next (item) {
+      if (!this.type) {
+        return
+      }
+
       if (this.phone1.length === 13) {
-        this.$emit('next', this.phone1)
+        let res = null
+
+        if (this.type === 'register') {
+          res = await this.$api.users.checkPhoneRegister(this.phone1)
+        } else if (this.type === 'login') {
+          res = await this.$api.users.checkPhoneLogin(this.phone1)
+        }
+
+        console.log('res ', res)
+
+        if (!res.error) {
+          this.$emit('next', this.phone1)
+        } else {
+          const errRes = res.error.split(' ')[0]
+
+          if (errRes === 'User') {
+            this.er = 'Данный пользователь заблокирован!'
+          } else {
+            this.er = 'Номер не может быть использован'
+          }
+        }
       }
     }
   }

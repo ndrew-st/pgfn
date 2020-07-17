@@ -5,8 +5,8 @@
         Правила размещения
       </p>
 
-      <span class="rules-flex__span"> &middot; {{ rules1.typeOfReservation }}</span>
-      <span class="rules-flex__span"> &middot; {{ rules1.cancellationPolicy }}</span>
+      <span class="rules-flex__span"> &middot; {{ reservation[rules1.typeOfReservation] }}</span>
+      <span class="rules-flex__span"> &middot; {{ policy[rules1.cancellationPolicy] }}</span>
     </div>
 
     <div

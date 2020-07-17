@@ -36,10 +36,10 @@
     </div>
 
     <p
-      v-if="error !== ''"
+      v-if="er !== '' || error !== ''"
       class="red-p"
     >
-      {{ error }}
+      {{ er || error }}
     </p>
   </div>
 </template>

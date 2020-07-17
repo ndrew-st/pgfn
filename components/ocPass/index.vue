@@ -8,15 +8,17 @@
           type="password"
           placeholder="Пароль"
           :class="{red: error !== '', norm: error === ''}"
-          @change="change"
-          @keyup.enter="next()"
+          @input="setPass($event.target.value)"
         >
 
         <p
-          v-if="error !== ''"
+          v-if="$v.password.$dirty"
           class="red-p"
         >
-          {{ error }}
+          <span v-if="!$v.password.required">Поле пароль обязательно!</span>
+          <span v-if="!$v.password.minLength">Минимальная длина 8 символов! Сейчас: {{ $v.password.$model.length }}</span>
+          <span v-if="!$v.password.isHaveNumber && $v.password.required && $v.password.minLength">Пароль должен содержать минимум одно число!</span><br>
+          <span v-if="!$v.password.isUpperCase && $v.password.required && $v.password.minLength">Пароль должен содержать минимум одну заглавную букву!</span>
         </p>
       </div>
 

@@ -5,6 +5,7 @@
         v-if="stage === 'phone'"
         v-model="phone"
         :error="error"
+        type="login"
         @next="next"
       />
 
@@ -42,6 +43,7 @@
         class="reg"
         :class="{ reg7: stage === 'timer' }"
         to="/sign-up"
+        @click="_clearData"
       >
         Зарегистрироваться
       </nuxt-link>
@@ -50,9 +52,19 @@
         v-if="stage ==='pass'"
         class="reset"
         :to="{ name: 'sign-in-password-recovery', params: { phone }}"
+        @click="_clearData"
       >
         Сбросить пароль
       </nuxt-link>
+
+      <a
+        href="#"
+        class="go-back"
+        :class="[{'first': stage === 'phone'}]"
+        @click.prevent.stop="prevent"
+      >
+        Вернуться
+      </a>
     </OcVerification>
   </div>
 </template>

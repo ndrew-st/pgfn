@@ -8,10 +8,16 @@ export default {
     },
     value: {
       type: String
+    },
+    expireAt: {
+      type: Number,
+      default: null
     }
   },
   data () {
     return {
+      // timeCounter: this.expireAt
+      code: '',
       timeCounter: 119
     }
   },
@@ -32,13 +38,13 @@ export default {
         // console.log('a: ' + a + ' res:' + res)
         return res
       })
-      // debugger
 
       item.currentTarget.value = smsCode1
 
       this.$refs.codeInput.setSelectionRange(pos, pos)
 
       this.$emit('input', val)
+
       if (val.length === 4) {
         this.$emit('next')
       }
@@ -48,6 +54,11 @@ export default {
       if (this.timeCounter <= 0) {
         clearInterval(this.smsTime)
       }
+    }
+  },
+  created () {
+    if (this.value) {
+      this.code = this.value
     }
   },
   mounted () {

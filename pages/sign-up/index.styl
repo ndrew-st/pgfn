@@ -1,15 +1,33 @@
 .sign-up
-    position fixed
-    top 0
-    left 0
-    width 100%
-    height 100%
-    background-color #E5E5E5
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  background-color #E5E5E5
 
+  &__button-container
+    display flex
+    width 100%
+    justify-content space-between
+
+  & .go-back
+    display block
+    width 11%
+    align-self flex-end
+
+    color $primary
+
+    rm-outline()
+
+    &.first
+      position absolute
+      bottom 64px
+      right 64px
 
 .box__signup
-    height 296px
-    top calc(50% - 212px)
+  min-height 296px
+  top calc(50% - 212px)
 
 p.lic
   margin-top 36px
@@ -40,18 +58,16 @@ p.lic
 
 
 @media (max-width 750px)
-    .sign-up
-        background-color #FFFFFF
+  .sign-up
+    background-color #FFFFFF
 
+  .enter-top
+    display inline-block
+    text-align center
+    width 100%
+    margin-top 32px
 
-    .enter-top
-        display inline-block
-        text-align center
-        width 100%
-        margin-top 32px
-
-
-    .enter-bottom
-        display none
+  .enter-bottom
+    display none
 
 

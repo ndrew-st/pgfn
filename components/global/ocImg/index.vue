@@ -1,12 +1,14 @@
 <template>
   <span class="container">
     <img
-      v-lazy
+      v-lazy:[id]
       class="container__image"
       :data-url="src"
       :width="width"
       :height="height"
       :alt="alt"
+      :src="url"
+      @loadImage="loadImage"
     >
   </span>
 </template>

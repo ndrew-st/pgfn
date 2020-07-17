@@ -1,3 +1,5 @@
+import { minLength, required } from 'vuelidate/lib/validators'
+
 export default {
   props: {
     error: String,
@@ -8,13 +10,30 @@ export default {
     isActive: false,
     password: ''
   }),
+  validations: {
+    password: {
+      required,
+      isHaveNumber: value => /(\d+)/g.test(value),
+      isUpperCase (value) {
+        for (let i = 0; i < value.length; i++) { // выведет 0, затем 1, затем 2
+          if (/^[A-Z]*$/.test(value[i])) {
+            return true
+          }
+        }
+
+        return false
+      },
+      minLength: minLength(8)
+    }
+  },
   methods: {
-    change () {
-      this.$emit('input', this.password)
+    setPass (val) {
+      this.password = val
+      this.$v.password.$touch()
     },
     next () {
-      if (this.password.length > 5) {
-        this.$emit('next', this.password)
+      if (!this.$v.$invalid) {
+        this.$emit('next', { password: this.password })
       }
     }
   }

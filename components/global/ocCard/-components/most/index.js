@@ -73,7 +73,7 @@ export default {
       return typeHousing
     },
     title () {
-      return `${parseInt(this.item.typeOfHousing) === 0 ? `${this.item.numberOfRooms}-ая квартира` : typeHousing[parseInt(this.item.typeOfHousing)]} ${this.item.areaOfHousin} м² `
+      return `${parseInt(this.item.typeOfHousing) === 0 ? `${this.item.numberOfRooms}-к квартира` : typeHousing[parseInt(this.item.typeOfHousing)]}, ${this.item.areaOfHousin} м² `
     },
     countBeds () {
       let res = 0
