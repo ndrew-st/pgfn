@@ -31,9 +31,6 @@ export default {
     }
   },
   methods: {
-    _clearData () {
-      this.$session.rmItem('sign-up')
-    },
     prevent () {
       if (this.stage === 'phone') {
         this.$router.go(-1)
@@ -86,11 +83,10 @@ export default {
     },
     async register ({ name, password }) {
       const result = await this.$api.users.register(this.phone, name, password)
-      console.log('register result ', result)
 
       if (!result.error) {
         this.$router.push('/sign-in')
-        this._clearData()
+        this.$session.clearAll()
       } else {
         this.error = 'Ошибка регистрации! Обратитесь к администратору.'
       }
