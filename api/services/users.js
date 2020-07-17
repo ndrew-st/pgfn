@@ -6,6 +6,15 @@ export default axios => resource => ({
     // return axios.post(`${resource}/code`, { phone })
     return axios.post(`code`, { phone })
   },
+  checkPhoneRegister (phone) {
+    return axios.get(`auth/check?phone=${phone}`)
+  },
+  checkPhoneLogin (phone) {
+    return axios.get(`/auth/check?phone=${phone}&stop=1`)
+  },
+  resetPassword (data) {
+    return axios.put(`auth/recovery`, { ...data })
+  },
   checkCode (phone, code) {
     return axios.get(`code?phone=${phone}&code=${code}`)
   },

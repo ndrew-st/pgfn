@@ -3,7 +3,8 @@
     <OcVerification>
       <OcSms
         v-if="stage === 'sms'"
-        :phone="$route.params.phone"
+        v-model="code"
+        :phone="phone"
         :error="error"
         :time-counter="timeCounter"
         :recovery="true"
@@ -19,10 +20,18 @@
 
       <OcPass
         v-if="stage === 'pass'"
-        error=""
+        :error="error"
         btn-text="Готово"
         @next="next"
       />
+
+      <a
+        href="#"
+        class="go-back"
+        @click.prevent.stop="prevent"
+      >
+        Вернуться
+      </a>
     </OcVerification>
   </div>
 </template>

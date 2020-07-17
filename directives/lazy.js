@@ -1,18 +1,21 @@
-export default {
-// <<<<<<< HEAD
-  inserted: (el, { arg }) => {
-    // =======
-    //   bind: (el, { arg }) => {
-    // >>>>>>> bugfix/main-page-0.0.5
+export default ({
+  inserted (el, { arg }, vnode) {
     function loadImage () {
       if (!el) {
         return false
       }
 
-      // imageElement.addEventListener('load', () => {
-      //   setTimeout(() => el.classList.add('loaded'), 100)
-      // })
-      // imageElement.addEventListener('error', () => console.log('error'))
+      if (arg) {
+        const eventName = 'loadImage'
+        const eventData = { id: arg }
+        if (vnode.componentInstance) {
+          vnode.componentInstance.$emit(eventName, { detail: eventData }) // use {detail:} to be uniform
+        } else {
+          vnode.elm.dispatchEvent(new CustomEvent(eventName, { detail: eventData }))
+        }
+
+        return
+      }
 
       if (el.nodeName === `IMG`) {
         el.src = el.dataset.url
@@ -48,4 +51,4 @@ export default {
       createObserver()
     }
   }
-}
+})

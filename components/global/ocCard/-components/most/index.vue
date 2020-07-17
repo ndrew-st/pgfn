@@ -21,7 +21,7 @@
           class="card-item__img-container"
         >
           <OcImg
-            :src="gallery"
+            :id="gallery"
             :alt="gallery"
             class="card-item__image"
           />

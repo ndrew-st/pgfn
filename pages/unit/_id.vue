@@ -37,6 +37,7 @@
       />
 
       <Comfort
+        v-if="facilities.length"
         :comfort="facilities"
       />
 

@@ -1,13 +1,14 @@
 <template>
-  <div>
+  <div class="sms-container">
     <p
       class="p-sms"
     >
-      {{ recovery ? 'Для восстановления доступа введите код из смс' : 'Введите код из смс отправленного на номер' }} <br> {{ recovery ? 'отправленного на номер' : '' }} <nobr><b>+7 {{ phone.slice(1) }}</b></nobr>
+      {{ recovery ? 'Для восстановления доступа введите код из смс' : 'Введите код из смс отправленного на номер' }} <br> {{ recovery ? 'отправленного на номер' : '' }} <nobr><b>+7 {{ phone && phone.slice(1) }}</b></nobr>
     </p>
 
     <input
       ref="codeInput"
+      v-model="code"
       class="code code14"
       type="text"
       placeholder="••••"
@@ -34,6 +35,7 @@
       class="timer"
       :class="{timerError: error === ''}"
       href="#"
+      @click.prevent.stop="$emit('oneMore')"
     >
       Отправить код еще раз
     </a>

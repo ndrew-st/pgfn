@@ -1,6 +1,6 @@
 import num2str from '~/utils/num2str'
 
-import typeHouse from '~/constants/consts/typeOfHousing'
+import th from '~/constants/consts/typeOfHousing'
 
 export default {
   props: {
@@ -34,7 +34,7 @@ export default {
       default: null
     },
     typeOfHousing: {
-      type: String,
+      type: Number,
       default: null
     },
     views: {
@@ -49,6 +49,9 @@ export default {
     }
   },
   computed: {
+    typeHouse () {
+      return th
+    },
     review () {
       return `${this.reviews} ${num2str(this.reviews, this.textReviews)}`
     },
