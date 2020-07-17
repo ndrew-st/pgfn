@@ -38,11 +38,8 @@ export default {
   },
   async addPlacement ({ state }) {
     const result = await this.$api.apartments.addPlacement(state.result)
-    console.log(result)
   },
   async addRequest ({ state }) {
-    debugger
     const result = await this.$api.apartments.addRequest(state.result)
-    console.log(result)
   }
 }

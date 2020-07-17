@@ -10,7 +10,8 @@ export default {
     return {
       photoArray: [],
       title: '',
-      description: ''
+      description: '',
+      images: []
     }
   },
   methods: {
@@ -18,11 +19,14 @@ export default {
       // debugger
       this.$store.dispatch('placement/setItem', { key: 'title', value: this.title })
       this.$store.dispatch('placement/setItem', { key: 'description', value: this.description })
+      this.$store.dispatch('placement/setItem', { key: 'images', value: this.images })
       this.$store.dispatch('placement/addPlacement')
       this.$router.push('/')
     },
     async handleFileUpload (file) {
-      await this.$api.users.uploadFiles(file)
+      const { _id } = await this.$api.users.uploadFiles(file)
+
+      this.images.push(_id)
     },
     uploadFiles (val) {
       for (let ind = 0; ind < val.length; ind++) {

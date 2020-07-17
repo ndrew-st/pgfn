@@ -32,5 +32,8 @@ export default axios => resource => ({
   },
   getItem (id) {
     return axios.get(`${resource}/${id}`)
+  },
+  addRequest (apData) {
+    return axios.post('request', apData)
   }
 })
