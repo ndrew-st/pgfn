@@ -49,8 +49,6 @@ export default {
 
       const { stage, phone, code, password } = this
 
-      debugger
-
       if (stage === 'pass') {
         if (!phone || !code || !password) {
           console.log('Error ')

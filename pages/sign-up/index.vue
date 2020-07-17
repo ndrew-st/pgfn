@@ -32,7 +32,6 @@
         <nuxt-link
           class="enter-top"
           to="/sign-in"
-          @click.native="_clearData()"
         >
           Войти
         </nuxt-link>
@@ -44,7 +43,6 @@
           <nuxt-link
             to="/privacy"
             class="lic__privacy"
-            @click.native="_clearData()"
           >
             Пользовательского соглашения
           </nuxt-link>
@@ -55,7 +53,6 @@
           <nuxt-link
             to="/sign-in"
             class="enter-bottom"
-            @click.native="_clearData()"
           >
             Войти
           </nuxt-link>
