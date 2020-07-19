@@ -1,7 +1,7 @@
 <template>
   <div class="count-bed">
     <p class="count-bed__title-count">
-      Количество спальных мест: {{ result.length }}
+      Количество спальных мест: {{ resultLength }}
     </p>
 
     <p class="count-bed__title">

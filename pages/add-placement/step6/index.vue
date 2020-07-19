@@ -59,7 +59,7 @@
     />
 
     <ApButton
-      v-if="selItem !== ''"
+      v-if="title !== '' && description !== ''"
       name="red"
       @click.native="addPlacement()"
     >

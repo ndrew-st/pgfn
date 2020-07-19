@@ -140,7 +140,7 @@
     </div>
 
     <ApButton
-      v-if="selItem !== ''"
+      v-if="isFilled"
       name="red"
       @click.native="next()"
     >

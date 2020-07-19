@@ -19,6 +19,7 @@
             name="radio"
             class="ap-step2__radio"
             value="0"
+            @change="changeRadio(typeOfReservation, 'typeOfReservation')"
           >
 
           <label
@@ -35,6 +36,7 @@
             name="radio"
             class="ap-step2__radio"
             value="1"
+            @change="changeRadio(typeOfReservation, 'typeOfReservation')"
           >
 
           <label
@@ -51,6 +53,7 @@
             name="radio"
             class="ap-step2__radio"
             value="2"
+            @change="changeRadio(typeOfReservation, 'typeOfReservation')"
           >
 
           <label
@@ -74,6 +77,7 @@
             name="radio2"
             class="ap-step2__radio"
             value="0"
+            @change="changeRadio(cancellationPolicy, 'cancellationPolicy')"
           >
 
           <label
@@ -90,6 +94,7 @@
             name="radio2"
             class="ap-step2__radio"
             value="1"
+            @change="changeRadio(cancellationPolicy, 'cancellationPolicy')"
           >
 
           <label
@@ -124,7 +129,6 @@
     </div>
 
     <ApButton
-      v-if="selItem !== ''"
       name="red"
       @click.native="next()"
     >

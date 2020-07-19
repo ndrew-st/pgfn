@@ -67,7 +67,8 @@ export default {
         }
       ],
       byTheDay: 0,
-      longTerm: 0
+      longTerm: 0,
+      isFilled: false
     }
   },
   methods: {
@@ -99,7 +100,6 @@ export default {
               defaultValue: true,
               checked: element.checked
             })
-            console.log('defaultValue+:', element.defaultValue)
 
             fl = true
           } else if (element.defaultValue) {
@@ -110,7 +110,6 @@ export default {
               defaultValue: false,
               checked: element.checked
             })
-            console.log('defaultValue-:', element.defaultValue)
           }
         } else if (element.defaultValue) {
           this.$set(curArray, index, {
@@ -120,6 +119,15 @@ export default {
             checked: element.checked
           })
         }
+      }
+      if (this.items2.find(item => item.checked === true) === undefined) {
+        if (this.items.find(item => item.checked === true) === undefined) {
+          this.isFilled = false
+        } else {
+          this.isFilled = true
+        }
+      } else {
+        this.isFilled = true
       }
     },
     next () {

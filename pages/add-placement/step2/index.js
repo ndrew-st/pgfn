@@ -58,7 +58,9 @@ export default {
       selItem: null,
       numberOfRooms: 1,
       area: 0,
-      selId: 0
+      selId: 0,
+      floors: 0,
+      yardArea: 0
     }
   },
   methods: {
@@ -75,6 +77,7 @@ export default {
       this.$store.dispatch('placement/setItem', { key: 'numberOfRooms', value: this.numberOfRooms })
       this.$store.dispatch('placement/setItem', { key: 'areaOfHousin', value: parseInt(this.area) })
       this.$store.dispatch('placement/setItem', { key: 'typeOfHousing', value: this.list[this.selItem].list[this.selId].code })
+      // this.$store.dispatch('placement/setItem', { key: '', value: this.yardArea })
       this.$emit('next')
     }
   }
