@@ -19,7 +19,7 @@
           :value="item.value"
           :checked="item.value === furniture"
           :label="item.label"
-          @change="furniture = $event"
+          @change="changeRadio($event, 'furniture')"
         />
       </li>
     </ul>
@@ -57,7 +57,7 @@
           :value="item.value"
           :checked="item.value === internet"
           :label="item.label"
-          @change="internet = $event"
+          @change="changeRadio($event, 'internet')"
         />
       </li>
     </ul>
@@ -122,7 +122,6 @@
     </ApFolding>
 
     <ApButton
-      v-if="selItem !== ''"
       name="red"
       @click.native="next()"
     >

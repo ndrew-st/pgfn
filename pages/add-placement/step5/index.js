@@ -14,17 +14,6 @@ export default {
     CountBed,
     ApFolding
   },
-  watch: {
-    furniture (val) {
-      console.log('furniture ', val)
-    },
-    listTimeCall (val) {
-      console.log('listTimeCall ', val)
-    },
-    starCheckbox (val) {
-      console.log('starCheckbox ', val)
-    }
-  },
   data () {
     return {
       furniture: 0,
@@ -124,11 +113,9 @@ export default {
     checkbox (par) {
       par = !par
     },
-    input (par) {
-
-    },
-    change (evt) {
-
+    changeRadio (val, type) {
+      this[type] = val
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: type, value: val })
     }
   }
 }

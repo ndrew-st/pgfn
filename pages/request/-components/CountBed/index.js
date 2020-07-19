@@ -24,7 +24,8 @@ export default {
         { title: 'Односпальная кровать', value: 'singleBed' },
         { title: 'Полутороспальная кровать', value: 'oneHalfBed' },
         { title: 'Двуспальная кровать', value: 'twoBed' }
-      ]
+      ],
+      resultLength: 0
     }
   },
   mounted () {
@@ -42,6 +43,7 @@ export default {
         this.result.shift(val)
         this.$store.dispatch('placement/removeBed', { typeOfPlace: value, amount: val })
       }
+      this.resultLength = this.result.length
     },
     select (val) {
       this.beds.push(val)
