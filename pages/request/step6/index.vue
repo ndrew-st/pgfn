@@ -4,19 +4,38 @@
       Условия аренды
     </p>
 
-    <p class="req-step6__h2 req-step6__mt62">
+    <!-- <p class="req-step6__h2 req-step6__mt62">
       Прибытие, выезд
       <span class="add-placement__red-star">*</span>
-    </p>
+    </p> -->
 
-    <ApInput
+    <!-- <ApInput
       v-model="datesOfStay"
       placeholder="17.04.2020 – 23.04.2020"
       class="req-step6__input-date"
       @input="mask"
-    />
+    /> -->
 
-    <p class="req-step6__h2 req-step6__mt62">
+    <OcDropDown>
+      <OcInput
+        slot="button"
+        v-model="datesOfStay"
+        label="Прибытие, выезд"
+        placeholder="дд.мм.гггг – дд.мм.гггг"
+        kind="most"
+        readonly
+        class="req-step6__input-date"
+      />
+      <Calendar
+        slot="body"
+        :key="curDate"
+        :cur-sel-date="curSelStart"
+        class="req-step6__date-content"
+        @input="changeSelDate"
+      />
+    </OcDropDown>
+
+    <!-- <p class="req-step6__h2 req-step6__mt62">
       Количество гостей
       <span class="add-placement__red-star">*</span>
     </p>
@@ -24,7 +43,25 @@
     <ApInput
       placeholder="Гости"
       class="req-step6__input-guests"
-    />
+    /> -->
+
+    <div class="req-step6__guests-container mt48">
+      <OcDropDown>
+        <OcInput
+          slot="button"
+          label="Гости"
+          placeholder="Гости"
+          kind="most"
+          readonly
+        />
+
+        <Guests
+          slot="body"
+          class="apartment__content"
+          @input="handlerGuests"
+        />
+      </OcDropDown>
+    </div>
 
     <p class="req-step6__h2 req-step6__mt62">
       Укажите справедливую цену

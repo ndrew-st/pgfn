@@ -83,7 +83,7 @@ export default {
     },
     setSelIdPanWindow (evt) {
       this.selIdPanWindow = evt
-      this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: 'panWindows', value: this.panWindows[this.selIdPanWindow].value })
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'panWindows', value: this.panWindows[this.selIdPanWindow].value })
     }
   }
 }

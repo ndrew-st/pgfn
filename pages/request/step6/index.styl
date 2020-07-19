@@ -11,14 +11,12 @@
     text-transform uppercase
     color $dark
 
-  &__mt62
-    margin-top 62px
-
   &__input-date
-    width 220px
+    width 220px !important
+    margin-top 62px !important
 
   &__input-guests
-    width 248px
+    // width 248px !important
     background-image url("data:image/svg+xml,%3Csvg width='8' height='4' viewBox='0 0 8 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0H0L4 4L8 0H4Z' fill='%23989BA8'/%3E%3C/svg%3E%0A")
     background-repeat no-repeat
     background-position center right 18px
@@ -48,3 +46,21 @@
     line-height 17px
     color $secondary
     width 500px
+
+  &__date-content
+    .filter-calendar
+      &__content
+        margin-top 8px
+        visibility visible
+        z-index 9
+
+      .input-container
+        display none
+
+  &__guests-container
+    max-width 248px
+
+    & .oc-input-most .input
+      background-image url("data:image/svg+xml,%3Csvg width='8' height='4' viewBox='0 0 8 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0H0L4 4L8 0H4Z' fill='%23989BA8'/%3E%3C/svg%3E%0A") !important
+      background-repeat no-repeat !important
+      background-position center right 18px !important

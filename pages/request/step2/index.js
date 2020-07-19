@@ -64,16 +64,18 @@ export default {
       this.selItem = par.id
       this.$root.$emit('dropdown:hide')
       // this.setItem({ key: 'typeOfHousing', value: par.id })
+      // this.$store.dispatch('request/setItem', { key: 'numberOfRooms', value: par.id })
+      this.$store.dispatch('request/setItem', { key: 'typeOfHousing', value: this.list[this.selItem].list[this.selId].code })
     },
     next () {
-      this.$store.dispatch('placement/setItem', { key: 'numberOfRooms', value: this.numberOfRooms })
-      this.$store.dispatch('placement/setItemSecondLevel', { level: 'areaOfHousin', key: 'start', value: parseInt(this.areaStart) })
-      this.$store.dispatch('placement/setItemSecondLevel', { level: 'areaOfHousin', key: 'end', value: parseInt(this.areaEnd) })
+      this.$store.dispatch('request/setItem', { key: 'numberOfRooms', value: this.numberOfRooms })
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'areaOfHousin', key: 'start', value: parseInt(this.areaStart) })
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'areaOfHousin', key: 'end', value: parseInt(this.areaEnd) })
       this.$emit('next')
     },
     setSelId (val) {
       this.selId = val
-      this.$store.dispatch('placement/setItem', { key: 'typeOfHousing', value: this.list[this.selItem].list[this.selId].code })
+      this.$store.dispatch('request/setItem', { key: 'typeOfHousing', value: this.list[this.selItem].list[this.selId].code })
     }
   }
 }
