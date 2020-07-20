@@ -66,8 +66,8 @@ export default {
           checked: false
         }
       ],
-      byTheDay: 0,
-      longTerm: 0,
+      byTheDay: '0',
+      longTerm: '0',
       isFilled: false
     }
   },
@@ -129,6 +129,11 @@ export default {
       } else {
         this.isFilled = true
       }
+    },
+    changeFirstPayment (val, type) {
+      this[type] = val
+      const toBack = (val === '1' ? 'Весь срок' : (type === 'byTheDay' ? 'Посуточно' : 'Первый месяц'))
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'firstPaymentAmount', key: type, value: toBack })
     },
     next () {
       this.$store.dispatch('placement/setItemSecondLevel', { level: 'firstPaymentAmount', key: 'byTheDay', value: this.byTheDay })

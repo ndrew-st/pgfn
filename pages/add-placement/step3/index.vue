@@ -41,11 +41,12 @@
         <div class="ap-step2__radio-item">
           <input
             id="fid-1"
-            v-model="byTheDay"
             type="radio"
             name="radio"
             class="ap-step2__radio"
             value="0"
+            :checked="byTheDay === '0'"
+            @change="changeFirstPayment($event.target.value, 'byTheDay')"
           >
 
           <label
@@ -57,11 +58,12 @@
         <div class="ap-step2__radio-item">
           <input
             id="fid-2"
-            v-model="picked"
             type="radio"
             name="radio"
             class="ap-step2__radio"
             value="1"
+            :checked="byTheDay === '1'"
+            @change="changeFirstPayment($event.target.value, 'byTheDay')"
           >
 
           <label
@@ -108,11 +110,12 @@
         <div class="ap-step2__radio-item">
           <input
             id="fid-3"
-            v-model="longTerm"
             type="radio"
             name="radio2"
             class="ap-step2__radio"
             value="0"
+            :checked="longTerm === '0'"
+            @change="changeFirstPayment($event.target.value, 'longTerm')"
           >
 
           <label
@@ -124,11 +127,12 @@
         <div class="ap-step2__radio-item">
           <input
             id="fid-4"
-            v-model="picked2"
             type="radio"
             name="radio2"
             class="ap-step2__radio"
             value="1"
+            :checked="longTerm === '1'"
+            @change="changeFirstPayment($event.target.value, 'longTerm')"
           >
 
           <label
