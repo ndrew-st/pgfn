@@ -118,8 +118,23 @@
         ref="attrs"
         class="card-item__attrs--list"
       >
-        <li class="card-item__attr">
+        <li
+          v-if="countGuests"
+          class="card-item__attr"
+        >
+          {{ countGuests }}
+        </li>
+        <li
+          v-if="countBeds"
+          class="card-item__attr"
+        >
           {{ countBeds }}
+        </li>
+        <li
+          v-if="bedsRoom"
+          class="card-item__attr"
+        >
+          {{ bedsRoom }}
         </li>
       </ul>
     </div>

@@ -6,6 +6,7 @@ import GroupCard from '~/components/blocks/GroupCard'
 import Footer from '~/components/blocks/Footer'
 import Subscribe from '~/components/blocks/Subscribe'
 
+import typeHousing from '~/constants/consts/typeOfHousing'
 import H1Block from './-components/h1-block/index.vue'
 import MapBlock from './-components/MapBlock'
 import Pics from './-components/pics/index.vue'
@@ -68,8 +69,8 @@ export default {
     ...mapState('habitation', {
       header: (state) => {
         return {
-          title: state.result.title,
-          intro: state.result.intro,
+          title: `${parseInt(state.result.typeOfHousing) === 0 ? `${state.result.numberOfRooms}-к квартира` : typeHousing[parseInt(state.result.typeOfHousing)]}, ${state.result.areaOfHousin} м² `,
+          intro: state.result.title,
           description: state.result.description,
           reviews: state.result.reviews,
           views: state.result.views,

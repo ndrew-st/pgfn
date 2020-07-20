@@ -2,7 +2,7 @@
   <InfoBlock
     block-name="Стоимость"
   >
-    <div>
+    <div v-if="prices.byTheDay.length">
       <p class="name">
         Посуточно
       </p>
@@ -15,7 +15,7 @@
       </p>
     </div>
 
-    <div>
+    <div v-if="prices.byTheDay.length">
       <p class="name">
         На длительный срок
       </p>
