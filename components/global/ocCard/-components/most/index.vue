@@ -48,10 +48,10 @@
 
     <div class="card-item__intro">
       <p
-        v-show="item.intro"
+        v-show="item.title"
         class="card-item__intro--content"
       >
-        {{ item.intro }}
+        {{ item.title }}
       </p>
     </div>
 

@@ -32,8 +32,6 @@ export default ({ $axios, store: { state, dispatch, getters }, redirect }, injec
   })
 
   $axios.onRequestError((error) => {
-    console.log('error ', error)
-
     if (error.request) {
       return {
         error: error.request
@@ -42,16 +40,12 @@ export default ({ $axios, store: { state, dispatch, getters }, redirect }, injec
   })
 
   $axios.onError((error) => { // handler config errors
-    console.log('onError ', error)
-    console.log('error.message ', error.message)
-
     return {
       error: error.message
     }
   })
 
   $axios.onRequest((config) => {
-    console.log('config ', config)
     return {
       ...config,
       url: encodeURI(config.url)
