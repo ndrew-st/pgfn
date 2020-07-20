@@ -1,12 +1,12 @@
 export default {
   watch: {
     stage (val) {
-      this.$session.setItem('recovery', { stage: val, code: this.code })
+      this.$storage.setItem('recovery', { stage: val, code: this.code })
     },
     code (val) {
       console.log('code ', val)
 
-      this.$session.setItem('recovery', { stage: this.stage, code: this.code })
+      this.$storage.setItem('recovery', { stage: this.stage, code: this.code })
     }
   },
   data: () => ({
@@ -19,9 +19,9 @@ export default {
     password: ''
   }),
   created () {
-    if (process.client && this.$session.getItem('sign-in')) {
-      const { phone } = this.$session.getItem('sign-in')
-      const res = this.$session.getItem('recovery') || {}
+    if (process.client && this.$storage.getItem('sign-in')) {
+      const { phone } = this.$storage.getItem('sign-in')
+      const res = this.$storage.getItem('recovery') || {}
 
       this.stage = res.stage || 'sms'
       this.code = res.code
@@ -61,7 +61,7 @@ export default {
         if (res.error) {
           this.error = 'Неверный код'
         } else {
-          this.$session.clearAll()
+          this.$storage.clearAll()
           this.$router.push('/')
         }
       }

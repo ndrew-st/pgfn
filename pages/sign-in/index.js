@@ -6,15 +6,15 @@ export default {
   layout: 'clean',
   watch: {
     stage (val) {
-      this.$session.setItem('sign-in', { phone: this.phone, stage: val })
+      this.$storage.setItem('sign-in', { phone: this.phone, stage: val })
     },
     phone (val) {
-      this.$session.setItem('sign-in', { phone: val, stage: this.stage })
+      this.$storage.setItem('sign-in', { phone: val, stage: this.stage })
     }
   },
   created () {
-    if (process.client && this.$session.getItem('sign-in')) {
-      const { phone, stage } = this.$session.getItem('sign-in')
+    if (process.client && this.$storage.getItem('sign-in')) {
+      const { phone, stage } = this.$storage.getItem('sign-in')
 
       this.phone = phone
       this.stage = stage
@@ -50,9 +50,10 @@ export default {
       const phoneNum = this._getNumPhone(this.phone)
 
       try {
-        await this[login]({ phone: phoneNum, password: pass })
+        await this[login]({ phone: phoneNum, password: pass.password })
 
         this.$router.push('/profile')
+        this.$storage.clearAll()
       } catch (e) {
         console.log('Error ', e)
       }
