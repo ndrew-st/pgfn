@@ -96,7 +96,7 @@ export default {
         }
 
         adress.geo = { lat: coords[0], lon: coords[1] }
-        this.$store.dispatch('placement/setItem', { key: 'address', value: adress }) // Обрати внимание, на бэке с 2 d, правильно и так и так
+        this.$store.dispatch('request/setItem', { key: 'address', value: adress }) // Обрати внимание, на бэке с 2 d, правильно и так и так
       }
       if (refreshInput) {
         this.inputAdress = result.response.GeoObjectCollection.featureMember[0].GeoObject.metaDataProperty.GeocoderMetaData.Address.formatted

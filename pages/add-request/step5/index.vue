@@ -1,6 +1,6 @@
 <template>
   <div class="ap-step5">
-    <p class="add-placement__h">
+    <p class="add-placement__h mb12">
       Желаемые особенности дома и территории
     </p>
 

@@ -77,7 +77,6 @@
     </ApFolding>
 
     <ApButton
-      v-if="selItem !== ''"
       name="red"
       @click.native="$emit('next')"
     >
