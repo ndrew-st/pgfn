@@ -35,8 +35,6 @@
         :sel-id="selId"
         @change="setSelId"
       />
-
-      <p>{{ checkedHouse }}</p>
     </div>
 
     <div
@@ -71,9 +69,10 @@
         <span class="add-placement__red-star">*</span>
       </p>
 
-      <span class="req-step2__span">Количество комнат</span>
+      <div class="flex mt24">
+        <span class="req-step2__span">Количество комнат</span>
 
-      <select
+        <!-- <select
         v-model="numberOfRooms"
         class="req-step2__sel"
       >
@@ -83,7 +82,13 @@
         >
           {{ n }}
         </option>
-      </select>
+      </select> -->
+
+        <RoomCounter
+          :sel-rooms="selRooms"
+          @change="changeRoom"
+        />
+      </div>
     </div>
 
     <ApButton
