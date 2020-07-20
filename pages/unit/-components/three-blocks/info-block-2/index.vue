@@ -7,7 +7,7 @@
 
       <ul class="info-unit__list">
         <li
-          v-for="(item, index) in departureTime"
+          v-for="(item, index) in getTimeArr('departureTime')"
           :key="index"
           class="info-unit__item"
         >
@@ -23,7 +23,7 @@
 
       <ul class="info-unit__list">
         <li
-          v-for="(item, index) in pickUpTime"
+          v-for="(item, index) in getTimeArr('pickUpTime')"
           :key="index"
           class="info-unit__item"
         >
@@ -39,7 +39,7 @@
 
       <ul class="info-unit__list">
         <li
-          v-for="(item, index) in timeForCalls"
+          v-for="(item, index) in getTimeArr('timeForCalls')"
           :key="index"
           class="info-unit__item"
         >

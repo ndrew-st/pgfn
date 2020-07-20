@@ -31,8 +31,7 @@ export default () => ({
     ]
   },
   result: {
-    title: '3-к квартира, 146 м², 11/12 эт., г. Судак',
-    intro: 'Intro',
+    title: 'Intro',
     description: 'Лучшее место в Ялте с видом на море',
     city: 'Судак',
     address: {
@@ -72,30 +71,35 @@ export default () => ({
         }
       ]
     },
-    firstPaymentAmount: {
-      byTheDay: '',
-      longTerm: ''
-    },
     reservation: {
       typeOfReservation: 'typeOfReservation',
       cancellationPolicy: 'cancellationPolicy',
       departureTime: [
-        // {
-        //   day: '',
-        //   intervalTime: {
-        //     start: '2020-06-26T11:36:49.157Z',
-        //     end: '2020-06-26T11:36:49.157Z'
-        //   }
-        // }
+        {
+          day: 1,
+          intervalTime: {
+            start: '2020-06-26T11:36:49.157Z',
+            end: '2020-06-26T11:36:49.157Z'
+          }
+        }
       ],
       timeForCalls: [
-        // {
-        //   day: '',
-        //   intervalTime: {
-        //     start: '2020-06-26T11:36:49.157Z',
-        //     end: '2020-06-26T11:36:49.157Z'
-        //   }
-        // }
+        {
+          day: 1,
+          intervalTime: {
+            start: '2020-06-26T11:36:49.157Z',
+            end: '2020-06-26T11:36:49.157Z'
+          }
+        }
+      ],
+      pickUpTime: [
+        {
+          day: 1,
+          intervalTime: {
+            start: '2020-06-26T11:36:49.157Z',
+            end: '2020-06-26T11:36:49.157Z'
+          }
+        }
       ]
     },
     // спальные места
