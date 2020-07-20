@@ -1,41 +1,54 @@
 <template>
-  <InfoBlock
-    block-name="Стоимость"
-  >
-    <div v-if="prices.byTheDay.length">
-      <p class="name">
-        Посуточно
-      </p>
-      <p
-        v-for="(item, index) in prices.byTheDay"
-        :key="index"
-        class="desc"
-      >
-        от {{ days(item.days) }}  <span class="desc__bold"> - {{ item.price }} <span class="desc__bold--rouble">9</span></span><span class="desc__grey"> за сутки</span>
-      </p>
+  <InfoBlock class="info-block-container">
+    <div class="info-block-container__item info-unit">
+      <h3 class="info-unit__title">
+        Время для звонков
+      </h3>
+
+      <ul class="info-unit__list">
+        <li
+          v-for="(item, index) in departureTime"
+          :key="index"
+          class="info-unit__item"
+        >
+          {{ item }}
+        </li>
+      </ul>
     </div>
 
-    <div v-if="prices.byTheDay.length">
-      <p class="name">
-        На длительный срок
-      </p>
-      <p
-        v-for="(item, index) in prices.longTerm"
-        :key="index"
-        class="desc"
-      >
-        от {{ days(item.days) }}  <span class="desc__bold"> - {{ item.price }} <span class="desc__bold--rouble">9</span></span><span class="desc__grey"> за месяц</span>
-      </p>
+    <div class="info-block-container__item info-unit">
+      <h3 class="info-unit__title">
+        Время заезда/показа жилья
+      </h3>
+
+      <ul class="info-unit__list">
+        <li
+          v-for="(item, index) in pickUpTime"
+          :key="index"
+          class="info-unit__item"
+        >
+          {{ item }}
+        </li>
+      </ul>
     </div>
 
-    <!--    <a-->
-    <!--      href="#"-->
-    <!--      class="href-all-items"-->
-    <!--    >-->
-    <!--      Подробнее о цене-->
-    <!--    </a>-->
+    <div class="info-block-container__item info-unit">
+      <h3 class="info-unit__title">
+        Время выезда гостей
+      </h3>
+
+      <ul class="info-unit__list">
+        <li
+          v-for="(item, index) in timeForCalls"
+          :key="index"
+          class="info-unit__item"
+        >
+          {{ item }}
+        </li>
+      </ul>
+    </div>
   </InfoBlock>
 </template>
 
 <script src="./index.js"/>
-<style src="./index.styl" lang="stylus" scoped />
+<style src="./index.styl" lang="stylus" />

@@ -1,6 +1,9 @@
 <template>
   <div class="pics">
-    <div class="pics__carousel pics-carousel">
+    <div
+      class="pics__carousel pics-carousel"
+      :class="[{ 'one-image': images.length < 5 }]"
+    >
       <Popup
         :length="images.length"
         :show-popup="showPopup"
@@ -18,7 +21,7 @@
         >
           <div
             v-for="img in images"
-            :key="img.id"
+            :key="img"
             class="pics-carousel__img-container carousel-img-container"
           >
             <div class="carousel-img-container__wrapper">
@@ -53,7 +56,10 @@
       >{{ activeIndex + 1 }}/{{ images.length }}</span>
     </div>
 
-    <div class="pics__vertical pics-vertical">
+    <div
+      v-if="images.length > 4"
+      class="pics__vertical pics-vertical"
+    >
       <OcCarousel
         :dots="true"
         :items="images"
@@ -66,7 +72,7 @@
       >
         <div
           v-for="(img, index) in images"
-          :key="img.id"
+          :key="img"
           class="pics-vertical__img-container"
           @click="changeActiveCarousel(index)"
         >
@@ -79,7 +85,10 @@
       </OcCarousel>
     </div>
 
-    <div class="pics__button-container">
+    <div
+      v-if="images.length > 1"
+      class="pics__button-container"
+    >
       <OcButton
         name="border"
         @click="toggleShow(true)"

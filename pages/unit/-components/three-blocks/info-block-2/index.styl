@@ -1,46 +1,28 @@
-.name
-  font-style normal
-  font-weight normal
-  font-size 18px
-  line-height 22px
-  color $dark
-
-  @media (max-width 768px)
-    font-size 16px
-    line-height 20px
-
-.desc
-  font-style normal
-  font-weight normal
-  font-size 14px
-  line-height 17px
-  display flex
-  align-items center
-  color $dark
+.tariff
   margin-bottom 12px
+  position relative
 
-  @media (max-width 768px)
-    font-size 13px
-    line-height 16px
+.info-block-container
+  .info-unit
+    margin-bottom 24px
 
-  &__bold
-    font-weight bold
-    white-space pre
+    &__title
+      margin-bottom 16px
 
-    &--rouble
-      font-family Rouble Sans
+    &__list
+      margin 0
+      padding 0
 
-    @media (max-width 768px)
-      font-size 13px
-      line-height 16px
+      list-style none
 
-  &__grey
-    color $secondary
-    white-space pre
+    &__item
+      margin-bottom 5px
 
-    @media (max-width 768px)
-      font-size 13px
-      line-height 16px
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 22px;
+      color: #272528;
 
-
-
+      &:last-child
+        margin-bottom 0

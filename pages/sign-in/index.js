@@ -51,7 +51,7 @@ export default {
 
       const res = await this[login]({ phone: phoneNum, password: pass.password })
 
-      if (res.error) {
+      if (res && res.error) {
         console.log('Error', res)
 
         return
