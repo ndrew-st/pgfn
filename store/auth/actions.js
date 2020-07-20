@@ -58,7 +58,9 @@ export default {
     const res = await this.$api.users.login(phone, password)
 
     if (res.error) {
-      throw new Error(res.error)
+      return {
+        error: res.error
+      }
     }
 
     const user = {

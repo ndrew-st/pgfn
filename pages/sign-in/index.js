@@ -49,14 +49,16 @@ export default {
     async logIn (pass) {
       const phoneNum = this._getNumPhone(this.phone)
 
-      try {
-        await this[login]({ phone: phoneNum, password: pass.password })
+      const res = await this[login]({ phone: phoneNum, password: pass.password })
 
-        this.$router.push('/profile')
-        this.$storage.clearAll()
-      } catch (e) {
-        console.log('Error ', e)
+      if (res.error) {
+        console.log('Error', res)
+
+        return
       }
+
+      this.$router.push('/profile')
+      this.$storage.clearAll()
     },
     ...mapActions('auth', [ login ]),
     async next (par) {
