@@ -34,8 +34,8 @@
                   @click="toggleShow(true)"
                 >
                   <OcImg
-                    :data-url="img.url"
-                    :alt="img.description"
+                    :id="img"
+                    :alt="img"
                     class="pics-carousel__img"
                   />
                 </div>

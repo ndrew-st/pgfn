@@ -16,6 +16,9 @@ export default {
       zoomed: false
     }
   },
+  mounted () {
+    console.log('images ', this.images)
+  },
   watch: {
     showPopup (val) {
       if (val) {

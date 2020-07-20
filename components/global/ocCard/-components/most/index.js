@@ -58,7 +58,8 @@ export default {
       viewWidth: 0,
       reviewsText: ['отзыв', 'отзыва', 'отзывов'],
       viewsText: ['просмотр', 'просмотра', 'просмотров'],
-      bedsText: ['кровать', 'кровати', 'кроватей']
+      bedsText: ['кровать', 'кровати', 'кроватей'],
+      guestKey: [ 'гость', 'гости', 'гостей' ]
     }
   },
   computed: {
@@ -75,6 +76,19 @@ export default {
     title () {
       return `${parseInt(this.item.typeOfHousing) === 0 ? `${this.item.numberOfRooms}-к квартира` : typeHousing[parseInt(this.item.typeOfHousing)]}, ${this.item.areaOfHousin} м² `
     },
+    countGuests () {
+      let res = 0
+
+      this.item.sleepingPlace.forEach((item) => {
+        if (item.typeOfParam === 'bunkBed') {
+          res += parseInt(item.amount) * 2
+        } else {
+          res += parseInt(item.amount)
+        }
+      })
+
+      return `${res} ${num2str(res, this.guestKey)}`
+    },
     countBeds () {
       let res = 0
 
@@ -86,6 +100,8 @@ export default {
     },
     arrImages () {
       return this.item.images.length ? this.item.images : this.$store.state.images.content
+    },
+    bedsRoom () {
     }
   },
   mounted () {
