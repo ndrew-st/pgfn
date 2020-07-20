@@ -13,15 +13,19 @@ export default {
   },
   data () {
     return {
-      textDays: [ 'день', 'дня', 'дней' ]
+      textDays: [ 'день', 'дня', 'дней' ],
+      obj: {
+        days: 0,
+        price: 1500
+      }
     }
   },
   computed: {
     byTheDay () {
-      return this.prices.byTheDay.find(item => item.defaultValue)
+      return this.prices.byTheDay.find(item => item.defaultValue) || this.obj
     },
     longTerm () {
-      return this.prices.longTerm.find(item => item.defaultValue)
+      return this.prices.longTerm.find(item => item.defaultValue) || this.obj
     }
   },
   methods: {

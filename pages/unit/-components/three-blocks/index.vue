@@ -12,7 +12,7 @@
     />
 
     <InfoBlock3
-      :online-booking="booking"
+      :content="booking"
       class="info-block info-block-3"
     />
   </div>

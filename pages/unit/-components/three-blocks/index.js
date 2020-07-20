@@ -20,16 +20,24 @@ export default {
   },
   computed: {
     times () {
-      return {
-        departureTime: this.reservation.departureTime,
-        pickUpTime: this.reservation.pickUpTime,
-        timeForCalls: this.reservation.pickUpTime
+      if (this.reservation) {
+        return {
+          departureTime: this.reservation.departureTime,
+          pickUpTime: this.reservation.pickUpTime,
+          timeForCalls: this.reservation.pickUpTime
+        }
+      } else {
+        return {}
       }
     },
     booking () {
-      return {
-        cancellationPolicy: this.reservation.cancellationPolicy,
-        typeOfReservation: this.reservation.typeOfReservation
+      if (this.reservation) {
+        return {
+          cancellationPolicy: this.reservation.cancellationPolicy,
+          typeOfReservation: this.reservation.typeOfReservation
+        }
+      } else {
+        return {}
       }
     }
   },

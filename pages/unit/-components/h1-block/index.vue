@@ -14,7 +14,7 @@
       <div class="fe">
         <p class="h1">
           <nobr>
-            {{ (price.byTheDay[0] && price.byTheDay[0].price) || 'null' }}
+            {{ (price && price.byTheDay[0] && price.byTheDay[0].price) || 'null' }}
             <span class="h1__rouble">9</span>
           </nobr>
         </p>

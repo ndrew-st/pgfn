@@ -39,8 +39,6 @@ export default {
     return !!id
   },
   async asyncData ({ store, params }) {
-    // console.log('params ', params)
-
     await store.dispatch(`habitation/getItem`, params.id)
   },
   data: () => ({
@@ -94,7 +92,7 @@ export default {
       prices: state => state.result.price,
       address: state => state.result.address,
       images: state => state.result.images,
-      facilities: state => fac.filter(item => state.result.params.find(itm => itm.typeOfParam === item.value)),
+      facilities: state => fac.filter(item => state.result.params && state.result.params.find(itm => itm.typeOfParam === item.value)),
       reservation: state => state.result.reservation,
       limits: (state) => {
         const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'listLimits')
