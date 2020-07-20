@@ -58,7 +58,10 @@ export default {
       }
 
       this.$router.push('/profile')
-      this.$storage.clearAll()
+
+      this.$storage.rmItem('sign-in')
+      this.$storage.rmItem('sign-up')
+      this.$storage.rmItem('recovery')
     },
     ...mapActions('auth', [ login ]),
     async next (par) {

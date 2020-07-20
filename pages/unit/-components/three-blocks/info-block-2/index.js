@@ -36,9 +36,6 @@ export default {
       return '12:00'
     }
   },
-  mounted () {
-    console.log('times ', this.times)
-  },
   data () {
     return {
       current: 'standard'
