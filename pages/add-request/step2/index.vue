@@ -96,6 +96,5 @@
   </div>
 </template>
 
-<style src="./index.styl" lang="stylus"/>
-
 <script src="./index.js" />
+<style src="./index.styl" lang="stylus"/>

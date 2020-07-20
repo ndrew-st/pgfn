@@ -1,25 +1,47 @@
-import InfoBlock from '../info-block/index.vue'
+import daysWeek from '~/constants/daysWeek'
 
-import num2str from '~/utils/num2str'
+import InfoBlock from '../info-block/index.vue'
 
 export default {
   components: {
     InfoBlock
   },
   props: {
-    prices: {
+    times: {
       type: Object,
-      default: () => ({})
+      default: () => ({
+
+      })
     }
   },
-  data () {
-    return {
-      textDays: [ 'день', 'дня', 'дней' ]
+  computed: {
+    departureTime () {
+      const { departureTime } = this.times
+
+      if (departureTime.length) {
+        return departureTime.map(item => `${daysWeek[item.day]} с ${this.getTime(item.start)} по ${this.getTime(item.end)}`)
+      }
+    },
+    pickUpTime () {
+
+    },
+    timeForCalls () {
+
     }
   },
   methods: {
-    days (day) {
-      return `${day} ${num2str(day, this.textDays)}`
+    getTime (data) {
+      console.log('date ', new Date(data))
+
+      return '12:00'
+    }
+  },
+  mounted () {
+    console.log('times ', this.times)
+  },
+  data () {
+    return {
+      current: 'standard'
     }
   }
 }

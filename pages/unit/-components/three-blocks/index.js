@@ -9,17 +9,28 @@ export default {
     InfoBlock3
   },
   props: {
-    tariffs: {
-      type: Array,
-      default: []
+    reservation: {
+      type: Object,
+      default: null
     },
     prices: {
       type: Object,
-      default: {}
+      default: null
+    }
+  },
+  computed: {
+    times () {
+      return {
+        departureTime: this.reservation.departureTime,
+        pickUpTime: this.reservation.pickUpTime,
+        timeForCalls: this.reservation.pickUpTime
+      }
     },
-    onlineBooking: {
-      type: Object,
-      default: () => {}
+    booking () {
+      return {
+        cancellationPolicy: this.reservation.cancellationPolicy,
+        typeOfReservation: this.reservation.typeOfReservation
+      }
     }
   },
   data () {

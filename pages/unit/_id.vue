@@ -31,9 +31,8 @@
       />
 
       <ThreeBlocks
-        :tariffs="rates"
+        :reservation="reservation"
         :prices="prices"
-        :online-booking="onlineBooking"
       />
 
       <Comfort
@@ -41,10 +40,10 @@
         :comfort="facilities"
       />
 
-      <Rules
-        :rules1="reservation"
-        :rules2="limits"
-      />
+      <!--      <Rules-->
+      <!--        :rules1="reservation"-->
+      <!--        :rules2="limits"-->
+      <!--      />-->
 
       <Location
         :coords="coords"

@@ -1,6 +1,9 @@
 <template>
   <div class="info-block">
-    <p class="h1">
+    <p
+      v-if="blockName"
+      class="h1"
+    >
       {{ blockName }}
     </p>
     <slot />

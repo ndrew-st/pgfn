@@ -1,5 +1,3 @@
-import OcDropDown from '@/components/global/ocDropDown/index.vue'
-// import OcCheckbox from '@/components/global/Forms/ocInput/index.vue'
 import ApButton from '../ap-button/index.vue'
 import ApListDropdown from '../ap-list-dropdown/index.vue'
 import ApInput from '../ap-input/index.vue'
@@ -7,7 +5,6 @@ import ListApRadio from '../blocks/list-ap-radio'
 
 export default {
   components: {
-    OcDropDown,
     ApButton,
     ApListDropdown,
     ApInput,
