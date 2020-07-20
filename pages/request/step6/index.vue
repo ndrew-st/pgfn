@@ -4,10 +4,10 @@
       Условия аренды
     </p>
 
-    <!-- <p class="req-step6__h2 req-step6__mt62">
+    <p class="req-step6__h2 mt62">
       Прибытие, выезд
       <span class="add-placement__red-star">*</span>
-    </p> -->
+    </p>
 
     <!-- <ApInput
       v-model="datesOfStay"
@@ -20,7 +20,6 @@
       <OcInput
         slot="button"
         v-model="datesOfStay"
-        label="Прибытие, выезд"
         placeholder="дд.мм.гггг – дд.мм.гггг"
         kind="most"
         readonly
@@ -35,21 +34,20 @@
       />
     </OcDropDown>
 
-    <!-- <p class="req-step6__h2 req-step6__mt62">
+    <p class="req-step6__h2 mt62">
       Количество гостей
       <span class="add-placement__red-star">*</span>
     </p>
 
-    <ApInput
+    <!-- <ApInput
       placeholder="Гости"
       class="req-step6__input-guests"
     /> -->
 
-    <div class="req-step6__guests-container mt48">
+    <div class="req-step6__guests-container">
       <OcDropDown>
         <OcInput
           slot="button"
-          label="Гости"
           placeholder="Гости"
           kind="most"
           readonly
@@ -63,7 +61,7 @@
       </OcDropDown>
     </div>
 
-    <p class="req-step6__h2 req-step6__mt62">
+    <p class="req-step6__h2 mt48">
       Укажите справедливую цену
       <span class="add-placement__red-star">*</span>
     </p>
@@ -79,7 +77,7 @@
 
     <span class="req-step6__span-price">₽/сутки</span>
 
-    <p class="req-step6__h2 req-step6__mt62">
+    <p class="req-step6__h2 mt36">
       Гражданство проживающих
       <span class="add-placement__red-star">*</span>
     </p>
@@ -93,7 +91,7 @@
       title-block="Необходимые разрешения"
       :list="listLimits"
       :red-star="false"
-      class="add-placement__mt48"
+      class="mt48"
     />
 
     <ApFolding
