@@ -7,10 +7,10 @@ export default {
   },
   watch: {
     phone (val) {
-      this.$session.setItem('sign-up', { phone: val, stage: this.stage })
+      this.$storage.setItem('sign-up', { phone: val, stage: this.stage })
     },
     stage (val) {
-      this.$session.setItem('sign-up', { phone: this.phone, stage: val })
+      this.$storage.setItem('sign-up', { phone: this.phone, stage: val })
     }
   },
   data: () => ({
@@ -23,8 +23,8 @@ export default {
     timeCounter: 119
   }),
   created () {
-    if (process.client && this.$session.getItem('sign-up')) {
-      const { phone, stage } = this.$session.getItem('sign-up')
+    if (process.client && this.$storage.getItem('sign-up')) {
+      const { phone, stage } = this.$storage.getItem('sign-up')
 
       this.phone = phone
       this.stage = stage
@@ -86,7 +86,7 @@ export default {
 
       if (!result.error) {
         this.$router.push('/sign-in')
-        this.$session.clearAll()
+        this.$storage.clearAll()
       } else {
         this.error = 'Ошибка регистрации! Обратитесь к администратору.'
       }
