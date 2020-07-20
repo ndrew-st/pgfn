@@ -1,0 +1,41 @@
+.room-counter
+  position relative
+
+  &__input
+    background-image url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1L5 5L0.999998 1' stroke='%23989BA8'/%3E%3C/svg%3E%0A")
+    background-position center right 10px
+    background-repeat no-repeat
+    border 1px solid #DADADA
+    box-sizing border-box
+    border-radius 4px
+    outline none
+    cursor pointer
+    padding 4px 29px 0 10px
+    min-width 65px
+    height 28px
+
+  &__dropdown
+    position absolute
+    box-shadow 0px 2px 30px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.08)
+    border-radius 3px
+
+  &__ul
+    list-style-type none
+    padding 0
+    margin 8px
+
+  &__flex-btn
+    display flex
+    justify-content flex-end
+
+  &__ready-btn
+    font-family Calibri
+    font-style normal
+    font-weight bold
+    font-size 14px
+    line-height 28px
+    color $dark
+    border none
+    outline none
+    background-color #fff
+    margin-right 20px

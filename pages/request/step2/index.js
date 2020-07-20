@@ -2,21 +2,23 @@ import ApButton from '../../add-placement/ap-button/index.vue'
 import ApListDropdown from '../../add-placement/ap-list-dropdown/index.vue'
 import ApInput from '../../add-placement/ap-input/index.vue'
 import ListApRadio from '../../add-placement/blocks/list-ap-radio'
+import RoomCounter from '../-components/RoomCounter/index.vue'
 
 export default {
   components: {
     ApButton,
     ApListDropdown,
     ApInput,
-    ListApRadio
+    ListApRadio,
+    RoomCounter
   },
   data () {
     return {
       selItem: null,
       selId: 0,
-      numberOfRooms: 1,
-      areaStart: 0,
-      areaEnd: 0,
+      selRooms: [],
+      areaStart: '0',
+      areaEnd: '0',
       list: [
         { id: 0,
           name: 'Квартира/апартаменты',
@@ -76,6 +78,11 @@ export default {
     setSelId (val) {
       this.selId = val
       this.$store.dispatch('request/setItem', { key: 'typeOfHousing', value: this.list[this.selItem].list[this.selId].code })
+    },
+    changeRoom (val) {
+      this.selRooms = val
+      console.log('this.selRooms:', this.selRooms)
+      // this.$store.dispatch('request/setItemSecondLevel', { level: '', key: '', value:  })
     }
   }
 }
