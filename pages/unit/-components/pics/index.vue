@@ -71,8 +71,8 @@
           @click="changeActiveCarousel(index)"
         >
           <OcImg
-            :src="img.url"
-            :alt="img.description"
+            :id="img"
+            :alt="img"
             class="pics-vertical__img"
           />
         </div>
