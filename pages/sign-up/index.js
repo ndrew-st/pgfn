@@ -12,8 +12,8 @@ export default {
     stage (val) {
       this.$storage.setItem('sign-up', { phone: this.phone, code: this.code, stage: val })
     },
-    code () {
-      this.$storage.setItem('sign-up', { phone: this.phone, code: this.code, stage: this.stage })
+    code (val) {
+      this.$storage.setItem('sign-up', { phone: this.phone, code: val, stage: this.stage })
     }
   },
   data: () => ({
@@ -27,10 +27,11 @@ export default {
   }),
   created () {
     if (process.client && this.$storage.getItem('sign-up')) {
-      const { phone, stage } = this.$storage.getItem('sign-up')
+      const { phone, stage, code } = this.$storage.getItem('sign-up')
 
       this.phone = phone
       this.stage = stage
+      this.code = code
     }
   },
   methods: {
