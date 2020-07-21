@@ -100,7 +100,8 @@ export default {
         { label: 'Удобно для больших компаний', value: 'goodForBigCompany' },
         { label: 'Удобно людям с ограниченными возможностями', value: 'goodForInvalids' }
       ],
-      starCheckbox: false
+      starCheckbox: false,
+      countBedTotal: 0
     }
   },
   methods: {

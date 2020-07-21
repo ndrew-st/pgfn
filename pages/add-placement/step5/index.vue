@@ -40,7 +40,9 @@
       </li>
     </ul>
 
-    <CountBed />
+    <CountBed @changeLength="countBedTotal = $event" />
+
+    <!-- <p>countBedTotal: {{ countBedTotal }}</p> -->
 
     <p class="add-placement__h2 ap-step5__h2">
       Интернет

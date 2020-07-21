@@ -19,7 +19,7 @@
             class="count-bed__counter"
             :title="bed.title"
             :value="bed.value"
-            @change="change"
+            @input="change"
           />
         </li>
       </ul>
