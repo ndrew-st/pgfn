@@ -25,10 +25,10 @@ export default {
       ],
       limits: '',
       listLimits: [
-        { label: 'Можно с детьми', value: 'kids' },
-        { label: 'Можно с животными', value: 'pets' },
-        { label: 'Можно для мероприятий', value: 'party' },
-        { label: 'Можно курить', value: 'weed' }
+        { label: 'Нельзя с детьми', value: 'kids' },
+        { label: 'Нельзя с животными', value: 'pets' },
+        { label: 'Нельзя для мероприятий', value: 'party' },
+        { label: 'Нельзя курить', value: 'weed' }
       ],
       internet: 0,
       listInternet: [
