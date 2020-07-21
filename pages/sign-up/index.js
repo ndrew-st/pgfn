@@ -7,10 +7,13 @@ export default {
   },
   watch: {
     phone (val) {
-      this.$storage.setItem('sign-up', { phone: val, stage: this.stage })
+      this.$storage.setItem('sign-up', { phone: val, code: this.code, stage: this.stage })
     },
     stage (val) {
-      this.$storage.setItem('sign-up', { phone: this.phone, stage: val })
+      this.$storage.setItem('sign-up', { phone: this.phone, code: this.code, stage: val })
+    },
+    code () {
+      this.$storage.setItem('sign-up', { phone: this.phone, code: this.code, stage: this.stage })
     }
   },
   data: () => ({
@@ -31,6 +34,9 @@ export default {
     }
   },
   methods: {
+    clear () {
+      this.$storage.rmItem('sign-up')
+    },
     prevent () {
       if (this.stage === 'phone') {
         this.$router.go(-1)
@@ -39,7 +45,14 @@ export default {
         this.stage = 'phone'
         this.error = ''
       } else if (this.stage === 'userpass') {
-        this.stage = 'sms'
+        const { code } = this.$storage.getItem('sign-up')
+
+        if (code && code.length) {
+          this.stage = 'phone'
+        } else {
+          this.stage = 'sms'
+        }
+
         this.error = ''
       }
     },
@@ -86,7 +99,9 @@ export default {
 
       if (!result.error) {
         this.$router.push('/sign-in')
-        this.$storage.clearAll()
+        this.$storage.rmItem('sign-up')
+        this.$storage.rmItem('sign-in')
+        this.$storage.rmItem('recovery')
       } else {
         this.error = 'Ошибка регистрации! Обратитесь к администратору.'
       }
@@ -94,6 +109,16 @@ export default {
     async next (par) {
       switch (this.stage) {
         case 'phone':
+
+          const { code } = this.$storage.getItem('sign-up')
+          this.code = code
+
+          if (code.length) {
+            this.stage = 'userpass'
+
+            return
+          }
+
           this.phone = this._getNumPhone(this.phone)
           const res = await this.$api.users.getCode(this.phone)
 

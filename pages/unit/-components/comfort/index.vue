@@ -4,19 +4,22 @@
       Удобства
     </p>
 
-    <div
+    <ul
+      ref="container"
       class="flex-comfort"
       :class="{ active: showAll }"
     >
-      <ComfortItem
+      <li
         v-for="(item, index) in orderedComfort"
         :key="index"
-        :item="item"
-      />
-    </div>
+        class="flex-comfort__item"
+      >
+        <ComfortItem :item="item" />
+      </li>
+    </ul>
 
     <OcButton
-      v-if="comfort.length > 10"
+      v-if="isShow"
       name="border"
       class="show-all"
       @click="showAll = !showAll"

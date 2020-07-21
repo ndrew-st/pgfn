@@ -28,24 +28,71 @@
 .flex-comfort
     display flex
     flex-wrap wrap
-    justify-content space-between
     max-width 1280px
     max-height 655px
     overflow hidden
+    margin 0
+    padding 0
+
+    list-style none
+
+    &.active
+      max-height 100%
 
     @media (max-width 768px)
-        height 264px
+        max-height 264px
+
+        &.active
+          max-height 100%
+
+    &__item
+      margin-right 13px
+
+      @media (max-width 418px)
+        &:nth-child(3n)
+          margin-right 0
+
+      @media (min-width 419px) and (max-width 517px)
+        &:nth-child(4n)
+          margin-right 0
+
+      @media (min-width 519px) and (max-width 616px)
+        &:nth-child(5n)
+          margin-right 0
+
+      @media (min-width 618px) and (max-width 715px)
+        &:nth-child(6n)
+          margin-right 0
+
+      @media (min-width 717px) and (max-width 768px)
+        &:nth-child(7n)
+          margin-right 0
+
+      @media (min-width 769px)
+        margin-right 18px
+
+      @media (min-width 843px) and (max-width 1101px)
+        &:nth-child(3n)
+          margin-right 0
+
+      @media (min-width 1103px) and (max-width 1279px)
+        &:nth-child(4n)
+          margin-right 0
+
+      @media (min-width 1280px)
+        margin-right 17px
+        
+        &:nth-child(5n)
+          margin-right 0
 
 .show-all
     height 40px
     position absolute
     bottom -20px
-    right calc(50% - 80px)
+    left 0
+    right 0
+    margin 0 auto
 
     @media (max-width 768px)
         height 36px
-        right calc(50% - 62px)
-
-.active
-    max-height 100%
 

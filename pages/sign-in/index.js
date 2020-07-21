@@ -31,9 +31,7 @@ export default {
   }),
   methods: {
     _clearData () {
-      if (process.client) {
-        this.$session.rmItem('sign-in')
-      }
+      this.$storage.rmItem('sign-in')
     },
     prevent () {
       if (this.stage === 'phone') {

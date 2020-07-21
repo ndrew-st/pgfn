@@ -26,6 +26,11 @@ export default {
       }
     }
   },
+  computed: {
+    typeSize () {
+      return this.images.length < 5 ? 'original' : 'middle'
+    }
+  },
   methods: {
     updateIndex (val) {
       this.activeIndex = val

@@ -18,7 +18,7 @@ export default {
     },
     typeSize: {
       type: String,
-      default: null
+      default: 'original'
     },
     alt: {
       type: String,
@@ -36,7 +36,7 @@ export default {
       const data = await this.$api.attachment.getImage(id)
 
       if (!data.error) {
-        this.url = this.typeSize ? data[0][this.typeSize] || data[0].original : data[0].original
+        this.url = data[0][this.typeSize]
       } else {
         console.log('Error to load image: ', data)
       }

@@ -16,8 +16,16 @@ export default {
   data: () => ({
     isActive: false,
     phone1: '',
-    er: ''
+    er: '',
+    key: Math.random()
   }),
+  mounted () {
+    if (this.value) {
+      this.phone1 = this.value.slice(1)
+      this.key = Math.random()
+      this.mask()
+    }
+  },
   methods: {
     mask () {
       const matrix = '___ ___-__-__'
@@ -39,6 +47,14 @@ export default {
         return
       }
 
+      const resCheck = this.$storage.getItem('checkCode')
+
+      if (resCheck) {
+        this.$emit('next', this.phone1)
+
+        return
+      }
+
       if (this.phone1.length === 13) {
         let res = null
 
@@ -48,9 +64,8 @@ export default {
           res = await this.$api.users.checkPhoneLogin(this.phone1)
         }
 
-        console.log('res ', res)
-
         if (!res.error) {
+          this.$storage.setItem('checkCode', res)
           this.$emit('next', this.phone1)
         } else {
           const errRes = res.error.split(' ')[0]

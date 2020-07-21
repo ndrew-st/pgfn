@@ -18,6 +18,7 @@
         </select>
 
         <input
+          :key="key"
           v-model="phone1"
           class="input"
           type="text"

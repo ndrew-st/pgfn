@@ -141,17 +141,19 @@
             </OcDropDown>
           </li>
           <li class="header-controls__item">
-            <OcLink
-              v-if="!isAuth"
-              to="/sign-in"
-              name="header-user"
-              icon="user"
-            >
-              Войти
-            </OcLink>
-            <User
-              v-else
-            />
+            <client-only>
+              <User
+                v-if="isAuth"
+              />
+              <OcLink
+                v-else
+                to="/sign-in"
+                name="header-user"
+                icon="user"
+              >
+                Войти
+              </OcLink>
+            </client-only>
           </li>
         </ul>
       </div>

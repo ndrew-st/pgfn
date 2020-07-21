@@ -4,8 +4,6 @@ export default {
       this.$storage.setItem('recovery', { stage: val, code: this.code })
     },
     code (val) {
-      console.log('code ', val)
-
       this.$storage.setItem('recovery', { stage: this.stage, code: this.code })
     }
   },
@@ -23,7 +21,12 @@ export default {
       const { phone } = this.$storage.getItem('sign-in')
       const res = this.$storage.getItem('recovery') || {}
 
-      this.stage = res.stage || 'sms'
+      if (res.code && res.code.length) {
+        this.stage = 'pass'
+      } else {
+        this.stage = res.stage || 'sms'
+      }
+
       this.code = res.code
       this.phone = phone
     }
@@ -31,10 +34,15 @@ export default {
   methods: {
     prevent () {
       if (this.stage === 'sms') {
-        this.$router.go(-1)
+        this.$router.push('/sign-in')
         // this._clearData()
       } else if (this.stage === 'pass') {
-        this.stage = 'sms'
+        const { code } = this.$storage.getItem('recovery')
+        if (code && code.length) {
+          this.$router.push('/sign-in')
+        } else {
+          this.stage = 'sms'
+        }
       }
     },
     async next (data) {

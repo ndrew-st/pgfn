@@ -38,6 +38,7 @@
                 >
                   <OcImg
                     :id="img"
+                    :type-size="typeSize"
                     :alt="img"
                     class="pics-carousel__img"
                   />
@@ -78,6 +79,7 @@
         >
           <OcImg
             :id="img"
+            type-size="thumbnail"
             :alt="img"
             class="pics-vertical__img"
           />
