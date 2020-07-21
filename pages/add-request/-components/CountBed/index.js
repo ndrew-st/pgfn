@@ -44,6 +44,8 @@ export default {
         this.$store.dispatch('placement/removeBed', { typeOfPlace: value, amount: val })
       }
       this.resultLength = this.result.length
+      // console.log('this.resultLength:', this.resultLength)
+      this.$emit('changeLength', this.resultLength)
     },
     select (val) {
       this.beds.push(val)
