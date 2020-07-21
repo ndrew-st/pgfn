@@ -53,7 +53,7 @@ export default {
   },
   computed: {
     orderedComfort () {
-      const arr = this.comfort.slice(2)
+      const arr = this.comfort.slice(0)
       arr.sort((a, b) => {
         if (a.order > b.order) {
           return 1

@@ -1,4 +1,4 @@
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 import fac from '~/constants/fac'
 
@@ -6,7 +6,6 @@ import GroupCard from '~/components/blocks/GroupCard'
 import Footer from '~/components/blocks/Footer'
 import Subscribe from '~/components/blocks/Subscribe'
 
-import typeHousing from '~/constants/consts/typeOfHousing'
 import H1Block from './-components/h1-block/index.vue'
 import MapBlock from './-components/MapBlock'
 import Pics from './-components/pics/index.vue'
@@ -64,10 +63,10 @@ export default {
     locDesc: 'Жилье расположено в Судаке на улице Ленина, д9 - это в 300 метрах от центра города, 50 м от Черного моря, 5 км от горы Ильяс-Кая и в 4х километрах от Храма Солнца. Расстояние до ближайшего аэропорта (Международный аэропорт Симферополь имени К. Айвазовского) - 110 км...'
   }),
   computed: {
+    ...mapGetters('habitation', ['title']),
     ...mapState('habitation', {
       header: (state) => {
         return {
-          title: `${parseInt(state.result.typeOfHousing) === 0 ? `${state.result.numberOfRooms}-к квартира` : typeHousing[parseInt(state.result.typeOfHousing)]}, ${state.result.areaOfHousin} м² `,
           intro: state.result.title,
           description: state.result.description,
           reviews: state.result.reviews,

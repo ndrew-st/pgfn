@@ -17,7 +17,7 @@
           class="habitation-top__path--link"
           :to="item.url"
         >{{ item.title }}</nuxt-link>
-        {{ topPath.length === index + 1 ? '' : ` &middot; ` }}
+        {{ topPath.length === index + 1 ? '' : `&nbsp;&middot;&nbsp;` }}
       </span>
     </div>
 

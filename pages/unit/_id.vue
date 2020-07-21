@@ -3,7 +3,7 @@
     <div class="habitation-page__padding">
       <div class="habitation-page__order-flex">
         <H1Block
-          :title="header.title"
+          :title="title"
           :intro="header.intro"
           :reviews="header.reviews"
           :estimate="header.estimate"

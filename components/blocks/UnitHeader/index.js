@@ -1,10 +1,4 @@
 export default {
-  props: {
-    title: {
-      type: String,
-      default: 'Title'
-    }
-  },
   data () {
     return {
       topPath: [
@@ -17,6 +11,11 @@ export default {
           url: '/housing/supply'
         }
       ]
+    }
+  },
+  computed: {
+    title () {
+      return this.$store.getters['habitation/title']
     }
   },
   created () {
