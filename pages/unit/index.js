@@ -79,13 +79,11 @@ export default {
         }
       },
       description: (state) => {
-        const idx = state.result && state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'guests')
-
         return {
           typeOfHousing: state.result.typeOfHousing,
           countBed: state.result.sleepingPlace && state.result.sleepingPlace.length,
           content: state.result.description,
-          countGuests: state.result && state.result.params && state.result.params[idx] && state.result.params[idx].paramValue.length
+          countGuests: state.result.sleepingPlace.reduce((sum, cur) => sum + (cur.typeOfPlace === 'twoBed' ? cur.amount * 2 : cur.amount), 0)
         }
       },
       prices: state => state.result.price,
@@ -98,7 +96,6 @@ export default {
 
         return state.result.params.length && state.result.params[idx] && state.result.params[idx].paramValue
       },
-      countGuests: state => state.result.sleepingPlace.reduce((sum, cur) => sum + cur, 0),
       rates: state => state.rates,
       coords: state => state.result && state.result.address && state.result.address.geo
     })
