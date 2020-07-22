@@ -45,7 +45,10 @@
                 </div>
               </OcZoomer>
             </div>
-            <p class="pics-carousel__img-description carousel-img-description">
+            <p
+              v-if="img && img.description"
+              class="pics-carousel__img-description carousel-img-description"
+            >
               {{ img.description }}
             </p>
           </div>
