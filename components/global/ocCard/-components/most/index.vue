@@ -149,13 +149,13 @@
       <!--          9-->
       <!--        </span>-->
       <!--      </span>-->
-      <span class="card-item__price">от {{ item.price.byTheDay[0] && item.price.byTheDay[0].price }}
+      <span class="card-item__price">от {{ item.price.byTheDay[0] ? item.price.byTheDay[0].price : item.price.longTerm[0] && item.price.longTerm[0].price }}
         <span class="card-item__price--rouble">
           9
         </span>
       </span>
       <!--      <span class="card-item__type-price">{{ item.typePrice }}</span>-->
-      <span class="card-item__type-price">за сутки</span>
+      <span class="card-item__type-price">{{ item.price.byTheDay[0] ? 'за сутки' : 'за месяц' }}</span>
     </p>
   </div>
 </template>

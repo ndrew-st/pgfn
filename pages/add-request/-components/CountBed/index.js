@@ -35,7 +35,6 @@ export default {
   },
   methods: {
     change (val, flag, value) {
-      // debugger
       if (flag) {
         this.result.push(val)
         this.$store.dispatch('placement/setBed', { typeOfPlace: value, amount: val })
@@ -44,7 +43,6 @@ export default {
         this.$store.dispatch('placement/removeBed', { typeOfPlace: value, amount: val })
       }
       this.resultLength = this.result.length
-      // console.log('this.resultLength:', this.resultLength)
       this.$emit('changeLength', this.resultLength)
     },
     select (val) {

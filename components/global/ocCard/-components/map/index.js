@@ -1,6 +1,8 @@
+import ImgMap from '~/components/blocks/ImgMap'
 import typeOfHousing from '~/constants/consts/typeOfHousing'
 
 export default {
+  components: { ImgMap },
   props: {
     item: {
       type: Object,

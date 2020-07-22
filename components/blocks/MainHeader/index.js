@@ -15,7 +15,7 @@ export default {
         { title: 'Поиск', link: '/search', icon: 'find' },
         { title: 'Закладки', link: '/bookmarks', icon: 'heart' },
         { title: 'Меню', link: '/menu', icon: 'home' },
-        { title: 'Добавить', link: '/add-object', icon: 'add' },
+        { title: 'Добавить', link: '/add-placement', icon: 'add' },
         { title: 'Вход', link: '/sign-in', icon: 'user' }
       ],
       widthWindow: 0,

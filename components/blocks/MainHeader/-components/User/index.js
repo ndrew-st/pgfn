@@ -7,7 +7,7 @@ export default {
   data () {
     return {
       list: [
-        { title: 'Редактировать профиль', action: { to: '/profile/edit' } },
+        { title: 'Редактировать профиль', action: { to: '/profile' } },
         { title: 'История бронирования', action: { to: '/history' } },
         { title: 'Редактировать объявление', action: { to: '/habitation/edit' } },
         { title: 'Выйти из аккаунта', action: {} }

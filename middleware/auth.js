@@ -1,7 +1,7 @@
-import { isAuth } from '~/constants/getters/auth'
-
-export default function ({ store: { getters }, redirect }) {
-  if (!getters['auth/' + isAuth]) {
-    redirect('/sign-in')
+export default function ({ app: { $storage }, redirect }) {
+  if (process.browser) {
+    if (!$storage.getItem(process.env.token_key.access)) {
+      redirect('/sign-in')
+    }
   }
 }

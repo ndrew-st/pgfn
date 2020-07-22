@@ -5,9 +5,8 @@
   >
     <div class="card-map__map-container">
       <client-only>
-        <OcMaps
+        <ImgMap
           class="card-map__map"
-          :zoom="11"
           :coords="(item.address && item.address.coords) || cords"
         />
       </client-only>
