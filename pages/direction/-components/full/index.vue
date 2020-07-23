@@ -7,6 +7,7 @@
       class="full-block__bg-image"
       :alt="title"
     >
+
     <div class="full-block__container">
       <h2 class="full-block__title">
         {{ title }}
@@ -25,7 +26,7 @@
 
       <div
         v-if="buttons !== ''"
-        class="flex"
+        class="full-block__buttons"
       >
         <button
           v-if="buttons === 'rent'"
