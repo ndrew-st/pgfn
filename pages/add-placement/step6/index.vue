@@ -33,10 +33,10 @@
       />
     </div>
 
-    <OcInput
+    <!-- <OcInput
       placeholder="Описание"
       class="ap-step6__oc-input-desc"
-    />
+    /> -->
 
     <h2 class="add-placement__h2 add-placement__uppercase ap-step6__desc">
       Описание
@@ -48,6 +48,7 @@
 
     <OcInput
       v-model="title"
+      kind="most"
       placeholder="Заголовок (не более 80 символов)"
       class="ap-step6__photo-header"
     />

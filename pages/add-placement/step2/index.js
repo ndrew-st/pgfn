@@ -56,6 +56,7 @@ export default {
       numberOfRooms: 1,
       area: 0,
       selId: 0,
+      floor: 0,
       floors: 0,
       yardArea: 0
     }
@@ -68,6 +69,12 @@ export default {
       // this.$store.dispatch('placement/setItem', { key: 'typeOfHousing', value: par.id })
       // setItem({ key: 'typeOfHousing', value: par.id })
     },
+    saveValue (val, type) {
+      this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: type, value: val })
+    },
+    saveValueItem (val, type) {
+      this.$store.dispatch('placement/setItem', { key: type, value: val })
+    },
     next () {
       // this.setItem({ key: 'numberOfRooms', value: this.numberOfRooms })
       // this.setItem({ key: 'areaOfHousin', value: this.area })
@@ -75,6 +82,15 @@ export default {
       this.$store.dispatch('placement/setItem', { key: 'areaOfHousin', value: parseInt(this.area) })
       this.$store.dispatch('placement/setItem', { key: 'typeOfHousing', value: this.list[this.selItem].list[this.selId].code })
       // this.$store.dispatch('placement/setItem', { key: '', value: this.yardArea })
+      if (this.yardArea > 0) {
+        this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: 'yardArea', value: this.yardArea })
+      }
+      if (this.floor > 0) {
+        this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: 'floor', value: this.floor })
+      }
+      if (this.floors > 0) {
+        this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: 'floors', value: this.floors })
+      }
       this.$emit('next')
     }
   }

@@ -31,6 +31,7 @@
         :item="item"
         type="byTheDay"
         @changeCheck="changeCheck"
+        @changePrice="changePrice"
       />
 
       <p class="add-placement__h2 ap-step3__h2-2">
@@ -100,6 +101,7 @@
         :item="item"
         type="longTerm"
         @changeCheck="changeCheck"
+        @changePrice="changePrice"
       />
 
       <p class="add-placement__h2 ap-step3__h2-2">

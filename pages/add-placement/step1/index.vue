@@ -98,7 +98,7 @@
       </OcDropDown>
 
       <OcButton
-        v-if="typeOfTenant !== null && typeOfHousing !== null"
+        v-if="typeOfTenant !== null && typeOfHousing !== null && inputAdress !== ''"
         name="most"
         color="red"
         class="ap-step1__button-next"

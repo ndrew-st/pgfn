@@ -6,12 +6,12 @@
         type="radio"
         :checked="checked"
         @change="$emit('change', value)"
+        @click.stop
       >
       <span class="ap-radio__label">
         {{ label }}
       </span>
     </label>
-    </labelclass="ap-radio__label">
   </div>
 </template>
 
