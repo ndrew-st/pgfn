@@ -4,10 +4,10 @@
       :title="header.title"
       :description="header.description"
       :background="header.background"
-      :features="header.features"
+      buttons="rent"
     />
 
-    <FilterBlock />
+    <!-- <FilterBlock /> -->
 
     <!-- Направление -->
     <!--    <GroupCard-->
@@ -50,6 +50,13 @@
       />
     </GroupCard>
 
+    <Full
+      title="Разместите заявку на аренду жилья"
+      description="Сообщите желаемое расположение, тип жилья, число спальных мест, период аренды, укажите справедливую цену и получайте предложения от арендодателей."
+      background="http://31.31.198.184/plesk-site-preview/test.personal.guide/https/31.31.198.184/apart-01.jpg"
+      buttons="request"
+    />
+
     <!-- Спрос -->
     <GroupCard
       v-if="request && request.length"
@@ -70,6 +77,13 @@
         @setLike="handlerLike(index, 'apartments')"
       />
     </GroupCard>
+
+    <Full
+      title="Зарабатывайте на аренде жилья"
+      description="Сдавайте своё жильё без размещения объявления и договаривайтесь о цене лично с каждым арендатором."
+      background="http://31.31.198.184/plesk-site-preview/test.personal.guide/https/31.31.198.184/111.png"
+      buttons="catalog"
+    />
 
     <SubscribeEmail class="direction-page__subscribe" />
 

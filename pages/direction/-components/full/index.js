@@ -5,17 +5,22 @@ export default {
     title: {
       type: String,
       required: true,
-      default: 'Путеводитель по Вашим правилам'
+      default: 'Хотите снять или сдать жильё в России?'
     },
     description: {
       type: String,
       required: true,
-      default: 'Интернет-сервис, где пользователи сами назначают стоимость, за которую хотят снять жильё, а арендодатели могут предложить свои цены и варианты размещения.'
+      default: 'Аренда частного жилья и номеров в отелях на ваших условиях — место, где цену назначаете вы!'
     },
     background: {
       type: String,
       required: true,
       default: '/main-page-bg.jpg'
+    },
+    buttons: {
+      type: String, // rent - кнопки снять, сдать жильё, request - кнопка "подать заявку", catalog - кнопка "каталог "
+      required: false,
+      default: ''
     }
   },
   components: { FeaturePlace }
