@@ -2,7 +2,10 @@ import num2str from '~/utils/num2str'
 
 import typeHousing from '~/constants/consts/typeOfHousing'
 
+import MoreBlock from './-components/MoreBlock'
+
 export default {
+  components: { MoreBlock },
   props: {
     item: {
       type: Object,
@@ -53,33 +56,56 @@ export default {
       widthContainer: 0,
       addressWidth: 0,
       titleWidth: 0,
-      attrsHeight: 0,
+      // attrsHeight: 0,
       widthWindow: 0,
       viewWidth: 0,
       reviewsText: ['отзыв', 'отзыва', 'отзывов'],
       viewsText: ['просмотр', 'просмотра', 'просмотров'],
       bedsText: ['кровать', 'кровати', 'кроватей'],
-      guestKey: ['гость', 'гостя', 'гостей']
+      guestKey: ['гость', 'гостя', 'гостей'],
+      placeKey: [ 'место', 'места', 'мест' ]
     }
   },
   computed: {
+    // addressWidth () {
+    //   return this.$refs.addressCt && this.$refs.addressCt.scrollWidth
+    // },
+    isShowMorePrice () {
+      const { byTheDay, longTerm } = this.item.price
+      return byTheDay.length > 1 || longTerm.length > 1
+    },
     attrs () {
       return this.item.attrs && this.item.attrs.slice(0, 6)
     },
     adrs () {
       const { address } = this.item
-      return address && `${this.item.address.country}, ${address.region}, ${address.city}, ${address.street}, ${address.house}`
+      const res = []
+
+      for (const key in address) {
+        if (key !== 'house' && key !== 'geo') {
+          if (key === 'street') {
+            if (address.house) {
+              res.push(`${address[key]} ${address.house}`)
+            } else {
+              res.push(address[key])
+            }
+          } else {
+            res.push(address[key])
+          }
+        }
+      }
+
+      // return address && `${this.item.address.country}, ${address.region}, ${address.city}, ${address.street}, ${address.house}`
+      return res
     },
     typeHouse () {
       return typeHousing
     },
     title () {
-      return `${parseInt(this.item.typeOfHousing) === 0 ? `${this.item.numberOfRooms}-к квартира` : typeHousing[parseInt(this.item.typeOfHousing)]}, ${this.item.areaOfHousin} м² `
+      return `${parseInt(this.item.typeOfHousing) === 0 ? `Квартира ${this.item.numberOfRooms}-к` : typeHousing[parseInt(this.item.typeOfHousing)]}, ${this.item.areaOfHousin} м² · ${this.countGuests} ${num2str(this.countGuests, this.placeKey)}`
     },
     countGuests () {
-      const res = this.item.sleepingPlace.reduce((sum, cur) => sum + (cur.typeOfPlace === 'bunkBed' ? parseInt(cur.amount) * 2 : parseInt(cur.amount)), 0)
-
-      return `${res} ${num2str(res, this.guestKey)}`
+      return this.item.sleepingPlace.reduce((sum, cur) => sum + (cur.typeOfPlace === 'bunkBed' ? parseInt(cur.amount) * 2 : parseInt(cur.amount)), 0)
     },
     countBeds () {
       const res = this.item.sleepingPlace.reduce((sum, cur) => sum + parseInt(cur.amount), 0)
@@ -88,8 +114,6 @@ export default {
     },
     arrImages () {
       return this.item.images.length ? this.item.images : this.$store.state.images.content
-    },
-    bedsRoom () {
     }
   },
   mounted () {
@@ -100,9 +124,11 @@ export default {
       this.$nextTick(() => {
         this.widthWindow = window.screen.width
         this.widthContainer = this.$refs.card.clientWidth
-        this.addressWidth = this.$refs.addressCt.scrollWidth
+        if (this.$refs.addressCt.scrollWidth) {
+          this.addressWidth = this.$refs.addressCt.scrollWidth
+        }
         this.titleWidth = this.$refs.titleCt.scrollWidth
-        this.attrsHeight = this.$refs.attrs.clientHeight
+        // this.attrsHeight = this.$refs.attrs.clientHeight
         this.viewWidth = this.$refs.views && this.$refs.views.clientWidth
       })
     },
