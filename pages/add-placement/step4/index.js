@@ -28,10 +28,10 @@ export default {
     }
   },
   methods: {
-    selectItem (par) {
-      this.selItem = par
-      this.$root.$emit('dropdown:hide')
-    },
+    // selectItem (par) {
+    //   this.selItem = par
+    //   // this.$root.$emit('dropdown:hide')
+    // },
     changeRadio (val, type) {
       this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: type, value: val })
     },
