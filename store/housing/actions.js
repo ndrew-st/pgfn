@@ -11,7 +11,8 @@ export default {
   async getPlacementData ({ commit, state }) {
     const offset = state.placement.length - (state.page * state.limit)
 
-    const data = await this.$api.apartments.getCatalog(state.limit, 4)
+    const data = await this.$api.apartments.getCatalog(state.limit, 0)
+    console.log('data ', data)
 
     commit('addData', data)
   },

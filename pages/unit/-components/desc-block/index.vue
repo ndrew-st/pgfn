@@ -20,7 +20,7 @@
             />
           </div>
 
-          <div class="right-col">
+          <div class="right-col right-col-name">
             <div class="flex">
               <p class="name">
                 {{ user.name }}

@@ -70,7 +70,7 @@ export default {
       this.$store.dispatch('request/setItem', { key: 'typeOfHousing', value: this.list[this.selItem].list[this.selId].code })
     },
     next () {
-      this.$store.dispatch('request/setItem', { key: 'numberOfRooms', value: this.numberOfRooms })
+      this.$store.dispatch('request/setItem', { key: 'numberOfRooms', value: this.selRooms })
       this.$store.dispatch('request/setItemSecondLevel', { level: 'areaOfHousin', key: 'start', value: parseInt(this.areaStart) })
       this.$store.dispatch('request/setItemSecondLevel', { level: 'areaOfHousin', key: 'end', value: parseInt(this.areaEnd) })
       this.$emit('next')

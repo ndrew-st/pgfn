@@ -48,8 +48,6 @@
       <Location
         :coords="coords"
         :address="address"
-        :location="location"
-        :loc-desc="locDesc"
       />
 
       <!--      <GroupCard-->
@@ -73,17 +71,6 @@
     </div>
 
     <Subscribe />
-
-    <!--    <BookingFooter-->
-    <!--      :booking-footer-info="bookingFooterInfo"-->
-    <!--      @changeBookingActive="bookingActive = !bookingActive"-->
-    <!--    />-->
-
-    <!--    <Booking-->
-    <!--      v-if="bookingActive"-->
-    <!--      :booking-active="bookingActive"-->
-    <!--      @changeBookingActive="changeBookingActive"-->
-    <!--    />-->
   </div>
 </template>
 

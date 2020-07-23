@@ -7,7 +7,7 @@
       {{ title }}
     </h2>
     <p class="description-block__desc">
-      {{ desc(0) }}
+      {{ res[0] }}
     </p>
     <div
       v-if="description.length > 300"
@@ -18,7 +18,7 @@
           v-if="show"
           class="description-block__desc description-block__desc--all"
         >
-          {{ desc(1) }}
+          {{ res[1] }}
         </p>
       </transition>
       <OcButton

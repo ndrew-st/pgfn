@@ -7,11 +7,10 @@ export default ({
 
       if (arg) {
         const eventName = 'loadImage'
-        const eventData = { id: arg }
         if (vnode.componentInstance) {
-          vnode.componentInstance.$emit(eventName, { detail: eventData }) // use {detail:} to be uniform
+          vnode.componentInstance.$emit(eventName, { detail: arg }) // use {detail:} to be uniform
         } else {
-          vnode.elm.dispatchEvent(new CustomEvent(eventName, { detail: eventData }))
+          vnode.elm.dispatchEvent(new CustomEvent(eventName, { detail: arg }))
         }
 
         return

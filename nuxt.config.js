@@ -108,6 +108,9 @@ export default {
     token_key: {
       access: 'access_token',
       refresh: 'refresh_token'
+    },
+    api: {
+      static_img_yandex: 'https://static-maps.yandex.ru/1.x/?'
     }
   },
   debug: true
