@@ -29,16 +29,40 @@
         @change="selId = $event"
       />
 
-      <template v-if="selItem !== null">
+      <template v-if="selItem !== null && selItem !== 4">
         <p class="add-placement__p ap-step2__p2">
-          Количество этажей в доме
+          {{ selItem === 1 ? 'Количество этажей в доме' : 'Этаж' }}
         </p>
+
+        <span
+          v-if="selItem !== null && selItem !== 4"
+          class="ap-step2__span"
+        >Жилье расположено на</span>
+
+        <ApInput
+          v-if="selItem !== null && selItem !== 4"
+          v-model="floor"
+          class="ap-step2__input-floors"
+          type="number"
+          @input="saveValue($event, 'floor')"
+        />
+
+        <span
+          v-if="selItem !== null && selItem !== 4"
+          class="ap-step2__span-floor"
+        >этаже</span>
+
+        <span
+          v-if="selItem !== null && selItem !== 4"
+          class="ap-step2__span ml46"
+        >из</span>
 
         <ApInput
           v-if="selItem !== null"
           v-model="floors"
           class="ap-step2__input-floors"
           type="number"
+          @input="saveValue($event, 'floors')"
         />
 
         <span class="ap-step2__span-floor">этажей</span>
@@ -61,6 +85,7 @@
       <select
         v-model="numberOfRooms"
         class="ap-step2__sel"
+        @input="saveValueItem($event.target.value, 'numberOfRooms')"
       >
         <option
           v-for="n in 5"
@@ -80,6 +105,7 @@
         v-model="area"
         class="ap-step2__input1"
         type="number"
+        @input="saveValue($event, 'area')"
       />
 
       <span class="ap-step2__span2">м²</span>
@@ -92,6 +118,7 @@
         v-model="yardArea"
         class="ap-step2__input1"
         type="number"
+        @input="saveValue($event, 'yardArea')"
       />
 
       <span class="ap-step2__span2">м²</span>

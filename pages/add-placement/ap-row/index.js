@@ -33,6 +33,7 @@ export default {
       } else {
         this.checkRow()
       }
+      this.$emit('changePrice', this.item.days, this.price)
     },
     changePledge (sum) {
       this.pledge = sum
@@ -83,7 +84,7 @@ export default {
       }
 
       this.checked = !this.checked
-      this.$emit('changeCheck', this.item.days)
+      this.$emit('changeCheck', this.item.days, this.price)
     }
   }
 }
