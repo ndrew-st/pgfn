@@ -13,7 +13,6 @@
   &__title
     margin 0
     margin-bottom 20px
-
     font-style normal
     font-weight bold
     font-size 22px
@@ -22,7 +21,7 @@
     text-transform uppercase
     color $dark
 
-    @media(min-width 520px)
+    @media (min-width 520px)
       text-align center
 
   &__description
@@ -32,21 +31,39 @@
     line-height 18px
     color $secondary
 
-    @media(min-width 520px)
+    @media (min-width 520px)
       text-align center
 
-@media(min-width 1280px)
+  &__rent-in
+    background transparent
+    color white
+    outline none
+    cursor pointer
+    padding 12px
+    border 1px solid white
+    border-radius 6px
+
+    &:hover
+      background white
+      color black
+
+  &__rent-out
+    background white
+    outline none
+    cursor pointer
+    padding 12px
+    border 1px solid white
+    border-radius 6px
+
+@media (min-width 1280px)
   .full-block
     position relative
-
     min-height 506px
     padding-top 240px
     margin-bottom 0
     padding-bottom 140px
-
     box-sizing border-box
     overflow hidden
-
     background linear-gradient(180deg, rgba(0, 0, 0, 0.2) 27.17%, rgba(0, 0, 0, 0.11) 38.21%, rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0.55) 99.87%)
 
     &__bg-image
@@ -55,12 +72,10 @@
       left 0
       right 0
       bottom 0
-
       display block
       margin auto
       width 2400px
       min-height 1600px
-
       z-index -1
 
     &__container
@@ -76,7 +91,6 @@
       display block
       max-width 520px
       margin 0 auto
-
       font-size 16px
       line-height 24px
       color white
