@@ -4,5 +4,8 @@ export default axios => resource => ({
   },
   getCatalog () {
     return axios.get(`${resource}`)
+  },
+  getItem (id) {
+    return axios.get(`${resource}/${id}`)
   }
 })

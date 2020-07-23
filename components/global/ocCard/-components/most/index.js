@@ -59,7 +59,7 @@ export default {
       reviewsText: ['отзыв', 'отзыва', 'отзывов'],
       viewsText: ['просмотр', 'просмотра', 'просмотров'],
       bedsText: ['кровать', 'кровати', 'кроватей'],
-      guestKey: [ 'гость', 'гости', 'гостей' ]
+      guestKey: ['гость', 'гостя', 'гостей']
     }
   },
   computed: {
@@ -77,24 +77,12 @@ export default {
       return `${parseInt(this.item.typeOfHousing) === 0 ? `${this.item.numberOfRooms}-к квартира` : typeHousing[parseInt(this.item.typeOfHousing)]}, ${this.item.areaOfHousin} м² `
     },
     countGuests () {
-      let res = 0
-
-      this.item.sleepingPlace.forEach((item) => {
-        if (item.typeOfParam === 'bunkBed') {
-          res += parseInt(item.amount) * 2
-        } else {
-          res += parseInt(item.amount)
-        }
-      })
+      const res = this.item.sleepingPlace.reduce((sum, cur) => sum + (cur.typeOfPlace === 'bunkBed' ? parseInt(cur.amount) * 2 : parseInt(cur.amount)), 0)
 
       return `${res} ${num2str(res, this.guestKey)}`
     },
     countBeds () {
-      let res = 0
-
-      this.item.sleepingPlace.forEach((item) => {
-        res += parseInt(item.amount)
-      })
+      const res = this.item.sleepingPlace.reduce((sum, cur) => sum + parseInt(cur.amount), 0)
 
       return `${res} ${num2str(res, this.bedsText)}`
     },

@@ -13,20 +13,16 @@ export default {
   data () {
     return {
       show: false,
-      strLength: 300
+      strLength: 300,
+      res: []
     }
   },
-  methods: {
-    desc (num) {
-      if (this.description.length < 300) {
-        return this.description
-      }
-
-      const res = this.chunkString(this.description, this.strLength)
-      return res && res.length ? res[num] : []
-    },
-    chunkString (str, length) {
-      return str.match(new RegExp('.{1,' + length + '}'))
+  mounted () {
+    if (this.description.length < 300) {
+      return
     }
+
+    this.res.push(this.description.substring(0, 300))
+    this.res.push(this.description.substring(301))
   }
 }

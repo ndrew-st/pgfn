@@ -9,7 +9,7 @@
         prev
       </a>
       <span
-        v-for="(item, index) in topPath"
+        v-for="(item, index) in arrLinks"
         :key="index"
         class="habitation-top__path"
       >
@@ -17,7 +17,7 @@
           class="habitation-top__path--link"
           :to="item.url"
         >{{ item.title }}</nuxt-link>
-        {{ topPath.length === index + 1 ? '' : `&nbsp;&middot;&nbsp;` }}
+        {{ arrLinks.length === index + 1 ? '' : `&nbsp;&middot;&nbsp;` }}
       </span>
     </div>
 

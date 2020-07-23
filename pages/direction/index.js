@@ -55,7 +55,7 @@ export default {
         }
       },
       count: state => state.result.count,
-      request: state => state.requestRes
+      request: state => state.request
     })
   },
   methods: {

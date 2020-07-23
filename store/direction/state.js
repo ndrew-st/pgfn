@@ -5,5 +5,134 @@ export default () => ({
     items: [],
     count: 0
   },
-  requestRes: []
+  request: [
+    // {
+    //   title: 'Intro',
+    //   description: 'Лучшее место в Ялте с видом на море',
+    //   city: 'Судак',
+    //   address: {
+    //     country: 'Россия',
+    //     region: 'Республика Крым',
+    //     city: 'Судак',
+    //     street: 'улица Ленина',
+    //     house: 9,
+    //     apartment: 0,
+    //     coords: { lat: 45.389194, lon: 33.993751 }
+    //   },
+    //   reviews: 288,
+    //   views: 12314,
+    //   date: '15 февраля 2020 г.',
+    //   estimate: 4.3,
+    //   typeOfTenant: 0,
+    //   typeOfHousing: 5,
+    //   numberOfRooms: '1 / 2',
+    //   areaOfHousing: {
+    //     start: 98,
+    //     end: 200
+    //   },
+    //   price: {
+    //     byTheDay: [
+    //       {
+    //         days: 1,
+    //         price: 4500,
+    //         pledge: 0,
+    //         commission: 0,
+    //         defaultValue: true
+    //       }
+    //     ],
+    //     longTerm: [
+    //       {
+    //         days: 30,
+    //         price: 4500,
+    //         pledge: 0,
+    //         commission: 0,
+    //         defaultValue: false
+    //       }
+    //     ]
+    //   },
+    //   reservation: {
+    //     typeOfReservation: 'typeOfReservation',
+    //     cancellationPolicy: 'cancellationPolicy',
+    //     departureTime: [
+    //       {
+    //         day: 1,
+    //         intervalTime: {
+    //           start: '2020-06-26T11:36:49.157Z',
+    //           end: '2020-06-26T11:36:49.157Z'
+    //         }
+    //       }
+    //     ],
+    //     timeForCalls: [
+    //       {
+    //         day: 1,
+    //         intervalTime: {
+    //           start: '2020-06-26T11:36:49.157Z',
+    //           end: '2020-06-26T11:36:49.157Z'
+    //         }
+    //       }
+    //     ],
+    //     pickUpTime: [
+    //       {
+    //         day: 1,
+    //         intervalTime: {
+    //           start: '2020-06-26T11:36:49.157Z',
+    //           end: '2020-06-26T11:36:49.157Z'
+    //         }
+    //       }
+    //     ]
+    //   },
+    //   // спальные места
+    //   sleepingPlace: [
+    //     // {
+    //     //   typeOfPlace: '',
+    //     //   amount: 0
+    //     // }
+    //   ],
+    //   params: [
+    //     {
+    //       typeOfParam: 'guests',
+    //       paramValue: []
+    //     },
+    //     {
+    //       typeOfParam: 'facilities',
+    //       paramValue: [
+    //         { label: 'Фен', value: 'hairdryer' },
+    //         { label: 'Кофемашина', value: 'coffee' },
+    //         { label: 'Чайник', value: 'teapot' },
+    //         { label: 'Утюг', value: 'iron' },
+    //         { label: 'Холодильник', value: 'frige' },
+    //         { label: 'Телевизор', value: 'tv' },
+    //         { label: 'Аудиосистема', value: 'audio' },
+    //         { label: 'Игровая приставка', value: 'playstation' },
+    //         { label: 'Гладильная доска', value: 'ironingBoard' },
+    //         { label: 'Стиральная машина', value: 'washer' },
+    //         { label: 'Сушильная машина', value: 'drying' },
+    //         { label: 'Посудомоечная машина', value: 'dishwasher' },
+    //         { label: 'Газовая плита', value: 'gasStove' },
+    //         { label: 'Электроплита', value: 'electricStove' },
+    //         { label: 'Духовка / духовой шкаф', value: 'oven' },
+    //         { label: 'Микроволновка', value: 'microwave' }
+    //       ]
+    //     },
+    //     {
+    //       typeOfParam: 'listLimits',
+    //       paramValue: [
+    //         { label: 'Можно с детьми', value: 'kids' },
+    //         { label: 'Можно с животными', value: 'pets' },
+    //         { label: 'Можно для мероприятий', value: 'party' },
+    //         { label: 'Можно курить', value: 'weed' }
+    //       ]
+    //     }
+    //   ],
+    //   // удобства
+    //   // facilities: [
+    //   //   {
+    //   //     facilitiesId: '',
+    //   //     facilitiesValue: ''
+    //   //   }
+    //   // ],
+    //   ownerId: '0921358907125',
+    //   status: 0
+    // }
+  ]
 })

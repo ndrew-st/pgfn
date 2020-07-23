@@ -1,9 +1,14 @@
 import { mapActions, mapState, mapGetters } from 'vuex'
 
 import fac from '~/constants/fac'
+import {
+  moduleNameUnit,
+  getPlacement,
+  getRequest,
+  setTypePage
+} from '~/constants/actions/unit'
 
 import GroupCard from '~/components/blocks/GroupCard'
-import Footer from '~/components/blocks/Footer'
 import Subscribe from '~/components/blocks/Subscribe'
 
 import H1Block from './-components/h1-block/index.vue'
@@ -14,8 +19,6 @@ import ThreeBlocks from './-components/three-blocks/index.vue'
 import Comfort from './-components/comfort/index.vue'
 import Rules from './-components/rules/index.vue'
 import Location from './-components/location/index.vue'
-import BookingFooter from './-components/booking-footer/index.vue'
-import Booking from './-components/booking/index.vue'
 
 export default {
   layout: 'unit',
@@ -29,16 +32,21 @@ export default {
     Rules,
     Location,
     GroupCard,
-    Footer,
-    BookingFooter,
-    Booking,
     Subscribe
   },
   validate ({ params: { id } }) {
     return !!id
   },
-  async asyncData ({ store, params }) {
-    await store.dispatch(`habitation/getItem`, params.id)
+  async asyncData ({ store, params: { id }, req }) {
+    const type = req && req.url.split('/')[1]
+
+    store.dispatch(setTypePage, type)
+
+    if (type === 'habitation') {
+      await store.dispatch(getPlacement, id)
+    } else if (type === 'request') {
+      // await store.dispatch(getRequest, id)
+    }
   },
   data: () => ({
     user: {
@@ -49,22 +57,12 @@ export default {
       ownerStatus: 'Хозяин жилья',
       languages: 'Русский, English',
       regDate: 'Зарегистрирован на сайте 10 месяцев назад'
-    },
-    onlineBooking: {
-      onlinePay: true,
-      minPeriodCancel: 'сутки'
-    },
-    location: [
-      'Россия',
-      'Республика Крым',
-      'город Судак',
-      'улица Ленина д 9'
-    ],
-    locDesc: 'Жилье расположено в Судаке на улице Ленина, д9 - это в 300 метрах от центра города, 50 м от Черного моря, 5 км от горы Ильяс-Кая и в 4х километрах от Храма Солнца. Расстояние до ближайшего аэропорта (Международный аэропорт Симферополь имени К. Айвазовского) - 110 км...'
+    }
   }),
   computed: {
-    ...mapGetters('habitation', ['title']),
-    ...mapState('habitation', {
+    ...mapGetters(moduleNameUnit, ['title']),
+    ...mapState(moduleNameUnit, {
+      type: state => state.type,
       header: (state) => {
         return {
           intro: state.result.title,
@@ -83,7 +81,7 @@ export default {
           typeOfHousing: state.result.typeOfHousing,
           countBed: state.result.sleepingPlace && state.result.sleepingPlace.length,
           content: state.result.description,
-          countGuests: state.result.sleepingPlace.reduce((sum, cur) => sum + (cur.typeOfPlace === 'twoBed' ? cur.amount * 2 : cur.amount), 0)
+          countGuests: state.result.sleepingPlace.reduce((sum, cur) => sum + (cur.typeOfPlace === 'bunkBed' ? parseInt(cur.amount) * 2 : parseInt(cur.amount)), 0)
         }
       },
       prices: state => state.result.price,

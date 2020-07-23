@@ -2,7 +2,7 @@
   <InfoBlock class="info-block-container">
     <div class="info-block-container__item info-unit">
       <h3 class="info-unit__title">
-        Время для звонков
+        Тип бронирования
       </h3>
 
       <p class="info-unit__content">
@@ -12,7 +12,7 @@
 
     <div class="info-block-container__item info-unit">
       <h3 class="info-unit__title">
-        Время для звонков
+        Условия отмены бронирования
       </h3>
 
       <p class="info-unit__content">
