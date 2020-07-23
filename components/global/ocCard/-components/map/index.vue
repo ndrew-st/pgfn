@@ -29,13 +29,33 @@
       </p>
     </div>
 
-    <p class="card-map__type">
-      {{ typeHouse }}
-    </p>
+    <!--    <p class="card-map__type">-->
+    <!--      {{ typeHouse }}-->
+    <!--    </p>-->
 
-    <p class="card-map__rooms">
-      {{ countRooms }}
-    </p>
+    <div
+      class="card-map__address card-address"
+      :class="{ 'address-more': addressWidth > widthContainer }"
+    >
+      <ul
+        ref="addressCt"
+        class="card-address__list card-list"
+      >
+        <li
+          v-for="(item, index) in address"
+          :key="index"
+          class="card-address__item"
+        >
+          <nuxt-link
+            class="card-address__link card-link"
+            :to="`direction/${item}`"
+          >
+            {{ item }}
+          </nuxt-link>
+          <span v-if="index < address.length - 1">,&nbsp;</span>
+        </li>
+      </ul>
+    </div>
 
     <p class="card-map__days">
       {{ date }}
