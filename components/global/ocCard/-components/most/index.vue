@@ -38,9 +38,7 @@
         <p class="card-settings__type">
           {{ typeHouse[parseInt(item.typeOfHousing)] }}
         </p>
-        <p
-          class="card-settings__rate"
-        >
+        <p class="card-settings__rate">
           {{ item.rating || '4.0' }}
         </p>
         <!--        <p-->

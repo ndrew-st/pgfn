@@ -21,7 +21,7 @@ export default {
     FilterBlock
   },
   async asyncData ({ params, store }) {
-    await store.dispatch(`direction/getPlacementData`, params.city || `Крым`)
+    // await store.dispatch(`direction/getPlacementData`, params.city || `Крым`)
     await store.dispatch(`direction/getRequestData`)
   },
   data () {
@@ -75,7 +75,6 @@ export default {
       }
     },
     showRequest () {
-      debugger
       this.$emit('showRequest')
     },
     ...mapActions('direction', ['updateTabs'])
