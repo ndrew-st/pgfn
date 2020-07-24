@@ -126,7 +126,11 @@ export default {
     carouselNext () {
       this.arrow = 'next'
 
-      this.activeIndex += 1
+      if (this.activeIndex + 1 < this.items.length) {
+        this.activeIndex += 1
+      } else {
+        this.activeIndex = 0
+      }
 
       this._updatePosX('next')
     },

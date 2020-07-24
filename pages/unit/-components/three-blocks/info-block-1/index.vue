@@ -1,6 +1,7 @@
 <template>
   <InfoBlock
     block-name="Стоимость"
+    class="info-block-container"
   >
     <div v-if="prices.byTheDay.length">
       <p class="name">
