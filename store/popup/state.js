@@ -1,7 +1,7 @@
 export default () => ({
   result: {
-    addRequestActive: false,
-    addPlacementActive: false,
+    addRequest: false,
+    addPlacement: false,
     signIn: false,
     signUp: false,
     passRecovery: false

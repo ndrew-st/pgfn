@@ -74,6 +74,10 @@ export default {
         ]
       }
     },
+    showRequest () {
+      debugger
+      this.$emit('showRequest')
+    },
     ...mapActions('direction', ['updateTabs'])
   },
   head () {
