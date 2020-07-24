@@ -32,8 +32,8 @@ export default {
     }
   },
   methods: {
-    async loadImage ({ detail: { id } }) {
-      const data = await this.$api.attachment.getImage(id)
+    async loadImage ({ detail }) {
+      const data = await this.$api.attachment.getImage(detail)
 
       if (!data.error) {
         this.url = data[0][this.typeSize]

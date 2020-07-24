@@ -5,9 +5,8 @@
   >
     <div class="card-map__map-container">
       <client-only>
-        <OcMaps
+        <ImgMap
           class="card-map__map"
-          :zoom="11"
           :coords="(item.address && item.address.coords) || cords"
         />
       </client-only>
@@ -22,33 +21,40 @@
         class="card-map__title--cont title-cont"
       >
         <nuxt-link
-          :to="`/request/${item.id}`"
+          :to="`/request/${item._id}`"
           class="card-map__title--link"
         >
-          {{ item.title }}
+          {{ title }}
         </nuxt-link>
       </p>
     </div>
 
-    <p class="card-map__type">
-      {{ typeHouse[parseInt(item.typeOfHousing)] }}
-    </p>
+    <!--    <p class="card-map__type">-->
+    <!--      {{ typeHouse }}-->
+    <!--    </p>-->
 
-    <div class="card-map__rooms map-rooms">
-      <ul class="map-rooms__list">
+    <div
+      class="card-map__address card-address"
+      :class="{ 'address-more': addressWidth > widthContainer }"
+    >
+      <ul
+        ref="addressCt"
+        class="card-address__list card-list"
+      >
         <li
-          v-for="(unit, index) in item.numberOfRooms"
+          v-for="(item, index) in address"
           :key="index"
-          class="map-rooms__item"
+          class="card-address__item"
         >
-          {{ unit }}
-          <span
-            v-if="index < item.numberOfRooms.length - 1"
-            class="map-rooms"
-          >&nbsp;/&nbsp;</span>
+          <nuxt-link
+            class="card-address__link card-link"
+            :to="`direction/${item}`"
+          >
+            {{ item }}
+          </nuxt-link>
+          <span v-if="index < address.length - 1">,&nbsp;</span>
         </li>
       </ul>
-      &nbsp;комнат
     </div>
 
     <p class="card-map__days">
@@ -56,9 +62,9 @@
     </p>
 
     <p class="card-map__price">
-      <span class="card-map__price--count">{{ item.price }}</span>
+      <span class="card-map__price--count">{{ price && price.price.toLocaleString() }}</span>
       <span class="card-map__price--rouble">9</span>
-      <span class="card-map__price--measure">{{ item.measure }}</span>
+      <span class="card-map__price--measure">{{ measure }}</span>
     </p>
   </div>
 </template>

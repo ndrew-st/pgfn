@@ -1,10 +1,11 @@
-import authHeader from '~/utils/authHeader'
-import { refreshToken, initAuth } from '~/constants/actions/auth'
+import { initAuth, refreshToken } from '~/constants/actions/auth'
 import { isAuth } from '~/constants/getters/auth'
 
-export default ({ $axios, store: { state, dispatch, getters }, redirect }, inject) => {
-  if (process.browser && authHeader()) {
-    dispatch(`auth/${initAuth}`)
+export default ({ $axios, store: { dispatch, $storage, getters }, redirect }, inject) => {
+  if (process.browser) {
+    if ($storage.getItem(process.env.token_key.access)) {
+      dispatch(`auth/${initAuth}`)
+    }
   }
 
   $axios.onResponseError(({ response }) => {

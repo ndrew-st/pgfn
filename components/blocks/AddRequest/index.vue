@@ -23,7 +23,7 @@
       @selectAdress="selectAdress"
     />
 
-    <div class="flex">
+    <div class="add-request__flex">
       <p
         v-if="unknownHouse !== null"
         class="add-request__unknoun-house"
@@ -32,7 +32,7 @@
       </p>
     </div>
 
-    <div class="flex">
+    <div class="add-request__flex">
       <div class="add-request__column">
         <p class="add-request__p">
           Тип жилья
@@ -93,7 +93,7 @@
       </div>
     </div>
 
-    <div class="flex">
+    <div class="add-request__flex">
       <div class="add-request__column">
         <p class="add-request__p">
           Заезд / Выезд
@@ -147,7 +147,7 @@
       class="add-request__big-desc"
     />
 
-    <div class="flex">
+    <div class="add-request__flex">
       <OcButton
         name="most"
         color="red"

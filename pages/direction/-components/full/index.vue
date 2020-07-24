@@ -45,7 +45,7 @@
         <button
           v-if="buttons === 'request'"
           class="full-block__rent-in"
-          @click="$emit('showRequest')"
+          @click="$store.commit('popup/showPopup', 'addRequest')"
         >
           Подать заявку
         </button>

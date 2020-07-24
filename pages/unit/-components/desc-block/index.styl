@@ -1,23 +1,21 @@
 .desc-block
-    display flex
-    margin-top 72px
-    max-width 1280px
-    margin auto
-    margin-top 72px
-    margin-bottom 72px
+  display flex
+  max-width 1280px
+  margin auto
+  margin-top 72px
+  margin-bottom 72px
 
-    box-sizing border-box
+  box-sizing border-box
 
-    @media (max-width 768px)
-        flex-direction column
-        margin-top 0
-        margin-bottom 0
+  @media (max-width 768px)
+    flex-direction column
+    margin-top 0
+    margin-bottom 0
 
-.left-col
-    width 60%
-
-    @media (min-width 1080px)
-      width 100%
+  & .left-col
+    margin-left 0
+    padding 0
+    margin-bottom 0px
 
 .flex
     display flex
@@ -110,8 +108,10 @@
         right 3px
 
 .right-col
-    flex-shrink 0
-    margin-left 24px
+  flex-shrink 0
+
+  & .right-col-name
+    margin-left 16px
 
 .name
     font-style normal

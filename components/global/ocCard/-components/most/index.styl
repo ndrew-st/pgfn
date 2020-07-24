@@ -5,6 +5,7 @@
   width 252px
   max-width 252px
   margin-right 14px !important
+  padding-bottom 15px
 
   box-sizing border-box
 
@@ -41,6 +42,7 @@
     display block
     margin 0
     height 24px
+    margin-bottom 5px
     min-height 24px
     max-height 24px
 
@@ -81,38 +83,44 @@
     height 20px
 
     margin 0
-    margin-bottom 4px
+    margin-bottom 15px
 
     overflow hidden
     z-index 3
     anim all
 
-    &--content
-      display block
-      width auto
-      margin 0
+    .card-address
+      &__list
+        display inline-flex
+        margin 0
+        padding 0
 
-      font-style normal
-      font-weight normal
-      font-size 13px
-      line-height 20px
-      color $dark
-      white-space nowrap
+        list-style none
+
+      &__item
+        display inline-flex
+
+      &__link
+        display inline-block
+
+        color $dark
+        white-space nowrap
+
+        &:hover
+          text-decoration underline
+
+    &.address-more:hover
+      overflow visible
 
       anim all
 
-    @media(min-width 1280px)
-      margin-bottom 12px
+      & > ul.card-list
+        display flex
+        flex-wrap wrap
 
-    &.address-more
-      &:hover
-        overflow visible
+        show-on-hover()
 
-        anim all
-
-        & p
-          show-on-hover()
-
+        & .card-link
           white-space normal
 
   .card-settings
@@ -123,6 +131,7 @@
 
     &__content
       display flex
+      justify-content space-between
       align-items center
       margin 0
 
@@ -161,19 +170,6 @@
       display flex
       height 20px
       margin 0
-      padding-left 13px
-
-      &:before
-        content ''
-        position absolute
-        top 50%
-        left 6px
-
-        width 2px
-        height 2px
-
-        background-color $secondary
-        border-radius 5px
 
     &__views
       position relative
@@ -227,6 +223,39 @@
             height 45px
 
             white-space normal
+
+  .card-price-more
+    position relative
+
+    &__button
+      width 25px
+      height 20px
+      font-size 0
+
+      border 0
+      background-color transparent
+      background-image url('/arrow-border-down.svg')
+      background-position 0 0
+      background-repeat no-repeat
+      background-size 25px 20px
+
+      cursor pointer
+
+      rm-outline()
+
+    &__content
+      position absolute
+      bottom 100%
+      right 100%
+
+      display none
+
+      z-index 10
+
+    &:hover
+      .card-price-content
+        display block
+        padding 5px
 
   &__attrs
     position relative
@@ -293,8 +322,13 @@
     top 20px
     right 20px
 
-  &__price-container
+  .card-price
     display flex
+    justify-content space-between
+    align-items center
+
+    &__container
+      display flex
 
   &__old-price
     margin-right 13px
@@ -355,9 +389,6 @@
     &__attrs
       margin-bottom 12px
 
-    &__title
-      margin-top 24px
-
     &__intro
       &--content
         font-size 14px
@@ -370,11 +401,6 @@
 
     & .card-settings
       &__content
-        font-size 14px
-        line-height 20px
-
-    &__address
-      &--content
         font-size 14px
         line-height 20px
 

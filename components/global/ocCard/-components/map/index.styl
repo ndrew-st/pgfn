@@ -55,26 +55,50 @@
     letter-spacing: 0.2px;
     color: $dark
 
-  &__rooms
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    color: #989BA8;
+  &__address
+    position relative
+    height 20px
 
-  .map-rooms
-    width 100%
-    display flex
+    margin 0
+    margin-bottom 15px
 
-    &__list
-      display flex
-      margin 0
-      padding 0
+    overflow hidden
+    z-index 3
+    anim all
 
-      list-style none
+    .card-address
+      &__list
+        display inline-flex
+        margin 0
+        padding 0
 
-    &__item
-      display flex
+        list-style none
+
+      &__item
+        display inline-flex
+
+      &__link
+        display inline-block
+
+        color $dark
+        white-space nowrap
+
+        &:hover
+          text-decoration underline
+
+    &.address-more:hover
+      overflow visible
+
+      anim all
+
+      & > ul.card-list
+        display flex
+        flex-wrap wrap
+
+        show-on-hover()
+
+        & .card-link
+          white-space normal
 
   &__days
     font-style: normal;
@@ -83,6 +107,10 @@
     line-height: 24px;
     letter-spacing: 0.2px;
     color: #989BA8;
+
+  .title-cont
+    &__rouble
+      font-family Rouble Sans
 
   &__price
     display flex

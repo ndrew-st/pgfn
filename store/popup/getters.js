@@ -1,5 +1,3 @@
 export default {
-  getStatus () {
-    
-  }
+  getStatus: state => name => state.result[name]
 }

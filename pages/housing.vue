@@ -3,7 +3,8 @@
     <div class="housing__container">
       <div class="housing__title-container">
         <h1 class="housing__title">
-          {{ title }}
+          <!--          {{ title }}-->
+          Жильё
         </h1>
         <span class="housing__count">{{ count }}</span>
       </div>
@@ -21,7 +22,7 @@
       </client-only>
 
       <OcPagination
-        v-if="typeFilter !== 'main'"
+        v-if="typeFilter !== 'main' && count > 16"
         :current="page"
         :total="count"
         :per-page="limit"
@@ -46,7 +47,7 @@ export default {
   computed: {
     ...mapState(`housing`, {
       title: state => state.result.title,
-      count: state => state.result.count,
+      count: state => state.result.length,
       limit: state => state.limit,
       page: state => state.page,
       typeFilter: state => state.filters.typeFilter

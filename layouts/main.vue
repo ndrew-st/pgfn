@@ -6,7 +6,10 @@
 
     <Footer />
 
-    <PopUpAddRequest />
+    <OcPopUp name="signIn" />
+    <OcPopUp name="signUp" />
+    <OcPopUp name="passRecovery" />
+    <OcPopUp name="addRequest" />
   </div>
 </template>
 

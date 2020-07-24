@@ -1,4 +1,4 @@
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 
 import SearchPanel from '~/components/blocks/SearchPanel'
 
@@ -15,7 +15,7 @@ export default {
         { title: 'Поиск', link: '/search', icon: 'find' },
         { title: 'Закладки', link: '/bookmarks', icon: 'heart' },
         { title: 'Меню', link: '/menu', icon: 'home' },
-        { title: 'Добавить', link: '/add-object', icon: 'add' },
+        { title: 'Добавить', link: '/add-placement', icon: 'add' },
         { title: 'Вход', link: '/sign-in', icon: 'user' }
       ],
       widthWindow: 0,
@@ -47,6 +47,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('popup', ['showPopup']),
     goTo (url) {
       this.search = ''
       this.touched = false

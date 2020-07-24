@@ -5,33 +5,15 @@
   >
     <div
       class="popup__wrapper"
-      @click="close"
-    />
-
-    <slot
-      @close="close"
-    />
+      @click.self="close"
+    >
+      <component
+        :is="name"
+        class="popup__content"
+      />
+    </div>
   </div>
 </template>
 
-<script>
-import { mapMutations, mapGetters } from 'vuex'
-
-export default {
-  props: {
-    name: {
-      type: String,
-      required: true
-    }
-  },
-  computed: {
-    ...mapGetters('popup', ['getStatus'])
-  },
-  methods: {
-    ...mapMutations('popup', ['closePopup']),
-    close () {
-      this.closePopup(this.name)
-    }
-  }
-}
-</script>
+<script src="./index.js"/>
+<style lang="stylus" src="./index.styl"/>
