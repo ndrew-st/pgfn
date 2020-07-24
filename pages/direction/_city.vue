@@ -55,6 +55,7 @@
       description="Сообщите желаемое расположение, тип жилья, число спальных мест, период аренды, укажите справедливую цену и получайте предложения от арендодателей."
       background="http://31.31.198.184/plesk-site-preview/test.personal.guide/https/31.31.198.184/apart-01.jpg"
       buttons="request"
+      @showRequest="showRequest"
     />
 
     <!-- Спрос -->

@@ -45,6 +45,7 @@
         <button
           v-if="buttons === 'request'"
           class="full-block__rent-in"
+          @click="$emit('showRequest')"
         >
           Подать заявку
         </button>
