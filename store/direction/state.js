@@ -90,6 +90,14 @@ export default () => ({
       ],
       params: [
         {
+          typeOfParam: 'dateBegin',
+          paramValue: '20.08.2020'
+        },
+        {
+          typeOfParam: 'dateEnd',
+          paramValue: '21.08.2020'
+        },
+        {
           typeOfParam: 'guests',
           paramValue: []
         },
