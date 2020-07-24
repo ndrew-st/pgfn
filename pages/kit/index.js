@@ -1,10 +1,12 @@
 import OcButton from '@/components/global/Forms/ocButton/index.vue'
 import OcInput from '@/components/global/Forms/ocInput/index.vue'
+import AddRequest from '~/components/blocks/AddRequest'
 
 export default {
   components: {
     OcButton,
-    OcInput
+    OcInput,
+    AddRequest
   },
   data () {
     return {

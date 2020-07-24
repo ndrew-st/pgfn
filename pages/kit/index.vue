@@ -1,5 +1,7 @@
 <template>
   <div>
+    <AddRequest />
+
     <h1>OcButton</h1>
 
     <p>name: "" (empty)</p>
