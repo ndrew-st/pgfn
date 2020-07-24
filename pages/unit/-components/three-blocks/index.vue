@@ -1,5 +1,5 @@
 <template>
-  <div class="three-blocks flex">
+  <div class="three-blocks">
     <InfoBlock1
       v-if="prices"
       :prices="prices"
