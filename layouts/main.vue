@@ -5,6 +5,10 @@
     <nuxt />
 
     <Footer />
+
+    <OcPopUp name="signIn" />
+    <OcPopUp name="signUp" />
+    <OcPopUp name="passRecovery" />
   </div>
 </template>
 

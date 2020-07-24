@@ -24,6 +24,7 @@ export default {
       bedsText: ['комната', 'комнаты', 'комнат'],
       textGuests: [ 'гость', 'гостя', 'гостей' ],
       placeKey: [ 'место', 'места', 'мест' ],
+      keyDay: ['сутки', 'суток', ''],
       cords: {
         lat: 45.389194, lon: 33.993751
       }
@@ -31,13 +32,19 @@ export default {
   },
   computed: {
     date () {
-      return 'Date'
+      return this.dayStart && this.dayEnd && `с ${this.dayStart} по ${this.dayEnd}`
+    },
+    dayStart () {
+      return this.item.params.find(item => item.typeOfParam === 'dateBegin').paramValue
+    },
+    dayEnd () {
+      return this.item.params.find(item => item.typeOfParam === 'dateEnd').paramValue
     },
     typeHouse () {
       return `${typeOfHousing[this.item.typeOfHousing]}, ${this.item.areaOfHousing.start}-${this.item.areaOfHousing.end} м²`
     },
     title () {
-      return `Аренда ${typeOfHousing[this.item.typeOfHousing].toLowerCase()} на ${this.dayCount} суток × ${this.priceName} · ${this.places}`
+      return `Аренда ${typeOfHousing[this.item.typeOfHousing].toLowerCase()} на ${this.dayCount} ${num2str(this.dayCount, this.keyDay)} × ${this.priceName} · ${this.places}`
       // return `Запрос на ${this.item.price.byTheDay.length ? 'краткосрочную' : 'долгосрочную'} аренду жилья в г. ${this.item.address.city}, ${this.item.address.region}`
     },
     measure () {
@@ -60,13 +67,14 @@ export default {
       return this.item.sleepingPlace.reduce((sum, cur) => sum + (cur.typeOfPlace === 'bunkBed' ? parseInt(cur.amount) * 2 : parseInt(cur.amount)), 0)
     },
     dayCount () {
-      return 8
+      const timeStBegin = new Date(this.dayStart.split('.').slice(0).reverse().join('-'))
+      const timeStEnd = new Date(this.dayEnd.split('.').slice(0).reverse().join('-'))
+
+      return Math.ceil(Math.abs(timeStEnd.getTime() - timeStBegin.getTime()) / (1000 * 3600 * 24))
     },
     address () {
       const { address } = this.item
       const res = []
-
-      console.log('address ', address)
 
       for (const key in address) {
         if (key !== 'house' && key !== 'coords' && key !== 'apartment') {

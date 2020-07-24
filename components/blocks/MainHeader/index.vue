@@ -147,9 +147,10 @@
               />
               <OcLink
                 v-else
-                to="/sign-in"
+                to=""
                 name="header-user"
                 icon="user"
+                @click.native.stop.prevent="showPopup('signIn')"
               >
                 Войти
               </OcLink>

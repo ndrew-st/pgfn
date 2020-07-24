@@ -116,6 +116,14 @@ export default () => ({
         paramValue: []
       },
       {
+        typeOfParam: 'dateBegin',
+        paramValue: '20.08.2020'
+      },
+      {
+        typeOfParam: 'dateEnd',
+        paramValue: '21.08.2020'
+      },
+      {
         typeOfParam: 'params.facilities',
         paramValue: [
           { label: 'Фен', value: 'hairdryer' },

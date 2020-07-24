@@ -1,4 +1,4 @@
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 
 import SearchPanel from '~/components/blocks/SearchPanel'
 
@@ -47,6 +47,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('popup', ['showPopup']),
     goTo (url) {
       this.search = ''
       this.touched = false
