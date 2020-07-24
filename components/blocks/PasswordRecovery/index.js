@@ -1,3 +1,5 @@
+import { mapMutations } from 'vuex'
+
 export default {
   watch: {
     stage (val) {
@@ -32,14 +34,16 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('popup', ['showPopup', 'closePopup']),
     prevent () {
       if (this.stage === 'sms') {
-        this.$router.push('/sign-in')
+        this.showPopup('signIn')
+        // this.$router.push('/sign-in')
         // this._clearData()
       } else if (this.stage === 'pass') {
         const { code } = this.$storage.getItem('recovery')
         if (code && code.length) {
-          this.$router.push('/sign-in')
+          this.showPopup('signIn')
         } else {
           this.stage = 'sms'
         }
@@ -70,7 +74,7 @@ export default {
           this.error = 'Неверный код'
         } else {
           this.$storage.clearAll()
-          this.$router.push('/')
+          this.closePopup('passRecovery')
         }
       }
 

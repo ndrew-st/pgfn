@@ -1,4 +1,4 @@
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 
 import { login } from '~/constants/actions/auth'
 
@@ -30,12 +30,14 @@ export default {
     timeCounter: 119
   }),
   methods: {
+    ...mapMutations('popup', ['showPopup', 'closePopup']),
     _clearData () {
+      this.showPopup('signUp')
       this.$storage.rmItem('sign-in')
     },
     prevent () {
       if (this.stage === 'phone') {
-        this.$router.go(-1)
+        this.showPopup('signUp')
         this._clearData()
       } else if (this.stage === 'pass') {
         this.stage = 'phone'
@@ -55,6 +57,7 @@ export default {
         return
       }
 
+      this.closePopup('signIn')
       this.$router.push('/profile')
 
       this.$storage.rmItem('sign-in')

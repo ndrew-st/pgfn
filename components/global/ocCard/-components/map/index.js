@@ -66,8 +66,6 @@ export default {
       const { address } = this.item
       const res = []
 
-      console.log('address ', address)
-
       for (const key in address) {
         if (key !== 'house' && key !== 'coords' && key !== 'apartment') {
           if (key === 'street') {

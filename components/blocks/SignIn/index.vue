@@ -43,8 +43,8 @@
         <nuxt-link
           class="reg"
           :class="{ reg7: stage === 'timer' }"
-          to="/sign-up"
-          @click.native="_clearData"
+          to=""
+          @click.native.stop.prevent="_clearData"
         >
           Зарегистрироваться
         </nuxt-link>
@@ -52,8 +52,8 @@
         <nuxt-link
           v-if="stage ==='pass'"
           class="reset"
-          :to="{ name: 'sign-in-password-recovery', params: { phone }}"
-          @click="_clearData"
+          to=""
+          @click="showPopup('passRecovery')"
         >
           Сбросить пароль
         </nuxt-link>

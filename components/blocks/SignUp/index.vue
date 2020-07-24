@@ -33,7 +33,8 @@
         >
           <nuxt-link
             class="enter-top"
-            to="/sign-in"
+            to=""
+            @click.native.stop.prevent="showPopup('signIn')"
           >
             Войти
           </nuxt-link>
@@ -53,8 +54,9 @@
 
           <div class="sign-up__button-container">
             <nuxt-link
-              to="/sign-in"
+              to=""
               class="enter-bottom"
+              @click.native.stop.prevent="showPopup('signIn')"
             >
               Войти
             </nuxt-link>

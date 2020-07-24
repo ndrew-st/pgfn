@@ -1,3 +1,4 @@
+import { mapMutations } from 'vuex'
 import UserPass from './user-pass/index.vue'
 
 export default {
@@ -35,12 +36,13 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('popup', ['showPopup']),
     clear () {
       this.$storage.rmItem('sign-up')
     },
     prevent () {
       if (this.stage === 'phone') {
-        this.$router.go(-1)
+        this.showPopup('signIn')
         this._clearData()
       } else if (this.stage === 'sms') {
         this.stage = 'phone'
@@ -99,7 +101,7 @@ export default {
       const result = await this.$api.users.register(this.phone, name, password)
 
       if (!result.error) {
-        this.$router.push('/sign-in')
+        this.showPopup('signIn')
         this.$storage.rmItem('sign-up')
         this.$storage.rmItem('sign-in')
         this.$storage.rmItem('recovery')
