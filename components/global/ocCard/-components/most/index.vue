@@ -19,6 +19,7 @@
           v-for="(gallery, index) in arrImages"
           :key="index"
           class="card-item__img-container"
+          @click="goTo(`/habitation/${item._id}`)"
         >
           <OcImg
             :id="gallery"
@@ -29,7 +30,10 @@
       </OcCarousel>
     </div>
 
-    <div class="card-item__settings card-settings">
+    <div
+      class="card-item__settings card-settings"
+      @click="goTo(`/habitation/${item._id}`)"
+    >
       <div class="card-settings__content">
         <p class="card-settings__type">
           {{ typeHouse[parseInt(item.typeOfHousing)] }}
@@ -178,12 +182,15 @@
       >
         <button
           type="button"
+          :class="[{'active': showPrice}]"
           class="card-price-more__button"
+          @click="showPrice = !showPrice"
         >
           hover me
         </button>
 
         <MoreBlock
+          v-if="showPrice"
           :content="item.price"
           class="card-price-more__content card-price-content"
         />

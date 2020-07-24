@@ -13,25 +13,27 @@
     margin-right 0
 
   &__img-container
+    min-width 252px
+    height 168px
+
+  &__image
     display flex
-    align-items center
     justify-content center
+    align-items center
     min-width 252px
     height 168px
 
     border-radius 5px
-
     overflow hidden
 
-  &__image
-    display block
-    width 100%
-    height auto
+    cursor pointer
 
     & > img
-      display block
-      width 100%
-      height auto
+      //width 100%
+      width 252px
+      height 168px
+      object-fit fill
+      object-position center
 
   &__list
     margin-bottom 16px
@@ -128,6 +130,8 @@
     margin 0
     margin-bottom 8px
     padding 0
+
+    cursor pointer
 
     &__content
       display flex
@@ -243,19 +247,15 @@
 
       rm-outline()
 
+      &.active
+        transform rotate(180deg)
+
     &__content
       position absolute
       bottom 100%
       right 100%
 
-      display none
-
       z-index 10
-
-    &:hover
-      .card-price-content
-        display block
-        padding 5px
 
   &__attrs
     position relative
@@ -385,6 +385,14 @@
     &__img-container
       min-width 300px
       height 200px
+
+    &__image
+      min-width 300px
+      height 200px
+
+      & > img
+        width 300px
+        height 200px
 
     &__attrs
       margin-bottom 12px

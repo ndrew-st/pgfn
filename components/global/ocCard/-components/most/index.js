@@ -56,6 +56,7 @@ export default {
       widthContainer: 0,
       addressWidth: 0,
       titleWidth: 0,
+      showPrice: false,
       // attrsHeight: 0,
       widthWindow: 0,
       viewWidth: 0,
@@ -120,6 +121,9 @@ export default {
     this.updateValues()
   },
   methods: {
+    goTo (url) {
+      this.$router.push(url)
+    },
     updateValues () {
       this.$nextTick(() => {
         this.widthWindow = window.screen.width

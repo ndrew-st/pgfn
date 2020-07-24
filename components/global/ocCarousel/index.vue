@@ -29,7 +29,7 @@
         class="carousel__button-container btn-carousel"
       >
         <OcButton
-          :disabled="activeIndex < 1"
+          v-if="items.length"
           class="btn-carousel__prev"
           add-class="prev"
           name="carousel"
@@ -39,7 +39,7 @@
           prev
         </OcButton>
         <OcButton
-          :disabled="activeIndex + countColumn >= items.length"
+          v-if="items.length"
           class="btn-carousel__next"
           add-class="next"
           icon="arrow"

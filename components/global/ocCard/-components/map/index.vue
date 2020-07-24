@@ -8,6 +8,7 @@
         <ImgMap
           class="card-map__map"
           :coords="(item.address && item.address.coords) || cords"
+          @click="goTo(`/request/${item._id}`)"
         />
       </client-only>
     </div>

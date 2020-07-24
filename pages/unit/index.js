@@ -37,15 +37,15 @@ export default {
   validate ({ params: { id } }) {
     return !!id
   },
-  async asyncData ({ store, params: { id }, req }) {
-    const type = req && req.url.split('/')[1]
+  async asyncData ({ store, params: { id }, route: { path } }) {
+    const type = path && path.split('/')[1]
 
     store.dispatch(setTypePage, type)
 
     if (type === 'habitation') {
       await store.dispatch(getPlacement, id)
     } else if (type === 'request') {
-      // await store.dispatch(getRequest, id)
+      await store.dispatch(getRequest, id)
     }
   },
   data: () => ({

@@ -30,6 +30,11 @@ export default {
       }
     }
   },
+  methods: {
+    goTo (url) {
+      this.$router.push(url)
+    }
+  },
   computed: {
     date () {
       return this.dayStart && this.dayEnd && `с ${this.dayStart} по ${this.dayEnd}`
