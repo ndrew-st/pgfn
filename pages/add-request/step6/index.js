@@ -101,11 +101,11 @@ export default {
     },
     changePrice (val) {
       this.price = val
-      this.$store.dispatch('request/setItem', { key: 'price', value: val })
+      this.$store.dispatch('request/setItem', { key: 'price', value: parseInt(val) })
     },
     changeCitizenship (val) {
       this.citizenship = val
-      this.$store.dispatch('request/setItem', { key: 'citizenship', value: parseInt(val) })
+      this.$store.dispatch('request/setItem', { key: 'citizenship', value: val })
     },
     changeCheckbox (val, type) {
       console.log('type:', type)
