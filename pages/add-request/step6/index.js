@@ -105,7 +105,7 @@ export default {
     },
     changeCitizenship (val) {
       this.citizenship = val
-      this.$store.dispatch('request/setItem', { key: 'citizenship', value: val })
+      this.$store.dispatch('request/setItem', { key: 'citizenship', value: parseInt(val) })
     },
     changeCheckbox (val, type) {
       console.log('type:', type)
