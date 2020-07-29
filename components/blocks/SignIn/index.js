@@ -15,12 +15,14 @@ export default {
   created () {
     if (process.client && this.$storage.getItem('sign-in')) {
       const { phone, stage } = this.$storage.getItem('sign-in')
+      const res = this.$storage.getItem('stage')
 
       this.phone = phone
-      this.stage = stage
+      this.stage = res || stage
     }
   },
   data: () => ({
+    // stage: 'phone',
     stage: 'phone',
     error: '',
     phone: '',
@@ -38,7 +40,7 @@ export default {
     prevent () {
       if (this.stage === 'phone') {
         this.showPopup('signUp')
-        this._clearData()
+        this.rmItem('sign-in')
       } else if (this.stage === 'pass') {
         this.stage = 'phone'
       }
@@ -52,6 +54,7 @@ export default {
       const res = await this[login]({ phone: phoneNum, password: pass.password })
 
       if (res && res.error) {
+        this.error = 'Пароль не верен!'
         console.log('Error', res)
 
         return
@@ -71,6 +74,9 @@ export default {
           this.stage = 'pass'
           break
         case 'pass':
+          await this.logIn(par)
+          break
+        case 'recovery':
           await this.logIn(par)
           break
       }

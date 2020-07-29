@@ -1,9 +1,17 @@
 .more-block-container
+  position absolute
+  top 100%
+
   min-width 200px
+  width 100%
+  max-width 300px
+  height auto
   border-radius 12px
 
   background-color white
   box-shadow 0 0 10px rgba(0,0,0,0.5)
+
+  z-index 5
 
   &__title
     margin-bottom 5px
@@ -22,3 +30,8 @@
 
   & .desc__bold--rouble
     font-family Rouble Sans
+
+  &.price-more.hidden
+    min-height 0
+    height 0
+    visibility hidden

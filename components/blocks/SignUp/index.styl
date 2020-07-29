@@ -19,6 +19,51 @@
       bottom 64px
       right 64px
 
+  & .sign-up-success
+    margin-top 10px
+
+    &__text
+      margin-bottom 8px
+
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.1px;
+      color: #272528;
+
+      &:last-of-type
+        margin-bottom 28px
+
+    &__container
+      display flex
+      justify-content space-between
+      margin-bottom 50px
+
+    &__link
+      display flex
+      justify-content center
+      align-items center
+      width 220px
+      height 56px
+
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      letter-spacing: 0.1px;
+      color: #FFFFFF;
+
+      background: #3D88C8;
+      border-radius: 4px;
+      cursor pointer
+
+      rm-outline()
+
+      &:hover
+        background-color #387BB4
+
 .box__signup
   min-height 296px
   top calc(50% - 212px)

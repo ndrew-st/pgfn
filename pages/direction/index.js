@@ -1,11 +1,8 @@
 import { mapActions, mapState } from 'vuex'
 
 import SubscribeEmail from '~/components/blocks/Subscribe'
-
 import Description from '~/components/blocks/Description'
 import GroupCard from '~/components/blocks/GroupCard'
-
-import isEmptyObject from '~/utils/isEmptyObject'
 
 import Full from './-components/full'
 import FilterBlock from './-components/filter'
@@ -62,9 +59,6 @@ export default {
     isLiked (id, field) {
       return this.likes[field].includes(id)
     },
-    isEmptyObj (obj) {
-      return isEmptyObject(obj)
-    },
     handlerLike (idCard, field) {
       this.likes = {
         ...this.likes,
@@ -75,7 +69,6 @@ export default {
       }
     },
     showRequest () {
-      debugger
       this.$emit('showRequest')
     },
     ...mapActions('direction', ['updateTabs'])

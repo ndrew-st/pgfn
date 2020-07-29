@@ -30,6 +30,7 @@
                 :max-scale="10"
                 :off="!showPopup"
                 :zoomed.sync="zoomed"
+                :active="showPopup"
                 @swipe="changeSwipe"
               >
                 <div

@@ -60,9 +60,8 @@ export default {
       return el ? parseInt(getComputedStyle(el, true)[feature]) : 0
     },
     _sizeDiffDots (index) {
-      if (this.$refs.dots) {
-        return this.$refs.dots.children[index].getBoundingClientRect().left - this.$refs.dots.getBoundingClientRect().left - 29
-      }
+      const { dots } = this.$refs
+      return dots && dots.children[index].getBoundingClientRect().left - dots.getBoundingClientRect().left - 29
     },
     _updatePosX (arrow) {
       if (this.posX === -this.activeIndex * this.widthItem) {
@@ -77,27 +76,31 @@ export default {
     },
     _updateHorizontalCarousel () {
       this.$nextTick(() => {
-        if (this.$refs.list && this.$refs.list.children.length) {
-          const marginRight = this._getSize(this.$refs.list.children[0], 'marginRight')
-          this.widthOutMargin = this._getSize(this.$refs.list.children[0], 'width')
+        const { list, carousel } = this.$refs
+        if (list && list.children.length) {
+          const marginRight = this._getSize(list.children[0], 'marginRight')
+          this.widthOutMargin = this._getSize(list.children[0], 'width')
           this.widthItem = this.widthOutMargin + marginRight
 
           this.listWidth = this.widthItem * this.length
-          this.widthWrapper = this.$refs.carousel.clientWidth
+          this.widthWrapper = carousel.clientWidth
 
           if (this.widthWrapper < this.widthOutMargin * this.column) {
             this.countColumn = Math.floor(this.widthWrapper / this.widthOutMargin)
           } else {
             this.countColumn = this.column
           }
+
+          this.isShowButtons = this.length > this.countColumn
         }
       })
     },
     _updateVerticalCarousel () {
       this.$nextTick(() => {
-        if (this.$refs.listHeight && this.$refs.listHeight.children.length) {
-          const marginBottom = parseInt(getComputedStyle(this.$refs.listHeight.children[0], true).marginBottom)
-          this.heightItem = this.$refs.listHeight.children[0].clientHeight + marginBottom
+        const { listHeight } = this.$refs
+        if (listHeight && listHeight.children.length) {
+          const marginBottom = parseInt(getComputedStyle(listHeight.children[0], true).marginBottom)
+          this.heightItem = listHeight.children[0].clientHeight + marginBottom
 
           this.maxHeightWrapper = this.heightItem * this.column
 
@@ -108,15 +111,17 @@ export default {
     _updatePosDot (index) {
       if (index < 3) {
         this.posDots = 0
-      } else if (index > 2 && index < this.items.length - 2) {
+      } else if (index > 2 && index < this.length - 2) {
         this.posDots = this._sizeDiffDots(index)
+      } else if (index === this.length - 1) {
+        this.posDots = this._sizeDiffDots(index - 2)
       }
     },
     carouselPrev () {
       this.arrow = 'prev'
 
       if (this.activeIndex < 1) {
-        this.activeIndex = 0
+        this.activeIndex = this.length - 1
       } else {
         this.activeIndex -= 1
       }
@@ -126,7 +131,7 @@ export default {
     carouselNext () {
       this.arrow = 'next'
 
-      if (this.activeIndex + 1 < this.items.length) {
+      if (this.activeIndex + 1 < this.length) {
         this.activeIndex += 1
       } else {
         this.activeIndex = 0
@@ -134,15 +139,15 @@ export default {
 
       this._updatePosX('next')
     },
-    handlerResize (e) {
-      if (e.target.screen.width === this.widthWindow) {
+    handlerResize ({ target: { screen } }) {
+      if (screen.width === this.widthWindow) {
         return false
       }
 
-      this.widthWindow = e.target.screen.width
+      this.widthWindow = screen.width
 
       // update vertical carousel
-      if (e.target.screen.width >= 1280) {
+      if (screen.width >= 1280) {
         this.date = Math.random()
 
         setTimeout(() => {
@@ -154,8 +159,10 @@ export default {
       this.activeIndex = 0
       this.$emit('updateIndex', 0)
 
-      if (this.widthWrapper !== this.$refs.carousel.clientWidth) {
-        this.widthWrapper = this.$refs.carousel.clientWidth
+      const { carousel } = this.$refs
+
+      if (this.widthWrapper !== carousel.clientWidth) {
+        this.widthWrapper = carousel.clientWidth
       }
 
       if (this.widthWrapper >= this.widthItem * this.column) {
@@ -182,7 +189,7 @@ export default {
     isConvex (item) {
       if (this.activeIndex < 1) {
         return item === this.activeIndex || item - 1 === this.activeIndex || item - 2 === this.activeIndex
-      } else if (this.activeIndex >= 1 && this.activeIndex < this.items.length - 1) {
+      } else if (this.activeIndex >= 1 && this.activeIndex < this.length - 1) {
         return item === this.activeIndex || item - 1 === this.activeIndex || item + 1 === this.activeIndex
       } else {
         return item === this.activeIndex || item + 1 === this.activeIndex || item + 2 === this.activeIndex
@@ -193,13 +200,13 @@ export default {
         return item === 4
       }
 
-      if (this.activeIndex > this.items.length - 3) {
-        return item === this.items.length - 5
+      if (this.activeIndex > this.length - 3) {
+        return item === this.length - 5
       }
     },
     isCentered (item) {
-      if (this.activeIndex > this.items.length - 3) {
-        return item === this.items.length - 5
+      if (this.activeIndex > this.length - 3) {
+        return item === this.length - 5
       }
     }
   },
@@ -210,7 +217,7 @@ export default {
     activeIndex (val) {
       this._updatePosDot(val)
 
-      if (this.vertical && val < this.items.length - 5) {
+      if (this.vertical && val < this.length - 5) {
         this.posY = (val + 1) * this.heightItem
       }
 
@@ -255,7 +262,7 @@ export default {
     if (this.activeItem !== null && this.activeItem !== this.activeIndex && this.heightItem > 1) {
       this.activeIndex = this.activeItem
 
-      if (this.vertical && this.activeIndex < this.items.length - 2) {
+      if (this.vertical && this.activeIndex < this.length - 2) {
         this.posY = (this.activeIndex + 1) * this.heightItem
       }
     }
@@ -275,6 +282,7 @@ export default {
       maxHeightWrapper: 0,
       countColumn: 0,
       widthItem: 0,
+      isShowButtons: true,
       timeout: false,
       posX: 0,
       heightItem: 0,

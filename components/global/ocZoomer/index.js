@@ -1,5 +1,6 @@
-import TapDetector from './source/TapDetector'
 import _debounce from '~/utils/debounce'
+
+import TapDetector from './source/TapDetector'
 
 export default {
   props: {
@@ -12,7 +13,8 @@ export default {
     pivot: { type: String, default: 'cursor' }, // other options: image-center
     limitTranslation: { type: Boolean, default: true },
     doubleClickToZoom: { type: Boolean, default: true },
-    off: { type: Boolean, default: false } // off zoomed
+    off: { type: Boolean, default: false }, // off zoomed,
+    active: { type: Boolean, default: false } // For toggle active mouse wheel
   },
   data () {
     return {
@@ -226,6 +228,11 @@ export default {
     },
     // Mouse wheel scroll,  TrackPad pinch or TrackPad scroll
     onMouseWheel (ev) {
+      if (this.active) {
+        ev.preventDefault()
+        ev.stopPropagation()
+      }
+
       if (ev.detail) { ev.wheelDelta = ev.detail * -10 }
       const currTime = Date.now()
       if (Math.abs(ev.wheelDelta) === 120) {

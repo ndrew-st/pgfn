@@ -5,7 +5,6 @@ import Catalog from '~/pages/housing/-components/Catalog'
 export default {
   components: { Catalog },
   async asyncData ({ store }) {
-    console.log('asyncData ')
     store.dispatch(`housing/filters/changeTypePage`, `supply`)
     await store.dispatch(`housing/getPlacementData`)
   },
