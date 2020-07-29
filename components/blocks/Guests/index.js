@@ -25,6 +25,7 @@ export default {
   },
   created () {
     if (this.guests) {
+      // debugger
       this.peoples = this.guests
     }
   },
@@ -33,7 +34,8 @@ export default {
       if (field === 'parent') {
         this.peoples.parent = current
         this.date = new Date().toString()
-        this.$emit('input', this.peoples)
+        // this.$emit('input', { ...this.peoples })
+        this.$emit('input', Object.assign({}, this.peoples))
 
         return null
       }
@@ -46,7 +48,8 @@ export default {
         this.peoples[field] = current
       }
 
-      this.$emit('input', this.peoples)
+      // this.$emit('input', { ...this.peoples })
+      this.$emit('input', Object.assign({}, this.peoples))
     }
   }
 }

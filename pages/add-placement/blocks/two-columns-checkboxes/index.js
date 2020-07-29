@@ -27,5 +27,11 @@ export default {
     return {
       checkedItems: []
     }
+  },
+  methods: {
+    change (ev) {
+      // debugger
+      this.$emit('change', ev)
+    }
   }
 }
