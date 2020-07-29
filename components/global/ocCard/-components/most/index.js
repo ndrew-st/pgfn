@@ -62,6 +62,12 @@ export default {
         this.parentCarousel.querySelectorAll('.price-more').forEach((item) => {
           item.classList.add('hidden')
         })
+
+        if (val) {
+          this.moreBlock.classList.remove('hidden')
+        }
+
+        return
       }
 
       if (val) {

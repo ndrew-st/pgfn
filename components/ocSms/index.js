@@ -22,6 +22,9 @@ export default {
     }
   },
   methods: {
+    more () {
+
+    },
     mask (item) {
       // if (this.smsCode.length > 4) {
       //   this.smsCode = this.smsCode.substr(0, 4)

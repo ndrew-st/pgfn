@@ -14,11 +14,14 @@ export default {
       default: null
     },
     prices: {
-      type: Object,
+      type: [Object, Number],
       default: null
     }
   },
   computed: {
+    isPrice () {
+      return this.prices && typeof this.prices !== 'number'
+    },
     times () {
       if (this.reservation) {
         return {
@@ -27,7 +30,7 @@ export default {
           timeForCalls: this.reservation.pickUpTime
         }
       } else {
-        return {}
+        return null
       }
     },
     booking () {
@@ -37,7 +40,7 @@ export default {
           typeOfReservation: this.reservation.typeOfReservation
         }
       } else {
-        return {}
+        return null
       }
     }
   },
