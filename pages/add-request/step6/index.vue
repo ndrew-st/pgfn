@@ -153,7 +153,7 @@
     </ApFolding>
 
     <ApButton
-      v-if="selItem !== ''"
+      v-if="price !== '' && datesOfStay !== '' && getstsInputText !== '' && citizenship !== ''"
       name="red"
       @click.native="addPlacement"
     >

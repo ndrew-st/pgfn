@@ -57,13 +57,14 @@ export default {
         { label: 'Бесплатная отмена за любое время', value: '' },
         { label: 'Бесплатная отмена за 2 дня до даты въезда', value: '' }
       ],
-      price: ''
+      price: '',
+      citizenship: ''
     }
   },
   methods: {
     addPlacement () {
-      this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: 'datesOfStay', value: this.datesOfStay })
-      this.$store.dispatch('placement/addRequest')
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'datesOfStay', value: this.datesOfStay })
+      this.$store.dispatch('request/addRequest')
     },
     // mask () {
     //   const matrix = '__.__.____ - __.__.____'
@@ -76,13 +77,13 @@ export default {
     //   })
     // },
     changeTimeForCalls (val) {
-      this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'timeForCalls', value: val })
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'reservation', key: 'timeForCalls', value: val })
     },
     changePickUpTime (val) {
-      this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'pickUpTime', value: val })
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'reservation', key: 'pickUpTime', value: val })
     },
     changeDepartureTime (val) {
-      this.$store.dispatch('placement/setItemSecondLevel', { level: 'reservation', key: 'departureTime', value: val })
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'reservation', key: 'departureTime', value: val })
     },
     changeSelDate (date) {
       this.$root.$emit('dropdown:hide')
