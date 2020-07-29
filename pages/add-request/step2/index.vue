@@ -85,14 +85,14 @@
       </select> -->
 
         <RoomCounter
-          :sel-rooms="selRooms"
+          :sel-items="selRooms"
           @change="changeRoom"
         />
       </div>
     </div>
 
     <ApButton
-      v-if="selItem !== null && areaStart > 0 && areaEnd > 0"
+      v-if="selItem !== null && areaEnd > 0 && selRooms.length > 0"
       name="red"
       @click.native="next"
     >

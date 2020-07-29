@@ -1,10 +1,10 @@
+import Guests from '~/components/blocks/Guests'
+import Calendar from '~/components/blocks/Calendar'
 import ApButton from '../../add-placement/ap-button/index.vue'
 import ApInput from '../../add-placement/ap-input'
 import CheckboxesList from '../../add-placement/blocks/two-columns-checkboxes'
 import ApFolding from '../../add-placement/blocks/ap-folding'
 import TimeOptions from './time-options'
-import Guests from '~/components/blocks/Guests'
-import Calendar from '~/components/blocks/Calendar'
 
 export default {
   components: {
@@ -21,27 +21,32 @@ export default {
       datesOfStay: '',
       curDate: new Date().toString(),
       curSelStart: new Date().toString(),
-      guests: [],
+      guests: {
+        parent: 0,
+        children: 0,
+        babies: 0
+      },
+      getstsInputText: '',
       listLimits: [
         { label: 'Можно с детьми', value: 'kids' },
         { label: 'Можно с животными', value: 'pets' },
         { label: 'Можно курить', value: 'weed' }
       ],
-      listTypeOfHousing1: [
-        { label: 'Частное лицо', value: '' },
-        { label: 'Компания/ИП', value: '' },
-        { label: 'Отель', value: '' },
-        { label: 'Гостиница', value: '' },
-        { label: 'Пансионат', value: '' },
-        { label: 'Санаторий', value: '' },
-        { label: 'Хостел', value: '' },
-        { label: 'Кемпинг', value: '' }
+      listTypeOfHousing: [
+        { label: 'Частное лицо', value: '0' },
+        { label: 'Компания/ИП', value: '1' },
+        { label: 'Отель', value: '2' },
+        { label: 'Гостиница', value: '3' },
+        { label: 'Пансионат', value: '4' },
+        { label: 'Санаторий', value: '5' },
+        { label: 'Хостел', value: '6' },
+        { label: 'Кемпинг', value: '7' }
       ],
-      listTypeOfHousing2: [
-        { label: 'Агент', value: '' },
-        { label: 'Агентство', value: '' },
-        { label: 'Частное лицо', value: '' },
-        { label: 'Компания/ИП', value: '' }
+      listTypeOfTenant: [
+        { label: 'Агент', value: '8' },
+        { label: 'Агентство', value: '9' },
+        { label: 'Частное лицо', value: '10' },
+        { label: 'Компания/ИП', value: '11' }
       ],
       listBookingConditions: [
         { label: 'Без предоплаты', value: '' },
@@ -51,7 +56,8 @@ export default {
       listCancelBookingConditions: [
         { label: 'Бесплатная отмена за любое время', value: '' },
         { label: 'Бесплатная отмена за 2 дня до даты въезда', value: '' }
-      ]
+      ],
+      price: ''
     }
   },
   methods: {
@@ -83,8 +89,28 @@ export default {
       this.datesOfStay = date
     },
     handlerGuests (data) {
-      this.guests = data
+      this.guests = Object.assign({}, data)
       console.log('this.guests:', this.guests)
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'guests', value: this.guests })
+      // debugger
+      this.getstsInputText = '' + (data.babies + data.children + data.parent)
+      if (this.getstsInputText === '0') {
+        this.getstsInputText = ''
+      }
+    },
+    changePrice (val) {
+      this.price = val
+      this.$store.dispatch('request/setItem', { key: 'price', value: val })
+    },
+    changeCitizenship (val) {
+      this.citizenship = val
+      this.$store.dispatch('request/setItem', { key: 'citizenship', value: val })
+    },
+    changeCheckbox (val, type) {
+      console.log('type:', type)
+      console.log('val:', val)
+      // debugger
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'typeOfTenant', value: val })
     }
   }
 }

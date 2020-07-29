@@ -51,7 +51,8 @@ export default {
       const selItems = []
       for (let i = 0; i < 9; i++) {
         if (this.roomsArray[i].checked) {
-          selItems.push(this.roomsArray[i].title)
+          // selItems.push(this.roomsArray[i].title)
+          selItems.push(i)
           this.textForInput = this.textForInput + (this.textForInput === '' ? '' : ' / ') + this.roomsArray[i].title
         }
       }

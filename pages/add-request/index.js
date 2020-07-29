@@ -7,7 +7,7 @@ import Step5 from './step5/index.vue'
 import Step6 from './step6/index.vue'
 
 export default {
-  middleware: 'auth',
+  // middleware: 'auth',
   components: {
     Step1,
     Step2,
@@ -19,7 +19,7 @@ export default {
   },
   data () {
     return {
-      state: 1
+      state: 6
     }
   },
   methods: {

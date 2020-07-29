@@ -48,6 +48,7 @@
       <OcDropDown>
         <OcInput
           slot="button"
+          :value="getstsInputText"
           placeholder="Гости"
           kind="most"
           readonly
@@ -55,7 +56,8 @@
 
         <Guests
           slot="body"
-          class="apartment__content"
+          :guests="guests"
+          class="req-step6__guests-content"
           @input="handlerGuests"
         />
       </OcDropDown>
@@ -71,8 +73,10 @@
     </p>
 
     <ApInput
-      placeholder="10 000"
+      placeholder="10000"
+      :value="price"
       class="req-step6__input-price"
+      @input="changePrice"
     />
 
     <span class="req-step6__span-price">₽/сутки</span>
@@ -85,6 +89,7 @@
     <ApInput
       placeholder="Россия"
       class="req-step6__input-citizenship"
+      @input="changeCitizenship"
     />
 
     <CheckboxesList
@@ -100,16 +105,18 @@
     >
       <CheckboxesList
         title-block="Собственник/арендодатель"
-        :list="listTypeOfHousing1"
+        :list="listTypeOfHousing"
         :red-star="false"
         class="add-placement__mt48"
+        @change="changeCheckbox"
       />
 
       <CheckboxesList
         title-block="Посредник"
-        :list="listTypeOfHousing2"
+        :list="listTypeOfTenant"
         :red-star="false"
         class="add-placement__mt48"
+        @change="changeCheckbox"
       />
 
       <CheckboxesList

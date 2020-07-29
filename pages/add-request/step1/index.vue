@@ -71,7 +71,7 @@
       <CheckboxesList :list="nature" />
 
       <OcButton
-        v-if="selItem2 !== ''"
+        v-if="inputAdress !== ''"
         name="most"
         color="red"
         class="req-step1__button-next"

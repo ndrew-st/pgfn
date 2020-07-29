@@ -83,6 +83,7 @@ export default {
       this.selRooms = val
       console.log('this.selRooms:', this.selRooms)
       // this.$store.dispatch('request/setItemSecondLevel', { level: '', key: '', value:  })
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'numberOfRooms', value: this.selRooms })
     }
   }
 }
