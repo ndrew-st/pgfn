@@ -56,7 +56,7 @@
           class="reg"
           :class="{ reg7: stage === 'timer' }"
           to=""
-          @click.native.stop.prevent="_clearData"
+          @click.native="_clearData"
         >
           Зарегистрироваться
         </nuxt-link>

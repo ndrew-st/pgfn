@@ -47,7 +47,7 @@ export default {
       type: Boolean,
       required: true
     },
-    type: {
+    type: { // For output card in carousel and catalog
       type: String,
       required: true
     }
@@ -58,12 +58,14 @@ export default {
         return
       }
 
-      this.parentCarousel.querySelectorAll('.price-more').forEach((item) => {
-        item.classList.add('hidden')
-      })
+      if (this.parentCarousel) {
+        this.parentCarousel.querySelectorAll('.price-more').forEach((item) => {
+          item.classList.add('hidden')
+        })
+      }
 
       if (val) {
-        this.moreBlock.classList.remove('hidden')
+        this.moreBlock.children[0].classList.remove('hidden')
       }
     }
   },
@@ -143,10 +145,6 @@ export default {
   mounted () {
     this.updateValues()
 
-    if (!this.isShowMorePrice || !this.$refs.card) {
-      return
-    }
-
     const root = this.$root
     const { morePriceButton } = this.$refs
 
@@ -158,6 +156,8 @@ export default {
 
       if (!button && !body) {
         root.$emit('more-price:hide')
+
+        return
       }
 
       if (!morePriceButton.isEqualNode(button)) {
@@ -174,6 +174,12 @@ export default {
       this.parentCarousel = this.$refs.card.closest('div.carousel')
       this.parentListCarousel = this.$refs.card.closest('.carousel__list')
 
+      if (!this.parentCarousel) { // card output without carousel
+        this.moreBlock = this.$refs.moreBlock
+
+        return
+      }
+
       if (!this.parentCarousel.querySelector('.' + this.random)) {
         this.moreBlock = this.parentCarousel.appendChild(this.$refs.moreBlock.children[0])
         this.moreBlock.classList.add(this.random)
@@ -189,6 +195,12 @@ export default {
       this.showPrice = false
     },
     toggleMorePrice () {
+      if (!this.parentCarousel) {
+        this.showPrice = !this.showPrice
+
+        return
+      }
+
       this.moreBlock.style.left = this.$refs.card.getBoundingClientRect().left - this.parentCarousel.getBoundingClientRect().left + 'px'
 
       if (!this.showPrice) {

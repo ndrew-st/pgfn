@@ -34,7 +34,7 @@
           <nuxt-link
             class="enter-top"
             to=""
-            @click.native.stop.prevent="showPopup('signIn')"
+            @click.native="showPopup('signIn')"
           >
             Войти
           </nuxt-link>
@@ -46,6 +46,7 @@
             <nuxt-link
               to="/privacy"
               class="lic__privacy"
+              @click.native="hide"
             >
               Пользовательского соглашения
             </nuxt-link>
@@ -84,7 +85,7 @@
             <nuxt-link
               to="/profile"
               class="sign-up-success__link"
-              @click.native.prevent.stop="hide"
+              @click.native="hide"
             >
               В личный кабинет
             </nuxt-link>
@@ -95,7 +96,7 @@
           href="#"
           class="go-back"
           :class="[{'first': stage === 'phone'}]"
-          @click.prevent.stop="prevent"
+          @click.prevent="prevent"
         >
           Вернуться
         </a>

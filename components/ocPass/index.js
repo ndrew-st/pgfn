@@ -2,7 +2,10 @@ import { minLength, required } from 'vuelidate/lib/validators'
 
 export default {
   props: {
-    error: String,
+    error: {
+      type: String,
+      default: null
+    },
     btnText: String,
     value: String
   },

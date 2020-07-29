@@ -23,7 +23,7 @@ export default {
   },
   data: () => ({
     // stage: 'phone',
-    stage: 'recovery',
+    stage: 'phone',
     error: '',
     phone: '',
     pass: '',
@@ -40,7 +40,7 @@ export default {
     prevent () {
       if (this.stage === 'phone') {
         this.showPopup('signUp')
-        this._clearData()
+        this.rmItem('sign-in')
       } else if (this.stage === 'pass') {
         this.stage = 'phone'
       }
@@ -49,13 +49,12 @@ export default {
       return str.replace(/\D/g, '')
     },
     async logIn (pass) {
-      console.log('logIn ')
-      console.log('stage ', this.stage)
       const phoneNum = this._getNumPhone(this.phone)
 
       const res = await this[login]({ phone: phoneNum, password: pass.password })
 
       if (res && res.error) {
+        this.error = 'Пароль не верен!'
         console.log('Error', res)
 
         return

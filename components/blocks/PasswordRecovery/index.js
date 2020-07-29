@@ -72,6 +72,8 @@ export default {
 
         const res = await this.$api.users.resetPassword({ phone, code, password })
 
+        console.log('res ', res)
+
         if (res.error) {
           this.error = 'Неверный код'
         } else {
