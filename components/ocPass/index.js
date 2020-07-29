@@ -32,11 +32,12 @@ export default {
   methods: {
     setPass (val) {
       this.password = val
+      this.$emit('input', val)
       this.$v.password.$touch()
     },
     next () {
       if (!this.$v.$invalid) {
-        this.$emit('next', { password: this.password })
+        this.$emit('next')
       }
     }
   }
