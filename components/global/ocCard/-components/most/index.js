@@ -166,7 +166,7 @@ export default {
     })
   },
   beforeUpdate () {
-    if (process.client) {
+    if (process.client && this.isShowMorePrice) {
       if (!this.random) {
         this.random = randomString(10)
       }

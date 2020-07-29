@@ -15,13 +15,15 @@ export default {
   created () {
     if (process.client && this.$storage.getItem('sign-in')) {
       const { phone, stage } = this.$storage.getItem('sign-in')
+      const res = this.$storage.getItem('stage')
 
       this.phone = phone
-      this.stage = stage
+      this.stage = res || stage
     }
   },
   data: () => ({
-    stage: 'phone',
+    // stage: 'phone',
+    stage: 'recovery',
     error: '',
     phone: '',
     pass: '',
@@ -47,6 +49,8 @@ export default {
       return str.replace(/\D/g, '')
     },
     async logIn (pass) {
+      console.log('logIn ')
+      console.log('stage ', this.stage)
       const phoneNum = this._getNumPhone(this.phone)
 
       const res = await this[login]({ phone: phoneNum, password: pass.password })
@@ -71,6 +75,9 @@ export default {
           this.stage = 'pass'
           break
         case 'pass':
+          await this.logIn(par)
+          break
+        case 'recovery':
           await this.logIn(par)
           break
       }
