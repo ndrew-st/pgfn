@@ -10,6 +10,11 @@ export default {
     },
     phone (val) {
       this.$storage.setItem('sign-in', { phone: val, stage: this.stage })
+    },
+    pass (val) {
+      if (this.error.length) {
+        this.error = ''
+      }
     }
   },
   created () {
@@ -48,10 +53,10 @@ export default {
     _getNumPhone (str) {
       return str.replace(/\D/g, '')
     },
-    async logIn (pass) {
+    async logIn () {
       const phoneNum = this._getNumPhone(this.phone)
 
-      const res = await this[login]({ phone: phoneNum, password: pass.password })
+      const res = await this[login]({ phone: phoneNum, password: this.pass })
 
       if (res && res.error) {
         this.error = 'Пароль не верен!'
@@ -74,10 +79,10 @@ export default {
           this.stage = 'pass'
           break
         case 'pass':
-          await this.logIn(par)
+          await this.logIn()
           break
         case 'recovery':
-          await this.logIn(par)
+          await this.logIn()
           break
       }
     }
