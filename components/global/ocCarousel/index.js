@@ -225,7 +225,6 @@ export default {
     }
   },
   mounted () {
-    console.log('isShowButtons ', this.isShowButtons)
     if (this.activeItem !== null) {
       this.activeIndex = this.activeItem
       this.posX = -this.activeIndex * this.widthItem

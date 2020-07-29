@@ -1,4 +1,15 @@
 export default {
+  props: {
+    show: {
+      type: Boolean,
+      default: false
+    }
+  },
+  watch: {
+    isShow (val) {
+      this.$emit('change', val)
+    }
+  },
   data () {
     return {
       isShow: false
@@ -10,13 +21,13 @@ export default {
     root.$on('dropdown:hide', () => this._hideDropDown())
 
     // hide dropdown, if click at Another area
-    document.onmousedown = (e) => {
+    document.addEventListener('mousedown', function (e) {
       const target = e.target
       const dropdown = target.closest('.dropdown__btn') || target.closest('.dropdown__content')
       if (!dropdown) {
         root.$emit('dropdown:hide')
       }
-    }
+    })
   },
   methods: {
     _hideDropDown () {

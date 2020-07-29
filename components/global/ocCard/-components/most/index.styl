@@ -103,7 +103,7 @@
         display inline-flex
 
       &__link
-        display inline-block
+        display inline
 
         color $dark
         white-space nowrap
@@ -245,10 +245,12 @@
 
       cursor pointer
 
+      transform rotate(180deg)
+
       rm-outline()
 
       &.active
-        transform rotate(180deg)
+        transform rotate(0deg)
 
     &__content
       position absolute

@@ -2,7 +2,7 @@
   <div class="dropdown">
     <span
       class="dropdown__btn"
-      @click="toggle"
+      @click.stop.prevent="toggle"
     >
       <slot
         :show="isShow"
@@ -10,9 +10,23 @@
       />
     </span>
 
-    <transition name="fade">
+    <transition
+      v-if="!show"
+      name="fade"
+    >
       <div
         v-if="isShow"
+        class="dropdown__content"
+      >
+        <slot name="body" />
+      </div>
+    </transition>
+    <transition
+      v-else
+      name="fade"
+    >
+      <div
+        v-show="isShow"
         class="dropdown__content"
       >
         <slot name="body" />

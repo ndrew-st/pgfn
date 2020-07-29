@@ -1,5 +1,5 @@
 <template>
-  <div class="more-block-container">
+  <div class="more-block-container price-more hidden">
     <div
       v-if="content.byTheDay.length"
       class="more-block-container__content"
