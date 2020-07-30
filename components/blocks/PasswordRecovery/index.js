@@ -70,7 +70,11 @@ export default {
           return
         }
 
-        const res = await this.$api.users.resetPassword({ phone, code, password })
+        const res = await this.$api.users.resetPassword({
+          phone: phone.replace('-', '').replace(' ', ''),
+          code,
+          password
+        })
 
         console.log('res ', res)
 
