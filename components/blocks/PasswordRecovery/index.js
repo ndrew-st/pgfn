@@ -71,7 +71,7 @@ export default {
         }
 
         const res = await this.$api.users.resetPassword({
-          phone: phone.replace('-', '').replace(' ', ''),
+          phone: phone.replace(/-/g, '').replace(/ /g, ''),
           code,
           password
         })
