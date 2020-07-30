@@ -12,6 +12,7 @@
       <CatalogFilter
         v-if="typeFilter !== 'main'"
         class="housing__filters"
+        :content="filters"
         @input="selectFilter"
       />
 
@@ -40,8 +41,10 @@ import CatalogFilter from '~/components/blocks/CatalogFilter'
 
 export default {
   components: { CatalogFilter },
-  asyncData ({ app: { store }, query: { page } }) {
+  asyncData ({ app: { store }, query: { page, filters } }) {
     store.dispatch(`housing/changePage`, page || 1)
+
+    return { filters: filters && JSON.parse(filters) }
   },
   layout: 'main',
   computed: {
@@ -58,9 +61,19 @@ export default {
       this.$router.push({ query: { page: nextStep } })
       this.changePage(nextStep)
     },
-    ...mapActions(`housing`, [`changePage`]),
+    ...mapActions(`housing`, [`changePage`, `getPlacementData`, `getRequestData`]),
     selectFilter (res) {
-      console.log('selectFilter ', res)
+      this.$router.push({ query: { filters: JSON.stringify(res) } })
+
+      if (this.typeFilter === 'main') {
+        return
+      }
+
+      if (this.typeFilter === 'supply') {
+        this.getPlacementData(res)
+      } else {
+        this.getRequestData(res)
+      }
     }
   }
 }

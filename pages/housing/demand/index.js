@@ -4,13 +4,13 @@ import Catalog from '~/pages/housing/-components/Catalog'
 
 export default {
   components: { Catalog },
-  asyncData ({ store }) {
+  async asyncData ({ store, query: { filters } }) {
     store.dispatch(`housing/filters/changeTypePage`, `demand`)
-    // await store.dispatch(`housing/getData`)
+    await store.dispatch(`housing/getRequestData`, filters && JSON.parse(filters))
   },
   computed: {
     ...mapState(`housing`, {
-      list: state => state.result.itm,
+      list: state => state.request,
       coords: state => state.result.coords,
       city: state => state.result.city
     })
