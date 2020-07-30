@@ -23,7 +23,12 @@ export default {
   },
   methods: {
     more () {
+      if (this.timeCounter < 1 && this.code.length) {
+        console.log('Here ', this.code)
 
+        this.$emit('input', this.code)
+        this.$emit('next')
+      }
     },
     mask (item) {
       // if (this.smsCode.length > 4) {
