@@ -1,6 +1,9 @@
 <template>
   <InfoBlock class="info-block-container">
-    <div class="info-block-container__item info-unit">
+    <div
+      v-if="getTimeArr('departureTime')"
+      class="info-block-container__item info-unit"
+    >
       <h3 class="info-unit__title">
         Время для звонков
       </h3>
@@ -16,7 +19,10 @@
       </ul>
     </div>
 
-    <div class="info-block-container__item info-unit">
+    <div
+      v-if="getTimeArr('pickUpTime')"
+      class="info-block-container__item info-unit"
+    >
       <h3 class="info-unit__title">
         Время заезда/показа жилья
       </h3>
@@ -32,7 +38,10 @@
       </ul>
     </div>
 
-    <div class="info-block-container__item info-unit">
+    <div
+      v-if="getTimeArr('pickUpTime')"
+      class="info-block-container__item info-unit"
+    >
       <h3 class="info-unit__title">
         Время выезда гостей
       </h3>

@@ -4,9 +4,9 @@ import Catalog from '~/pages/housing/-components/Catalog'
 
 export default {
   components: { Catalog },
-  async asyncData ({ store }) {
+  async asyncData ({ store, query: { filters } }) {
     store.dispatch(`housing/filters/changeTypePage`, `supply`)
-    await store.dispatch(`housing/getPlacementData`)
+    await store.dispatch(`housing/getPlacementData`, filters && JSON.parse(filters))
   },
   computed: {
     ...mapState(`housing`, {

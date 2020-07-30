@@ -5,6 +5,25 @@
   @media (max-width 768px)
     margin-top 8px
 
+  &__date
+    display flex
+    justify-content flex-end
+    width 100%
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: right;
+    color: #272528;
+
+  &__container
+    display flex
+    align-items flex-end
+    justify-content flex-end
+    width 100%
+    margin-bottom 15px
+
 .container-desc
   &__left
     display flex
@@ -16,6 +35,8 @@
 .fe
   align-items flex-end
   display flex
+  flex-wrap wrap
+  min-width 250px
 
   @media (max-width 768px)
     display none

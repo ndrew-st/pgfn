@@ -60,42 +60,39 @@ export default {
     }
   }),
   computed: {
-    ...mapGetters(moduleNameUnit, ['title']),
+    ...mapGetters(moduleNameUnit, ['title', 'intro', 'date', 'countPlaces']),
     ...mapState(moduleNameUnit, {
       type: state => state.type,
-      header: (state) => {
+      header: ({ result }) => {
         return {
-          intro: state.result.title,
-          description: state.result.description,
-          reviews: state.result.reviews,
-          views: state.result.views,
-          estimate: state.result.estimate,
-          id: state.result.ownerId,
-          date: state.result.date,
-          price: state.result.price,
-          typeOfHousing: state.result.typeOfHousing
+          description: result.description,
+          reviews: result.reviews,
+          views: result.views,
+          estimate: result.estimate,
+          id: result.ownerId,
+          price: result.price,
+          typeOfHousing: result.typeOfHousing
         }
       },
-      description: (state) => {
+      description: ({ result }) => {
         return {
-          typeOfHousing: state.result.typeOfHousing,
-          countBed: state.result.sleepingPlace && state.result.sleepingPlace.length,
-          content: state.result.description,
-          countGuests: state.result.sleepingPlace.reduce((sum, cur) => sum + (cur.typeOfPlace === 'bunkBed' ? parseInt(cur.amount) * 2 : parseInt(cur.amount)), 0)
+          typeOfHousing: result.typeOfHousing,
+          countBed: result.sleepingPlace && result.sleepingPlace.length,
+          content: result.description
         }
       },
-      prices: state => state.result.price,
-      address: state => state.result.address,
-      images: state => state.result.images,
-      facilities: state => fac.filter(item => state.result.params && state.result.params.find(itm => itm.typeOfParam === item.value)),
-      reservation: state => state.result.reservation,
-      limits: (state) => {
-        const idx = state.result.params && state.result.params.findIndex(item => item.typeOfParam === 'listLimits')
+      prices: ({ result }) => result.price,
+      address: ({ result }) => result.address,
+      images: ({ result }) => result.images,
+      facilities: ({ result }) => fac.filter(item => result.params && result.params.find(itm => itm.typeOfParam === item.value)),
+      reservation: ({ result }) => result.reservation,
+      limits: ({ result }) => {
+        const idx = result.params && result.params.findIndex(item => item.typeOfParam === 'listLimits')
 
-        return state.result.params.length && state.result.params[idx] && state.result.params[idx].paramValue
+        return result.params.length && result.params[idx] && result.params[idx].paramValue
       },
       rates: state => state.rates,
-      coords: state => state.result && state.result.address && state.result.address.geo
+      coords: state => state.result.address && state.result.address.geo
     })
   },
   methods: {
