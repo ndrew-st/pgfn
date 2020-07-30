@@ -21,6 +21,7 @@
 
         <OcPass
           v-if="stage === 'pass'"
+          v-model="password"
           :error="error"
           btn-text="Готово"
           @next="next"
