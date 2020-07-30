@@ -5,7 +5,10 @@
       :key="item.value"
       class="ap-block-check-list__item"
     >
-      <ApCheckbox :par-name="item.value">
+      <ApCheckbox
+        :par-name="item.value"
+        :state="state"
+      >
         {{ item.label }}
       </ApCheckbox>
     </li>

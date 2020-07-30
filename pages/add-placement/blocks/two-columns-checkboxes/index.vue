@@ -25,6 +25,7 @@
         <ApCheckbox
           :par-name="item.value"
           :change="change"
+          :store="store"
         >
           {{ item.label }}
         </ApCheckbox>

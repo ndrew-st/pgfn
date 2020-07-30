@@ -2,7 +2,6 @@ import ApButton from '../../add-placement/ap-button/index.vue'
 import ApRadio from '../../add-placement/ap-radio/index.vue'
 import ApCheckbox from '../../add-placement/ap-checkbox/index.vue'
 import CheckboxesList from '../../add-placement/blocks/two-columns-checkboxes/index.vue'
-import CountBed from '../-components/CountBed/index.vue'
 import ApFolding from '../../add-placement/blocks/ap-folding'
 import ApInput from '../../add-placement/ap-input'
 
@@ -12,7 +11,6 @@ export default {
     ApRadio,
     ApCheckbox,
     CheckboxesList,
-    CountBed,
     ApFolding,
     ApInput
   },

@@ -3,6 +3,11 @@ import Counter from '~/components/blocks/Counter'
 export default {
   components: { Counter },
   props: {
+    store: {
+      type: String,
+      default: 'placement',
+      required: false
+    },
     list: {
       type: Array,
       default: () => ([
@@ -42,10 +47,10 @@ export default {
       console.log('resFind:', resFind)
       if (flag) {
         this.resultLength += resFind.sleepPlaces
-        this.$store.dispatch('placement/setBed', { typeOfPlace: value, amount: val })
+        this.$store.dispatch(`${this.store}/setBed`, { typeOfPlace: value, amount: val })
       } else {
         this.resultLength -= resFind.sleepPlaces
-        this.$store.dispatch('placement/removeBed', { typeOfPlace: value, amount: val })
+        this.$store.dispatch(`${this.store}/removeBed`, { typeOfPlace: value, amount: val })
       }
       // this.resultLength = this.result.length
       // console.log('this.resultLength:', this.resultLength)

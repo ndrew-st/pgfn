@@ -1,17 +1,11 @@
-import ApButton from '../../add-placement/ap-button/index.vue'
-import ApRadio from '../../add-placement/ap-radio/index.vue'
-import ApCheckbox from '../../add-placement/ap-checkbox/index.vue'
-import CheckboxesList from '../../add-placement/blocks/two-columns-checkboxes/index.vue'
+import ApButton from '../../add-placement/ap-button'
+import CheckboxesList from '../../add-placement/blocks/two-columns-checkboxes'
 import ApFolding from '../../add-placement/blocks/ap-folding'
-import CountBed from '../-components/CountBed/index.vue'
 
 export default {
   components: {
     ApButton,
-    ApRadio,
-    ApCheckbox,
     CheckboxesList,
-    CountBed,
     ApFolding
   },
   data () {
@@ -31,33 +25,25 @@ export default {
       ],
       internet: '',
       listInternet: [
-        { label: 'Wi-Fi менее 10 Мбит/с', value: 'less10' },
-        { label: 'Wi-Fi от 10 Мбит/с', value: 'more10' },
-        { label: 'Wi-Fi от 30 Мбит/с', value: 'more30' },
-        { label: 'Wi-Fi от 50 Мбит/с', value: 'more50' },
-        { label: 'Wi-Fi от 100 Мбит/с', value: 'more100' },
-        { label: 'Отсутствует', value: 'none' }
+        { label: 'Wi-Fi менее 10 Мбит/с', value: 'internetLess10' },
+        { label: 'Wi-Fi от 10 Мбит/с', value: 'internetMore10' },
+        { label: 'Wi-Fi от 30 Мбит/с', value: 'internetMore30' },
+        { label: 'Wi-Fi от 50 Мбит/с', value: 'internetMore50' },
+        { label: 'Wi-Fi от 100 Мбит/с', value: 'internetMore100' },
+        { label: 'Отсутствует', value: 'internetNone' }
       ],
       climate: [
         { label: 'Камин', value: 'fire' },
         { label: 'Автономное отопление', value: 'privatHeat' },
-        { label: 'Магистральное отопление', value: 'commonHeat' }
+        { label: 'Магистральное отопление', value: 'commonHeat' },
+        { label: 'Печь', value: 'stove' }
       ],
-      interior: [
-        { label: 'Минимализм', value: 'minimal' },
-        { label: 'Хай-тек', value: 'highTech' },
-        { label: 'Скандинавский стиль', value: 'scandinavian' },
-        { label: 'Дизайнерский ремонт', value: 'design' }
-      ],
-      rooms: [
-        { label: 'Гардероб', value: 'wardrobe' },
-        { label: 'Кухня', value: 'kitchen' },
-        { label: 'Детская', value: 'kidsRoom' },
-        { label: 'Спальня', value: 'bedroom' },
-        { label: 'Рабочее место (письменный стол)', value: 'workroom' },
-        { label: 'Гостиная', value: 'livingRoom' },
-        { label: 'Балкон', value: 'balcony' },
-        { label: 'Лоджия', value: 'loggia' }
+      water: [
+        { label: 'Горячая вода магистральная', value: 'hotWaterMainLine' },
+        { label: 'Горячая вода из бойлера', value: 'hotWaterFromTheBoiler' },
+        { label: 'Горячая вода от колонки', value: 'hotWaterFromThePump' },
+        { label: 'Холодная вода магистральная', value: 'coldWaterMainLine' },
+        { label: 'Холодная вода из скважины', value: 'coldWaterFromTheWell' }
       ],
       facilities: [
         { label: 'Фен', value: 'hairdryer' },

@@ -12,7 +12,12 @@ export default {
     // console.log('mutation')
   },
   setItemSecondLevel (state, data) {
+    // debugger
     if (data.level === 'params') {
+      const remItem = state.result.params.findIndex(item => item.typeOfParam === data.key)
+      if (remItem !== -1) {
+        state.result.params.splice(remItem, 1)
+      }
       state.result.params.push({ typeOfParam: data.key, paramValue: data.value })
     } else {
       state.result[data.level][data.key] = data.value

@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     addPlacement () {
-      this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'datesOfStay', value: this.datesOfStay })
+      // this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'datesOfStay', value: this.datesOfStay })
       this.$store.dispatch('request/addRequest')
     },
     // mask () {
@@ -88,6 +88,7 @@ export default {
     changeSelDate (date) {
       this.$root.$emit('dropdown:hide')
       this.datesOfStay = date
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'datesOfStay', value: this.datesOfStay })
     },
     handlerGuests (data) {
       this.guests = Object.assign({}, data)

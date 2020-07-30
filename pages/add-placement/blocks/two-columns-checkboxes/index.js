@@ -21,6 +21,11 @@ export default {
       type: Number,
       default: 2,
       required: false
+    },
+    store: {
+      type: String,
+      default: 'placement',
+      required: false
     }
   },
   data () {
