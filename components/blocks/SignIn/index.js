@@ -20,15 +20,18 @@ export default {
   created () {
     if (process.client && this.$storage.getItem('sign-in')) {
       const { phone, stage } = this.$storage.getItem('sign-in')
+      const recovery = this.$storage.getItem('recovery')
       const res = this.$storage.getItem('stage')
 
       this.phone = phone
+      this.code = (recovery && recovery.code) || ''
       this.stage = res || stage
     }
   },
   data: () => ({
     // stage: 'phone',
     stage: 'phone',
+    code: '',
     error: '',
     phone: '',
     pass: '',
@@ -45,8 +48,10 @@ export default {
     prevent () {
       if (this.stage === 'phone') {
         this.showPopup('signUp')
-        this.rmItem('sign-in')
+        this.$storage.rmItem('sign-in')
       } else if (this.stage === 'pass') {
+        this.stage = 'phone'
+      } else if (this.stage === 'recovery') {
         this.stage = 'phone'
       }
     },

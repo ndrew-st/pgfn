@@ -1,4 +1,4 @@
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 import Catalog from '~/pages/housing/-components/Catalog'
 
@@ -9,9 +9,10 @@ export default {
     await store.dispatch(`housing/getPlacementData`, filters)
   },
   computed: {
+    ...mapGetters('housing', ['placementCoords']),
     ...mapState(`housing`, {
-      placement: state => state.placement || [],
-      coords: state => state.result.coords,
+      placement: state => state.placement.apartments,
+      count: state => state.placement.count,
       city: state => state.result.city
     })
   }

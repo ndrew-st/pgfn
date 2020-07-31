@@ -11,7 +11,7 @@
         />
 
         <div
-          v-if="phone && stage === 'recovery'"
+          v-if="phone.length && stage === 'recovery'"
           class="sign-in__container"
         >
           <p class="sign-in__text">

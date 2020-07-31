@@ -16,6 +16,9 @@ export default {
       commit('addDataRequest', data)
     }
   },
+  _getOffset () {
+
+  },
   changePage ({ commit }, page) {
     commit(`setPage`, parseInt(page))
   }
