@@ -65,7 +65,7 @@
     <p class="card-map__price">
       <span class="card-map__price--count">{{ (item.price * dayCount).toLocaleString() }}</span>
       <span class="card-map__price--rouble">9</span>
-      <span class="card-map__price--measure">за сутки</span>
+      <!-- <span class="card-map__price--measure">за сутки</span> -->
     </p>
   </div>
 </template>

@@ -2,30 +2,38 @@
   <div class="footer">
     <div class="footer__wrapper">
       <div class="footer__container">
-        <p class="footer__logo footer-logo">
-          <nuxt-link
-            to="/"
-            class="footer-logo__link"
-          >
-            <img
-              src="/main-logo.svg"
-              width="186"
-              height="32"
-              alt="Логотип"
-              class="footer-logo__link--img"
-            >
-          </nuxt-link>
-        </p>
         <div class="footer__menu footer-menu">
           <ul class="footer-menu__types">
             <li
-              v-for="type in menu"
+              v-for="(type, index) in menu"
               :key="type.title"
               class="footer-menu__type footer-menu-type"
             >
-              <h3 class="footer-menu-type__title">
+              <p
+                v-if="index === 0"
+                class="footer__logo footer-logo"
+              >
+                <nuxt-link
+                  to="/"
+                  class="footer-logo__link"
+                >
+                  <img
+                    src="/main-logo.svg"
+                    width="186"
+                    height="32"
+                    alt="Логотип"
+                    class="footer-logo__link--img"
+                  >
+                </nuxt-link>
+              </p>
+
+              <h3
+                v-if="index !== 0"
+                class="footer-menu-type__title"
+              >
                 {{ type.title }}
               </h3>
+
               <ul class="footer-menu-type__list">
                 <li
                   v-for="item in type.children"
@@ -44,6 +52,36 @@
             </li>
           </ul>
         </div>
+        <!-- <div>
+              <h2 class="subscribe__title">
+                Подписка на новости портала
+              </h2>
+
+              <form
+                class="subscribe__form subscribe-form"
+                @submit.prevent="handlerSubmit"
+              >
+                <OcInput
+                  v-model="email"
+                  type="email"
+                  kind="most"
+                  name="subsc"
+                  required
+                  class="subscribe-form__input"
+                  placeholder="Ваш электронный адрес"
+                />
+                <OcButton
+                  name="most"
+                  color="red"
+                  type="submit"
+                  add-class="subs"
+                  icon="arrow"
+                >
+                  Отправить
+                </OcButton>
+              </form>
+            </div> -->
+
         <div class="footer__pay footer-pay">
           <h3 class="footer-pay__title">
             Оплата онлайн
