@@ -5,7 +5,7 @@
       class="more-block-container__content"
     >
       <h5 class="more-block-container__title">
-        Короткий срок
+        Посуточно
       </h5>
       <ul class="more-block-container__list">
         <li

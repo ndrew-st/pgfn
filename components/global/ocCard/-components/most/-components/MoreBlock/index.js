@@ -9,7 +9,7 @@ export default {
   },
   data () {
     return {
-      textDays: [ 'день', 'дня', 'дней' ]
+      textDays: [ 'дня', 'дней', 'дней' ]
     }
   },
   methods: {

@@ -6,11 +6,11 @@ export default {
   components: { Catalog },
   async asyncData ({ store, query: { filters } }) {
     store.dispatch(`housing/filters/changeTypePage`, `demand`)
-    await store.dispatch(`housing/getRequestData`, filters && JSON.parse(filters))
+    await store.dispatch(`housing/getRequestData`, filters)
   },
   computed: {
     ...mapState(`housing`, {
-      list: state => state.request,
+      list: state => state.request || [],
       coords: state => state.result.coords,
       city: state => state.result.city
     })

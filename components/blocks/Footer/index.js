@@ -30,7 +30,7 @@ export default {
       social: [
         { title: 'Фейсбук', src: '/icons/facebook.svg', url: 'https://www.facebook.com/personal.guide.russia' },
         { title: 'Вконтакте', src: '/icons/vk.svg', url: 'https://vk.com/personal.guide' },
-        { title: 'Инстарграм', src: '/icons/instagram.svg', url: 'https://www.instagram.com/danbilzerian' },
+        { title: 'Инстарграм', src: '/icons/instagram.svg', url: 'https://www.instagram.com/personal.guide_rus/' },
         { title: 'Твиттер', src: '/icons/twitter.svg', url: 'https://twitter.com/PersonalGuideR' },
         { title: 'Зен яндекс', src: '/icons/zen.svg', url: 'https://vk.cc/au93Ch' }
       ],
