@@ -59,6 +59,9 @@ export default {
       regDate: 'Зарегистрирован на сайте 10 месяцев назад'
     }
   }),
+  mounted () {
+    console.log('reservation ', this.reservation)
+  },
   computed: {
     ...mapGetters(moduleNameUnit, ['title', 'intro', 'date', 'countPlaces']),
     ...mapState(moduleNameUnit, {
