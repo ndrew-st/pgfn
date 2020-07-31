@@ -11,7 +11,8 @@
         name="profile"
         class="card__title"
       >
-        {{ item.title }}
+        Запрос на долгосрочную аренду жилья в {{ item.address.city }}, {{ item.address.region }}
+        {{ typeOfHousing }}, {{ item.areaOfHousin.start }}-{{ item.areaOfHousin.end }} м²
       </OcLink>
 
       <p class="card__type-house">
@@ -35,8 +36,9 @@
         :content="item.guests"
       />
 
+      <!-- временный говнокод -->
       <p class="card__reviews card__reviews--mobile">
-        {{ review }} с момента публикации
+        {{ review === undefined ? '0' : review }} с момента публикации
       </p>
     </div>
 
@@ -52,8 +54,9 @@
         <span class="card__price--measure">за месяц</span>
       </p>
 
+      <!-- временный говнокод -->
       <p class="card__reviews card__reviews--desktop">
-        {{ review }} с момента публикации
+        {{ review === 'undefined просмотров' ? '0 просмотров' : review }} с момента публикации
       </p>
 
       <!--      <OcButton>изменить</OcButton>-->

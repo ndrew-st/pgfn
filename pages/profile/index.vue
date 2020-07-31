@@ -87,21 +87,21 @@
       class="profile-page__list"
       type="history"
       title="История бронирования"
-      :list="history"
+      :list="history === undefined ? [] : history.history"
     />
 
     <List
       class="profile-page__list"
       type="ads"
       title="Добавленные объявления"
-      :list="ads"
+      :list="ads === ads ? [] : ads.ads"
     />
 
     <List
       class="profile-page__list"
       type="request"
       title="Опубликованные заявки на аренду жилья"
-      :list="request"
+      :list="request === undefined ? [] : request.request"
     />
   </div>
 </template>
