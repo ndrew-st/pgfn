@@ -8,6 +8,11 @@ export default {
     list: {
       type: Array,
       default: []
+    },
+    store: {
+      type: String,
+      default: 'placement',
+      required: false
     }
   },
   data () {

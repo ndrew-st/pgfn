@@ -7,6 +7,11 @@ export default {
     checked: {
       type: Boolean,
       default: false
+    },
+    store: {
+      type: String,
+      default: 'placement',
+      required: false
     }
   },
   data () {
@@ -16,12 +21,11 @@ export default {
   },
   methods: {
     change () {
-      // debugger
       if (this.parName !== '') {
         if (this.locChecked) {
-          this.$store.dispatch('placement/setItemSecondLevel', { level: 'params', key: this.parName, value: 1 })
+          this.$store.dispatch(`${this.store}/setItemSecondLevel`, { level: 'params', key: this.parName, value: 1 })
         } else {
-          this.$store.dispatch('placement/removeItemSecondLevel', { level: 'params', key: this.parName })
+          this.$store.dispatch(`${this.store}/removeItemSecondLevel`, { level: 'params', key: this.parName })
         }
       }
       this.$emit('change', this.locChecked)

@@ -21,6 +21,16 @@ export default {
       type: Number,
       default: 2,
       required: false
+    },
+    store: {
+      type: String,
+      default: 'placement',
+      required: false
+    },
+    noParams: {
+      type: Boolean,
+      default: false,
+      required: false
     }
   },
   data () {
@@ -30,7 +40,6 @@ export default {
   },
   methods: {
     change (ev) {
-      // debugger
       this.$emit('change', ev)
     }
   }

@@ -95,6 +95,7 @@
     <CheckboxesList
       title-block="Необходимые разрешения"
       :list="listLimits"
+      store="request"
       :red-star="false"
       class="mt48"
     />
@@ -105,32 +106,42 @@
     >
       <CheckboxesList
         title-block="Собственник/арендодатель"
-        :list="listTypeOfHousing"
+        :list="listTypeOfTenant1"
+        store="request"
+        :no-params="true"
         :red-star="false"
         class="add-placement__mt48"
-        @change="changeCheckbox"
+        @change="changeTypeOfTenant"
       />
 
       <CheckboxesList
         title-block="Посредник"
-        :list="listTypeOfTenant"
+        :list="listTypeOfTenant2"
+        store="request"
+        :no-params="true"
         :red-star="false"
         class="add-placement__mt48"
-        @change="changeCheckbox"
+        @change="changeTypeOfTenant"
       />
 
       <CheckboxesList
         title-block="Условия бронирования"
-        :list="listBookingConditions"
+        :list="listTypesOfReservation"
+        store="request"
+        :no-params="true"
         :red-star="false"
         class="add-placement__mt48"
+        @change="changeTypeOfReservation"
       />
 
       <CheckboxesList
         title-block="Условия отмены бронирования"
-        :list="listCancelBookingConditions"
+        :list="listCancellationPolicies"
+        store="request"
+        :no-params="true"
         :red-star="false"
         class="add-placement__mt48"
+        @change="changeCancellationPolicy"
       />
 
       <p class="add-placement__h2">

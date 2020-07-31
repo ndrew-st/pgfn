@@ -66,19 +66,19 @@
           name="border"
           class="ap-step1__oc-btn"
         >
-          {{ typeOfTenant === null ? 'Вы собственник или посредник?' : listTypeOfTenant[typeOfTenant.id].name }}
+          {{ typeOfTenant1 === null ? 'Вы собственник или посредник?' : listTypeOfTenant[typeOfTenant1.id].name }}
           <span class="add-placement__red-star">*</span>
         </OcButton>
 
         <ApListDropdown
           slot="body"
           :list="listTypeOfTenant"
-          @selectItem="selectTypeOfTenant"
+          @selectItem="selectTypeOfTenant1"
         />
       </OcDropDown>
 
       <OcDropDown
-        v-if="typeOfTenant !== null"
+        v-if="typeOfTenant1 !== null"
         class="ap-step1__button-filter"
       >
         <OcButton
@@ -86,19 +86,19 @@
           name="border"
           class="ap-step1__oc-btn"
         >
-          {{ typeOfHousing === null ? 'Источник аренды/тип арендодателя' : typeOfTenant.id === 0 ? listTypeOfHousing1[typeOfHousing.id].name : listTypeOfHousing2[typeOfHousing.id].name }}
+          {{ typeOfTenant2 === null ? 'Источник аренды/тип арендодателя' : typeOfTenant1.id === 0 ? listTypeOfTenant1[typeOfTenant2.id].name : listTypeOfTenant2[typeOfTenant2.id].name }}
           <span class="add-placement__red-star">*</span>
         </OcButton>
 
         <ApListDropdown
           slot="body"
-          :list="typeOfTenant !== null && typeOfTenant.id === 0 ? listTypeOfHousing1 : listTypeOfHousing2"
-          @selectItem="selectTypeOfHousing"
+          :list="typeOfTenant1 !== null && typeOfTenant1.id === 0 ? listTypeOfTenant1 : listTypeOfTenant2"
+          @selectItem="selectTypeOfTenant2"
         />
       </OcDropDown>
 
       <OcButton
-        v-if="typeOfTenant !== null && typeOfHousing !== null && inputAdress !== ''"
+        v-if="typeOfTenant1 !== null && typeOfTenant2 !== null && inputAdress !== ''"
         name="most"
         color="red"
         class="ap-step1__button-next"

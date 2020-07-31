@@ -11,6 +11,7 @@
     <CheckboxesList
       title-block="Специальная особенность"
       :list="specials"
+      store="request"
       :red-star="false"
       class="add-placement__mt48"
     />
@@ -18,6 +19,7 @@
     <CheckboxesList
       title-block="Парковка"
       :list="parking"
+      store="request"
       :red-star="false"
       class="add-placement__mt48"
     />
@@ -29,6 +31,7 @@
       <CheckboxesList
         title-block="Этаж"
         :list="floors"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
@@ -36,6 +39,7 @@
       <CheckboxesList
         title-block="Лифты"
         :list="elevators"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
@@ -43,6 +47,7 @@
       <CheckboxesList
         title-block="Дворовая территория"
         :list="yardArea"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
@@ -50,6 +55,7 @@
       <CheckboxesList
         title-block="Материал дома/таунхауса"
         :list="material"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />

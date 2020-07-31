@@ -13,7 +13,7 @@ export default () => ({
       house: ''
       // apartment: 0
     },
-    typeOfTenant: 0,
+    typeOfTenant: [],
     typeOfHousing: 0,
     numberOfRooms: 0,
     // areaOfHousin: 0, в реквесте это объект start - end
@@ -43,8 +43,8 @@ export default () => ({
       longTerm: ''
     },
     reservation: {
-      typeOfReservation: '',
-      cancellationPolicy: '',
+      typeOfReservation: [],
+      cancellationPolicy: [],
       departureTime: [
         // {
         //   day: '',

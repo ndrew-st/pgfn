@@ -172,7 +172,7 @@ export default {
         if (this.items[j].checked) {
           if (fl === null) {
             fl = true
-            debugger
+            // debugger
           }
           console.log('fl: ' + fl)
           if (this.items[j].price === '') {

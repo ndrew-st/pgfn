@@ -11,20 +11,25 @@
     <CheckboxesList
       title-block="Мебель"
       :red-star="false"
+      store="request"
       :list="listFur"
       class="req-step3__furniture"
     />
 
     <CheckboxesList
-      title-block="Ванная и душевая"
+      title-block="Интернет"
       :red-star="false"
+      store="request"
+      :no-params="true"
       :list="listInternet"
       class="req-step3__furniture"
+      @change="changeInternet"
     />
 
     <CheckboxesList
       title-block="Особые удобства"
       :red-star="false"
+      store="request"
       :list="specials"
       class="mt36"
     />
@@ -36,20 +41,15 @@
       <CheckboxesList
         title-block="Климатконтроль"
         :list="climate"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
 
       <CheckboxesList
-        title-block="Тип отделки"
+        title-block="Водоснабжение"
         :list="interior"
-        :red-star="false"
-        class="add-placement__mt48"
-      />
-
-      <CheckboxesList
-        title-block="Комнаты"
-        :list="rooms"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
@@ -57,13 +57,7 @@
       <CheckboxesList
         title-block="Технические удобства"
         :list="facilities"
-        :red-star="false"
-        class="add-placement__mt48"
-      />
-
-      <CheckboxesList
-        title-block="Посуда"
-        :list="dishes"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
@@ -71,8 +65,17 @@
       <CheckboxesList
         title-block="Средства гигиены"
         :list="hygiene"
+        store="request"
         :red-star="false"
         class="add-placement__mt48 req-step3__pb80"
+      />
+
+      <CheckboxesList
+        title-block="Посуда"
+        :list="dishes"
+        store="request"
+        :red-star="false"
+        class="add-placement__mt48"
       />
     </ApFolding>
 

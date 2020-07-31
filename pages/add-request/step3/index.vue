@@ -8,7 +8,10 @@
       Эти пункты не обязательны к заполнению, но помогут сделать заявку более точной
     </p>
 
-    <CountBed class="mt36" />
+    <CountBed
+      class="mt36"
+      store="request"
+    />
 
     <ApFolding
       caption="указать Больше параметров"
@@ -17,6 +20,7 @@
       <CheckboxesList
         title-block="Комнаты"
         :list="rooms"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
@@ -24,6 +28,7 @@
       <CheckboxesList
         title-block="Ванная и душевая"
         :list="bathAndShower"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
@@ -31,6 +36,7 @@
       <CheckboxesList
         title-block="Тип отделки"
         :list="interior"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
@@ -38,6 +44,7 @@
       <CheckboxesList
         title-block="Высота потолков"
         :list="cellingheight"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
@@ -61,6 +68,7 @@
       <CheckboxesList
         title-block="Вид из окна"
         :list="viewFromTheWindow"
+        store="request"
         :red-star="false"
         class="add-placement__mt48"
       />
