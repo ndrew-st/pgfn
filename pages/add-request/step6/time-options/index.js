@@ -36,5 +36,8 @@ export default {
         this.$emit('changeTime', getStateArray(this.timeStart, this.timeEnd))
       }
     }
+  },
+  mounted () {
+    // this.change(0) // значение по умолчанию загнал прям в стейт
   }
 }
