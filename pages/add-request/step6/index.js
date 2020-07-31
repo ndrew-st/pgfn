@@ -1,6 +1,6 @@
 import Guests from '~/components/blocks/Guests'
 import Calendar from '~/components/blocks/Calendar'
-import ApButton from '../../add-placement/ap-button/index.vue'
+import ApButton from '../../add-placement/ap-button'
 import ApInput from '../../add-placement/ap-input'
 import CheckboxesList from '../../add-placement/blocks/two-columns-checkboxes'
 import ApFolding from '../../add-placement/blocks/ap-folding'

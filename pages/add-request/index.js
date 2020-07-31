@@ -1,10 +1,10 @@
 import StageBar from '../add-placement/stage-bar'
-import Step1 from './step1/index.vue'
-import Step2 from './step2/index.vue'
-import Step3 from './step3/index.vue'
-import Step4 from './step4/index.vue'
-import Step5 from './step5/index.vue'
-import Step6 from './step6/index.vue'
+import Step1 from './step1'
+import Step2 from './step2'
+import Step3 from './step3'
+import Step4 from './step4'
+import Step5 from './step5'
+import Step6 from './step6'
 
 export default {
   middleware: 'auth',
