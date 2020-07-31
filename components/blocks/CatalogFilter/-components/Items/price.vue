@@ -80,9 +80,8 @@
 </template>
 
 <script>
-import Footer from './-components/Footer'
-
 import num2str from '~/utils/num2str'
+import Footer from './-components/Footer'
 
 export default {
   name: 'Price',
@@ -90,7 +89,7 @@ export default {
   props: {
     value: {
       type: Object,
-      default: () => {}
+      default: null
     }
   },
   data () {
@@ -106,18 +105,19 @@ export default {
     }
   },
   created () {
-    if (this.value && this.value.min) {
-      this.min = this.value.min
+    console.log('this.value price ', this.value)
+    if (this.value && this.value.start) {
+      this.min = this.value.start
     }
 
-    if (this.value && this.value.max) {
-      this.max = this.value.max
+    if (this.value && this.value.end) {
+      this.max = this.value.end
     }
   },
   methods: {
     save () {
       if (this.min || this.max) {
-        this.$emit('input', { min: this.min, max: this.max })
+        this.$emit('input', { start: parseInt(this.min), end: parseInt(this.max) })
         this.$root.$emit('dropdown:hide')
       }
     },

@@ -228,7 +228,6 @@
             white-space normal
 
   .card-price-more
-    position relative
 
     &__button
       width 25px
@@ -244,12 +243,10 @@
 
       cursor pointer
 
-      transform rotate(180deg)
-
       rm-outline()
 
       &.active
-        transform rotate(0deg)
+        transform rotate(180deg)
 
     &__content
       position absolute

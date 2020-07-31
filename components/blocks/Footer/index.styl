@@ -5,12 +5,21 @@
 
   border-top 1px solid #ECECEC
 
+  &__logo
+    margin-bottom 30px
+
+  & .footer-logo
+    &__link
+      &--img
+        width 186px
+        height 32px
+
   &__container
     display flex
     flex-wrap wrap
     justify-content space-between
     padding-top 24px
-    padding-bottom 75px
+    padding-bottom 20px
 
   & .footer-menu
     width 100%
@@ -78,7 +87,12 @@
     max-width 208px
     width 100%
     margin 0 auto
-    margin-bottom 35px
+    margin-bottom 70px
+
+    @media (min-width 768px)
+      float right
+      margin-top -50px
+      margin-bottom 0
 
     &__social-list
       display flex
@@ -89,6 +103,9 @@
       padding 0
 
       list-style none
+
+      @media (min-width 768px)
+        margin-top -61px
 
     &__social-link
       display block
@@ -139,7 +156,6 @@
     margin-left -18px
     margin-right -18px
     padding 20px 18px
-    margin-bottom 50px
 
     font-style normal
     font-weight normal
@@ -148,6 +164,9 @@
     color $secondary
 
     border-top 1px solid #ECECEC
+
+    @media (min-width 768px)
+      margin-bottom 50px
 
     &__list
       display flex
@@ -187,7 +206,7 @@
       padding-left 40px
       padding-right 40px
 
-@media(min-width 1090px)
+@media(min-width 1089px)
   .footer
     max-width 100%
 
@@ -198,8 +217,10 @@
 
     & .footer-contacts
       max-width 380px
-    & .footer-pay
-      max-width 380px
+      justify-content flex-end
+
+      &__social-list
+        margin-top 0
 
     & .footer-author
       margin-bottom 0

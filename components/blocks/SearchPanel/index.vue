@@ -15,15 +15,15 @@
       class="search-panel__list"
     >
       <li
-        v-for="item in list"
-        :key="item.id"
+        v-for="(item, index) in list"
+        :key="index"
         class="search-panel__item"
       >
         <OcButton
           name="list"
-          @click="select(item.title)"
+          @click="select(item.value)"
         >
-          {{ item.title }}
+          {{ item.value }}
         </OcButton>
       </li>
     </ul>

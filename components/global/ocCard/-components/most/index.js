@@ -111,7 +111,7 @@ export default {
       const res = []
 
       for (const key in address) {
-        if (key !== 'house' && key !== 'geo') {
+        if (key !== 'house' && key !== 'geo' && key !== 'country' && key !== 'region') {
           if (key === 'street') {
             if (address.house) {
               res.push(`${address[key]} ${address.house}`)
@@ -166,7 +166,7 @@ export default {
         return
       }
 
-      if (!morePriceButton.isEqualNode(button)) {
+      if (!morePriceButton.isEqualNode(button) && !this.$refs.moreBlock.isEqualNode(body)) {
         root.$emit('more-price:hide')
       }
     })

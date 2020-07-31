@@ -31,7 +31,7 @@
 
     <input
       :id="id"
-      :value="value"
+      v-model="text"
       v-bind="$attrs"
       :maxlength="maxLength"
       :name="name"
@@ -39,7 +39,9 @@
       type="text"
       class="input-container__input input"
       :class="[additionalClass]"
-      v-on="listeners"
+      @keydown="keydown"
+      @focusin="focusin"
+      @focusout="focusout"
     >
 
     <span

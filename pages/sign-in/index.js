@@ -1,4 +1,4 @@
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 
 import { login } from '~/constants/actions/auth'
 
@@ -20,11 +20,11 @@ export default {
   created () {
     if (process.client && this.$storage.getItem('sign-in')) {
       const { phone, stage } = this.$storage.getItem('sign-in')
-      const recovery = this.$storage.getItem('recovery')
+      const { code } = this.$storage.getItem('recovery')
       const res = this.$storage.getItem('stage')
 
       this.phone = phone
-      this.code = (recovery && recovery.code) || ''
+      this.code = code
       this.stage = res || stage
     }
   },
@@ -40,14 +40,13 @@ export default {
     timeCounter: 119
   }),
   methods: {
-    ...mapMutations('popup', ['showPopup', 'closePopup']),
     _clearData () {
-      this.showPopup('signUp')
+      this.$router.push('/sign-up')
       this.$storage.rmItem('sign-in')
     },
     prevent () {
       if (this.stage === 'phone') {
-        this.showPopup('signUp')
+        this.$router.push('/sign-up')
         this.$storage.rmItem('sign-in')
       } else if (this.stage === 'pass') {
         this.stage = 'phone'
@@ -70,7 +69,6 @@ export default {
         return
       }
 
-      this.closePopup('signIn')
       this.$router.push('/profile')
 
       this.$storage.rmItem('sign-in')

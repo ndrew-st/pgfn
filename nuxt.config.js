@@ -105,12 +105,14 @@ export default {
     throttle_time: 1000,
     header_auth: 'authorization',
     ymaps_key: '886a66f0-7714-40d5-ac6a-2554184b1b65',
+    dadata_key: '9b4233c7cb1251947bf36fea4a78d4d2b38fab03',
     token_key: {
       access: 'access_token',
       refresh: 'refresh_token'
     },
     api: {
-      static_img_yandex: 'https://static-maps.yandex.ru/1.x/?'
+      static_img_yandex: 'https://static-maps.yandex.ru/1.x/?',
+      dadata: 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address'
     }
   },
   debug: true

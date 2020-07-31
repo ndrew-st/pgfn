@@ -14,7 +14,7 @@ export default {
   components: {
     direction: SearchPanel,
     guests,
-    type,
+    typeOfHousing: type,
     price,
     date: calendar,
     instantBooking,
@@ -31,19 +31,17 @@ export default {
     return {
       items: [
         { name: 'direction', title: 'Направление', desktop: true },
-        { name: 'date', title: 'Прибытие, выезд', desktop: true },
-        { name: 'guests', title: 'Количество гостей', desktop: true },
-        { name: 'type', title: 'Тип жилья', desktop: true },
-        { name: 'price', title: 'Цена' },
-        { name: 'instantBooking', title: 'Мгновенное бронирование', desktop: true }
+        // { name: 'date', title: 'Прибытие, выезд', desktop: true },
+        // { name: 'guests', title: 'Количество гостей', desktop: true },
+        { name: 'typeOfHousing', title: 'Тип жилья', desktop: true },
+        { name: 'price', title: 'Цена' }
+        // { name: 'instantBooking', title: 'Мгновенное бронирование', desktop: true }
         // { name: 'another', title: 'Другие фильтры' }
       ],
       result: {}
     }
   },
   mounted () {
-    console.log('this.content ', this.content)
-
     if (this.content) {
       this.result = this.content
 
@@ -69,13 +67,15 @@ export default {
       this.$emit('input', this.result)
     },
     isSelected (name) {
-      return this.result[name] !== null
+      return !!this.result[name]
     },
     clear (item) {
       this.result = {
         ...this.result,
         [item]: null
       }
+
+      this.$emit('input', this.result)
     }
   }
 }

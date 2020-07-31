@@ -11,7 +11,7 @@
         />
 
         <div
-          v-if="phone.length && stage === 'recovery'"
+          v-if="phone && stage === 'recovery'"
           class="sign-in__container"
         >
           <p class="sign-in__text">
@@ -64,8 +64,7 @@
         <nuxt-link
           v-if="stage ==='pass'"
           class="reset"
-          to=""
-          @click.native="showPopup('passRecovery')"
+          to="/sign-in/recovery"
         >
           Сбросить пароль
         </nuxt-link>

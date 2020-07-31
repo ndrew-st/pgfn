@@ -44,7 +44,25 @@ export default {
   asyncData ({ app: { store }, query: { page, filters } }) {
     store.dispatch(`housing/changePage`, page || 1)
 
-    return { filters: filters && JSON.parse(filters) }
+    if (!filters || !filters.length) {
+      return
+    }
+
+    let filter = {}
+    filters.slice(1).split('&').forEach((item) => {
+      const itm = item.split('=')
+      filter = {
+        ...filter,
+        [itm[0]]: JSON.parse(itm[1])
+      }
+    })
+
+    return { filters: filter }
+  },
+  data () {
+    return {
+      filters: null
+    }
   },
   layout: 'main',
   computed: {
@@ -63,16 +81,30 @@ export default {
     },
     ...mapActions(`housing`, [`changePage`, `getPlacementData`, `getRequestData`]),
     selectFilter (res) {
-      this.$router.push({ query: { filters: JSON.stringify(res) } })
+      console.log('selectFilter ', res)
+
+      if (!res) {
+        return
+      }
+
+      let filters = ''
+
+      for (const key in res) {
+        if (res[key]) {
+          filters = filters + `&${key}=${JSON.stringify(res[key])}`
+        }
+      }
+
+      this.$router.push({ query: { filters } })
 
       if (this.typeFilter === 'main') {
         return
       }
 
       if (this.typeFilter === 'supply') {
-        this.getPlacementData(res)
+        this.getPlacementData(filters)
       } else {
-        this.getRequestData(res)
+        this.getRequestData(filters)
       }
     }
   }

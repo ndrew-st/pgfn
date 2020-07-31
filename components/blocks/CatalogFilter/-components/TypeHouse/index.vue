@@ -14,7 +14,6 @@
           :name="$options.name"
           :label="item.label"
           :check-value="item.value"
-          @input="updateValue"
         />
       </li>
     </ul>

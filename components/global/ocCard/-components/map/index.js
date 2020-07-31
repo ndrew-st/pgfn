@@ -72,7 +72,7 @@ export default {
       const res = []
 
       for (const key in address) {
-        if (key !== 'house' && key !== 'coords' && key !== 'apartment') {
+        if (key !== 'house' && key !== 'coords' && key !== 'apartment' && key !== 'country' && key !== 'region') {
           if (key === 'street') {
             if (address.house) {
               res.push(`${address[key]} ${address.house}`)

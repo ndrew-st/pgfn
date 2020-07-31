@@ -24,6 +24,7 @@
           <OcImg
             :id="gallery"
             :alt="gallery"
+            type-size="thumbnail"
             class="card-item__image"
           />
         </div>

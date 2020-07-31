@@ -2,6 +2,20 @@
   <div class="footer">
     <div class="footer__wrapper">
       <div class="footer__container">
+        <p class="footer__logo footer-logo">
+          <nuxt-link
+            to="/"
+            class="footer-logo__link"
+          >
+            <img
+              src="/main-logo.svg"
+              width="186"
+              height="32"
+              alt="Логотип"
+              class="footer-logo__link--img"
+            >
+          </nuxt-link>
+        </p>
         <div class="footer__menu footer-menu">
           <ul class="footer-menu__types">
             <li
@@ -27,29 +41,6 @@
                   </OcLink>
                 </li>
               </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__contacts footer-contacts">
-          <ul class="footer-contacts__social-list">
-            <li
-              v-for="soc in social"
-              :key="soc.title"
-              class="footer-contacts__social"
-            >
-              <a
-                :href="soc.url"
-                target="_blank"
-                class="footer-contacts__social-link"
-              >
-                <OcImg
-                  :src="soc.src"
-                  :alt="soc.title"
-                  :width="32"
-                  :height="32"
-                  class="footer-contacts__social-img"
-                />
-              </a>
             </li>
           </ul>
         </div>
@@ -101,6 +92,29 @@
             >
               Карта сайта
             </OcLink>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__contacts footer-contacts">
+        <ul class="footer-contacts__social-list">
+          <li
+            v-for="soc in social"
+            :key="soc.title"
+            class="footer-contacts__social"
+          >
+            <a
+              :href="soc.url"
+              target="_blank"
+              class="footer-contacts__social-link"
+            >
+              <OcImg
+                :src="soc.src"
+                :alt="soc.title"
+                :width="32"
+                :height="32"
+                class="footer-contacts__social-img"
+              />
+            </a>
           </li>
         </ul>
       </div>
