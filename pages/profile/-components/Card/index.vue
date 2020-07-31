@@ -3,6 +3,7 @@
     <component
       :is="type"
       v-bind="$attrs"
+      :item="item"
     />
   </div>
 </template>

@@ -9,8 +9,8 @@
       class="container__list"
     >
       <li
-        v-for="item in list"
-        :key="item.id"
+        v-for="(item, index) in list"
+        :key="index"
         class="container__item"
       >
         <Card

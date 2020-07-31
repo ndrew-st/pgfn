@@ -8,6 +8,10 @@ export default {
     type: {
       type: String,
       default: 'history'
+    },
+    item: {
+      type: Object,
+      default: () => {}
     }
   }
 }
