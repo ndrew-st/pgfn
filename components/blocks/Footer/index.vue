@@ -50,10 +50,13 @@
                 </li>
               </ul>
             </li>
-          </ul>
-        </div>
-        <!-- <div>
-              <h2 class="subscribe__title">
+
+            <div>
+              <!-- временный говнокод -->
+              <h2
+                class="subscribe__title"
+                style="margin-bottom: 20px"
+              >
                 Подписка на новости портала
               </h2>
 
@@ -80,7 +83,9 @@
                   Отправить
                 </OcButton>
               </form>
-            </div> -->
+            </div>
+          </ul>
+        </div>
 
         <div class="footer__pay footer-pay">
           <h3 class="footer-pay__title">
