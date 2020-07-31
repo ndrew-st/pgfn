@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     change () {
-      // debugger
       if (this.parName !== '') {
         if (this.locChecked) {
           this.$store.dispatch(`${this.store}/setItemSecondLevel`, { level: 'params', key: this.parName, value: 1 })

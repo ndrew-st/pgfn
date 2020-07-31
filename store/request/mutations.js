@@ -12,7 +12,6 @@ export default {
     // console.log('mutation')
   },
   setItemSecondLevel (state, data) {
-    // debugger
     if (data.level === 'params') {
       const remItem = state.result.params.findIndex(item => item.typeOfParam === data.key)
       if (remItem !== -1) {

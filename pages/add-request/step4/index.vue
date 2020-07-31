@@ -20,8 +20,10 @@
       title-block="Интернет"
       :red-star="false"
       store="request"
+      :no-params="true"
       :list="listInternet"
       class="req-step3__furniture"
+      @change="changeInternet"
     />
 
     <CheckboxesList

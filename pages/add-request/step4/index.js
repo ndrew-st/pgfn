@@ -23,14 +23,14 @@ export default {
         { label: 'Можно для мероприятий', value: 'party' },
         { label: 'Можно курить', value: 'weed' }
       ],
-      internet: '',
+      selInternet: [],
       listInternet: [
-        { label: 'Wi-Fi менее 10 Мбит/с', value: 'internetLess10' },
-        { label: 'Wi-Fi от 10 Мбит/с', value: 'internetMore10' },
-        { label: 'Wi-Fi от 30 Мбит/с', value: 'internetMore30' },
-        { label: 'Wi-Fi от 50 Мбит/с', value: 'internetMore50' },
-        { label: 'Wi-Fi от 100 Мбит/с', value: 'internetMore100' },
-        { label: 'Отсутствует', value: 'internetNone' }
+        { label: 'Wi-Fi менее 10 Мбит/с', value: '0' },
+        { label: 'Wi-Fi от 10 Мбит/с', value: '1' },
+        { label: 'Wi-Fi от 30 Мбит/с', value: '2' },
+        { label: 'Wi-Fi от 50 Мбит/с', value: '3' },
+        { label: 'Wi-Fi от 100 Мбит/с', value: '4' },
+        { label: 'Отсутствует', value: '5' }
       ],
       climate: [
         { label: 'Камин', value: 'fire' },
@@ -95,11 +95,21 @@ export default {
     checkbox (par) {
       par = !par
     },
-    input (par) {
-
-    },
-    change (evt) {
-
+    changeInternet (fl, val) {
+      // debugger
+      if (fl) {
+        this.selInternet.push(val)
+      } else {
+        const remItem = this.selInternet.findIndex(item => item === val)
+        if (remItem !== -1) {
+          this.selInternet.splice(remItem, 1)
+        }
+      }
+      if (this.selInternet.length > 0) {
+        this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'internet', value: this.selInternet.slice(0) })
+      } else {
+        this.$store.dispatch('request/removeItemSecondLevel', { level: 'params', key: 'internet' })
+      }
     }
   }
 }

@@ -19,7 +19,7 @@ export default {
   },
   data () {
     return {
-      state: 3
+      state: 1
     }
   },
   methods: {

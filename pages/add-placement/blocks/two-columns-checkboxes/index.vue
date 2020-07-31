@@ -23,9 +23,18 @@
         /> -->
 
         <ApCheckbox
+          v-if="!noParams"
           :par-name="item.value"
-          :change="change"
           :store="store"
+          @change="change"
+        >
+          {{ item.label }}
+        </ApCheckbox>
+
+        <ApCheckbox
+          v-if="noParams"
+          :store="store"
+          @change="$emit('change', $event, item.value)"
         >
           {{ item.label }}
         </ApCheckbox>

@@ -32,7 +32,7 @@ export default {
         { label: 'Можно с животными', value: 'pets' },
         { label: 'Можно курить', value: 'weed' }
       ],
-      listTypeOfHousing: [
+      listTypeOfTenant1: [
         { label: 'Частное лицо', value: '0' },
         { label: 'Компания/ИП', value: '1' },
         { label: 'Отель', value: '2' },
@@ -42,21 +42,24 @@ export default {
         { label: 'Хостел', value: '6' },
         { label: 'Кемпинг', value: '7' }
       ],
-      listTypeOfTenant: [
+      listTypeOfTenant2: [
         { label: 'Агент', value: '8' },
         { label: 'Агентство', value: '9' },
         { label: 'Частное лицо', value: '10' },
         { label: 'Компания/ИП', value: '11' }
       ],
-      listBookingConditions: [
-        { label: 'Без предоплаты', value: '' },
-        { label: 'Оплата первого месяца/суток', value: '' },
-        { label: 'Оплата 50% суммы', value: '' }
+      selTypesOfTenants: [],
+      listTypesOfReservation: [
+        { label: 'Без предоплаты', value: '0' },
+        { label: 'Оплата первого месяца/суток', value: '1' },
+        { label: 'Оплата 50% суммы', value: '2' }
       ],
-      listCancelBookingConditions: [
-        { label: 'Бесплатная отмена за любое время', value: '' },
-        { label: 'Бесплатная отмена за 2 дня до даты въезда', value: '' }
+      selTypesOfReservation: [],
+      listCancellationPolicies: [
+        { label: 'Бесплатная отмена за любое время', value: '0' },
+        { label: 'Бесплатная отмена за 2 дня до даты въезда', value: '1' }
       ],
+      selCancellationPolicies: [],
       price: '',
       citizenship: ''
     }
@@ -93,7 +96,7 @@ export default {
     handlerGuests (data) {
       this.guests = Object.assign({}, data)
       console.log('this.guests:', this.guests)
-      this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'guests', value: this.guests })
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'guests', value: Object.assign({}, this.guests) })
       // debugger
       this.getstsInputText = '' + (data.babies + data.children + data.parent)
       if (this.getstsInputText === '0') {
@@ -108,11 +111,41 @@ export default {
       this.citizenship = val
       this.$store.dispatch('request/setItem', { key: 'citizenship', value: val })
     },
-    changeCheckbox (val, type) {
-      console.log('type:', type)
-      console.log('val:', val)
-      // debugger
-      this.$store.dispatch('request/setItemSecondLevel', { level: 'params', key: 'typeOfTenant', value: val })
+    changeTypeOfTenant (fl, val) {
+      if (fl) {
+        this.selTypesOfTenants.push(val)
+      } else {
+        const remItemIndx = this.selTypesOfTenants.findIndex(item => item === val)
+        if (remItemIndx !== -1) {
+          this.selTypesOfTenants.splice(remItemIndx, 1)
+        }
+      }
+
+      this.$store.dispatch('request/setItem', { key: 'typeOfTenant', value: this.selTypesOfTenants.slice(0) })
+    },
+    changeTypeOfReservation (fl, val) {
+      if (fl) {
+        this.selTypesOfReservation.push(val)
+      } else {
+        const remItemIndx = this.selTypesOfReservation.findIndex(item => item === val)
+        if (remItemIndx !== -1) {
+          this.selTypesOfReservation.splice(remItemIndx, 1)
+        }
+      }
+
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'reservation', key: 'typeOfReservation', value: this.selTypesOfReservation.slice(0) })
+    },
+    changeCancellationPolicy (fl, val) {
+      if (fl) {
+        this.selCancellationPolicies.push(val)
+      } else {
+        const remItemIndx = this.selCancellationPolicies.findIndex(item => item === val)
+        if (remItemIndx !== -1) {
+          this.selCancellationPolicies.splice(remItemIndx, 1)
+        }
+      }
+
+      this.$store.dispatch('request/setItemSecondLevel', { level: 'reservation', key: 'cancellationPolicy', value: this.selCancellationPolicies.slice(0) })
     }
   }
 }
