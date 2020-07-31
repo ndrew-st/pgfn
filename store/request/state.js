@@ -55,43 +55,43 @@ export default () => ({
         // }
         { 'day': 0,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 1,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 2,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 3,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 4,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 5,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 6,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         }
@@ -106,43 +106,43 @@ export default () => ({
         // }
         { 'day': 0,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 1,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 2,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 3,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 4,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 5,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 6,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         }
@@ -150,43 +150,43 @@ export default () => ({
       pickUpTime: [
         { 'day': 0,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 1,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 2,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 3,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 4,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 5,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         },
         { 'day': 6,
           'intervalTime': {
-            'start': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)',
+            'start': 'Thu Jan 01 1970 00:00:00 GMT+0300 (Moscow Standard Time)',
             'end': 'Thu Jan 01 1970 23:59:00 GMT+0300 (Moscow Standard Time)'
           }
         }

@@ -37,7 +37,8 @@ export default {
   },
   computed: {
     date () {
-      return this.day[0] && this.day[1] && `с ${this.day[0]} по ${this.day[1]} / ${this.dayCount}`
+      // return this.day[0] && this.day[1] && `с ${this.day[0]} по ${this.day[1]} / ${this.dayCount}`
+      return this.day[0] && this.day[1] && `с ${this.day[0]} по ${this.day[1]}`
     },
     day () {
       return this.item.params.find(item => item.typeOfParam === 'datesOfStay').paramValue.split(' - ')

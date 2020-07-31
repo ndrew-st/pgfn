@@ -89,7 +89,7 @@
       buttons="catalog"
     />
 
-    <SubscribeEmail class="direction-page__subscribe" />
+    <!-- <SubscribeEmail class="direction-page__subscribe" /> -->
 
     <!-- Услуги -->
     <!--    <GroupCard-->

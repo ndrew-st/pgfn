@@ -2,6 +2,12 @@ export default {
   data () {
     return {
       menu: [
+        {
+          children: [
+            { title: 'О проекте', url: '' },
+            { title: 'Помощь', url: '' }
+          ]
+        },
         { title: 'Направления',
           children: [
             { title: 'Районы и округа', url: '' },
@@ -17,13 +23,6 @@ export default {
             { title: 'Комнаты', url: '' },
             { title: 'Койко-места', url: '' },
             { title: 'На природе', url: '' }
-          ]
-        },
-        {
-          title: 'О нас',
-          children: [
-            { title: 'О проекте', url: '' },
-            { title: 'Помощь', url: '' }
           ]
         }
       ],
