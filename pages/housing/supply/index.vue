@@ -1,6 +1,6 @@
 <template>
   <Catalog
-    :coords="coords"
+    :coords="placementCoords"
     type="most"
     :city="city"
     :list="placement"

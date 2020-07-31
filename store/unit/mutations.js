@@ -3,7 +3,7 @@ export default {
     state.result = data
   },
   addDataRequest (state, data) {
-    state.request = data
+    state.result = data
   },
   setTypePage (state, payload) {
     state.type = payload

@@ -5,6 +5,7 @@
     </p>
 
     <Address
+      v-if="type === 'habitation'"
       :content="address"
     />
 

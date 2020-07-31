@@ -3,7 +3,7 @@ export default {
     state.result = data
   },
   addRequestData (state, data) {
-    state.requestRes = data
+    state.request = data
   },
   updateTabs (state, data) {
     state.result[data.field].items = data.items

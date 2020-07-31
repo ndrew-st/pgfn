@@ -1,4 +1,5 @@
 import num2str from '~/utils/num2str'
+import randomString from '~/utils/randomString'
 
 import typeHousing from '~/constants/consts/typeOfHousing'
 
@@ -46,9 +47,32 @@ export default {
       type: Boolean,
       required: true
     },
-    type: {
+    type: { // For output card in carousel and catalog
       type: String,
       required: true
+    }
+  },
+  watch: {
+    showPrice (val) {
+      if (!this.moreBlock) {
+        return
+      }
+
+      if (this.parentCarousel) {
+        this.parentCarousel.querySelectorAll('.price-more').forEach((item) => {
+          item.classList.add('hidden')
+        })
+
+        if (val) {
+          this.moreBlock.classList.remove('hidden')
+        }
+
+        return
+      }
+
+      if (val) {
+        this.moreBlock.children[0].classList.remove('hidden')
+      }
     }
   },
   data () {
@@ -56,9 +80,13 @@ export default {
       widthContainer: 0,
       addressWidth: 0,
       titleWidth: 0,
-      showPrice: false,
+      parentCarousel: null,
       // attrsHeight: 0,
       widthWindow: 0,
+      moreBlock: null,
+      showPrice: false,
+      parentListCarousel: null,
+      random: null,
       viewWidth: 0,
       reviewsText: ['отзыв', 'отзыва', 'отзывов'],
       viewsText: ['просмотр', 'просмотра', 'просмотров'],
@@ -83,7 +111,7 @@ export default {
       const res = []
 
       for (const key in address) {
-        if (key !== 'house' && key !== 'geo') {
+        if (key !== 'house' && key !== 'geo' && key !== 'country' && key !== 'region') {
           if (key === 'street') {
             if (address.house) {
               res.push(`${address[key]} ${address.house}`)
@@ -115,12 +143,81 @@ export default {
     },
     arrImages () {
       return this.item.images.length ? this.item.images : this.$store.state.images.content
+    },
+    leftPosition () {
+      return this.$refs.card && this.$refs.card.offsetLeft
     }
   },
   mounted () {
     this.updateValues()
+
+    const root = this.$root
+    const { morePriceButton } = this.$refs
+
+    root.$on('more-price:hide', () => this._hideDropDown())
+
+    document.addEventListener('mousedown', function ({ target }) {
+      const button = target.closest('.card-price-more__button')
+      const body = target.closest('.price-more')
+
+      if (!button && !body) {
+        root.$emit('more-price:hide')
+
+        return
+      }
+
+      if (!morePriceButton.isEqualNode(button) && !this.$refs.moreBlock.isEqualNode(body)) {
+        root.$emit('more-price:hide')
+      }
+    })
+  },
+  beforeUpdate () {
+    if (process.client && this.isShowMorePrice) {
+      if (!this.random) {
+        this.random = randomString(10)
+      }
+
+      this.parentCarousel = this.$refs.card.closest('div.carousel')
+      this.parentListCarousel = this.$refs.card.closest('.carousel__list')
+
+      if (!this.parentCarousel) { // card output without carousel
+        this.moreBlock = this.$refs.moreBlock
+
+        return
+      }
+
+      if (!this.parentCarousel.querySelector('.' + this.random)) {
+        this.moreBlock = this.parentCarousel.appendChild(this.$refs.moreBlock.children[0])
+        this.moreBlock.classList.add(this.random)
+        this.moreBlock.style.left = this.leftPosition + 'px'
+      }
+    }
   },
   methods: {
+    prevent () {
+      return false
+    },
+    _hideDropDown () {
+      this.showPrice = false
+    },
+    toggleMorePrice () {
+      if (!this.parentCarousel) {
+        this.showPrice = !this.showPrice
+
+        return
+      }
+
+      this.moreBlock.style.left = this.$refs.card.getBoundingClientRect().left - this.parentCarousel.getBoundingClientRect().left + 'px'
+
+      if (!this.showPrice) {
+        this.$root.$emit('more-price:hide')
+        this.showPrice = true
+
+        return null
+      }
+
+      this.showPrice = false
+    },
     goTo (url) {
       this.$router.push(url)
     },
@@ -153,9 +250,6 @@ export default {
     },
     reviewText (num) {
       return num2str(num, this.reviewsText)
-    },
-    viewText (num) {
-      return num2str(num, this.viewsText)
     }
   }
 }

@@ -37,13 +37,10 @@ export default {
   },
   computed: {
     date () {
-      return this.dayStart && this.dayEnd && `с ${this.dayStart} по ${this.dayEnd}`
+      return this.day[0] && this.day[1] && `с ${this.day[0]} по ${this.day[1]} / ${this.dayCount}`
     },
-    dayStart () {
-      return this.item.params.find(item => item.typeOfParam === 'dateBegin').paramValue
-    },
-    dayEnd () {
-      return this.item.params.find(item => item.typeOfParam === 'dateEnd').paramValue
+    day () {
+      return this.item.params.find(item => item.typeOfParam === 'datesOfStay').paramValue.split(' - ')
     },
     typeHouse () {
       return `${typeOfHousing[this.item.typeOfHousing]}, ${this.item.areaOfHousing.start}-${this.item.areaOfHousing.end} м²`
@@ -52,18 +49,11 @@ export default {
       return `Аренда ${typeOfHousing[this.item.typeOfHousing].toLowerCase()} на ${this.dayCount} ${num2str(this.dayCount, this.keyDay)} × ${this.priceName} · ${this.places}`
       // return `Запрос на ${this.item.price.byTheDay.length ? 'краткосрочную' : 'долгосрочную'} аренду жилья в г. ${this.item.address.city}, ${this.item.address.region}`
     },
-    measure () {
-      return this.item.price.byTheDay.length ? 'за сутки' : 'за месяц'
-    },
     places () {
       return `${this.countGuests} ${num2str(this.countGuests, this.placeKey)}`
     },
     priceName () {
-      return this.price.price + ` ₽`
-    },
-    price () {
-      const { byTheDay, longTerm } = this.item.price
-      return byTheDay.length ? byTheDay.find(item => item.defaultValue) : longTerm.find(item => item.defaultValue)
+      return this.item.price + ` ₽`
     },
     countRooms () {
       return `${this.countGuests} ${num2str(this.countGuests, this.textGuests)} ${this.item.numberOfRooms} комнат`
@@ -72,8 +62,8 @@ export default {
       return this.item.sleepingPlace.reduce((sum, cur) => sum + (cur.typeOfPlace === 'bunkBed' ? parseInt(cur.amount) * 2 : parseInt(cur.amount)), 0)
     },
     dayCount () {
-      const timeStBegin = new Date(this.dayStart.split('.').slice(0).reverse().join('-'))
-      const timeStEnd = new Date(this.dayEnd.split('.').slice(0).reverse().join('-'))
+      const timeStBegin = new Date(this.day[0].split('.').slice(0).reverse().join('-'))
+      const timeStEnd = new Date(this.day[1].split('.').slice(0).reverse().join('-'))
 
       return Math.ceil(Math.abs(timeStEnd.getTime() - timeStBegin.getTime()) / (1000 * 3600 * 24))
     },
@@ -82,7 +72,7 @@ export default {
       const res = []
 
       for (const key in address) {
-        if (key !== 'house' && key !== 'coords' && key !== 'apartment') {
+        if (key !== 'house' && key !== 'coords' && key !== 'geo' && key !== 'apartment' && key !== 'country' && key !== 'region') {
           if (key === 'street') {
             if (address.house) {
               res.push(`${address[key]} ${address.house}`)

@@ -2,8 +2,8 @@
   <div
     class="vue-zoomer"
     :style="{backgroundColor: backgroundColor}"
-    @mousewheel.stop.prevent="onMouseWheel"
-    @DOMMouseScroll.stop.prevent="onMouseWheel"
+    @mousewheel="onMouseWheel"
+    @DOMMouseScroll="onMouseWheel"
     @mousedown="onMouseDown"
     @mouseout="setPointerPosCenter"
     @mouseup="onMouseUp"

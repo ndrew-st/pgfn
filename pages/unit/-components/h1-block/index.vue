@@ -12,22 +12,33 @@
       </div>
 
       <div class="fe">
-        <p class="h1">
-          <nobr>
-            {{ (price && price.byTheDay[0] && price.byTheDay[0].price) || 'null' }}
-            <span class="h1__rouble">9</span>
-          </nobr>
-        </p>
+        <div class="h1-block__container">
+          <p class="h1">
+            <nobr>
+              {{ priceView.toLocaleString() }}
+              <span class="h1__rouble">9</span>
+            </nobr>
+          </p>
 
-        <p class="period">
-          <nobr>
-            за сутки
-          </nobr>
-        </p>
+          <p class="period">
+            <nobr>
+              {{ measure }}
+            </nobr>
+          </p>
+        </div>
+        <div
+          v-if="type === 'request'"
+          class="h1-block__date"
+        >
+          {{ dateView }}
+        </div>
       </div>
     </div>
 
-    <div class="flex aic mt12 container-desc">
+    <div
+      v-if="type === 'habitation'"
+      class="flex aic mt12 container-desc"
+    >
       <div class="container-desc__left">
         <div class="estimate">
           {{ estimate || '4.0' }}

@@ -24,6 +24,7 @@
           <OcImg
             :id="gallery"
             :alt="gallery"
+            type-size="thumbnail"
             class="card-item__image"
           />
         </div>
@@ -38,9 +39,7 @@
         <p class="card-settings__type">
           {{ typeHouse[parseInt(item.typeOfHousing)] }}
         </p>
-        <p
-          class="card-settings__rate"
-        >
+        <p class="card-settings__rate">
           {{ item.rating || '4.0' }}
         </p>
         <!--        <p-->
@@ -181,19 +180,25 @@
         class="card-price__more card-price-more"
       >
         <button
+          ref="morePriceButton"
           type="button"
           :class="[{'active': showPrice}]"
           class="card-price-more__button"
-          @click="showPrice = !showPrice"
+          @click="toggleMorePrice"
+          @mousedown.stop.prevent="prevent"
         >
-          hover me
+          click me
         </button>
 
-        <MoreBlock
-          v-if="showPrice"
-          :content="item.price"
+        <div
+          v-show="showPrice"
+          ref="moreBlock"
           class="card-price-more__content card-price-content"
-        />
+        >
+          <MoreBlock
+            :content="item.price"
+          />
+        </div>
       </div>
     </div>
   </div>

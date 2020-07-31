@@ -2,7 +2,10 @@ import { minLength, required } from 'vuelidate/lib/validators'
 
 export default {
   props: {
-    error: String,
+    error: {
+      type: String,
+      default: null
+    },
     btnText: String,
     value: String
   },
@@ -29,11 +32,12 @@ export default {
   methods: {
     setPass (val) {
       this.password = val
+      this.$emit('input', val)
       this.$v.password.$touch()
     },
     next () {
       if (!this.$v.$invalid) {
-        this.$emit('next', { password: this.password })
+        this.$emit('next')
       }
     }
   }

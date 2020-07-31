@@ -36,9 +36,12 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('popup', ['showPopup']),
+    ...mapMutations('popup', ['showPopup', 'closePopup']),
     clear () {
       this.$storage.rmItem('sign-up')
+    },
+    hide () {
+      this.closePopup('signUp')
     },
     prevent () {
       if (this.stage === 'phone') {
@@ -57,6 +60,8 @@ export default {
         }
 
         this.error = ''
+      } else if (this.stage === 'success') {
+        this.stage = 'userpass'
       }
     },
     async oneMore () {
@@ -101,7 +106,7 @@ export default {
       const result = await this.$api.users.register(this.phone, name, password)
 
       if (!result.error) {
-        this.showPopup('signIn')
+        this.stage = 'success'
         this.$storage.rmItem('sign-up')
         this.$storage.rmItem('sign-in')
         this.$storage.rmItem('recovery')

@@ -10,6 +10,18 @@
           @next="next"
         />
 
+        <div
+          v-if="phone.length && stage === 'recovery'"
+          class="sign-in__container"
+        >
+          <p class="sign-in__text">
+            Поздравляем! Пароль успешно изменен.
+          </p>
+          <p class="sign-in__text">
+            Введите пароль для логина <nobr><b>+7 {{ phone.slice(1) }}</b></nobr>
+          </p>
+        </div>
+
         <p
           v-if="stage === 'timer'"
           class="p"
@@ -33,7 +45,7 @@
         </p>
 
         <OcPass
-          v-if="stage === 'pass'"
+          v-if="stage === 'pass' || stage === 'recovery'"
           v-model="pass"
           :error="error"
           btn-text="Далее"
@@ -44,7 +56,7 @@
           class="reg"
           :class="{ reg7: stage === 'timer' }"
           to=""
-          @click.native.stop.prevent="_clearData"
+          @click.native="_clearData"
         >
           Зарегистрироваться
         </nuxt-link>
@@ -53,7 +65,7 @@
           v-if="stage ==='pass'"
           class="reset"
           to=""
-          @click="showPopup('passRecovery')"
+          @click.native="showPopup('passRecovery')"
         >
           Сбросить пароль
         </nuxt-link>

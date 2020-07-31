@@ -12,6 +12,7 @@
       <CatalogFilter
         v-if="typeFilter !== 'main'"
         class="housing__filters"
+        :content="filters"
         @input="selectFilter"
       />
 
@@ -40,8 +41,28 @@ import CatalogFilter from '~/components/blocks/CatalogFilter'
 
 export default {
   components: { CatalogFilter },
-  asyncData ({ app: { store }, query: { page } }) {
+  asyncData ({ app: { store }, query: { page, filters } }) {
     store.dispatch(`housing/changePage`, page || 1)
+
+    if (!filters || !filters.length) {
+      return
+    }
+
+    let filter = {}
+    filters.slice(1).split('&').forEach((item) => {
+      const itm = item.split('=')
+      filter = {
+        ...filter,
+        [itm[0]]: JSON.parse(itm[1])
+      }
+    })
+
+    return { filters: filter }
+  },
+  data () {
+    return {
+      filters: null
+    }
   },
   layout: 'main',
   computed: {
@@ -58,9 +79,33 @@ export default {
       this.$router.push({ query: { page: nextStep } })
       this.changePage(nextStep)
     },
-    ...mapActions(`housing`, [`changePage`]),
+    ...mapActions(`housing`, [`changePage`, `getPlacementData`, `getRequestData`]),
     selectFilter (res) {
       console.log('selectFilter ', res)
+
+      if (!res) {
+        return
+      }
+
+      let filters = ''
+
+      for (const key in res) {
+        if (res[key]) {
+          filters = filters + `&${key}=${JSON.stringify(res[key])}`
+        }
+      }
+
+      this.$router.push({ query: { filters } })
+
+      if (this.typeFilter === 'main') {
+        return
+      }
+
+      if (this.typeFilter === 'supply') {
+        this.getPlacementData(filters)
+      } else {
+        this.getRequestData(filters)
+      }
     }
   }
 }

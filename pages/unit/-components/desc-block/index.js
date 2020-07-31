@@ -6,6 +6,10 @@ import typeHouse from '~/constants/consts/typeOfHousing'
 export default {
   components: { Description },
   props: {
+    type: {
+      type: String,
+      default: 'habitation'
+    },
     description: {
       type: Object,
       default: null
@@ -13,6 +17,10 @@ export default {
     info: {
       Type: Object,
       default: () => ({})
+    },
+    countPlaces: {
+      type: Number,
+      default: 0
     }
   },
   data () {
@@ -24,7 +32,9 @@ export default {
   },
   computed: {
     title () {
-      return `${typeHouse[this.description.typeOfHousing || 0]} · ${this.description.countBed} ${num2str(this.description.countBed, this.textBed)} · ${this.description.countGuests} ${num2str(this.description.countGuests, this.textGuests)}`
+      const { typeOfHousing, countBed } = this.description
+
+      return `${typeHouse[typeOfHousing || 0]} · ${countBed} ${num2str(countBed, this.textBed)} · ${this.countPlaces} ${num2str(this.countPlaces, this.textGuests)}`
     },
     user () {
       return this.$store.state.auth.user

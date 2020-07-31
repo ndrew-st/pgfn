@@ -1,17 +1,17 @@
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 import Catalog from '~/pages/housing/-components/Catalog'
 
 export default {
   components: { Catalog },
-  asyncData ({ store }) {
+  async asyncData ({ store, query: { filters } }) {
     store.dispatch(`housing/filters/changeTypePage`, `demand`)
-    // await store.dispatch(`housing/getData`)
+    await store.dispatch(`housing/getRequestData`, filters)
   },
   computed: {
+    ...mapGetters('housing', ['requiresCoords']),
     ...mapState(`housing`, {
-      list: state => state.result.itm,
-      coords: state => state.result.coords,
+      list: state => state.request.request,
       city: state => state.result.city
     })
   }

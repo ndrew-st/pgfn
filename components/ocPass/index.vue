@@ -20,6 +20,13 @@
           <span v-if="!$v.password.isHaveNumber && $v.password.required && $v.password.minLength">Пароль должен содержать минимум одно число!</span><br>
           <!--          <span v-if="!$v.password.isUpperCase && $v.password.required && $v.password.minLength">Пароль должен содержать минимум одну заглавную букву!</span>-->
         </p>
+
+        <p
+          v-if="error"
+          class="red-p"
+        >
+          {{ error }}
+        </p>
       </div>
 
       <button

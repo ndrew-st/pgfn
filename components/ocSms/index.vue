@@ -27,6 +27,7 @@
       class="timer"
       :class="{timerError: error !== ''}"
       href="#"
+      @click="more"
     >
       Отправить {{ timeCounter > 60 ? 'еще код через 1 минуту ' + (timeCounter - 60) + ' секунд' : 1 > timeCounter ? 'код ещё раз' :'еще код через ' + timeCounter + ' секунд' }}
     </a>

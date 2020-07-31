@@ -47,6 +47,8 @@ export default {
         } else {
           this.stage = 'sms'
         }
+      } else if (this.stage === 'success') {
+        this.stage = 'pass'
       }
     },
     async next (data) {
@@ -68,13 +70,20 @@ export default {
           return
         }
 
-        const res = await this.$api.users.resetPassword({ phone, code, password })
+        const res = await this.$api.users.resetPassword({
+          phone: phone.replace(/-/g, '').replace(/ /g, ''),
+          code,
+          password
+        })
+
+        console.log('res ', res)
 
         if (res.error) {
           this.error = 'Неверный код'
         } else {
-          this.$storage.clearAll()
-          this.closePopup('passRecovery')
+          this.$storage.rmItem('recovery')
+          this.$storage.setItem('stage', 'recovery')
+          this.showPopup('signIn')
         }
       }
 

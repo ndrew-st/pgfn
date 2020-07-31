@@ -1,11 +1,8 @@
 import { mapActions, mapState } from 'vuex'
 
 import SubscribeEmail from '~/components/blocks/Subscribe'
-
 import Description from '~/components/blocks/Description'
 import GroupCard from '~/components/blocks/GroupCard'
-
-import isEmptyObject from '~/utils/isEmptyObject'
 
 import Full from './-components/full'
 import FilterBlock from './-components/filter'
@@ -37,7 +34,7 @@ export default {
   computed: {
     ...mapState('direction', {
       direction: state => state.result.direction || state.dir,
-      apartments: state => state.result,
+      apartments: ({ result }) => result.apartments,
       services: state => state.result.services || state.dir,
       description: state => state.result.description,
       head: (state) => {
@@ -55,15 +52,16 @@ export default {
         }
       },
       count: state => state.result.count,
-      request: state => state.request
+      request: ({ request }) => request && request.request
     })
+  },
+  mounted () {
+    console.log('request ', this.request)
+    console.log('apartments ', this.apartments)
   },
   methods: {
     isLiked (id, field) {
       return this.likes[field].includes(id)
-    },
-    isEmptyObj (obj) {
-      return isEmptyObject(obj)
     },
     handlerLike (idCard, field) {
       this.likes = {
@@ -75,7 +73,6 @@ export default {
       }
     },
     showRequest () {
-      debugger
       this.$emit('showRequest')
     },
     ...mapActions('direction', ['updateTabs'])

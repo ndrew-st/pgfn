@@ -1,11 +1,39 @@
 <template>
   <div class="desc-block">
     <client-only>
-      <Description
-        class="left-col"
-        :title="title"
-        :description="description.content"
-      />
+      <div class="desc-block__container">
+        <Description
+          class="left-col"
+          :title="title"
+          :description="description.content"
+        />
+
+        <!--        <div class="desc-block__rental-source rental-source">-->
+        <!--          <h3 class="rental-source__title">-->
+        <!--            Источник аренды-->
+        <!--          </h3>-->
+
+        <!--          <div class="rental-source__content rental-content">-->
+        <!--            <p class="rental-source__title">-->
+        <!--              Собственник/арендодатель-->
+        <!--            </p>-->
+
+        <!--            <ul class="rental-content__list">-->
+        <!--              <li class="rental-content__item" />-->
+        <!--            </ul>-->
+        <!--          </div>-->
+
+        <!--          <div class="rental-source__content rental-content">-->
+        <!--            <p class="rental-source__title">-->
+        <!--              Посредник-->
+        <!--            </p>-->
+
+        <!--            <ul class="rental-content__list">-->
+        <!--              <li class="rental-content__item" />-->
+        <!--            </ul>-->
+        <!--          </div>-->
+        <!--        </div>-->
+      </div>
 
       <div
         v-if="user"

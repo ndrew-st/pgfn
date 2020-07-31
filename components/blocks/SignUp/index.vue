@@ -34,7 +34,7 @@
           <nuxt-link
             class="enter-top"
             to=""
-            @click.native.stop.prevent="showPopup('signIn')"
+            @click.native="showPopup('signIn')"
           >
             Войти
           </nuxt-link>
@@ -46,6 +46,7 @@
             <nuxt-link
               to="/privacy"
               class="lic__privacy"
+              @click.native="hide"
             >
               Пользовательского соглашения
             </nuxt-link>
@@ -63,11 +64,39 @@
           </div>
         </div>
 
+        <div
+          v-if="stage === 'success'"
+          class="sign-up-success"
+        >
+          <p class="sign-up-success__text">
+            Поздравляем! Регистрация успешно завершена.
+          </p>
+          <p class="sign-up-success__text">
+            Куда Вы хотели бы переместиться?
+          </p>
+          <div class="sign-up-success__container">
+            <nuxt-link
+              to=""
+              class="sign-up-success__link"
+              @click.native.prevent.stop="hide"
+            >
+              На главную страницу
+            </nuxt-link>
+            <nuxt-link
+              to="/profile"
+              class="sign-up-success__link"
+              @click.native="hide"
+            >
+              В личный кабинет
+            </nuxt-link>
+          </div>
+        </div>
+
         <a
           href="#"
           class="go-back"
           :class="[{'first': stage === 'phone'}]"
-          @click.prevent.stop="prevent"
+          @click.prevent="prevent"
         >
           Вернуться
         </a>

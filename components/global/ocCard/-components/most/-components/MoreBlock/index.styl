@@ -1,12 +1,26 @@
 .more-block-container
-  min-width 200px
+  position absolute
+  top 100%
+  //right 0
+  left 0
+
+  min-width 252px
+  max-width 252px
+  width 100%
+  padding 20px 15px
+  height auto
   border-radius 12px
 
   background-color white
-  box-shadow 0 0 10px rgba(0,0,0,0.5)
+  box-shadow 0px 4px 8px rgba(0, 0, 0, 0.08), 0px 2px 30px rgba(0, 0, 0, 0.1)
+  box-sizing border-box
+
+  z-index 5
 
   &__title
     margin-bottom 5px
+
+    font-size 20px
 
   &__list
     margin 0
@@ -22,3 +36,13 @@
 
   & .desc__bold--rouble
     font-family Rouble Sans
+
+  &.price-more.hidden
+    min-height 0
+    height 0
+    visibility hidden
+
+@media(min-width 1280px)
+  .more-block-container
+    min-width 300px
+    max-width 300px

@@ -3,7 +3,7 @@
     :list="list"
     type="maps"
     :city="city"
-    :coords="coords"
+    :coords="requiresCoords"
   />
 </template>
 

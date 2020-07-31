@@ -3,20 +3,21 @@
     <div class="habitation-page__padding">
       <div class="habitation-page__order-flex">
         <H1Block
+          :type="type"
           :title="title"
-          :intro="header.intro"
+          :intro="intro"
           :reviews="header.reviews"
           :estimate="header.estimate"
           :type-of-housing="header.typeOfHousing"
           :views="header.views"
-          :date="header.date"
+          :date="date"
           :owner-id="header.id"
           :price="header.price"
           class="habitation-page__h1-block"
         />
 
         <Pics
-          v-if="images.length"
+          v-if="images && images.length"
           :images="images"
         />
         <MapBlock
@@ -26,11 +27,14 @@
       </div>
 
       <DescBlockTop
+        :type="type"
         :description="description"
+        :count-places="countPlaces"
         :info="user"
       />
 
       <ThreeBlocks
+        v-if="reservation"
         :reservation="reservation"
         :prices="prices"
       />
@@ -46,6 +50,7 @@
       <!--      />-->
 
       <Location
+        :type="type"
         :coords="coords"
         :address="address"
       />

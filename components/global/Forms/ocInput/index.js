@@ -53,45 +53,26 @@ export default {
       default: 200
     }
   },
+  watch: {
+    value (val) {
+      this.text = val
+    },
+    text: throttle(function (val) {
+      this.$emit('input', val)
+    }, process.env.throttle_time)
+  },
   data () {
     return {
-      focused: false
+      focused: false,
+      text: ''
+    }
+  },
+  created () {
+    if (this.value) {
+      this.text = this.value
     }
   },
   computed: {
-    listeners () {
-      const vm = this
-
-      return Object.assign({},
-        this.$listeners,
-        {
-          input (evt) {
-            if (vm.type === 'radio' || vm.type === 'checkbox') {
-              return false
-            }
-
-            vm.throttledSearch(evt)
-          },
-          keydown (e) {
-            if (e.repeat && e.key !== 'Backspace' && e.key !== 'Delete') {
-              e.preventDefault()
-
-              return false
-            }
-
-            vm.$emit('keydown', e)
-          },
-          focusin () {
-            vm.focused = true
-            vm.$emit('focusin')
-          },
-          focusout () {
-            vm.focused = false
-            vm.$emit('focusout')
-          }
-        }
-      )
-    },
     id () {
       return Math.random()
     },
@@ -119,12 +100,26 @@ export default {
     }
   },
   methods: {
-    throttledSearch: throttle(function (evt) {
-      this.$emit('input', evt.target.value)
-    }, process.env.throttle_time),
+    keydown (e) {
+      if (e.repeat && e.key !== 'Backspace' && e.key !== 'Delete') {
+        e.preventDefault()
+
+        return false
+      }
+
+      this.$emit('keydown', e)
+    },
+    focusin () {
+      this.focused = true
+      this.$emit('focusin')
+    },
+    focusout () {
+      this.focused = false
+      this.$emit('focusout')
+    },
     clear () {
       if (this.rightIconName === 'clear') {
-        this.$emit('input', '')
+        this.text = ''
       }
     }
   }

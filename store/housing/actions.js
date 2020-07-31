@@ -1,20 +1,23 @@
 export default {
-  getAllData ({ commit, state }) {
-    // const offset = state.result.count - (state.page * state.limit)
-    //
-    // const data = await this.$api.apartments.getCatalog(state.limit, offset)
-    //
-    // console.log('data ', data)
-    //
-    // commit('addData', data)
+  async getPlacementData ({ commit, state }, payload) {
+    // const offset = state.placement.length - (state.page * state.limit)
+
+    const data = await this.$api.apartments.getCatalog(state.limit, 0, payload)
+
+    if (!data.error) {
+      commit('addDataPlacement', data)
+    }
   },
-  async getPlacementData ({ commit, state }) {
-    const offset = state.placement.length - (state.page * state.limit)
+  async getRequestData ({ commit, state }, payload) {
+    // const offset = state.placement.length - (state.page * state.limit)
+    const data = await this.$api.request.getCatalog(state.limit, 0, payload)
 
-    const data = await this.$api.apartments.getCatalog(state.limit, 0)
-    console.log('data ', data)
+    if (!data.error) {
+      commit('addDataRequest', data)
+    }
+  },
+  _getOffset () {
 
-    commit('addData', data)
   },
   changePage ({ commit }, page) {
     commit(`setPage`, parseInt(page))
