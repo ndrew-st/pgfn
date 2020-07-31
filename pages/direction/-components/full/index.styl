@@ -1,6 +1,21 @@
 .full-block
   padding 0 18px
   padding-top 32px
+  // background-image url('https://test.personal.guide/apart-01.jpg') // test.personal.guide/apart-01.jpg)
+  background-position right center
+  background-size cover
+  background-repeat no-repeat
+  box-shadow rgb(0, 0, 0) 0px 0px 100px inset
+
+  &:before
+    position absolute
+    top 0px
+    left 0px
+    width 100%
+    height 100%
+    content ' '
+    background rgba(0, 0, 0, 0.6)
+    z-index 1
 
   &__bg-image
     display none
@@ -9,6 +24,8 @@
     margin-right auto
     margin-left auto
     max-width 1280px
+    z-index 9
+    position relative
 
   &__title
     margin 0
@@ -30,6 +47,15 @@
     color $secondary
     text-align left
 
+  &__description2
+    font-style normal
+    font-weight normal
+    font-size 15px
+    line-height 18px
+    color $secondary
+    text-align left
+    margin-top 20px
+
   &__buttons
     display flex
     margin-top 15px
@@ -39,7 +65,7 @@
     color white
     outline none
     cursor pointer
-    padding 12px
+    padding 12px 20px
     border 1px solid white
     border-radius 6px
     margin-right 15px
@@ -48,11 +74,17 @@
       background white
       color black
 
+  &__catalog-btn
+    width 154px
+
+  &__add-btn
+    width 185px
+
   &__rent-out
     background white
     outline none
     cursor pointer
-    padding 12px
+    padding 12px 20px
     border 1px solid white
     border-radius 6px
 
@@ -64,9 +96,8 @@
     padding-bottom 140px
     box-sizing border-box
     overflow hidden
-    // background linear-gradient(180deg, rgba(0, 0, 0, 0.2) 27.17%, rgba(0, 0, 0, 0.11) 38.21%, rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0.55) 99.87%)
-    background rgba(0, 0, 0, 0.6)
 
+    // background linear-gradient(180deg, rgba(0, 0, 0, 0.2) 27.17%, rgba(0, 0, 0, 0.11) 38.21%, rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0.55) 99.87%)
     &__bg-image
       position absolute
       top -90%
@@ -80,14 +111,14 @@
       z-index -1
 
     &__container
-      // max-width 705px
+      // max-width 600px
 
     &__title
       font-size 40px
       font-weight bold
-      line-height 40px
+      line-height 50px
       color white
-      max-width 705px
+      max-width 600px
 
     &__description
       display block
@@ -96,7 +127,17 @@
       font-size 16px
       line-height 24px
       color white
-      max-width 705px
+      max-width 600px
+
+    &__description2
+      display block
+      max-width 520px
+      // margin 0 auto
+      font-size 16px
+      line-height 24px
+      color white
+      max-width 600px
+      margin-top 20px
 
     &__buttons
       display flex

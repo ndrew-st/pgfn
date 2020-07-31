@@ -48,7 +48,7 @@
 
       <CheckboxesList
         title-block="Водоснабжение"
-        :list="interior"
+        :list="water"
         store="request"
         :red-star="false"
         class="add-placement__mt48"
@@ -67,7 +67,7 @@
         :list="hygiene"
         store="request"
         :red-star="false"
-        class="add-placement__mt48 req-step3__pb80"
+        class="add-placement__mt48"
       />
 
       <CheckboxesList
@@ -75,7 +75,7 @@
         :list="dishes"
         store="request"
         :red-star="false"
-        class="add-placement__mt48"
+        class="add-placement__mt48 req-step3__pb80"
       />
     </ApFolding>
 

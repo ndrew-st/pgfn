@@ -12,6 +12,11 @@ export default {
       required: true,
       default: 'Аренда частного жилья и номеров в отелях на ваших условиях — место, где цену назначаете вы!'
     },
+    description2: {
+      type: String,
+      required: false,
+      default: ''
+    },
     background: {
       type: String,
       required: true,
