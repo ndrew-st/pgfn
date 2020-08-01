@@ -6,13 +6,6 @@ EXPOSE 3000
 WORKDIR /app
 ADD . $APP_HOME
 
-RUN npm i yarn -g --force
-
-RUN yarn
-
-RUN yarn build
-
-
+RUN npm i yarn -g --force && yarn && yarn build
 
 ENTRYPOINT yarn start
-
