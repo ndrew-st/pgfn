@@ -13,7 +13,7 @@ build:
     DOCKER_HOST: tcp://localhost:2375/
   image: cr.yandex/yc/metadata-token-docker-helper:0.2
   services:
-    - docker:19.03.1-dind
+    - docker:19.03.5-dind
   script:
     - docker build . -t cr.yandex/crpfc5a15qquo7kl91as/front:gitlab-$CI_COMMIT_SHORT_SHA
     - docker push cr.yandex/crpfc5a15qquo7kl91as/front:gitlab-$CI_COMMIT_SHORT_SHA
