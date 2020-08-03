@@ -1,6 +1,7 @@
 export default {
   data () {
     return {
+      email: '',
       menu: [
         {
           children: [
@@ -41,5 +42,8 @@ export default {
         { title: 'Samsung pay', src: '/payments/sampay.png', width: 83, height: 12 }
       ]
     }
+  },
+  methods: {
+    handlerSubmit (e) {}
   }
 }
