@@ -59,9 +59,6 @@ export default {
       regDate: 'Зарегистрирован на сайте 10 месяцев назад'
     }
   }),
-  mounted () {
-    console.log('reservation ', this.reservation)
-  },
   computed: {
     ...mapGetters(moduleNameUnit, ['title', 'intro', 'date', 'countPlaces']),
     ...mapState(moduleNameUnit, {
@@ -77,6 +74,7 @@ export default {
           typeOfHousing: result.typeOfHousing
         }
       },
+      typeOfTenant: ({ result }) => result.typeOfTenant,
       description: ({ result }) => {
         return {
           typeOfHousing: result.typeOfHousing,
@@ -84,6 +82,7 @@ export default {
           content: result.description
         }
       },
+      numberOfRooms: ({ result }) => result.numberOfRooms,
       prices: ({ result }) => result.price,
       address: ({ result }) => result.address,
       images: ({ result }) => result.images,

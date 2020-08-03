@@ -28,13 +28,15 @@
 
       <DescBlockTop
         :type="type"
+        :type-of-tenant="typeOfTenant"
+        :number-of-rooms="numberOfRooms"
         :description="description"
         :count-places="countPlaces"
         :info="user"
       />
 
       <ThreeBlocks
-        v-if="reservation"
+        v-if="reservation && type === 'habitation'"
         :reservation="reservation"
         :prices="prices"
       />

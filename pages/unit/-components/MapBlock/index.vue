@@ -4,6 +4,7 @@
       :content="content"
     />
     <OcMaps
+      v-if="content"
       class="habitation-map__content"
       type-icon="home"
       :coords="coords"

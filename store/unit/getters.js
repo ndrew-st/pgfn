@@ -2,7 +2,6 @@ import typeHousing from '~/constants/consts/typeOfHousing'
 
 export default {
   title: ({ type, result }) => {
-    console.log('result ', result)
     if (type === 'habitation') {
       return `${parseInt(result.typeOfHousing) === 0 ? `${result.numberOfRooms}-к квартира` : typeHousing[parseInt(result.typeOfHousing)]}, ${result.areaOfHousin} м²`
     } else {
