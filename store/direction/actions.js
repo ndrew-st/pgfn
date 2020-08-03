@@ -2,16 +2,12 @@ export default {
   async getPlacementData ({ commit }, query) {
     const data = await this.$api.apartments.getDirection(query)
 
-    console.log('getPlacementData ', data)
-
     if (!data.error) {
       commit('addPlacementData', data)
     }
   },
   async getRequestData ({ commit }) {
     const data = await this.$api.request.getCatalog()
-
-    console.log('getRequestData ', data)
 
     if (!data.error) {
       commit('addRequestData', data)

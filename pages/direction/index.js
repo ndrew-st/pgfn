@@ -55,10 +55,6 @@ export default {
       request: ({ request }) => request && request.request
     })
   },
-  mounted () {
-    console.log('request ', this.request)
-    console.log('apartments ', this.apartments)
-  },
   methods: {
     isLiked (id, field) {
       return this.likes[field].includes(id)

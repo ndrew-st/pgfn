@@ -7,32 +7,58 @@
           :title="title"
           :description="description.content"
         />
+        <div
+          v-if="typeOfTenant && typeOfTenant.length"
+          class="desc-block__rental-source rental-source"
+        >
+          <h3 class="rental-source__title">
+            Источник аренды
+          </h3>
 
-        <!--        <div class="desc-block__rental-source rental-source">-->
-        <!--          <h3 class="rental-source__title">-->
-        <!--            Источник аренды-->
-        <!--          </h3>-->
+          <div class="rental-source__content rental-content">
+            <p class="rental-source__title">
+              Собственник/арендодатель:&nbsp;
+            </p>
 
-        <!--          <div class="rental-source__content rental-content">-->
-        <!--            <p class="rental-source__title">-->
-        <!--              Собственник/арендодатель-->
-        <!--            </p>-->
+            <ul class="rental-content__list">
+              <li
+                v-for="(item, index) in owner"
+                :key="item"
+                class="rental-content__item"
+              >
+                {{ constTenant[item] }}
+                <span v-if="index < owner.length - 1">
+                  ,&nbsp;
+                </span>
+                <span v-else>
+                  .&nbsp;
+                </span>
+              </li>
+            </ul>
+          </div>
 
-        <!--            <ul class="rental-content__list">-->
-        <!--              <li class="rental-content__item" />-->
-        <!--            </ul>-->
-        <!--          </div>-->
+          <div class="rental-source__content rental-content">
+            <p class="rental-source__title">
+              Посредник:&nbsp;
+            </p>
 
-        <!--          <div class="rental-source__content rental-content">-->
-        <!--            <p class="rental-source__title">-->
-        <!--              Посредник-->
-        <!--            </p>-->
-
-        <!--            <ul class="rental-content__list">-->
-        <!--              <li class="rental-content__item" />-->
-        <!--            </ul>-->
-        <!--          </div>-->
-        <!--        </div>-->
+            <ul class="rental-content__list">
+              <li
+                v-for="(item, index) in mediator"
+                :key="item"
+                class="rental-content__item"
+              >
+                {{ constTenant[item] }}
+                <span v-if="index < mediator.length - 1">
+                  ,&nbsp;
+                </span>
+                <span v-else>
+                  .&nbsp;
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div

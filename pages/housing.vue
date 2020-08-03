@@ -81,8 +81,6 @@ export default {
     },
     ...mapActions(`housing`, [`changePage`, `getPlacementData`, `getRequestData`]),
     selectFilter (res) {
-      console.log('selectFilter ', res)
-
       if (!res) {
         return
       }
