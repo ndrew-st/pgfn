@@ -9,8 +9,8 @@ const settings = {
 }
 
 // Используем плагин только в браузере, на сервере он не работает
-// if (process.browser) {
-Vue.use(YmapPlugin, settings)
-// }
+if (process.browser) {
+  Vue.use(YmapPlugin, settings)
+}
 
 export default settings
