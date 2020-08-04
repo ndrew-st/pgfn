@@ -27,7 +27,9 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '@/assets/aquamarine.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -37,6 +39,7 @@ export default {
     '@/plugins/directives.js',
     '@/plugins/storage.js',
     '@/plugins/session.js',
+    '@/plugins/bootstrap-vue.js',
     '@/plugins/api.js',
     '@/plugins/validate.js',
     { src: '@/plugins/metrika.js', mode: 'client' }
@@ -68,6 +71,7 @@ export default {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    'bootstrap-vue/nuxt',
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module'
   ],
@@ -80,7 +84,8 @@ export default {
     '@nuxtjs/style-resources'
   ],
   styleResources: {
-    stylus: 'assets/index.styl'
+    stylus: 'assets/index.styl',
+    scss: 'assets/*.scss'
   },
   /*
    ** Axios module configuration
