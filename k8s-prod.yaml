@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prod
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-deployment
+  namespace: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      namespace: prod
+      labels:
+        app: front
+    spec:
+      containers:
+        - name: front
+          image: cr.yandex/crpfc5a15qquo7kl91as/front:__VERSION__
+          imagePullPolicy: Always
+

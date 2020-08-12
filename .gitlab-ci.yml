@@ -1,6 +1,7 @@
 stages:
   - build
-  - deploy
+  - deploy-dev
+  - deploy-prod
 
 build:
   stage: build
@@ -18,9 +19,9 @@ build:
     - docker build . -t cr.yandex/crpfc5a15qquo7kl91as/front:gitlab-$CI_COMMIT_SHORT_SHA
     - docker push cr.yandex/crpfc5a15qquo7kl91as/front:gitlab-$CI_COMMIT_SHORT_SHA
 
-deploy:
+deploy-dev:
   image: gcr.io/cloud-builders/kubectl:latest
-  stage: deploy
+  stage: deploy-dev
   only:
     - tags
     - web
@@ -31,4 +32,19 @@ deploy:
     - kubectl config use-context default
     - sed -i "s/__VERSION__/gitlab-$CI_COMMIT_SHORT_SHA/" k8s.yaml
     - kubectl apply -f k8s.yaml
+
+deploy-prod:
+  image: gcr.io/cloud-builders/kubectl:latest
+  stage: deploy-prod
+  only:
+    - web
+    - master
+  when: manual
+  script:
+    - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
+    - kubectl config set-credentials admin --token="$KUBE_TOKEN"
+    - kubectl config set-context default --cluster=k8s --user=admin
+    - kubectl config use-context default
+    - sed -i "s/__VERSION__/gitlab-$CI_COMMIT_SHORT_SHA/" k8s-prod.yaml
+    - kubectl apply -f k8s-prod.yaml
 
